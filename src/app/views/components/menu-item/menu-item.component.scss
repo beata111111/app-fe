@@ -1,0 +1,19 @@
+:host {
+  display: block;
+  position: relative;
+  button {
+    border-radius: unset;
+    margin: 0;
+    height: 80px;
+    padding: 10px 10px 10px 20px;
+    border-bottom: 2px solid var(--bg-basic-color-3);
+    text-align: left;
+    line-height: 64px;
+    &:hover {
+      background-color: var(--bg-basic-color-2);
+    }
+    &.active {
+      background-color: var(--bg-basic-color-3);
+    }
+  }
+}

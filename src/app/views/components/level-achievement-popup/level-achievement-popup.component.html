@@ -1,0 +1,12 @@
+<canvas #canvasElement></canvas>
+
+<app-popup *ngIf="showPopup" [color]="PopupColor.theme" (close)="handleClose()">
+  <div class="text-container">
+    <h4 class="text">
+      {{ 'userView.categoryAndLevelAchieved1' | translate }}
+      {{ 'categories.' + categoryId | translate }}
+      {{ 'userView.categoryAndLevelAchieved2' | translate: {level} }}
+    </h4>
+  </div>
+  <app-achievement-ribbon class="active" [level]="level"></app-achievement-ribbon>
+</app-popup>
