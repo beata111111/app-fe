@@ -6,7 +6,6 @@ import {ContainerModule} from "../../components/container/container.module";
 import {TranslateModule} from "@ngx-translate/core";
 import {ButtonModule} from "../../components/button/button.module";
 
-
 @NgModule({
   declarations: [AuthComponent],
   imports: [

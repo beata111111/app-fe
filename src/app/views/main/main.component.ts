@@ -1,9 +1,8 @@
 import {Component} from '@angular/core';
-import {AuthService} from "../../core/auth";
-import {UserService} from "@services";
 import {Observable, of} from "rxjs";
-import {CategoryStatusService} from "../../services/category-status/category-status.service";
 import {CategoryStatus} from "@model";
+import {AuthService} from "@core";
+import {CategoryStatusService} from "@services";
 
 @Component({
   selector: 'app-main',
@@ -24,6 +23,7 @@ export class MainComponent {
       console.log(a);
     })
   }
+
 
   logout(): void {
     this._authService.logout();

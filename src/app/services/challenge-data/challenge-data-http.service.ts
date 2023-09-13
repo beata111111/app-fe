@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
-import {AppHttpService} from "../../core";
 import {Observable} from "rxjs";
 import {WordDTO} from "@model";
+import {AppHttpService} from "@core";
 
 @Injectable({ providedIn: 'root' })
 export class ChallengeDataHttpService {

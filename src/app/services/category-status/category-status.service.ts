@@ -1,12 +1,13 @@
 import {Injectable} from "@angular/core";
-import {BehaviorSubject} from "rxjs";
-import {CurrentUserService} from "../../core/auth";
+import {BehaviorSubject, Subscription} from "rxjs";
 import {CategoryStatusHttpService} from "./category-status-http.service";
 import {CategoryStatus} from "@model";
+import {CurrentUserService} from "@core";
 
 @Injectable({ providedIn: 'root' })
 export class CategoryStatusService {
 
+  private _userSubscription = new Subscription();
   private _categoryStatus$ = new BehaviorSubject<CategoryStatus[]>([]);
   categoryStatus$ = this._categoryStatus$.asObservable();
 
@@ -14,9 +15,17 @@ export class CategoryStatusService {
     private _categoryStatusHttpService: CategoryStatusHttpService,
     private _currentUserService: CurrentUserService,
   ) {
-    this._categoryStatusHttpService.loadCategoryStatus().subscribe(data => {
-      this._categoryStatus$.next(data);
-    });
+    this._currentUserService.currentUser$.subscribe(user => {
+      if (user) {
+        this._userSubscription = this._categoryStatusHttpService.loadCategoryStatus()
+          .subscribe(data => {
+            this._categoryStatus$.next(data);
+          })
+      } else {
+        this._categoryStatus$.next([]);
+        this._userSubscription.unsubscribe();
+      }
+    })
   }
 
   submitChallengeResult(category: string, level: string, variant: string, result: number): void {

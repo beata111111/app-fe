@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Word, WordDTO} from "@model";
-import {ChallengeDataHttpService} from "./challenge-data-http.service";
 import {map, Observable} from "rxjs";
+import {ChallengeDataHttpService} from "./challenge-data-http.service";
 
 @Injectable({ providedIn: 'root' })
 export class ChallengeDataService {

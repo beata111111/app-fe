@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Observable} from "rxjs";
 import {User} from "@model";
-import {AppHttpService} from "../../core";
+import {AppHttpService} from "@core";
 
 @Injectable({ providedIn: 'root' })
 export class UserHttpService {

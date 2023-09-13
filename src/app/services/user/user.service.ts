@@ -1,6 +1,6 @@
 import {Injectable} from "@angular/core";
 import {UserHttpService} from "@services";
-import {CurrentUserService} from "../../core/auth";
+import {CurrentUserService} from "@core";
 
 @Injectable({ providedIn: 'root' })
 export class UserService {

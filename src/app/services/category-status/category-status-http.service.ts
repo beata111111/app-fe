@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Observable} from "rxjs";
-import {CategoryStatus, LevelStatus, User} from "@model";
+import {CategoryStatus} from "@model";
 import {AppHttpService} from "../../core";
 
 @Injectable({ providedIn: 'root' })
