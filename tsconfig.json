@@ -28,7 +28,7 @@
       "@model": ["./src/app/model/"],
       "@services": ["./src/app/services/"],
       "@helpers": ["./src/app/helpers/"],
-      "@services-tech": ["./src/app/services-tech/"],
+      "@core": ["./src/app/core/"],
       "@observers": ["./src/app/observers/"]
     }
   },

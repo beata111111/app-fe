@@ -1,2 +1,7 @@
-main works
 <button (click)="logout()">logout</button>
+
+<ng-container *ngIf="categoryStatus$ | async as categories">
+  <app-main-menu
+    [categoryStatus]="categories"
+  ></app-main-menu>
+</ng-container>

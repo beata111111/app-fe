@@ -1,4 +1,4 @@
-import {Theme} from "@services-tech";
+import {Theme} from "../core";
 
 export interface ThemeObj {
   name: string,

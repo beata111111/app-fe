@@ -7,25 +7,25 @@ exports.newUserObj = (id) => {
 const categories = ['body', 'anim', 'natu'];
 const categoryLevels = {
   body: [
-    { level: 0, variants: ['a', 'b', 'c', 'd', 'e']},
-    { level: 1, variants: ['a', 'b', 'c', 'd', 'e']},
-    { level: 2, variants: ['a', 'b', 'c', 'd', 'e']},
-    { level: 3, variants: ['a', 'b', 'c', 'd', 'e']},
-    { level: 4, variants: ['a', 'b', 'c', 'd', 'e']},
+    { level: '1', variants: ['a', 'b', 'c', 'd', 'e']},
+    { level: '2', variants: ['a', 'b', 'c', 'd', 'e']},
+    { level: '3', variants: ['a', 'b', 'c', 'd', 'e']},
+    { level: '4', variants: ['a', 'b', 'c', 'd', 'e']},
+    { level: '5', variants: ['a', 'b', 'c', 'd', 'e']},
   ],
   anim: [
-    { level: 0, variants: ['a', 'b', 'c', 'd', 'e']},
-    { level: 1, variants: ['a', 'b', 'c', 'd', 'e']},
-    { level: 2, variants: ['a', 'b', 'c', 'd', 'e']},
-    { level: 3, variants: ['a', 'b', 'c', 'd', 'e']},
-    { level: 4, variants: ['a', 'b', 'c', 'd', 'e']},
+    { level: '1', variants: ['a', 'b', 'c', 'd', 'e']},
+    { level: '2', variants: ['a', 'b', 'c', 'd', 'e']},
+    { level: '3', variants: ['a', 'b', 'c', 'd', 'e']},
+    { level: '4', variants: ['a', 'b', 'c', 'd', 'e']},
+    { level: '5', variants: ['a', 'b', 'c', 'd', 'e']},
   ],
   natu: [
-    { level: 0, variants: ['a', 'b', 'c', 'd', 'e']},
-    { level: 1, variants: ['a', 'b', 'c', 'd', 'e']},
-    { level: 2, variants: ['a', 'b', 'c', 'd', 'e']},
-    { level: 3, variants: ['a', 'b', 'c', 'd', 'e']},
-    { level: 4, variants: ['a', 'b', 'c', 'd', 'e']},
+    { level: '1', variants: ['a', 'b', 'c', 'd', 'e']},
+    { level: '2', variants: ['a', 'b', 'c', 'd', 'e']},
+    { level: '3', variants: ['a', 'b', 'c', 'd', 'e']},
+    { level: '4', variants: ['a', 'b', 'c', 'd', 'e']},
+    { level: '5', variants: ['a', 'b', 'c', 'd', 'e']},
   ],
 }
 
@@ -41,15 +41,15 @@ exports.createInitialCategoryStatus = () => {
     categoryLevels[category].forEach(lev => {
       const newLevel = {
         level: lev.level,
-        enabled: lev.level === 0,
+        enabled: lev.level === '1',
         variants: []
       }
 
       lev.variants.forEach(variant => {
         const newVariant = {
           variant,
-          enabled: lev.level === 0 && variant === 'a',
-          status: 0,
+          enabled: lev.level === '1' && variant === 'a',
+          result: 0,
         }
         newLevel.variants.push(newVariant);
       })
@@ -58,57 +58,5 @@ exports.createInitialCategoryStatus = () => {
     result.push(newCategory);
   })
 
-  return { status: result };
+  return result;
 }
-
-
-
-// const initialCategoryStatus = [
-//   {
-//     "category": "foo1",
-//     "levels": [
-//       {
-//         "level": 1,
-//         "enabled": true,
-//         "variants": [
-//           {
-//             "variant": "a",
-//             "enabled": true,
-//             "status": 60
-//           },
-//           {
-//             "variant": "b",
-//             "enabled": true,
-//             "status": 0
-//           },
-//           {
-//             "variant": "c",
-//             "enabled": false,
-//             "status": 0
-//           }
-//         ]
-//       },
-//       {
-//         "level": 2,
-//         "enabled": false,
-//         "variants": [
-//           {
-//             "variant": "a",
-//             "enabled": true,
-//             "status": 60
-//           },
-//           {
-//             "variant": "b",
-//             "enabled": true,
-//             "status": 0
-//           },
-//           {
-//             "variant": "c",
-//             "enabled": false,
-//             "status": 0
-//           }
-//         ]
-//       }
-//     ]
-//   }
-// ]

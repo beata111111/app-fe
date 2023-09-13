@@ -3,7 +3,7 @@ const mongodb = require("mongodb");
 
 const auth = require('./routes/auth');
 const user = require('./routes/user');
-const state = require('./routes/state');
+const words = require('./routes/words');
 
 const app = express();
 app.use(require("cors")());
@@ -25,9 +25,10 @@ mongodb.MongoClient.connect(uri, (err, client) => {
   app.post("/api/login-user", auth.loginUser(db));
   // user
   app.get("/api/get-user", user.getUser(db));
-  app.post("/api/set-active-categories", user.setActiveCategories(db));
-  //state
-  app.post("/api/save-state", state.saveState(client, db));
+  app.get("/api/get-category-status", user.getUserData(db));
+  app.post("/api/update-category-status", user.updateUserData(db));
+  // words
+  app.get("/api/get-words", words.getWords(db));
 
   app.use((req, res) => {
     res.type("text/plain");

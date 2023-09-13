@@ -7,6 +7,7 @@ import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 import {MenuItemModule} from "../../components/menu-item/menu-item.module";
 import {TopNavModule} from "../../components/top-nav/top-nav.module";
 import { AchievementRibbonModule } from "../../components/achievement-ribbon/achievement-ribbon.module";
+import {MainMenuModule} from "./main-menu/main-menu.module";
 
 @NgModule({
   declarations: [MainComponent],
@@ -18,6 +19,7 @@ import { AchievementRibbonModule } from "../../components/achievement-ribbon/ach
     MenuItemModule,
     TopNavModule,
     AchievementRibbonModule,
+    MainMenuModule,
   ]
 })
 export class MainModule {}

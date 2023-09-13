@@ -32,7 +32,7 @@ exports.createUser = (db) => {
     const userId = response.insertedId.toString();
 
     await db.createCollection(`z_${userId}`);
-    await db.collection(`z_${userId}`).insertOne(dataHelper.createInitialCategoryStatus());
+    await db.collection(`z_${userId}`).insertMany(dataHelper.createInitialCategoryStatus());
     await db.collection('users').insertOne(dataHelper.newUserObj(userId));
 
     return res.json({
