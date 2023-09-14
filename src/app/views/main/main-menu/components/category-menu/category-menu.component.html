@@ -1,8 +1,12 @@
-{{category.category_id}}
+<div class="category-label">
+  {{category.category_id}}
+</div>
 
-<ng-container *ngFor="let level of category.levels">
-  <app-level-menu *ngIf="level.enabled" [level]="level" [category_id]="category.category_id"
-  ></app-level-menu>
-</ng-container>
+<div class="level-container">
+  <ng-container *ngFor="let level of category.levels">
+    <app-level-menu *ngIf="level.enabled" [level]="level" [category_id]="category.category_id"
+    ></app-level-menu>
+  </ng-container>
+</div>
 
 <hr>

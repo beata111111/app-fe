@@ -1,7 +1,7 @@
 export type VariantStatus = {
   variant_id: string,
   enabled: boolean,
-  status: number,
+  result: number,
 }
 
 export type LevelStatus = {

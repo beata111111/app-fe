@@ -1,3 +1,27 @@
 :host {
-  //display: block;
+  display: block;
+
+  button {
+    all: unset;
+    border-radius: 50%;
+    height: calc(100% - 20px);
+    width: calc(100% - 20px);
+    margin: 10px;
+    vertical-align: middle;
+
+    span {
+      display: block;
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  button:not([disabled]) {
+    background-color: red;
+    cursor: pointer;
+  }
+
+  button[disabled] {
+    background-color: darkgray;
+  }
 }

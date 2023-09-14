@@ -14,5 +14,14 @@ export class AppComponent {
   ) {
     this.translateService.currentLang = '';
     this.translateService.use('de-DE');
+
+
+    const documentHeight = () => {
+      const doc = document.documentElement
+      doc.style.setProperty('--app-height', `${window.innerHeight}px`)
+    }
+    window.addEventListener('resize', documentHeight);
+    window.addEventListener('orientationchange', documentHeight);
+    documentHeight();
   }
 }
