@@ -34,20 +34,20 @@ exports.createInitialCategoryStatus = () => {
 
   categories.forEach(category => {
     const newCategory = {
-      category,
+      category_id: category,
       levels: []
     }
 
     categoryLevels[category].forEach(lev => {
       const newLevel = {
-        level: lev.level,
+        level_id: lev.level,
         enabled: lev.level === '1',
         variants: []
       }
 
       lev.variants.forEach(variant => {
         const newVariant = {
-          variant,
+          variant_id: variant,
           enabled: lev.level === '1' && variant === 'a',
           result: 0,
         }

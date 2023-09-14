@@ -1,21 +1,13 @@
-const auth = require("./auth");
-
 exports.getWords = (db) => {
   return async (req, res) => {
-    const id = auth.routeGuard(req, res);
+    const {category_id, level_id} = req.query;
 
-    const {categoryId, level} = req.query;
-
-    if (categoryId && level) {
-      words = await db.collection('words')
+    if (category_id && level_id) {
+      const words = await db.collection('words')
         .find({
           $and: [
-            {
-              categoryId: {$eq: categoryId}
-            },
-            {
-              level: {$eq: Number(level)}
-            },
+            {category_id: {$eq: category_id}},
+            {level_id: {$eq: Number(level_id)}},
           ]
         })
         .toArray();

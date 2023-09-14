@@ -9,8 +9,8 @@ export class ChallengeDataService {
   constructor(private _challengeDataHttpService: ChallengeDataHttpService) {
   }
 
-  getChallengeData(categoryId: string, level: string): Observable<Word[]> {
-    return this._challengeDataHttpService.loadWords(categoryId, level).pipe(
+  getChallengeData(category_id: string, level_id: string): Observable<Word[]> {
+    return this._challengeDataHttpService.loadWords(category_id, level_id).pipe(
       map(words => this._normalizeWords(words))
     );
   }

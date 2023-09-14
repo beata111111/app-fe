@@ -8,9 +8,9 @@ export class ChallengeDataHttpService {
 
   constructor(private _appHttpService: AppHttpService) {}
 
-  loadWords(categoryId: string, level: string): Observable<WordDTO[]> {
+  loadWords(category_id: string, level_id: string): Observable<WordDTO[]> {
     const url = '/api/get-words';
-    const params = { categoryId, level };
+    const params = { category_id, level_id };
 
     return this._appHttpService.makeGETRequest<WordDTO[]>(url, params);
   };

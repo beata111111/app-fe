@@ -1,7 +1,7 @@
-{{category.category}}
+{{category.category_id}}
 
 <ng-container *ngFor="let level of category.levels">
-  <app-level-menu *ngIf="level.enabled" [level]="level" [category]="category.category"
+  <app-level-menu *ngIf="level.enabled" [level]="level" [category_id]="category.category_id"
   ></app-level-menu>
 </ng-container>
 

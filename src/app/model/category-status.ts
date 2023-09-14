@@ -1,16 +1,16 @@
 export type VariantStatus = {
-  variant: string,
+  variant_id: string,
   enabled: boolean,
   status: number,
 }
 
 export type LevelStatus = {
-  level: string,
+  level_id: string,
   enabled: boolean,
   variants: VariantStatus[]
 }
 
 export type CategoryStatus = {
-  category: string,
+  category_id: string,
   levels: LevelStatus[]
 }

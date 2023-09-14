@@ -3,6 +3,7 @@ const mongodb = require("mongodb");
 
 const auth = require('./routes/auth');
 const user = require('./routes/user');
+const userCategoryStatus = require('./routes/user-category-status');
 const words = require('./routes/words');
 
 const app = express();
@@ -14,19 +15,17 @@ const uri = "mongodb+srv://beata111:wirowiro@cluster0.keyagdk.mongodb.net/?retry
 mongodb.MongoClient.connect(uri, (err, client) => {
   let db = client.db("languages_app_new");
 
-  app.get("/", (req, res) => {
-    res.type("text/plain");
-    res.status(200);
-    res.send("Hallo");
-  });
-
   // auth
   app.post("/api/create-user", auth.createUser(db));
   app.post("/api/login-user", auth.loginUser(db));
+
   // user
   app.get("/api/get-user", user.getUser(db));
-  app.get("/api/get-category-status", user.getUserData(db));
-  app.post("/api/update-category-status", user.updateUserData(db));
+
+  // user-category-status
+  app.get("/api/get-category-status", userCategoryStatus.getUserCategoryStatus(db));
+  app.post("/api/update-category-status", userCategoryStatus.updateUserCategoryStatus(db));
+
   // words
   app.get("/api/get-words", words.getWords(db));
 

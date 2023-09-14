@@ -9,13 +9,13 @@ import {Router} from "@angular/router";
 })
 export class VariantComponent {
   @Input() variant!: VariantStatus;
-  @Input() category!: string;
-  @Input() level!: string;
+  @Input() category_id!: string;
+  @Input() level_id!: string;
 
   constructor(private _router: Router) {
   }
 
   navigateToChallenge(variant: string): void {
-    this._router.navigate(['/challenge', this.category, this.level, variant]);
+    this._router.navigate(['/challenge', this.category_id, this.level_id, variant]);
   }
 }

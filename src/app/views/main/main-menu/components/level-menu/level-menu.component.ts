@@ -8,5 +8,5 @@ import {LevelStatus} from "@model";
 })
 export class LevelMenuComponent {
  @Input() level!: LevelStatus;
- @Input() category!: string;
+ @Input() category_id!: string;
 }

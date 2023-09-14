@@ -28,12 +28,12 @@ export class CategoryStatusService {
     })
   }
 
-  submitChallengeResult(category: string, level: string, variant: string, result: number): void {
-    this._categoryStatusHttpService.updateCategoryStatus(category, level, variant, result)
+  submitChallengeResult(category_id: string, level_id: string, variant_id: string, result: number): void {
+    this._categoryStatusHttpService.updateCategoryStatus(category_id, level_id, variant_id, result)
       .subscribe((categoryUpdate: CategoryStatus) => {
         const categories = this._categoryStatus$.value;
-        const updated = categories.map((cat) => {
-          return cat.category === category ? categoryUpdate: cat;
+        const updated = categories.map((category) => {
+          return category.category_id === category_id ? categoryUpdate: category;
         })
         this._categoryStatus$.next(updated);
       })

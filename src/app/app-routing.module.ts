@@ -26,7 +26,7 @@ const routes: Routes = [
       ),
   },
   {
-    path: 'challenge/:category/:level/:variant',
+    path: 'challenge/:category_id/:level_id/:variant_id',
     canActivate: [AuthGuard],
     loadChildren: () =>
       import('./views/challenge/challenge.module').then(

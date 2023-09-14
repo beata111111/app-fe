@@ -12,9 +12,9 @@ import {CategoryStatusService} from "../../services/category-status/category-sta
 })
 export class ChallengeComponent implements OnInit {
 
-  private _category: string = '';
-  private _level: string = '';
-  private _variant: string = '';
+  private _category_id: string = '';
+  private _level_id: string = '';
+  private _variant_id: string = '';
 
   challengeData$: Observable<Word[]> = of([]);
 
@@ -27,17 +27,17 @@ export class ChallengeComponent implements OnInit {
 
   ngOnInit() {
     this._activatedRoute.params.subscribe(params => {
-      const { category, level, variant } = params;
-      this._category = category;
-      this._level = level;
-      this._variant = variant;
-      this.challengeData$ = this._challengeDataService.getChallengeData(category, level);
+      const { category_id, level_id, variant_id } = params;
+      this._category_id = category_id;
+      this._level_id = level_id;
+      this._variant_id = variant_id;
+      this.challengeData$ = this._challengeDataService.getChallengeData(category_id, level_id);
     })
   }
 
   handleResult(resultValue: string) {
     const result = Number(resultValue);
-    this._categoryStatusService.submitChallengeResult(this._category, this._level, this._variant, result);
+    this._categoryStatusService.submitChallengeResult(this._category_id, this._level_id, this._variant_id, result);
     this._router.navigate(['/main'])
   }
 }

@@ -1,6 +1,6 @@
 const jsonwebtoken = require("jsonwebtoken");
 const JWT_SECRET = 'a<*ZqIAy[_.}<Q{v:SU$\'%ca^N<Es$jwfD,B>IZ\'4@l0~o`Mk7E/?N/^hW#lw>q';
-const dataHelper = require('../data-helpers/initial-user-data');
+const dataHelper = require('backend/helpers/initial-user-category-data');
 const bcrypt = require("bcrypt");
 const SALT_ROUNDS = 10;
 

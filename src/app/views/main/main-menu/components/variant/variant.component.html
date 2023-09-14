@@ -1,10 +1,10 @@
 <ng-container *ngIf="variant.enabled; else disabled">
-  <button (click)="navigateToChallenge(variant.variant)">
-    {{variant.variant}}
+  <button (click)="navigateToChallenge(variant.variant_id)">
+    {{variant.variant_id}}
   </button>
 </ng-container>
 
 <ng-template #disabled>
-  {{variant.variant}}
+  {{variant.variant_id}}
 </ng-template>
 

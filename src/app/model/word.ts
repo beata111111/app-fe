@@ -1,7 +1,7 @@
 export interface WordDTO {
-  wordId: string,
-  categoryId: string,
-  level: number,
+  word_id: string,
+  category_id: string,
+  level_id: number,
   nounPL: string,
   nounDE: string,
   plG: string,
@@ -9,9 +9,9 @@ export interface WordDTO {
 }
 
 export interface Word {
-  wordId: string,
-  categoryId: string,
-  level: number,
+  word_id: string,
+  category_id: string,
+  level_id: number,
   nounPL: string,
   nounDE: string,
   plG: string,
