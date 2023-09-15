@@ -1,0 +1,313 @@
+//
+//$dark-grey-1: #787878;
+//$dark-grey-2: #707070;
+//$dark-grey-3: #686868;
+//$dark-grey-4: #606060;
+//$dark-grey-5: #585858;
+//$dark-grey-6: #505050;
+//$dark-grey-7: #484848;
+//$dark-grey-8: #404040;
+//$dark-grey-9: #383838;
+//$dark-grey-10: #303030;
+//$dark-grey-11: #282828;
+//$dark-grey-12: #202020;
+//$dark-grey-13: #181818;
+//$dark-grey-14: #101010;
+//$dark-grey-15: #080808;
+//
+//$grey-1: #F8F8F8;
+//$grey-2: #F0F0F0;
+//$grey-3: #E8E8E8;
+//$grey-4: #E0E0E0;
+//$grey-5: #D8D8D8;
+//$grey-6: #D0D0D0;
+//$grey-7: #C8C8C8;
+//$grey-8: #C0C0C0;
+//$grey-9: #B8B8B8;
+//$grey-10: #B0B0B0;
+//$grey-11: #A8A8A8;
+//$grey-12: #A0A0A0;
+//$grey-13: #989898;
+//$grey-14: #909090;
+//$grey-15: #888888;
+
+:root {
+  --theme-1-color-0:  #f7faff;
+  --theme-1-color-1:  #EDF4FD;
+  --theme-1-color-2:  #DBEAFB;
+  --theme-1-color-3:  #C9DFF8;
+  --theme-1-color-4:  #B6D4F6;
+  --theme-1-color-5:  #A4C9F4;
+  --theme-1-color-6:  #92BFF2;
+  --theme-1-color-7:  #80B4EF;
+  --theme-1-color-8:  #6EA9ED;
+  --theme-1-color-9:  #5C9EEB;
+  --theme-1-color-10: #4994E9;
+  --theme-1-color-11: #3789E6;
+  --theme-1-color-12: #257EE4;
+  --theme-1-color-13: #1B74DA;
+  --theme-1-color-14: #196AC8;
+  --theme-1-color-15: #1661B6;
+  --theme-1-color-16: #13529B;
+  --theme-1-color-17: #114889;
+  --theme-1-color-18: #104179;
+  --theme-1-color-19: #0D3A6D;
+  --theme-1-color-20: #0B305B;
+  --theme-1-color-21: #092749;
+  --theme-1-color-22: #071D36;
+  --theme-1-color-23: #041324;
+  --theme-1-color-24: #020A12;
+
+  --theme-2-color-0:  #fff8f9;
+  --theme-2-color-1:  #FCEEF0;
+  --theme-2-color-2:  #F8DDE2;
+  --theme-2-color-3:  #F5CCD3;
+  --theme-2-color-4:  #F1BBC4;
+  --theme-2-color-5:  #EEAAB6;
+  --theme-2-color-6:  #EA99A7;
+  --theme-2-color-7:  #E78898;
+  --theme-2-color-8:  #E37889;
+  --theme-2-color-9:  #E0677B;
+  --theme-2-color-10: #DC566C;
+  --theme-2-color-11: #D9455D;
+  --theme-2-color-12: #D5344F;
+  --theme-2-color-13: #CB2A45;
+  --theme-2-color-14: #BA263F;
+  --theme-2-color-15: #A92339;
+  --theme-2-color-16: #981F33;
+  --theme-2-color-17: #871C2E;
+  --theme-2-color-18: #771828;
+  --theme-2-color-19: #661522;
+  --theme-2-color-20: #55111D;
+  --theme-2-color-21: #440E17;
+  --theme-2-color-22: #330A11;
+  --theme-2-color-23: #22070B;
+  --theme-2-color-24: #110306;
+
+  --theme-3-color-0:  #f5fffc;
+  --theme-3-color-1:  #deffef;
+  --theme-3-color-2:  #cdf7e1;
+  --theme-3-color-3:  #b7e9cf;
+  --theme-3-color-4:  #a5e1c2;
+  --theme-3-color-5:  #99dbba;
+  --theme-3-color-6:  #8ed7b2;
+  --theme-3-color-7:  #86d2ab;
+  --theme-3-color-8:  #7ccba2;
+  --theme-3-color-9:  #70c499;
+  --theme-3-color-10: #5fbe8e;
+  --theme-3-color-11: #51b281;
+  --theme-3-color-12: #46a776;
+  --theme-3-color-13: #3a9969;
+  --theme-3-color-14: #36895f;
+  --theme-3-color-15: #047752;
+  --theme-3-color-16: #036345;
+  --theme-3-color-17: #024a33;
+  --theme-3-color-18: #023B29;
+  --theme-3-color-19: #023021;
+  --theme-3-color-20: #04281c;
+  --theme-3-color-21: #032319;
+  --theme-3-color-22: #031d14;
+  --theme-3-color-23: #01140E;
+  --theme-3-color-24: #010d09;
+
+  --theme-4-color-0:  #fff9fd;
+  --theme-4-color-1:  #FCEEF8;
+  --theme-4-color-2:  #F9DDF0;
+  --theme-4-color-3:  #F6CBE9;
+  --theme-4-color-4:  #F2BAE1;
+  --theme-4-color-5:  #EFA9DA;
+  --theme-4-color-6:  #EC98D3;
+  --theme-4-color-7:  #E986CB;
+  --theme-4-color-8:  #E675C4;
+  --theme-4-color-9:  #E364BD;
+  --theme-4-color-10: #DF53B5;
+  --theme-4-color-11: #DC41AE;
+  --theme-4-color-12: #D930A6;
+  --theme-4-color-13: #CF269C;
+  --theme-4-color-14: #BE238F;
+  --theme-4-color-15: #AC2082;
+  --theme-4-color-16: #9B1C75;
+  --theme-4-color-17: #841863;
+  --theme-4-color-18: #79165B;
+  --theme-4-color-19: #67134E;
+  --theme-4-color-20: #561041;
+  --theme-4-color-21: #450D34;
+  --theme-4-color-22: #340927;
+  --theme-4-color-23: #22061A;
+  --theme-4-color-24: #11030D;
+
+  --theme-5-color-0:  #fffbfa;
+  --theme-5-color-1:  #FDF1ED;
+  --theme-5-color-2:  #FAE3DB;
+  --theme-5-color-3:  #F8D5C9;
+  --theme-5-color-4:  #F6C6B7;
+  --theme-5-color-5:  #F3B8A5;
+  --theme-5-color-6:  #F1AA93;
+  --theme-5-color-7:  #EF9C81;
+  --theme-5-color-8:  #EC8E6F;
+  --theme-5-color-9:  #EA805D;
+  --theme-5-color-10: #E8724A;
+  --theme-5-color-11: #E56438;
+  --theme-5-color-12: #E35526;
+  --theme-5-color-13: #D94B1C;
+  --theme-5-color-14: #C7451A;
+  --theme-5-color-15: #B53F17;
+  --theme-5-color-16: #a23916;
+  --theme-5-color-17: #903213;
+  --theme-5-color-18: #7E2C10;
+  --theme-5-color-19: #6C260E;
+  --theme-5-color-20: #5A1F0C;
+  --theme-5-color-21: #481909;
+  --theme-5-color-22: #361307;
+  --theme-5-color-23: #240D05;
+  --theme-5-color-24: #120602;
+
+  --theme-accent-color-1: #C56DC5;
+  --theme-accent-color-2: #B950B9;
+  --theme-accent-color-3: #A040A0;
+
+  body, body[theme="theme-1"],
+  .body[theme="theme-1"] {
+    --theme-color-0: var(--theme-1-color-0);
+    --theme-color-1: var(--theme-1-color-1);
+    --theme-color-2: var(--theme-1-color-2);
+    --theme-color-3: var(--theme-1-color-3);
+    --theme-color-4: var(--theme-1-color-4);
+    --theme-color-5: var(--theme-1-color-5);
+    --theme-color-6: var(--theme-1-color-6);
+    --theme-color-7: var(--theme-1-color-7);
+    --theme-color-8: var(--theme-1-color-8);
+    --theme-color-9: var(--theme-1-color-9);
+    --theme-color-10: var(--theme-1-color-10);
+    --theme-color-11: var(--theme-1-color-11);
+    --theme-color-12: var(--theme-1-color-12);
+    --theme-color-13: var(--theme-1-color-13);
+    --theme-color-14: var(--theme-1-color-14);
+    --theme-color-15: var(--theme-1-color-15);
+    --theme-color-16: var(--theme-1-color-16);
+    --theme-color-17: var(--theme-1-color-17);
+    --theme-color-18: var(--theme-1-color-18);
+    --theme-color-19: var(--theme-1-color-19);
+    --theme-color-20: var(--theme-1-color-20);
+    --theme-color-21: var(--theme-1-color-21);
+    --theme-color-22: var(--theme-1-color-22);
+    --theme-color-23: var(--theme-1-color-23);
+    --theme-color-24: var(--theme-1-color-24);
+  }
+
+  body[theme="theme-2"],
+  .body[theme="theme-2"] {
+    --theme-color-0: var(--theme-2-color-0);
+    --theme-color-1: var(--theme-2-color-1);
+    --theme-color-2: var(--theme-2-color-2);
+    --theme-color-3: var(--theme-2-color-3);
+    --theme-color-4: var(--theme-2-color-4);
+    --theme-color-5: var(--theme-2-color-5);
+    --theme-color-6: var(--theme-2-color-6);
+    --theme-color-7: var(--theme-2-color-7);
+    --theme-color-8: var(--theme-2-color-8);
+    --theme-color-9: var(--theme-2-color-9);
+    --theme-color-10: var(--theme-2-color-10);
+    --theme-color-11: var(--theme-2-color-11);
+    --theme-color-12: var(--theme-2-color-12);
+    --theme-color-13: var(--theme-2-color-13);
+    --theme-color-14: var(--theme-2-color-14);
+    --theme-color-15: var(--theme-2-color-15);
+    --theme-color-16: var(--theme-2-color-16);
+    --theme-color-17: var(--theme-2-color-17);
+    --theme-color-18: var(--theme-2-color-18);
+    --theme-color-19: var(--theme-2-color-19);
+    --theme-color-20: var(--theme-2-color-20);
+    --theme-color-21: var(--theme-2-color-21);
+    --theme-color-22: var(--theme-2-color-22);
+    --theme-color-23: var(--theme-2-color-23);
+    --theme-color-24: var(--theme-2-color-24);
+  }
+
+  body[theme="theme-3"],
+  .body[theme="theme-3"] {
+    --theme-color-0: var(--theme-3-color-0);
+    --theme-color-1: var(--theme-3-color-1);
+    --theme-color-2: var(--theme-3-color-2);
+    --theme-color-3: var(--theme-3-color-3);
+    --theme-color-4: var(--theme-3-color-4);
+    --theme-color-5: var(--theme-3-color-5);
+    --theme-color-6: var(--theme-3-color-6);
+    --theme-color-7: var(--theme-3-color-7);
+    --theme-color-8: var(--theme-3-color-8);
+    --theme-color-9: var(--theme-3-color-9);
+    --theme-color-10: var(--theme-3-color-10);
+    --theme-color-11: var(--theme-3-color-11);
+    --theme-color-12: var(--theme-3-color-12);
+    --theme-color-13: var(--theme-3-color-13);
+    --theme-color-14: var(--theme-3-color-14);
+    --theme-color-15: var(--theme-3-color-15);
+    --theme-color-16: var(--theme-3-color-16);
+    --theme-color-17: var(--theme-3-color-17);
+    --theme-color-18: var(--theme-3-color-18);
+    --theme-color-19: var(--theme-3-color-19);
+    --theme-color-20: var(--theme-3-color-20);
+    --theme-color-21: var(--theme-3-color-21);
+    --theme-color-22: var(--theme-3-color-22);
+    --theme-color-23: var(--theme-3-color-23);
+    --theme-color-24: var(--theme-3-color-24);
+  }
+
+  body[theme="theme-4"],
+  .body[theme="theme-4"] {
+    --theme-color-0: var(--theme-4-color-0);
+    --theme-color-1: var(--theme-4-color-1);
+    --theme-color-2: var(--theme-4-color-2);
+    --theme-color-3: var(--theme-4-color-3);
+    --theme-color-4: var(--theme-4-color-4);
+    --theme-color-5: var(--theme-4-color-5);
+    --theme-color-6: var(--theme-4-color-6);
+    --theme-color-7: var(--theme-4-color-7);
+    --theme-color-8: var(--theme-4-color-8);
+    --theme-color-9: var(--theme-4-color-9);
+    --theme-color-10: var(--theme-4-color-10);
+    --theme-color-11: var(--theme-4-color-11);
+    --theme-color-12: var(--theme-4-color-12);
+    --theme-color-13: var(--theme-4-color-13);
+    --theme-color-14: var(--theme-4-color-14);
+    --theme-color-15: var(--theme-4-color-15);
+    --theme-color-16: var(--theme-4-color-16);
+    --theme-color-17: var(--theme-4-color-17);
+    --theme-color-18: var(--theme-4-color-18);
+    --theme-color-19: var(--theme-4-color-19);
+    --theme-color-20: var(--theme-4-color-20);
+    --theme-color-21: var(--theme-4-color-21);
+    --theme-color-22: var(--theme-4-color-22);
+    --theme-color-23: var(--theme-4-color-23);
+    --theme-color-24: var(--theme-4-color-24);
+  }
+
+  body[theme="theme-5"],
+  .body[theme="theme-5"] {
+    --theme-color-0: var(--theme-5-color-0);
+    --theme-color-1: var(--theme-5-color-1);
+    --theme-color-2: var(--theme-5-color-2);
+    --theme-color-3: var(--theme-5-color-3);
+    --theme-color-4: var(--theme-5-color-4);
+    --theme-color-5: var(--theme-5-color-5);
+    --theme-color-6: var(--theme-5-color-6);
+    --theme-color-7: var(--theme-5-color-7);
+    --theme-color-8: var(--theme-5-color-8);
+    --theme-color-9: var(--theme-5-color-9);
+    --theme-color-10: var(--theme-5-color-10);
+    --theme-color-11: var(--theme-5-color-11);
+    --theme-color-12: var(--theme-5-color-12);
+    --theme-color-13: var(--theme-5-color-13);
+    --theme-color-14: var(--theme-5-color-14);
+    --theme-color-15: var(--theme-5-color-15);
+    --theme-color-16: var(--theme-5-color-16);
+    --theme-color-17: var(--theme-5-color-17);
+    --theme-color-18: var(--theme-5-color-18);
+    --theme-color-19: var(--theme-5-color-19);
+    --theme-color-20: var(--theme-5-color-20);
+    --theme-color-21: var(--theme-5-color-21);
+    --theme-color-22: var(--theme-5-color-22);
+    --theme-color-23: var(--theme-5-color-23);
+    --theme-color-24: var(--theme-5-color-24);
+  }
+}

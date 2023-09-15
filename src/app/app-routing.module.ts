@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {AuthGuard, NoAuthGuard} from "./core/auth";
+import { AuthGuard, NoAuthGuard } from "@core";
 
 const routes: Routes = [
   {
@@ -23,6 +23,14 @@ const routes: Routes = [
     loadChildren: () =>
       import('./views/main/main.module').then(
         (m) => m.MainModule
+      ),
+  },
+  {
+    path: 'settings',
+    canActivate: [AuthGuard],
+    loadChildren: () =>
+      import('./views/settings/settings.module').then(
+        (m) => m.SettingsModule
       ),
   },
   {

@@ -3,6 +3,9 @@ import {Observable, of} from "rxjs";
 import {CategoryStatus} from "@model";
 import {AuthService} from "@core";
 import {CategoryStatusService} from "@services";
+import {faGear} from '@fortawesome/free-solid-svg-icons';
+import {Router} from "@angular/router";
+
 
 @Component({
   selector: 'app-main',
@@ -11,11 +14,14 @@ import {CategoryStatusService} from "@services";
 })
 export class MainComponent {
 
+  faGear = faGear;
+
   public categoryStatus$: Observable<CategoryStatus[]> = of([]);
 
   constructor(
      private _authService: AuthService,
      private _categoryStatusService: CategoryStatusService,
+     private _router: Router,
   ) {
     this.categoryStatus$ = this._categoryStatusService.categoryStatus$;
 
@@ -24,8 +30,7 @@ export class MainComponent {
     })
   }
 
-
-  logout(): void {
-    this._authService.logout();
+  navigateToSettings():void {
+    this._router.navigate(['/settings'])
   }
 }

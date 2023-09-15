@@ -1,0 +1,25 @@
+input {
+  width: 100%;
+  margin-bottom: 10px;
+  height: 40px;
+  font-size: 18px;
+  border-radius: 8px 8px 7px 8px;
+  padding: 8px;
+  border: 2px solid var(--primary-color);
+  background-color: var(--bg-basic-color);
+  color: var(--font-basic-color);
+  &:focus, &:focus-visible {
+    background-color: var(--bg-basic-color-3);
+    outline: 1px solid var(--primary-color);
+  }
+}
+
+.input-label {
+  margin: 6px 0;
+  color: var(--font-primary-color-2) !important;
+
+  &.focus {
+    font-weight: 500;
+  }
+}
+

@@ -1,13 +1,11 @@
 import {NgModule} from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {CommonModule } from '@angular/common';
 import {MainComponent} from "./main.component";
 import {MainRoutingModule} from "./main-routing.module";
-import {ContainerModule} from "../../components/container/container.module";
+import {ContainerModule, MenuItemModule, TopNavModule, AchievementRibbonModule} from "@components";
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
-import {MenuItemModule} from "../../components/menu-item/menu-item.module";
-import {TopNavModule} from "../../components/top-nav/top-nav.module";
-import { AchievementRibbonModule } from "../../components/achievement-ribbon/achievement-ribbon.module";
 import {MainMenuModule} from "./main-menu/main-menu.module";
+import {ButtonModule, NavContainerModule} from "@components";
 
 @NgModule({
   declarations: [MainComponent],
@@ -20,6 +18,8 @@ import {MainMenuModule} from "./main-menu/main-menu.module";
     TopNavModule,
     AchievementRibbonModule,
     MainMenuModule,
+    ButtonModule,
+    NavContainerModule,
   ]
 })
 export class MainModule {}

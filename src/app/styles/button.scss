@@ -1,0 +1,108 @@
+button.btn {
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  padding: 12px;
+  font-size: 1.6rem;
+  font-weight: 500;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+button.btn:not(.inline) {
+  width: 100%;
+}
+
+button.btn.lg {
+  padding: 14px;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+button.btn.sm {
+  padding: 8px;
+  font-size: 1.4rem;
+}
+
+.btn-icon {
+  display: inline-block;
+  width: 48px;
+}
+
+.btn.btn-primary {
+  color: var(--theme-color-1);
+  background-color: var(--primary-color);
+  &:hover {
+    background-color: var(--theme-color-16);
+  }
+  &.active {
+    -webkit-tap-highlight-color: var(--theme-color-18);
+    background-color: var(--theme-color-18);
+  }
+}
+.btn.btn-secondary {
+  color: var(--theme-color-21);
+  background-color: var(--theme-color-4);
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      color: var(--theme-color-21);
+      background-color: var(--theme-color-5);
+    }
+  }
+  &.active {
+    color: var(--theme-color-20);
+    -webkit-tap-highlight-color: var(--theme-color-7);
+    background-color: var(--theme-color-7);
+  }
+}
+.btn.btn-ghost {
+  color: var(--theme-color-24);
+  background-color: unset;
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      color: var(--theme-color-24);
+      background-color: var(--theme-color-5);
+    }
+  }
+  &.active {
+    color: var(--theme-color-20);
+    -webkit-tap-highlight-color: var(--theme-color-7);
+    background-color: var(--theme-color-7);
+  }
+}
+
+body[night-mode='on'],
+.body[night-mode='on'] {
+  .btn.btn-primary {
+    color: var(--theme-color-2);
+    &:hover {
+      color: var(--theme-color-3);
+    }
+    &.active {
+      -webkit-tap-highlight-color: var(--theme-color-4);
+      color: var(--theme-color-4);
+    }
+  }
+  .btn.btn-secondary {
+    color: var(--theme-color-2);
+    background-color: var(--theme-color-20);
+  }
+  .btn.btn-ghost {
+    color: var(--theme-color-2);
+  }
+
+  .btn.btn-secondary,
+  .btn.btn-ghost {
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        color: var(--theme-color-6);
+        background-color: var(--theme-color-21);
+      }
+    }
+    &.active {
+      color: var(--theme-color-7);
+      -webkit-tap-highlight-color: var(--theme-color-22);
+      background-color: var(--theme-color-22);
+    }
+  }
+}

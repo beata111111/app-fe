@@ -29,7 +29,8 @@
       "@services": ["./src/app/services/"],
       "@helpers": ["./src/app/helpers/"],
       "@core": ["./src/app/core/"],
-      "@observers": ["./src/app/observers/"]
+      "@observers": ["./src/app/observers/"],
+      "@components": ["./src/app/components/"]
     }
   },
   "angularCompilerOptions": {

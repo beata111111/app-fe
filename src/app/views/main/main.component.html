@@ -1,7 +1,30 @@
-<button (click)="logout()">logout</button>
+<ng-template #nav>
+  <app-top-nav>
+    <button [appButton]="'ghost'" class="btn-icon" (click)="navigateToSettings()">
+      <fa-icon [icon]="faGear" size="xl"></fa-icon>
+    </button>
+    <!--  <button [appButton]="'ghost'"  class="btn-icon" (click)="toggleDayNight()">-->
+    <!--    <fa-icon [icon]="faMoon" size="xl"></fa-icon>-->
+    <!--  </button>-->
 
-<ng-container *ngIf="categoryStatus$ | async as categories">
-  <app-main-menu
-    [categoryStatus]="categories"
-  ></app-main-menu>
-</ng-container>
+    <!--  <div class="gap"></div>-->
+
+    <!--  <button [appButton]="'ghost'" *ngIf="(isSoundActive$ | async) === SoundMode.ON; else soundOff" class="btn-icon" (click)="toggleSoundActive()">-->
+    <!--    <fa-icon [icon]="faBell" size="xl"></fa-icon>-->
+    <!--  </button>-->
+
+    <!--  <ng-template #soundOff>-->
+    <!--    <button [appButton]="'ghost'"  class="btn-icon" (click)="toggleSoundActive()">-->
+    <!--      <fa-icon [icon]="faBellSlash" size="xl"></fa-icon>-->
+    <!--    </button>-->
+    <!--  </ng-template>-->
+  </app-top-nav>
+</ng-template>
+
+<app-nav-container [navTemplate]="nav">
+  <ng-container *ngIf="categoryStatus$ | async as categories">
+    <app-main-menu
+      [categoryStatus]="categories"
+    ></app-main-menu>
+  </ng-container>
+</app-nav-container>

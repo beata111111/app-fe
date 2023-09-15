@@ -1,5 +1,5 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {AuthService} from "../../core/auth";
+import {AuthService} from "@core";
 
 @Component({
   selector: 'app-auth',
