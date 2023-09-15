@@ -1,3 +1,4 @@
+
 exports.newUserObj = (id) => {
   return {
     id
@@ -60,3 +61,4 @@ exports.createInitialCategoryStatus = () => {
 
   return result;
 }
+

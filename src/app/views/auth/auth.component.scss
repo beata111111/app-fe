@@ -1,9 +1,9 @@
 $max-width: 350px;
 
 :host {
-  display: flex;
+  display: block;
   height: 100%;
-  width: 100vw;
+  width: 100%;
   background-color: unset;
   justify-content: center;
   align-items: center;

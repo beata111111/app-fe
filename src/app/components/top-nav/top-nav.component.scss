@@ -1,29 +1,38 @@
 :host {
-  display: flex;
-  flex-basis: 60px;
-  flex-shrink: 0;
-  background-color: var(--primary-color);
-  padding: 0 10px;
+  .nav {
+    display: flex;
+    background-color: var(--primary-color);
+    padding: 0 10px;
+    position: relative;
 
-  ::ng-deep {
-    h3 {
-      color: var(--theme-color-0) !important;
-      margin-left: 8px;
-      transform: translateY(2px);
-    }
-    button {
-      display: inline-block !important;
-      width: 40px;
-      max-width: 48px;
-      &:hover {
-        background-color: unset !important;
+    ::ng-deep {
+      h3 {
+        color: var(--theme-color-0) !important;
+        margin-left: 8px;
+        transform: translateY(2px);
       }
-      * {
-        color: var(--theme-color-0);
+      button {
+        display: inline-block !important;
+        width: 40px;
+        max-width: 48px;
+        &:hover {
+          background-color: unset !important;
+        }
+        * {
+          color: var(--theme-color-0);
+        }
       }
-    }
-    .gap {
-      flex-grow: 1;
+      .gap {
+        flex-grow: 1;
+      }
     }
   }
+}
+
+.nav-background {
+  height: 68px;
+  width: 200vw;
+  position: fixed;
+  background-color: var(--primary-color);
+  margin-left: -50%;
 }

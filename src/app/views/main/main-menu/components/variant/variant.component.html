@@ -1,8 +1,10 @@
 <ng-container>
-  <button (click)="navigateToChallenge(variant.variant_id)" [disabled]="!variant.enabled">
-    <span>
-      {{variant.variant_id}}
-      <br>
+  <button (click)="navigateToChallenge(variant.variant_id)"
+          [style.background-color]="color"
+          [disabled]="!variant.enabled" >
+    <span *ngIf="variant.enabled">
+<!--      {{variant.variant_id}}-->
+<!--      <br>-->
       {{variant.result}}
     </span>
   </button>

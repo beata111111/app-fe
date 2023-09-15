@@ -1,6 +1,12 @@
 :host {
-  display: grid;
-  grid-template-columns: 1fr 5fr;
-  grid-gap: 5px;
-  padding: 10px;
+  @media(min-width: 500px) {
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    padding: 10px;
+  }
 }
+
+.category-label {
+  padding: 10px 10px 0 10px;
+}
+

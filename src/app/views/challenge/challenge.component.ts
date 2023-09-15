@@ -37,7 +37,15 @@ export class ChallengeComponent implements OnInit {
 
   handleResult(resultValue: string) {
     const result = Number(resultValue);
+    if (result < 0 || result > 100) {
+      this.back();
+      return;
+    }
     this._categoryStatusService.submitChallengeResult(this._category_id, this._level_id, this._variant_id, result);
     this._router.navigate(['/main'])
+  }
+
+  back() {
+    this._router.navigate(['..'])
   }
 }

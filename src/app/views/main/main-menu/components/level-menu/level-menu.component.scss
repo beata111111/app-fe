@@ -2,6 +2,10 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 
+  @media(max-width: 499.9px) {
+    padding: 5px;
+  }
+
   app-variant {
     aspect-ratio: 1;
   }
