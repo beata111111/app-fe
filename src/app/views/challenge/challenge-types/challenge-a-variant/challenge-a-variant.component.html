@@ -1,0 +1,20 @@
+<ng-container *ngIf="challengeState$ | async as state">
+  <app-answer-feedback *ngIf="state.showAnswer"
+                       (nextWord)="nextWord()">
+  </app-answer-feedback>
+
+  <app-middle-section
+    class="middle-container"
+    [word]="state.currentWord"
+    [showAnswer]="state.showAnswer"
+    [lastAnswerCorrect]="state.lastAnswerCorrect">
+  </app-middle-section>
+
+  <app-bottom-section
+    class="bottom-container"
+    [currentWord]="state.currentWord"
+    [roundWords]="state.currentWordAnswers"
+    (action)="handleAnswer($event)">
+  </app-bottom-section>
+</ng-container>
+

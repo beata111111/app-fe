@@ -6,7 +6,7 @@ exports.updateUserCategory = (category, body) => {
   let nextI = null; // next level
   let nextJ = null; // next variant
   updatedCategory.levels.forEach((l, i) => {
-    if (i === nextI) {
+    if (i === nextI && result > 60) {
       l.enabled = true;
       l.variants[0].enabled = true;
     }
@@ -15,7 +15,7 @@ exports.updateUserCategory = (category, body) => {
       nextI = i + 1;
 
       l.variants.forEach((v, j) => {
-        if (j === nextJ) {
+        if (j === nextJ && result > 60) {
           v.enabled = true;
         }
 

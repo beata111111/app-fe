@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
-import {ChallengeDataService} from "../../services/challenge-data/challenge-data.service";
+import {ChallengeDataService, CategoryStatusService} from "@services";
 import {Observable, of} from "rxjs";
 import {Word} from "@model";
-import {CategoryStatusService} from "../../services/category-status/category-status.service";
+import { faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-challenge',
@@ -11,12 +11,13 @@ import {CategoryStatusService} from "../../services/category-status/category-sta
   styleUrls: ['./challenge.component.scss']
 })
 export class ChallengeComponent implements OnInit {
-
   private _category_id: string = '';
   private _level_id: string = '';
   private _variant_id: string = '';
 
-  challengeData$: Observable<Word[]> = of([]);
+  faArrowRightFromBracket = faArrowRightFromBracket;
+
+  challengeData$!: Observable<Word[]>
 
   constructor(private _activatedRoute: ActivatedRoute,
               private _challengeDataService: ChallengeDataService,
@@ -37,7 +38,7 @@ export class ChallengeComponent implements OnInit {
 
   handleResult(resultValue: string) {
     const result = Number(resultValue);
-    if (result < 0 || result > 100) {
+    if (isNaN(result) || result < 0 || result > 100) {
       this.back();
       return;
     }

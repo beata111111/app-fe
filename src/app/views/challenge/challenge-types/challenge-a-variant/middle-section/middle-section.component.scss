@@ -1,0 +1,113 @@
+:host {
+  display: flex;
+  flex-grow: 1;
+
+  .current-word-container {
+    align-self: center;
+    text-align: center;
+    width: 80%;
+
+    .word-div {
+      position: relative;
+      display: inline-block;
+
+      .word-text {
+        position: relative;
+        margin-bottom: 4px;
+      }
+
+      .word-gender {
+        &.neutral {
+          color: var(--action-success-color);
+        }
+        &.feminine {
+          color: var(--word-feminine-color);
+        }
+        &.masculine {
+          color: var(--word-maskulin-color);
+        }
+        font-size: 18px;
+        top: 10px;
+        right: -24px;
+        position: absolute;
+      }
+    }
+
+    .word-alt {
+      width: 100%;
+      padding-top: 2px;
+      height: 22px;
+
+      span {
+        color: #7d7d7d !important;
+        position: relative;
+
+        &:before {
+          content: 'pl. ';
+          font-size: 15px;
+        }
+
+        &.plural {
+          &:before {
+            content: 'sing. ';
+          }
+        }
+      }
+    }
+
+    .answer {
+      opacity: 0;
+      color: var(--primary-color);
+      height: 65px;
+
+      .answer-text {
+        margin-top: 0;
+        padding-top: 16px;
+        color: var(--font-primary-color);
+        height: 35px;
+      }
+
+      .answer-icon {
+        height: 30px;
+        ::ng-deep {
+          .ng-fa-icon {
+            color: var(--action-success-color);
+          }
+          svg {
+            transform: translateY(34px);
+            @media (max-height: 500px) {
+              transform: translateY(16px);
+            }
+          }
+        }
+      }
+
+      &.show {
+        opacity: 1;
+
+        .answer-icon {
+          ::ng-deep {
+            svg {
+              animation: up 0.8s forwards ease-out;
+              @media (max-height: 500px) {
+                animation: upMobileHorizontal 0.8s forwards ease-out;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes up {
+  100% {
+    transform: translateY(16px);
+  }
+}
+
+@keyframes upMobileHorizontal {
+  100% {
+    transform: translateY(6px);
+  }
+}
