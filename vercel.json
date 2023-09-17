@@ -1,8 +1,0 @@
-{
-  "rewrites": [
-    {
-      "source": "/:path*",
-      "destination": "https://pl-app-new-production.up.railway.app/:path*"
-    }
-  ]
-}
