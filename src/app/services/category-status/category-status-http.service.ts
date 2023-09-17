@@ -16,9 +16,6 @@ export class CategoryStatusHttpService {
   updateCategoryStatus(category_id: string, level_id: string, variant_id: string, result: number): Observable<CategoryStatus> {
     const url = '/api/update-category-status';
     const data = { category_id, level_id, variant_id, result };
-
-    console.log(data);
-
     return this._appHttpService.makePOSTRequest<CategoryStatus>(url, data);
   };
 }

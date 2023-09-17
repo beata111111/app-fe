@@ -1,11 +1,10 @@
-
 exports.newUserObj = (id) => {
   return {
     id
   }
 }
 
-const categories = ['body', 'anim', 'natu'];
+const categories = ['body', 'anim', 'natu', 'econ', 'tran', 'time', 'home', 'foo1', 'foo2', 'fash', 'tour'];
 const categoryLevels = {
   body: [
     { level: '1', variants: ['a', 'b', 'c', 'd', 'e']},
@@ -28,6 +27,62 @@ const categoryLevels = {
     { level: '4', variants: ['a', 'b', 'c', 'd', 'e']},
     { level: '5', variants: ['a', 'b', 'c', 'd', 'e']},
   ],
+  econ: [
+    { level: '1', variants: ['a', 'b', 'c', 'd', 'e']},
+    { level: '2', variants: ['a', 'b', 'c', 'd', 'e']},
+    { level: '3', variants: ['a', 'b', 'c', 'd', 'e']},
+    { level: '4', variants: ['a', 'b', 'c', 'd', 'e']},
+    { level: '5', variants: ['a', 'b', 'c', 'd', 'e']},
+  ],
+  tran: [
+    { level: '1', variants: ['a', 'b', 'c', 'd', 'e']},
+    { level: '2', variants: ['a', 'b', 'c', 'd', 'e']},
+    { level: '3', variants: ['a', 'b', 'c', 'd', 'e']},
+    { level: '4', variants: ['a', 'b', 'c', 'd', 'e']},
+    { level: '5', variants: ['a', 'b', 'c', 'd', 'e']},
+  ],
+  time: [
+    { level: '1', variants: ['a', 'b', 'c', 'd', 'e']},
+    { level: '2', variants: ['a', 'b', 'c', 'd', 'e']},
+    { level: '3', variants: ['a', 'b', 'c', 'd', 'e']},
+    { level: '4', variants: ['a', 'b', 'c', 'd', 'e']},
+    { level: '5', variants: ['a', 'b', 'c', 'd', 'e']},
+  ],
+  home: [
+    { level: '1', variants: ['a', 'b', 'c', 'd', 'e']},
+    { level: '2', variants: ['a', 'b', 'c', 'd', 'e']},
+    { level: '3', variants: ['a', 'b', 'c', 'd', 'e']},
+    { level: '4', variants: ['a', 'b', 'c', 'd', 'e']},
+    { level: '5', variants: ['a', 'b', 'c', 'd', 'e']},
+  ],
+  foo1: [
+    { level: '1', variants: ['a', 'b', 'c', 'd', 'e']},
+    { level: '2', variants: ['a', 'b', 'c', 'd', 'e']},
+    { level: '3', variants: ['a', 'b', 'c', 'd', 'e']},
+    { level: '4', variants: ['a', 'b', 'c', 'd', 'e']},
+    { level: '5', variants: ['a', 'b', 'c', 'd', 'e']},
+  ],
+  foo2: [
+    { level: '1', variants: ['a', 'b', 'c', 'd', 'e']},
+    { level: '2', variants: ['a', 'b', 'c', 'd', 'e']},
+    { level: '3', variants: ['a', 'b', 'c', 'd', 'e']},
+    { level: '4', variants: ['a', 'b', 'c', 'd', 'e']},
+    { level: '5', variants: ['a', 'b', 'c', 'd', 'e']},
+  ],
+  fash: [
+    { level: '1', variants: ['a', 'b', 'c', 'd', 'e']},
+    { level: '2', variants: ['a', 'b', 'c', 'd', 'e']},
+    { level: '3', variants: ['a', 'b', 'c', 'd', 'e']},
+    { level: '4', variants: ['a', 'b', 'c', 'd', 'e']},
+    { level: '5', variants: ['a', 'b', 'c', 'd', 'e']},
+  ],
+  tour: [
+    { level: '1', variants: ['a', 'b', 'c', 'd', 'e']},
+    { level: '2', variants: ['a', 'b', 'c', 'd', 'e']},
+    { level: '3', variants: ['a', 'b', 'c', 'd', 'e']},
+    { level: '4', variants: ['a', 'b', 'c', 'd', 'e']},
+    { level: '5', variants: ['a', 'b', 'c', 'd', 'e']},
+  ]
 }
 
 exports.createInitialCategoryStatus = () => {

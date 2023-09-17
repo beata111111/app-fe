@@ -1,9 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {ChallengeDataService, CategoryStatusService} from "@services";
-import {Observable, of} from "rxjs";
+import {Observable} from "rxjs";
 import {Word} from "@model";
-import { faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons';
+import {faArrowRightFromBracket, faBell, faBellSlash} from '@fortawesome/free-solid-svg-icons';
+import {VoiceService} from "@core";
 
 @Component({
   selector: 'app-challenge',
@@ -15,15 +16,21 @@ export class ChallengeComponent implements OnInit {
   private _level_id: string = '';
   variant_id: string = '';
 
+  faBell = faBell;
+  faBellSlash = faBellSlash;
   faArrowRightFromBracket = faArrowRightFromBracket;
+
+  isSoundActive$: Observable<boolean>;
 
   challengeData$!: Observable<Word[]>
 
   constructor(private _activatedRoute: ActivatedRoute,
               private _challengeDataService: ChallengeDataService,
               private _categoryStatusService: CategoryStatusService,
+              private _voiceService: VoiceService,
               private _router: Router,
   ) {
+      this.isSoundActive$ = this._voiceService.isSoundActive$;
   }
 
   ngOnInit() {
@@ -48,5 +55,9 @@ export class ChallengeComponent implements OnInit {
 
   back() {
     this._router.navigate(['..'])
+  }
+
+  toggleSoundActive() {
+    this._voiceService.toggleSoundActive();
   }
 }

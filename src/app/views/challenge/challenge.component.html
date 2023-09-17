@@ -11,6 +11,10 @@
       (submitResult)="handleResult($event)"
     ></app-challenge-b-variant>
 
+    <ng-container *ngIf="variant_id !== 'b' && variant_id !== 'a'">
+      <h1>bąk :P</h1>
+    </ng-container>
+
 <!--    <ng-container *ngIf="showDummy">-->
 <!--      <p *ngFor="let data of challengeData">{{data.nounPL}}</p>-->
 <!--      <input #resultInput/>-->
@@ -24,6 +28,12 @@
   <app-top-nav>
     <button [appButton]="'ghost'" class="btn-icon" (click)="back()" [style.transform]="'rotate(180deg)'">
       <fa-icon [icon]="faArrowRightFromBracket" size="xl"></fa-icon>
+    </button>
+
+    <div class="gap"></div>
+
+    <button [appButton]="'ghost'" class="btn-icon" (click)="toggleSoundActive()">
+      <fa-icon [icon]="(isSoundActive$ | async) ? faBell : faBellSlash" size="xl"></fa-icon>
     </button>
   </app-top-nav>
 </ng-template>

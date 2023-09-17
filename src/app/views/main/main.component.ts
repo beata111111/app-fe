@@ -25,9 +25,9 @@ export class MainComponent {
   ) {
     this.categoryStatus$ = this._categoryStatusService.categoryStatus$;
 
-    this.categoryStatus$.subscribe((a) => {
-      console.log(a);
-    })
+    // this.categoryStatus$.subscribe((a) => {
+    //   console.log(a);
+    // })
   }
 
   navigateToSettings():void {

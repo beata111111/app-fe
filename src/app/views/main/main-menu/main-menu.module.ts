@@ -4,6 +4,7 @@ import {LevelMenuComponent} from "./components/level-menu/level-menu.component";
 import {MainMenuComponent} from "./main-menu.component";
 import {CommonModule} from "@angular/common";
 import { VariantComponent } from './components/variant/variant.component';
+import {TranslateModule} from "@ngx-translate/core";
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { VariantComponent } from './components/variant/variant.component';
   ],
   imports: [
     CommonModule,
+    TranslateModule,
   ],
   providers: [],
   exports: [MainMenuComponent],

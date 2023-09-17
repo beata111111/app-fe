@@ -5,11 +5,6 @@ import { debounceTime, throttleTime } from 'rxjs/operators';
 const DEBOUNCE_SPEAK = 300;
 const THROTTLE_SPEAK = 300;
 
-export enum SoundMode {
-  ON = 'on',
-  OFF = 'off',
-}
-
 declare global {
   interface Window {
     responsiveVoice: {
@@ -22,7 +17,7 @@ declare global {
   providedIn: 'root',
 })
 export class VoiceService {
-  private _isSoundActive$ = new BehaviorSubject<SoundMode>(SoundMode.ON);
+  private _isSoundActive$ = new BehaviorSubject<boolean>(false);
   isSoundActive$ = this._isSoundActive$.asObservable();
 
   debouncedSubject = new Subject<string>();
@@ -54,22 +49,19 @@ export class VoiceService {
 
   execute(text: string): void {
     if (!text) return;
-    if (this._isSoundActive$.value === SoundMode.ON) {
+    if (this._isSoundActive$.value) {
       window.responsiveVoice.speak(text, 'Polish Male');
     }
   }
 
   toggleSoundActive(): void {
-    const newState = this._isSoundActive$.value === SoundMode.ON ? SoundMode.OFF : SoundMode.ON;
-    localStorage.setItem('SOUND_ACTIVE', newState);
+    const newState = !this._isSoundActive$.value;
+    localStorage.setItem('SOUND_ACTIVE', String(newState));
     this._isSoundActive$.next(newState);
   }
 
   private _checkStoredValue() {
-    const isSoundActive = localStorage.getItem('SOUND_ACTIVE');
-
-    if (isSoundActive && Object.values(SoundMode).includes(isSoundActive as SoundMode)) {
-      this._isSoundActive$.next(isSoundActive as SoundMode);
-    }
+    const isSoundActive = localStorage.getItem('SOUND_ACTIVE') === 'true';
+    this._isSoundActive$.next(isSoundActive);
   }
 }

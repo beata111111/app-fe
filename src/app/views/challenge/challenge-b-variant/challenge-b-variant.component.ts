@@ -33,12 +33,9 @@ export class ChallengeBVariantComponent implements OnInit, OnDestroy {
 
     this._subscriptions.add(
       this.challengeState$.subscribe(state => {
-          if (state?.challengeFinished) {
-            console.log('finish', state.correctAnswersRatio);
-            this.submitResult.emit(state.correctAnswersRatio)
-          }
-        }
-      )
+        if (state?.challengeFinished) {
+          this.submitResult.emit(state.correctAnswersRatio)
+        }})
     )
   }
 
