@@ -3,10 +3,12 @@
 
   button {
     all: unset;
+    display: block;
     border-radius: 50%;
+    border: 3px solid black;
 
-    height: calc(100% - 10px);
-    width: calc(100% - 10px);
+    height: calc(100% - 16px);
+    width: calc(100% - 16px);
     margin: 5px;
 
     @media(min-width: 500px) {
@@ -23,7 +25,6 @@
       text-align: center;
       font-weight: 800;
       font-size: 2rem;
-      opacity: 0.4;
     }
   }
 
@@ -32,6 +33,7 @@
   }
 
   button[disabled] {
+    border-color: #f1f1f1;
   }
 }
 

@@ -1,0 +1,21 @@
+:host {
+  display: flex !important;
+  flex-direction: column;
+  height: 100%;
+  border-radius: 10px;
+
+  .middle-container {
+    justify-content: center;
+  }
+
+  .bottom-container {
+    flex-basis: 200px;
+    display: flex;
+    padding: 0 20px;
+    min-height: 150px;
+
+    button {
+      margin: 0;
+    }
+  }
+}

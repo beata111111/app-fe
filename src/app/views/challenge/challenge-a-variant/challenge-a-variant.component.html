@@ -1,0 +1,18 @@
+<ng-container *ngIf="challengeState$ | async as state">
+  <app-show-answer-overlay *ngIf="state.showAnswer" (click)="nextWord()">
+  </app-show-answer-overlay>
+
+  <app-v-a-middle-section
+    class="middle-container"
+    [word]="state.currentWord"
+    [showAnswer]="state.showAnswer"
+    [lastAnswerCorrect]="state.lastAnswerCorrect">
+  </app-v-a-middle-section>
+
+  <app-v-a-bottom-section
+    class="bottom-container"
+    [currentWord]="state.currentWord"
+    [roundWords]="state.currentWordAnswers"
+    (action)="handleAnswer($event)">
+  </app-v-a-bottom-section>
+</ng-container>

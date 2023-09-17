@@ -17,8 +17,8 @@ export class VariantComponent implements OnChanges {
   color60 = '#cfe397';
   color40 = '#FACD84';
   color20 = '#f6a678';
-  colorDisabled = '#fbfbfb';
-  colorDefault = '#e9e9e0'
+  colorDisabled = '#f1f1f1';
+  colorDefault = '#c8c8c8'
 
   color: string = this.colorDefault;
 

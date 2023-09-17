@@ -1,0 +1,17 @@
+:host {
+  font-size: 18px;
+  top: 10px;
+  right: -24px;
+  position: absolute;
+
+  .neutral {
+    color: var(--action-success-color);
+  }
+  .feminine {
+    color: var(--word-feminine-color);
+  }
+  .masculine {
+    color: var(--word-maskulin-color);
+  }
+}
+

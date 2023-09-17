@@ -2,7 +2,7 @@ import {Component, EventEmitter, Input, OnDestroy, OnInit, Output, Self} from '@
 import {VoiceService} from "@core";
 import {faCheck, faCircle} from '@fortawesome/free-solid-svg-icons';
 import {Word} from "@model";
-import {ChallengeService, ChallengeState} from "../../challenge.service";
+import {ChallengeService, ChallengeState} from "../challenge.service";
 import {Observable, Subscription} from "rxjs";
 
 @Component({

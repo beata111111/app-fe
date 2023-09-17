@@ -15,22 +15,6 @@
         position: relative;
         margin-bottom: 4px;
       }
-
-      .word-gender {
-        &.neutral {
-          color: var(--action-success-color);
-        }
-        &.feminine {
-          color: var(--word-feminine-color);
-        }
-        &.masculine {
-          color: var(--word-maskulin-color);
-        }
-        font-size: 18px;
-        top: 10px;
-        right: -24px;
-        position: absolute;
-      }
     }
 
     .word-alt {

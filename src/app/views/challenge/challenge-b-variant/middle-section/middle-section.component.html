@@ -1,0 +1,25 @@
+<ng-container *ngIf="word">
+  <div class="current-word-container">
+
+    <div class="word-div">
+      <h1 class="word-text" (click)="speak(word.nounPL)">
+        <app-word-gap [showAnswer]="showAnswer" [answer]="word.adj"></app-word-gap>
+        {{word.nounPL}}
+      </h1>
+
+      <app-gender-dot [word]="word"></app-gender-dot>
+    </div>
+
+    <h3 class="sent-translation">
+      <span>{{word.adjDE}}</span>
+    </h3>
+
+
+    <div class="answer" [class.show]="showAnswer">
+      <div class="answer-icon" *ngIf="lastAnswerCorrect">
+        <fa-icon [size]="'5x'" class="success-icon" [icon]="faCheck"></fa-icon>
+      </div>
+    </div>
+
+  </div>
+</ng-container>

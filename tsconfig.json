@@ -30,7 +30,8 @@
       "@helpers": ["./src/app/helpers/"],
       "@core": ["./src/app/core/"],
       "@observers": ["./src/app/observers/"],
-      "@components": ["./src/app/components/"]
+      "@components": ["./src/app/components/"],
+      "@challengeComponents": ["./src/app/views/challenge/components"]
     }
   },
   "angularCompilerOptions": {

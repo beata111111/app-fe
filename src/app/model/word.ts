@@ -6,6 +6,8 @@ export interface WordDTO {
   nounDE: string,
   plG: string,
   alt: string,
+  adj: string,
+  adjDE: string,
 }
 
 export interface Word {
@@ -17,4 +19,6 @@ export interface Word {
   plG: string,
   alt: string,
   isPlural: boolean,
+  adj: string,
+  adjDE: string,
 }

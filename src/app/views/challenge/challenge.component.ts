@@ -13,7 +13,7 @@ import { faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 export class ChallengeComponent implements OnInit {
   private _category_id: string = '';
   private _level_id: string = '';
-  private _variant_id: string = '';
+  variant_id: string = '';
 
   faArrowRightFromBracket = faArrowRightFromBracket;
 
@@ -31,7 +31,7 @@ export class ChallengeComponent implements OnInit {
       const { category_id, level_id, variant_id } = params;
       this._category_id = category_id;
       this._level_id = level_id;
-      this._variant_id = variant_id;
+      this.variant_id = variant_id;
       this.challengeData$ = this._challengeDataService.getChallengeData(category_id, level_id);
     })
   }
@@ -42,7 +42,7 @@ export class ChallengeComponent implements OnInit {
       this.back();
       return;
     }
-    this._categoryStatusService.submitChallengeResult(this._category_id, this._level_id, this._variant_id, result);
+    this._categoryStatusService.submitChallengeResult(this._category_id, this._level_id, this.variant_id, result);
     this._router.navigate(['/main'])
   }
 

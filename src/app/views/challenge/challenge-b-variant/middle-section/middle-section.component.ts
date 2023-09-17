@@ -4,11 +4,11 @@ import {faCheck, faCircle} from '@fortawesome/free-solid-svg-icons';
 import {Word} from "@model";
 
 @Component({
-  selector: 'app-middle-section',
+  selector: 'app-v-b-middle-section',
   templateUrl: './middle-section.component.html',
   styleUrls: ['./middle-section.component.scss']
 })
-export class MiddleSectionComponent {
+export class ChallengeBVariantMiddleSectionComponent {
 
   constructor(private _voiceService: VoiceService) {
   }

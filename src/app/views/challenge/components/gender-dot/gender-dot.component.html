@@ -1,0 +1,5 @@
+<fa-icon *ngIf="word.plG" [size]="'sm'" class="word-gender" [icon]="faCircle"
+         [class.masculine]="word.plG === 'M'"
+         [class.feminine]="word.plG === 'F'"
+         [class.neutral]="word.plG === 'N'"
+></fa-icon>

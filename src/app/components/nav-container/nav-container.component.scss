@@ -6,12 +6,20 @@
   .content {
     position: relative;
     flex-grow: 1;
+  }
 
-    .absolute-content {
-      position: absolute;
-      height: 100%;
-      width: 100%;
-      overflow: scroll;
+  .absolute-content {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    overflow: scroll;
+
+    ::ng-deep {
+      > * {
+        max-width: 600px;
+        display: block;
+        margin: auto;
+      }
     }
   }
 }
