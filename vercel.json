@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/:path*",
+      "destination": "https://backend-delta-two-78.vercel.app//:path*"
+    }
+  ]
+}
