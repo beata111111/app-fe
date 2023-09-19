@@ -8,7 +8,6 @@ import { TranslateService } from "@ngx-translate/core";
 })
 export class AppComponent {
   title = 'languages-app-new';
-
   constructor(
     private translateService: TranslateService
   ) {
