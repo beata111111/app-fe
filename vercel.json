@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/api/:path*",
-      "destination": "https://www.backend-delta-two-78.vercel.app//api/:path*"
+      "destination": "https://www.backend-delta-two-78.vercel.app/api/:path*"
     }
   ]
 }
