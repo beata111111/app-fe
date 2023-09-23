@@ -6,6 +6,7 @@
 
   .middle-container {
     justify-content: center;
+    flex-grow: 1;
   }
 
   .bottom-container {
@@ -17,5 +18,21 @@
     button {
       margin: 0;
     }
+  }
+
+  app-history-back-button {
+    position: fixed;
+    top: 40%;
+  }
+
+  app-history-forward-button {
+    position: fixed;
+    top: 40%;
+    right: 0;
+  }
+
+
+  app-v-a-bottom-section.hide {
+    opacity: 0;
   }
 }

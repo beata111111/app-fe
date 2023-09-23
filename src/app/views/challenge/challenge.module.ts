@@ -9,7 +9,7 @@ import {ChallengeBVariantModule} from "./challenge-b-variant/challenge-b-variant
 
 @NgModule({
   declarations: [
-    ChallengeComponent,
+    ChallengeComponent
   ],
   imports: [
     CommonModule,

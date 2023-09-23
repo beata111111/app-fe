@@ -1,9 +1,9 @@
 import {Component, EventEmitter, Input, OnDestroy, OnInit, Output, Self} from '@angular/core';
 import {VoiceService} from "@core";
-import {faCheck, faCircle} from '@fortawesome/free-solid-svg-icons';
 import {Word} from "@model";
 import {ChallengeService, ChallengeState} from "../challenge.service";
 import {Observable, Subscription} from "rxjs";
+import {AbstractChallengeComponentDirective} from "../abstract/challenge-component.directive";
 
 @Component({
   selector: 'app-challenge-b-variant',
@@ -12,11 +12,7 @@ import {Observable, Subscription} from "rxjs";
   providers: [ChallengeService]
 })
 
-export class ChallengeBVariantComponent implements OnInit, OnDestroy {
-  faCheck = faCheck;
-  faCircle = faCircle;
-  showAnswer = false;
-
+export class ChallengeBVariantComponent extends AbstractChallengeComponentDirective implements OnInit, OnDestroy {
   @Input() challengeData!: Word[];
   @Output() submitResult = new EventEmitter();
 
@@ -28,14 +24,18 @@ export class ChallengeBVariantComponent implements OnInit, OnDestroy {
 
   constructor(private _voiceService: VoiceService,
               @Self() private _challengeService: ChallengeService) {
+    super();
     this.challengeState$ = this._challengeService.state$;
-
 
     this._subscriptions.add(
       this.challengeState$.subscribe(state => {
-        if (state?.challengeFinished) {
-          this.submitResult.emit(state.correctAnswersRatio)
-        }})
+        if (state) {
+          this.history = state.history;
+          if (state.challengeFinished) {
+            this.submitResult.emit(state.correctAnswersRatio)
+          }
+        }
+      })
     )
   }
 

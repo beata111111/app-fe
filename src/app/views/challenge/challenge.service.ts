@@ -5,8 +5,13 @@ import {arrRandomMultiple, shuffleArray} from "@helpers";
 import {VoiceWorkerService} from "../../core/voice/voice-worker.service";
 import {VoiceService} from "@core";
 
+export interface WordHistory extends Word {
+  answerCorrect: boolean,
+}
+
 export interface ChallengeState {
   wordSequence: Word[];
+  history: WordHistory[];
   currentSequenceStep: number;
 
   currentWord: Word,
@@ -92,6 +97,7 @@ export class ChallengeService {
     }
     : {
       currentSequenceStep: nextStepCount,
+      history: [...cs.history, { ...cs.currentWord, answerCorrect: cs.lastAnswerCorrect}],
       currentWord: cs.wordSequence[nextStepCount],
       currentWordAnswers: this._generateAnswers(cs.wordSequence, cs.wordSequence[nextStepCount]),
       challengeProgress: previousStepCount / cs.wordSequence.length * 100
@@ -104,6 +110,7 @@ export class ChallengeService {
     const wordSequence = shuffleArray(data);
     return {
       wordSequence,
+      history: [],
       currentSequenceStep: 0,
       currentWord: wordSequence[0],
       currentWordAnswers: this._generateAnswers(data, wordSequence[0]),
@@ -117,8 +124,8 @@ export class ChallengeService {
   }
 
   private _generateAnswers(data: Word[], currentWord: Word): Word[] {
-    return arrRandomMultiple(data, 4, currentWord);
-    // return shuffleArray(arrRandomMultiple(data, 4, currentWord));
+    // return arrRandomMultiple(data, 4, currentWord);
+    return shuffleArray(arrRandomMultiple(data, 4, currentWord));
   }
 }
 

@@ -13,6 +13,8 @@ export class ChallengeBVariantMiddleSectionComponent {
   constructor(private _voiceService: VoiceService) {
   }
 
+  @Input() showHistory = false;
+
   faCheck = faCheck;
   faCircle = faCircle;
 
@@ -20,7 +22,11 @@ export class ChallengeBVariantMiddleSectionComponent {
   @Input() showAnswer = false;
   @Input() lastAnswerCorrect = false;
 
-  speak(word: string) {
-    this._voiceService.speak(word);
+  speak() {
+    if (this.showHistory) {
+      this._voiceService.speak(this.word._adjSpeakPL);
+    } else {
+      this._voiceService.speak(this.word.nounPL);
+    }
   }
 }

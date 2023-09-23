@@ -1,1 +1,1 @@
-export * from './show-answer-overlay/show-answer-overlay.module';
+export * from './challengeComponents.module';
