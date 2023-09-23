@@ -1,8 +1,8 @@
 import {Directive} from '@angular/core';
-import {WordHistory} from "../challenge.service";
+import {WordHistory} from "@model";
 
 @Directive()
-export abstract class AbstractChallengeComponentDirective {
+export abstract class AbstractChallengeHistoryComponent {
   showHistory = false;
   history: WordHistory[] = [];
   historyCurrentStepIndex: number | null = null;

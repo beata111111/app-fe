@@ -1,39 +1,18 @@
 import {Injectable} from '@angular/core';
-import {Word} from "@model";
+import {ChallengeState, Word} from "@model";
 import {BehaviorSubject} from "rxjs";
 import {arrRandomMultiple, shuffleArray} from "@helpers";
 import {VoiceWorkerService} from "../../core/voice/voice-worker.service";
 import {VoiceService} from "@core";
 
-export interface WordHistory extends Word {
-  answerCorrect: boolean,
-}
-
-export interface ChallengeState {
-  wordSequence: Word[];
-  history: WordHistory[];
-  currentSequenceStep: number;
-
-  currentWord: Word,
-  currentWordAnswers: Word[],
-  lastAnswerCorrect: boolean,
-  showAnswer: boolean,
-
-  challengeFinished: boolean,
-  challengeProgress: number,
-  correctAnswersCount: number,
-  correctAnswersRatio: number,
-}
-
 @Injectable()
 export class ChallengeService {
   private _updateTimeout: any;
+  private _timeoutValue!: number;
+  private _speakableProperty!: string;
 
   private _state$ = new BehaviorSubject<ChallengeState | null>(null);
   state$ = this._state$.asObservable();
-
-  private _timeoutValue!: number;
-  private _speakableProperty!: string;
 
   constructor(
       private _voiceService: VoiceService,
@@ -51,10 +30,9 @@ export class ChallengeService {
     const currentState = this._state$.value as ChallengeState;
     this._state$.next(this._firstUpdate(currentState, word_id));
 
-
     if (this._speakableProperty) {
-      //@ts-ignore
-      this._voiceService.speak(currentState.currentWord[this._speakableProperty] as string)
+      // @ts-ignore
+      this._voiceService.speak(currentState.currentWord[this._speakableProperty])
     }
 
     this._updateTimeout = setTimeout(() => {

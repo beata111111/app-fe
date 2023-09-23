@@ -1,9 +1,9 @@
 import {Component, EventEmitter, Input, OnDestroy, OnInit, Output, Self} from '@angular/core';
 import {VoiceService} from "@core";
-import {Word} from "@model";
-import {ChallengeService, ChallengeState} from "../challenge.service";
+import {ChallengeState, Word} from "@model";
+import {ChallengeService} from "../challenge.service";
 import {Observable, Subscription} from "rxjs";
-import {AbstractChallengeComponentDirective} from "../abstract/challenge-component.directive";
+import {AbstractChallengeComponent} from "../abstract/challenge-component.directive";
 
 @Component({
   selector: 'app-challenge-b-variant',
@@ -12,7 +12,7 @@ import {AbstractChallengeComponentDirective} from "../abstract/challenge-compone
   providers: [ChallengeService]
 })
 
-export class ChallengeBVariantComponent extends AbstractChallengeComponentDirective implements OnInit, OnDestroy {
+export class ChallengeBVariantComponent extends AbstractChallengeComponent implements OnInit, OnDestroy {
   @Input() challengeData!: Word[];
   @Output() submitResult = new EventEmitter();
 
