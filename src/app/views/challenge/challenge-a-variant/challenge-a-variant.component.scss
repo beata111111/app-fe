@@ -10,15 +10,11 @@
     flex-grow: 1;
   }
 
-  .bottom-container {
+  app-v-a-bottom-section {
     flex-basis: 200px;
     display: flex;
     padding: 0 20px;
     min-height: 150px;
-
-    button {
-      margin: 0;
-    }
   }
 }
 

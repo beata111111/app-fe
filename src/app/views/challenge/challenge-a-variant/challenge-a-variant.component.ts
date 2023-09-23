@@ -1,9 +1,7 @@
-import {Component, EventEmitter, Input, OnDestroy, OnInit, Output, Self} from '@angular/core';
+import {Component, OnDestroy, OnInit, Self} from '@angular/core';
 import {VoiceService} from "@core";
-import {ChallengeState, Word} from "@model";
 import {ChallengeService} from "../challenge.service";
-import {Observable, Subscription} from "rxjs";
-import {AbstractChallengeComponent} from "../abstract/challenge-component.directive";
+import {AbstractChallengeHistoryComponent} from "../abstract/challenge-history.directive";
 
 @Component({
   selector: 'app-challenge-a-variant',
@@ -12,53 +10,23 @@ import {AbstractChallengeComponent} from "../abstract/challenge-component.direct
   providers: [ChallengeService]
 })
 
-export class ChallengeAVariantComponent extends AbstractChallengeComponent implements OnInit, OnDestroy {
-  @Input() challengeData!: Word[];
-  @Output() submitResult = new EventEmitter();
+export class ChallengeAVariantComponent extends AbstractChallengeHistoryComponent implements OnInit, OnDestroy {
 
-  private _subscriptions = new Subscription();
-
-  challengeState$: Observable<ChallengeState | null>;
-
-  serviceData: any = {}
-
-  constructor(private _voiceService: VoiceService,
-              @Self() private _challengeService: ChallengeService) {
-    super()
-    this.challengeState$ = this._challengeService.state$;
+  constructor(protected override _voiceService: VoiceService,
+              @Self() protected override _challengeService: ChallengeService
+  ) {
+    super(_voiceService, _challengeService);
 
     this._subscriptions.add(
       this.challengeState$.subscribe(state => {
-        if (state) {
-          this.history = state.history;
-          if (!state.showAnswer) {
-            this.speak(state?.currentWord.nounPL as string)
-          }
-          if (state.challengeFinished) {
-            this.submitResult.emit(state.correctAnswersRatio)
-          }
+        if (state && !state.showAnswer) {
+          this.speak(state.currentWord.nounPL)
         }
       })
     )
   }
 
-  speak(word: string) {
-    this._voiceService.speak(word);
-  }
-
-  handleAnswer(word_id: string) {
-    this._challengeService.handleAnswer(word_id);
-  }
-
   ngOnInit() {
     this._challengeService.setChallengeData(this.challengeData, 1000, '');
-  }
-
-  nextWord() {
-    this._challengeService.nextWord();
-  }
-
-  ngOnDestroy() {
-    this._subscriptions.unsubscribe();
   }
 }

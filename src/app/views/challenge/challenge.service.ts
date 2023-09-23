@@ -2,8 +2,7 @@ import {Injectable} from '@angular/core';
 import {ChallengeState, Word} from "@model";
 import {BehaviorSubject} from "rxjs";
 import {arrRandomMultiple, shuffleArray} from "@helpers";
-import {VoiceWorkerService} from "../../core/voice/voice-worker.service";
-import {VoiceService} from "@core";
+import {VoiceService, VoiceWorkerService} from "@core";
 
 @Injectable()
 export class ChallengeService {

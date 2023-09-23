@@ -6,7 +6,7 @@
   </app-show-answer-overlay>
 
   <div class="middle-container">
-    <app-history-back-button *ngIf="history.length && historyCurrentStepIndex !== 0"
+    <app-history-back-button *ngIf="history.length && historyCurrentWordIndex !== 0"
                              (click)="backInHistory()">
     </app-history-back-button>
 
@@ -16,14 +16,13 @@
 
     <app-v-b-middle-section
             [showHistory]="showHistory"
-            [word]="showHistory ? historyCurrentStep : state.currentWord"
+            [word]="showHistory ? historyCurrentWord : state.currentWord"
             [showAnswer]="showHistory ? true : state.showAnswer"
-            [lastAnswerCorrect]="showHistory ? historyCurrentStep.answerCorrect : state.lastAnswerCorrect">
+            [lastAnswerCorrect]="showHistory ? historyCurrentWord.answerCorrect : state.lastAnswerCorrect">
     </app-v-b-middle-section>
   </div>
 
   <app-v-b-bottom-section
-          class="bottom-container"
           [class.hide]="showHistory"
           [currentWord]="state.currentWord"
           [roundWords]="state.currentWordAnswers"
