@@ -7,6 +7,7 @@ import {WordGapComponent} from "./word-gap/word-gap.component";
 import {CommonModule} from "@angular/common";
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 import {ButtonModule} from "@components";
+import {ChallengeProgressComponent} from "./challenge-progress/challenge-progress.component";
 
 const components = [
   GenderDotComponent,
@@ -14,6 +15,7 @@ const components = [
   HistoryForwardButtonComponent,
   ShowAnswerOverlayComponent,
   WordGapComponent,
+  ChallengeProgressComponent
 ];
 
 @NgModule({

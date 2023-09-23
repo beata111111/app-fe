@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-challenge-progress',
@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./challenge-progress.component.scss']
 })
 export class ChallengeProgressComponent {
+  stepCount = 10;
 
+  @Input() currentStep: number = 0;
 }

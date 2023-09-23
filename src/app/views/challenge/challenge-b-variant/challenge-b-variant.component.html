@@ -29,4 +29,7 @@
           (action)="handleAnswer($event)">
   </app-v-b-bottom-section>
 
+  <app-challenge-progress
+          [currentStep]="showHistory ? historyCurrentWordIndex + 1 : state.history.length + 1"
+  ></app-challenge-progress>
 </ng-container>

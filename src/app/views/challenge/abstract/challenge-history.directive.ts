@@ -8,7 +8,7 @@ import {VoiceService} from "@core";
 export abstract class AbstractChallengeHistoryComponent extends AbstractChallengeComponent {
   showHistory = false;
   history: WordHistory[] = [];
-  historyCurrentWordIndex: number | null = null;
+  historyCurrentWordIndex: number = 1000;
   historyCurrentWord!: WordHistory;
 
   constructor(
@@ -35,22 +35,26 @@ export abstract class AbstractChallengeHistoryComponent extends AbstractChalleng
 
   deactivateHistory(): void {
     this.showHistory = false;
-    this.historyCurrentWordIndex = null;
+    this.historyCurrentWordIndex = 1000;
   }
 
   backInHistory(): void {
     if (!this.showHistory) {
       this.activateHistory();
     } else {
-      const currentIndex = (this.historyCurrentWordIndex as number) - 1;
+      const currentIndex = this.historyCurrentWordIndex - 1;
       this.historyCurrentWordIndex = currentIndex;
       this.historyCurrentWord = this.history[currentIndex];
     }
   }
 
   forwardInHistory(): void {
-    const currentIndex = (this.historyCurrentWordIndex as number) + 1;
-    this.historyCurrentWordIndex = currentIndex;
-    this.historyCurrentWord = this.history[currentIndex];
+    const currentIndex = this.historyCurrentWordIndex + 1;
+    if (currentIndex >= this.history.length) {
+      this.deactivateHistory();
+    } else {
+      this.historyCurrentWordIndex = currentIndex;
+      this.historyCurrentWord = this.history[currentIndex];
+    }
   }
 }
