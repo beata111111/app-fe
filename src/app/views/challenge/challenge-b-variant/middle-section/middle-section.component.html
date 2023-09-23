@@ -3,8 +3,9 @@
 
     <div class="word-div">
       <h1 class="word-text" (click)="speak(word.nounPL)">
-        <app-word-gap [showAnswer]="showAnswer" [answer]="word.adj"></app-word-gap>
+        <app-word-gap *ngIf="word.adjPos === 0" [showAnswer]="showAnswer" [answer]="word.adj"></app-word-gap>
         {{word.nounPL}}
+        <app-word-gap *ngIf="word.adjPos === 1" [showAnswer]="showAnswer" [answer]="word.adj"></app-word-gap>
       </h1>
 
       <app-gender-dot [word]="word"></app-gender-dot>
@@ -13,7 +14,6 @@
     <h3 class="sent-translation">
       <span>{{word.adjDE}}</span>
     </h3>
-
 
     <div class="answer" [class.show]="showAnswer">
       <div class="answer-icon" *ngIf="lastAnswerCorrect">

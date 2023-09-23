@@ -8,6 +8,7 @@ export interface WordDTO {
   alt: string,
   adj: string,
   adjDE: string,
+  adjPos: number,
 }
 
 export interface Word {
@@ -21,4 +22,5 @@ export interface Word {
   isPlural: boolean,
   adj: string,
   adjDE: string,
+  adjPos: number,
 }

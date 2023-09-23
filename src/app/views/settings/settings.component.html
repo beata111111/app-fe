@@ -8,11 +8,11 @@
 </ng-template>
 
 <app-nav-container [navTemplate]="nav">
-  <div class="middle-container">
-  <!--  <app-menu-item (click)="activeSettingsView = setting.id"-->
-  <!--                 *ngFor="let setting of availableSettings">-->
-  <!--    {{ 'settingsMenu.' + setting.label | translate}}-->
-  <!--  </app-menu-item>-->
+  <div class="settings-content">
+    <!--  <app-menu-item (click)="activeSettingsView = setting.id"-->
+    <!--                 *ngFor="let setting of availableSettings">-->
+    <!--    {{ 'settingsMenu.' + setting.label | translate}}-->
+    <!--  </app-menu-item>-->
     <button [appButton]="'primary'" class="logout-button" (click)="logout()">{{ "auth.logout" | translate }}</button>
   </div>
 </app-nav-container>
