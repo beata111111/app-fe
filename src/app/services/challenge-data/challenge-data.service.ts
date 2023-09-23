@@ -17,19 +17,15 @@ export class ChallengeDataService {
 
   _normalizeWords(words: WordDTO[]): Word[] {
     return words.map((word) => {
-      const isPlural = !!word.plG.match('PL');
-
-      if (!isPlural) {
-        return {
-          ...word,
-          isPlural,
-        }
-      } else {
-        return {
-          ...word,
-          plG: word.plG.slice(3, 4),
-          isPlural,
-        }
+      const _isPlural = !!word.plG.match('PL');
+      const plG = _isPlural ? word.plG.slice(3, 4) : word.plG; // 'PL_M' -> 'M'
+      const _adjSpeakPL = word.adjPos === 0 ? `${word.adj} ${word.nounPL}` : `${word.nounPL} ${word.adj}`;
+      
+      return {
+        ...word,
+        _isPlural,
+        plG,
+        _adjSpeakPL
       }
     });
   }

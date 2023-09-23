@@ -3,6 +3,7 @@ import {Word} from "@model";
 import {BehaviorSubject} from "rxjs";
 import {arrRandomMultiple, shuffleArray} from "@helpers";
 import {VoiceWorkerService} from "../../core/voice/voice-worker.service";
+import {VoiceService} from "@core";
 
 export interface ChallengeState {
   wordSequence: Word[];
@@ -26,11 +27,18 @@ export class ChallengeService {
   private _state$ = new BehaviorSubject<ChallengeState | null>(null);
   state$ = this._state$.asObservable();
 
-  constructor(private _voiceWorkerService: VoiceWorkerService) {
+  private _timeoutValue!: number;
+  private _speakableProperty!: string;
+
+  constructor(
+      private _voiceService: VoiceService,
+      private _voiceWorkerService: VoiceWorkerService) {
   }
 
-  setChallengeData(data: Word[]) {
+  setChallengeData(data: Word[], timeoutValue: number, speakableProperty?: string) {
     this._state$.next(this._initializeServiceData(data));
+    this._timeoutValue = timeoutValue;
+    this._speakableProperty = speakableProperty || '';
     this._voiceWorkerService.prefetchWordsVoice(data);
   }
 
@@ -38,10 +46,16 @@ export class ChallengeService {
     const currentState = this._state$.value as ChallengeState;
     this._state$.next(this._firstUpdate(currentState, word_id));
 
+
+    if (this._speakableProperty) {
+      //@ts-ignore
+      this._voiceService.speak(currentState.currentWord[this._speakableProperty] as string)
+    }
+
     this._updateTimeout = setTimeout(() => {
       const currentState = this._state$.value as ChallengeState;
       this._state$.next(this._secondUpdate(currentState));
-    }, 1000);
+    }, this._timeoutValue);
   }
 
   nextWord() {

@@ -49,7 +49,7 @@ export class ChallengeBVariantComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this._challengeService.setChallengeData(this.challengeData);
+    this._challengeService.setChallengeData(this.challengeData, 3000, '_adjSpeakPL');
   }
 
   nextWord() {

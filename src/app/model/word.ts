@@ -19,8 +19,9 @@ export interface Word {
   nounDE: string,
   plG: string,
   alt: string,
-  isPlural: boolean,
   adj: string,
   adjDE: string,
   adjPos: number,
+  _isPlural: boolean,
+  _adjSpeakPL: string,
 }

@@ -52,7 +52,7 @@ export class ChallengeAVariantComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this._challengeService.setChallengeData(this.challengeData);
+    this._challengeService.setChallengeData(this.challengeData, 1000);
   }
 
   nextWord() {

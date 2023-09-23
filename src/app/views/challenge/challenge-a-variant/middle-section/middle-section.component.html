@@ -10,7 +10,7 @@
     </div>
 
     <div class="word-alt" (click)="speak(word.alt)">
-      <span *ngIf="word.alt" [class.plural]="word.isPlural">{{word.alt}}</span>
+      <span *ngIf="word.alt" [class.plural]="word._isPlural">{{word.alt}}</span>
     </div>
 
     <div class="answer" [class.show]="showAnswer">
