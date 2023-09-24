@@ -3,8 +3,10 @@
 </div>
 
 <div class="level-container">
-  <ng-container *ngFor="let level of category.levels">
-    <app-level-menu *ngIf="level.enabled" [level]="level" [category_id]="category.category_id"
-    ></app-level-menu>
-  </ng-container>
+  <app-level-menu-preview [levels]="category.levels"></app-level-menu-preview>
+
+<!--  <ng-container *ngFor="let level of category.levels">-->
+<!--    <app-level-menu *ngIf="level.enabled" [level]="level" [category_id]="category.category_id"-->
+<!--    ></app-level-menu>-->
+<!--  </ng-container>-->
 </div>
