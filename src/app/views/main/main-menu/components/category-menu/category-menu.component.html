@@ -1,12 +1,18 @@
-<div class="category-label">
+<div class="category-label" (click)="handleClick(category.category_id)">
   <span>{{ 'categories.' + category.category_id | translate }}</span>
+
+  <fa-icon [icon]="isExpanded ? faChevronUp : faChevronDown" size="lg" class="category-chevron-icon"></fa-icon>
 </div>
 
 <div class="level-container">
-  <app-level-menu-preview [levels]="category.levels"></app-level-menu-preview>
+  <ng-container *ngIf="isExpanded; else preview">
+    <ng-container *ngFor="let level of category.levels">
+      <app-level-menu *ngIf="level.enabled" [level]="level" [category_id]="category.category_id"
+      ></app-level-menu>
+    </ng-container>
+  </ng-container>
 
-<!--  <ng-container *ngFor="let level of category.levels">-->
-<!--    <app-level-menu *ngIf="level.enabled" [level]="level" [category_id]="category.category_id"-->
-<!--    ></app-level-menu>-->
-<!--  </ng-container>-->
+  <ng-template #preview>
+    <app-level-menu-preview [levels]="category.levels"></app-level-menu-preview>
+  </ng-template>
 </div>

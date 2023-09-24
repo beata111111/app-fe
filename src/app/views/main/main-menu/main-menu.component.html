@@ -1,4 +1,7 @@
 <app-category-menu *ngFor="let category of categoryStatus"
-                   [category]="category">
+                   [category]="category"
+                   [isExpanded]="category.category_id === expandedCategory"
+                   (toggleExpand)="toggleExpand($event)"
+>
 
 </app-category-menu>

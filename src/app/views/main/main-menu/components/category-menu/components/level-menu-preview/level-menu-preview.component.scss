@@ -13,12 +13,28 @@
   .brick-line {
     display: flex;
     width: 100%;
-    height: 8px;
-    padding: 0 10px;
+    height: 18px;
+    margin: 0 10px;
+    border-radius: 9px;
+    border: 3px solid black;
 
     .brick {
       height: 100%;
       flex: 1;
+
+      &:first-child {
+        border-radius: 9px;
+      }
+      &:nth-child(2) {
+        transform: scaleX(1.5);
+      }
+      &:nth-last-child(-n + 2) {
+        transform: scaleX(1.5);
+      }
+      &:last-child {
+        transform: none;
+        border-radius: 9px;
+      }
     }
   }
 }

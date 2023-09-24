@@ -40,6 +40,5 @@ export class LevelMenuPreviewComponent implements OnInit {
           return '#c8c8c8';
         }
       })
-    console.log(this.sortedResults);
   }
 }

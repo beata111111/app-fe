@@ -13,10 +13,9 @@ import {Router} from "@angular/router";
   styleUrls: ['./main.component.scss'],
 })
 export class MainComponent {
-
   faGear = faGear;
 
-  public categoryStatus$: Observable<CategoryStatus[]> = of([]);
+  public categoryStatus$: Observable<CategoryStatus[]>;
 
   constructor(
      private _authService: AuthService,

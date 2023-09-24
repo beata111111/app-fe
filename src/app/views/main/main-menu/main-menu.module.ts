@@ -6,6 +6,8 @@ import {CommonModule} from "@angular/common";
 import { VariantComponent } from './components/variant/variant.component';
 import {TranslateModule} from "@ngx-translate/core";
 import { LevelMenuPreviewComponent } from './components/category-menu/components/level-menu-preview/level-menu-preview.component';
+import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
+import {ButtonModule} from "@components";
 
 @NgModule({
   declarations: [
@@ -18,6 +20,8 @@ import { LevelMenuPreviewComponent } from './components/category-menu/components
   imports: [
     CommonModule,
     TranslateModule,
+    FontAwesomeModule,
+    ButtonModule,
   ],
   providers: [],
   exports: [MainMenuComponent],
