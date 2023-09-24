@@ -50,11 +50,11 @@ export class ChallengeComponent implements OnInit {
       return;
     }
     this._categoryStatusService.submitChallengeResult(this._category_id, this._level_id, this.variant_id, result);
-    this._router.navigate(['/main'])
+    this._router.navigate(['/main'], {queryParams: { expanded: this._category_id }})
   }
 
   back() {
-    this._router.navigate(['..'])
+    this._router.navigate(['/main'], {queryParams: { expanded: this._category_id }})
   }
 
   toggleSoundActive() {

@@ -1,21 +1,42 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {CategoryStatus} from "@model";
 import {faChevronUp, faChevronDown} from '@fortawesome/free-solid-svg-icons';
+import {ActivatedRoute, Router} from "@angular/router";
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-category-menu',
   templateUrl: './category-menu.component.html',
   styleUrls: ['./category-menu.component.scss']
 })
-export class CategoryMenuComponent {
+export class CategoryMenuComponent implements OnInit, OnDestroy {
   faChevronUp = faChevronUp;
   faChevronDown = faChevronDown;
 
   @Input() category!: CategoryStatus;
-  @Input() isExpanded = false;
-  @Output() toggleExpand = new EventEmitter<string>();
+
+  private _subscription = new Subscription();
+  isExpanded = false;
+
+  constructor(
+    private _router: Router,
+    private _activatedRoute: ActivatedRoute) {
+  }
+
+  ngOnInit() {
+    this._subscription.add(
+      this._activatedRoute.queryParams.subscribe(queryParams => {
+        this.isExpanded = queryParams['expanded'] === this.category.category_id;
+      })
+    );
+  }
 
   handleClick(category_id: string): void {
-    this.toggleExpand.emit(category_id);
+    const expanded = this.isExpanded ? null : category_id;
+    this._router.navigate(['/main'], { queryParams: { expanded } });
+  }
+
+  ngOnDestroy() {
+    this._subscription.unsubscribe();
   }
 }
