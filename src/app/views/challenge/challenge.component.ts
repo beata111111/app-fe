@@ -50,7 +50,18 @@ export class ChallengeComponent implements OnInit {
       return;
     }
     this._categoryStatusService.submitChallengeResult(this._category_id, this._level_id, this.variant_id, result);
-    this._router.navigate(['/main'], {queryParams: { expanded: this._category_id }})
+    const challengeResult = {
+      finishedCategory: this._category_id,
+      finishedLevel: this._level_id,
+      finishedVariant: this.variant_id,
+      finishedResult: result
+    };
+    const challengeResultJSON = JSON.stringify(challengeResult);
+    const queryParams = {
+      expanded: this._category_id,
+      challengeResult: challengeResultJSON,
+    };
+    this._router.navigate(['/main'], {queryParams})
   }
 
   back() {

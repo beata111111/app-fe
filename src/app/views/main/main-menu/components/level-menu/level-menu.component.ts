@@ -1,5 +1,5 @@
 import {AfterViewInit, Component, ElementRef, Input} from '@angular/core';
-import {LevelStatus} from "@model";
+import {ChallengeResult, LevelStatus} from "@model";
 
 @Component({
   selector: 'app-level-menu',
@@ -9,8 +9,9 @@ import {LevelStatus} from "@model";
 export class LevelMenuComponent implements AfterViewInit{
  @Input() level!: LevelStatus;
  @Input() category_id!: string;
+ @Input() challengeResult: ChallengeResult | null = null;
 
- constructor(private _elementRef: ElementRef) {
+  constructor(private _elementRef: ElementRef) {
  }
 
  ngAfterViewInit() {

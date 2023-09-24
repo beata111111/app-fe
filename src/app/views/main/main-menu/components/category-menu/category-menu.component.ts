@@ -1,8 +1,8 @@
 import {Component, Input, OnDestroy, OnInit} from '@angular/core';
-import {CategoryStatus} from "@model";
+import {CategoryStatus, ChallengeResult} from "@model";
 import {faChevronUp, faChevronDown} from '@fortawesome/free-solid-svg-icons';
 import {ActivatedRoute, Router} from "@angular/router";
-import {Subscription} from "rxjs";
+import {distinctUntilChanged, Subscription} from "rxjs";
 
 @Component({
   selector: 'app-category-menu',
@@ -18,6 +18,8 @@ export class CategoryMenuComponent implements OnInit, OnDestroy {
   private _subscription = new Subscription();
   isExpanded = false;
 
+  challengeResult: ChallengeResult | null = null;
+
   constructor(
     private _router: Router,
     private _activatedRoute: ActivatedRoute) {
@@ -27,6 +29,10 @@ export class CategoryMenuComponent implements OnInit, OnDestroy {
     this._subscription.add(
       this._activatedRoute.queryParams.subscribe(queryParams => {
         this.isExpanded = queryParams['expanded'] === this.category.category_id;
+
+        this.challengeResult = this.isExpanded && queryParams['challengeResult']
+          ? JSON.parse(queryParams['challengeResult'] || "{}")
+          : null;
       })
     );
   }

@@ -1,5 +1,5 @@
-import {Component, Input, OnChanges, SimpleChanges} from '@angular/core';
-import {VariantStatus} from "@model";
+import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {ChallengeResult, VariantStatus} from "@model";
 import {Router} from "@angular/router";
 
 @Component({
@@ -7,10 +7,11 @@ import {Router} from "@angular/router";
   templateUrl: './variant.component.html',
   styleUrls: ['./variant.component.scss']
 })
-export class VariantComponent implements OnChanges {
+export class VariantComponent implements OnInit, OnChanges {
   @Input() variant!: VariantStatus;
   @Input() category_id!: string;
   @Input() level_id!: string;
+  @Input() challengeResult: ChallengeResult | null = null;
 
   color100 = '#6fe594';
   color80 = '#aee58f';
@@ -21,8 +22,18 @@ export class VariantComponent implements OnChanges {
   colorDefault = '#c8c8c8'
 
   color: string = this.colorDefault;
+  isUpdated = false;
 
   constructor(private _router: Router) {
+  }
+
+  ngOnInit() {
+    if (!this.challengeResult) return;
+    const {finishedCategory, finishedLevel, finishedVariant, finishedResult} = this.challengeResult;
+
+    this.isUpdated = this.variant.variant_id === finishedVariant
+      && this.level_id === String(finishedLevel)
+      && this.category_id === finishedCategory;
   }
 
   navigateToChallenge(variant: string): void {

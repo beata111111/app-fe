@@ -19,3 +19,10 @@ export interface ChallengeState {
   correctAnswersCount: number,
   correctAnswersRatio: number,
 }
+
+export interface ChallengeResult {
+  finishedCategory: string;
+  finishedLevel: number;
+  finishedVariant: string;
+  finishedResult: number;
+}
