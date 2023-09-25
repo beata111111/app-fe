@@ -44,7 +44,7 @@ export class VariantComponent implements OnInit, OnChanges, OnDestroy {
     this._isUpdatedTimeout = setTimeout(() => {
       this._challengeLastResultService.deleteLastResult();
       this._checkIsUpdated(lastResult);
-    }, 500);
+    }, 800);
   }
 
   private _checkIsUpdated(challengeResult: ChallengeResult) {
