@@ -1,13 +1,14 @@
-import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges} from '@angular/core';
 import {ChallengeResult, VariantStatus} from "@model";
 import {Router} from "@angular/router";
+import {ChallengeLastResultService} from "@services";
 
 @Component({
   selector: 'app-variant',
   templateUrl: './variant.component.html',
   styleUrls: ['./variant.component.scss']
 })
-export class VariantComponent implements OnInit, OnChanges {
+export class VariantComponent implements OnInit, OnChanges, OnDestroy {
   @Input() variant!: VariantStatus;
   @Input() category_id!: string;
   @Input() level_id!: string;
@@ -22,18 +23,16 @@ export class VariantComponent implements OnInit, OnChanges {
   colorDefault = '#c8c8c8'
 
   color: string = this.colorDefault;
+
+  private _isUpdatedTimeout: any;
   isUpdated = false;
 
-  constructor(private _router: Router) {
+  constructor(private _router: Router,
+              private _challengeLastResultService: ChallengeLastResultService) {
   }
 
   ngOnInit() {
-    if (!this.challengeResult) return;
-    const {finishedCategory, finishedLevel, finishedVariant, finishedResult} = this.challengeResult;
-
-    this.isUpdated = this.variant.variant_id === finishedVariant
-      && this.level_id === String(finishedLevel)
-      && this.category_id === finishedCategory;
+    this._setIdUpdatedTimeout();
   }
 
   navigateToChallenge(variant: string): void {
@@ -59,5 +58,27 @@ export class VariantComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges) {
     const { enabled, result } = changes['variant'].currentValue;
     this.setButtonColor(enabled, result);
+  }
+
+  private _setIdUpdatedTimeout() {
+    const lastResult = this._challengeLastResultService.lastResult;
+    if (!lastResult || !this.variant.enabled) return;
+
+    this._isUpdatedTimeout = setTimeout(() => {
+      this._challengeLastResultService.deleteLastResult();
+      this._checkIsUpdated(lastResult);
+    }, 500);
+  }
+
+  private _checkIsUpdated(challengeResult: ChallengeResult) {
+    const { category_id, level_id, variant_id } = challengeResult;
+
+    this.isUpdated = this.category_id === category_id
+      && this.level_id === level_id
+      && this.variant.variant_id === variant_id
+  }
+
+  ngOnDestroy() {
+    clearTimeout(this._isUpdatedTimeout);
   }
 }

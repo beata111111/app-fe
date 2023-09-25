@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
-import {ChallengeDataService, CategoryStatusService} from "@services";
+import {ChallengeDataService, CategoryStatusService, ChallengeLastResultService} from "@services";
 import {Observable} from "rxjs";
 import {Word} from "@model";
 import {faArrowRightFromBracket, faBell, faBellSlash} from '@fortawesome/free-solid-svg-icons';
@@ -27,10 +27,11 @@ export class ChallengeComponent implements OnInit {
   constructor(private _activatedRoute: ActivatedRoute,
               private _challengeDataService: ChallengeDataService,
               private _categoryStatusService: CategoryStatusService,
+              private _challengeLastResultService: ChallengeLastResultService,
               private _voiceService: VoiceService,
               private _router: Router,
   ) {
-      this.isSoundActive$ = this._voiceService.isSoundActive$;
+    this.isSoundActive$ = this._voiceService.isSoundActive$;
   }
 
   ngOnInit() {
@@ -41,6 +42,7 @@ export class ChallengeComponent implements OnInit {
       this.variant_id = variant_id;
       this.challengeData$ = this._challengeDataService.getChallengeData(category_id, level_id);
     })
+    this._challengeLastResultService.deleteLastResult();
   }
 
   handleResult(resultValue: string) {
@@ -50,18 +52,20 @@ export class ChallengeComponent implements OnInit {
       return;
     }
     this._categoryStatusService.submitChallengeResult(this._category_id, this._level_id, this.variant_id, result);
+
     const challengeResult = {
-      finishedCategory: this._category_id,
-      finishedLevel: this._level_id,
-      finishedVariant: this.variant_id,
-      finishedResult: result
+      category_id: this._category_id,
+      level_id: this._level_id,
+      variant_id: this.variant_id,
+      result: result
     };
-    const challengeResultJSON = JSON.stringify(challengeResult);
+
+    this._challengeLastResultService.setLastResult(challengeResult);
     const queryParams = {
       expanded: this._category_id,
-      challengeResult: challengeResultJSON,
     };
-    this._router.navigate(['/main'], {queryParams})
+
+    this._router.navigate(['/main'], { queryParams })
   }
 
   back() {

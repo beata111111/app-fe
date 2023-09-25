@@ -21,8 +21,8 @@ export interface ChallengeState {
 }
 
 export interface ChallengeResult {
-  finishedCategory: string;
-  finishedLevel: number;
-  finishedVariant: string;
-  finishedResult: number;
+  category_id: string;
+  level_id: string;
+  variant_id: string;
+  result: number;
 }
