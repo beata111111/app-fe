@@ -1,6 +1,6 @@
 <ng-container>
   <button (click)="navigateToChallenge(variant.variant_id)"
-          [class.is-updating]="isUpdated"
+          [class.updated]="isUpdated"
           [style.background-color]="color"
           [disabled]="!variant.enabled" >
     <span *ngIf="variant.enabled">
