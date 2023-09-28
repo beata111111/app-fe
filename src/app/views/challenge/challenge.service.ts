@@ -101,8 +101,8 @@ export class ChallengeService {
   }
 
   private _generateAnswers(data: Word[], currentWord: Word): Word[] {
-    // return arrRandomMultiple(data, 4, currentWord);
-    return shuffleArray(arrRandomMultiple(data, 4, currentWord));
+    return arrRandomMultiple(data, 4, currentWord);
+    // return shuffleArray(arrRandomMultiple(data, 4, currentWord));
   }
 }
 

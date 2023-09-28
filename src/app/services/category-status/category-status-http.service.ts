@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Observable} from "rxjs";
-import {CategoryStatus} from "@model";
+import {CategoryStatus, ChallengeResult} from "@model";
 import {AppHttpService} from "../../core";
 
 @Injectable({ providedIn: 'root' })
@@ -13,9 +13,9 @@ export class CategoryStatusHttpService {
     return this._appHttpService.makeGETRequest<CategoryStatus[]>(url);
   };
 
-  updateCategoryStatus(category_id: string, level_id: string, variant_id: string, result: number): Observable<CategoryStatus> {
+  updateCategoryStatus(challengeResult: ChallengeResult): Observable<CategoryStatus> {
     const url = '/api/update-category-status';
-    const data = { category_id, level_id, variant_id, result };
+    const data = { ...challengeResult };
     return this._appHttpService.makePOSTRequest<CategoryStatus>(url, data);
   };
 }

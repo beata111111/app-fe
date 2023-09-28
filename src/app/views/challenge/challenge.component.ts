@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {ChallengeDataService, CategoryStatusService, ChallengeLastResultService} from "@services";
 import {Observable} from "rxjs";
-import {Word} from "@model";
+import {ChallengeResult, Word} from "@model";
 import {faArrowRightFromBracket, faBell, faBellSlash} from '@fortawesome/free-solid-svg-icons';
 import {VoiceService} from "@core";
 
@@ -51,21 +51,26 @@ export class ChallengeComponent implements OnInit {
       this.back();
       return;
     }
-    this._categoryStatusService.submitChallengeResult(this._category_id, this._level_id, this.variant_id, result);
 
-    const challengeResult = {
+    const challengeResult: ChallengeResult = {
       category_id: this._category_id,
       level_id: this._level_id,
       variant_id: this.variant_id,
       result: result
     };
 
+    this._categoryStatusService.submitChallengeResult(challengeResult);
     this._challengeLastResultService.setLastResult(challengeResult);
+
     const queryParams = {
       expanded: this._category_id,
     };
 
-    this._router.navigate(['/main'], { queryParams })
+    console.log('start timeout');
+    setTimeout(() => {
+      console.log('end timeout');
+      this._router.navigate(['/main'], { queryParams })
+    }, 2000);
   }
 
   back() {
