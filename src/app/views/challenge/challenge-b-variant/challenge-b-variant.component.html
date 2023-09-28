@@ -1,9 +1,9 @@
 <ng-container *ngIf="challengeState$ | async as state">
 
-<!--  <button *ngIf="history.length" (click)="activateHistory()">activate history</button>-->
+  <app-challenge-finished-overlay *ngIf="state.challengeFinished"
+                                  [result]="state.correctAnswersRatio"></app-challenge-finished-overlay>
 
-  <app-show-answer-overlay *ngIf="state.showAnswer" (click)="nextWord()">
-  </app-show-answer-overlay>
+  <app-show-answer-overlay *ngIf="state.showAnswer" (click)="nextWord()"></app-show-answer-overlay>
 
   <div class="middle-container">
     <app-history-back-button *ngIf="history.length && historyCurrentWordIndex !== 0"

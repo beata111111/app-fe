@@ -9,6 +9,8 @@ export abstract class AbstractChallengeComponent implements OnDestroy {
   @Input() challengeData!: Word[];
   @Output() submitResult = new EventEmitter();
 
+  showFinishOverlay = false;
+
   protected _subscriptions = new Subscription();
 
   challengeState$: Observable<ChallengeState | null>;
@@ -21,6 +23,7 @@ export abstract class AbstractChallengeComponent implements OnDestroy {
 
     this.challengeState$.subscribe(state => {
       if (state?.challengeFinished) {
+        this.showFinishOverlay = true;
         this.submitResult.emit(state.correctAnswersRatio);
       }
     })

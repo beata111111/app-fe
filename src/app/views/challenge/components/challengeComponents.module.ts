@@ -8,6 +8,7 @@ import {CommonModule} from "@angular/common";
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 import {ButtonModule} from "@components";
 import {ChallengeProgressComponent} from "./challenge-progress/challenge-progress.component";
+import {ChallengeFinishedOverlayComponent} from "./challenge-finished-overlay/challenge-finished-overlay.component";
 
 const components = [
   GenderDotComponent,
@@ -15,7 +16,8 @@ const components = [
   HistoryForwardButtonComponent,
   ShowAnswerOverlayComponent,
   WordGapComponent,
-  ChallengeProgressComponent
+  ChallengeProgressComponent,
+  ChallengeFinishedOverlayComponent,
 ];
 
 @NgModule({

@@ -1,5 +1,5 @@
 import {Injectable} from "@angular/core";
-import {BehaviorSubject, filter, Subscription} from "rxjs";
+import {BehaviorSubject, Subscription} from "rxjs";
 import {CategoryStatusHttpService} from "./category-status-http.service";
 import {CategoryStatus, ChallengeResult, VariantStatus} from "@model";
 import {CurrentUserService} from "@core";

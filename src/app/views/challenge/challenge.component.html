@@ -1,6 +1,5 @@
 <app-nav-container [navTemplate]="nav">
   <ng-container *ngIf="challengeData$ | async as challengeData">
-
     <app-challenge-a-variant *ngIf="variant_id === 'a'"
       [challengeData]="challengeData"
       (submitResult)="handleResult($event)"

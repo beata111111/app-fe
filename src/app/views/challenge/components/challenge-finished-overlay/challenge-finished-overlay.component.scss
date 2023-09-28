@@ -1,0 +1,21 @@
+:host {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 100;
+}
+
+.result {
+  font-size: 10rem;
+  position: absolute;
+  top: 50%;
+  text-align: center;
+  width: 100%;
+  animation: up forwards 1s ease-out;
+}
+
+@keyframes up {
+  100% {
+    top: 42%;
+  }
+}
