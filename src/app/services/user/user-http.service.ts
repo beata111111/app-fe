@@ -12,10 +12,4 @@ export class UserHttpService {
 
     return this._appHttpService.makeGETRequest<User>(url);
   };
-
-  loadUserData(): Observable<any> {
-    const url = '/api/get-user-data';
-
-    return this._appHttpService.makeGETRequest<User>(url);
-  };
 }

@@ -1,8 +1,9 @@
 import {Injectable} from "@angular/core";
 import {BehaviorSubject, Subscription} from "rxjs";
 import {CategoryStatusHttpService} from "./category-status-http.service";
-import {CategoryStatus, ChallengeResult, VariantStatus} from "@model";
+import {CategoryStatus, CategoryUpdate, ChallengeResult, VariantStatus} from "@model";
 import {CurrentUserService} from "@core";
+import {UserService} from "../user/user.service";
 
 @Injectable({ providedIn: 'root' })
 export class CategoryStatusService {
@@ -14,6 +15,7 @@ export class CategoryStatusService {
   constructor(
     private _categoryStatusHttpService: CategoryStatusHttpService,
     private _currentUserService: CurrentUserService,
+    private _userService: UserService,
   ) {
     this._currentUserService.currentUser$.subscribe(user => {
       if (user) {
@@ -37,11 +39,13 @@ export class CategoryStatusService {
     }
 
     this._categoryStatusHttpService.updateCategoryStatus(challengeResult)
-      .subscribe((categoryUpdate: CategoryStatus) => {
+      .subscribe((categoryUpdate: CategoryUpdate) => {
+
         const categories = this._categoryStatus$.value;
         const updated = categories.map((category) => {
-          return category.category_id === category_id ? categoryUpdate: category;
+          return category.category_id === category_id ? categoryUpdate.categoryUpdate: category;
         })
+        this._userService.updateUserPoint(categoryUpdate.userPointsUpdate);
         this._categoryStatus$.next(updated);
       })
   }

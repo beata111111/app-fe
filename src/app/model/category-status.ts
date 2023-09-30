@@ -1,3 +1,5 @@
+import {UserPointsUpdate} from "./user";
+
 export type VariantStatus = {
   variant_id: string,
   enabled: boolean,
@@ -13,4 +15,9 @@ export type LevelStatus = {
 export type CategoryStatus = {
   category_id: string,
   levels: LevelStatus[]
+}
+
+export type CategoryUpdate = {
+  categoryUpdate: CategoryStatus,
+  userPointsUpdate: UserPointsUpdate,
 }

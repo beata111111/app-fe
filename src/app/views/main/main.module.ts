@@ -6,9 +6,10 @@ import {ContainerModule, MenuItemModule, TopNavModule, AchievementRibbonModule} 
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 import {MainMenuModule} from "./main-menu/main-menu.module";
 import {ButtonModule, NavContainerModule} from "@components";
+import {DiamondCounterComponent} from "./diamond-counter/diamond-counter.component";
 
 @NgModule({
-  declarations: [MainComponent],
+  declarations: [MainComponent, DiamondCounterComponent],
   imports: [
     MainRoutingModule,
     CommonModule,

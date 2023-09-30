@@ -3,18 +3,16 @@
     <button [appButton]="'ghost'" class="btn-icon" (click)="navigateToSettings()">
       <fa-icon [icon]="faGear" size="xl"></fa-icon>
     </button>
-    <!--  <button [appButton]="'ghost'"  class="btn-icon" (click)="toggleDayNight()">-->
-    <!--    <fa-icon [icon]="faMoon" size="xl"></fa-icon>-->
-    <!--  </button>-->
 
-    <!--  <div class="gap"></div>-->
+    <div class="gap"></div>
+    <app-diamond-counter [data]="user$ | async"></app-diamond-counter>
   </app-top-nav>
 </ng-template>
 
-<app-nav-container [navTemplate]="nav">
-  <ng-container *ngIf="categoryStatus$ | async as categories">
-    <app-main-menu
-      [categoryStatus]="categories"
+<ng-container *ngIf="categoryStatus$ | async as categoryStatus">
+  <app-nav-container [navTemplate]="nav">
+    <app-main-menu [categoryStatus]="categoryStatus"
     ></app-main-menu>
-  </ng-container>
-</app-nav-container>
+  </app-nav-container>
+</ng-container>
+

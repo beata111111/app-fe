@@ -1,11 +1,10 @@
 import {Component} from '@angular/core';
-import {Observable, of} from "rxjs";
-import {CategoryStatus} from "@model";
+import {combineLatest, filter, map, Observable} from "rxjs";
+import {CategoryStatus, User} from "@model";
 import {AuthService} from "@core";
-import {CategoryStatusService} from "@services";
+import {CategoryStatusService, UserService} from "@services";
 import {faGear} from '@fortawesome/free-solid-svg-icons';
 import {Router} from "@angular/router";
-
 
 @Component({
   selector: 'app-main',
@@ -15,18 +14,17 @@ import {Router} from "@angular/router";
 export class MainComponent {
   faGear = faGear;
 
-  public categoryStatus$: Observable<CategoryStatus[]>;
+  categoryStatus$: Observable<CategoryStatus[]>;
+  user$: Observable<User | null>;
 
   constructor(
      private _authService: AuthService,
      private _categoryStatusService: CategoryStatusService,
+     private _userService: UserService,
      private _router: Router,
   ) {
     this.categoryStatus$ = this._categoryStatusService.categoryStatus$;
-
-    // this.categoryStatus$.subscribe((a) => {
-    //   console.log(a);
-    // })
+    this.user$ = this._userService.user$;
   }
 
   navigateToSettings():void {
