@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { TranslateService } from "@ngx-translate/core";
+import { getDate } from "@helpers";
 
 @Component({
   selector: 'app-root',

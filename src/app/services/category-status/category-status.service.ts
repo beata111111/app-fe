@@ -4,6 +4,7 @@ import {CategoryStatusHttpService} from "./category-status-http.service";
 import {CategoryStatus, CategoryUpdate, ChallengeResult, VariantStatus} from "@model";
 import {CurrentUserService} from "@core";
 import {UserService} from "../user/user.service";
+import {getDate} from "@helpers";
 
 @Injectable({ providedIn: 'root' })
 export class CategoryStatusService {
@@ -38,7 +39,12 @@ export class CategoryStatusService {
       return;
     }
 
-    this._categoryStatusHttpService.updateCategoryStatus(challengeResult)
+    const challengeResultWithDate = {
+      ...challengeResult,
+      date: getDate()
+    }
+
+    this._categoryStatusHttpService.updateCategoryStatus(challengeResultWithDate)
       .subscribe((categoryUpdate: CategoryUpdate) => {
 
         const categories = this._categoryStatus$.value;
