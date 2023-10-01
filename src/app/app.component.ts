@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { TranslateService } from "@ngx-translate/core";
-import { getDate } from "@helpers";
 
 @Component({
   selector: 'app-root',
@@ -14,7 +13,6 @@ export class AppComponent {
   ) {
     this.translateService.currentLang = '';
     this.translateService.use('de-DE');
-
 
     const documentHeight = () => {
       const doc = document.documentElement

@@ -1,15 +1,15 @@
 import {NgModule} from '@angular/core';
-import {CommonModule } from '@angular/common';
+import {CommonModule} from '@angular/common';
 import {MainComponent} from "./main.component";
 import {MainRoutingModule} from "./main-routing.module";
 import {ContainerModule, MenuItemModule, TopNavModule, AchievementRibbonModule} from "@components";
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 import {MainMenuModule} from "./main-menu/main-menu.module";
 import {ButtonModule, NavContainerModule} from "@components";
-import {DiamondCounterComponent} from "./diamond-counter/diamond-counter.component";
+import {DiamondCounterModule} from "./diamond-counter/diamond-counter.module";
 
 @NgModule({
-  declarations: [MainComponent, DiamondCounterComponent],
+  declarations: [MainComponent],
   imports: [
     MainRoutingModule,
     CommonModule,
@@ -21,6 +21,7 @@ import {DiamondCounterComponent} from "./diamond-counter/diamond-counter.compone
     MainMenuModule,
     ButtonModule,
     NavContainerModule,
+    DiamondCounterModule,
   ]
 })
 export class MainModule {}

@@ -26,7 +26,3 @@ export interface ChallengeResult {
   variant_id: string;
   result: number;
 }
-
-export interface ChallengeResultWithDate extends ChallengeResult {
-  date: number
-}
