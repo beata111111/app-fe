@@ -69,7 +69,9 @@ export class ChallengeService {
 
     const update = previousStepCount === cs.wordSequence.length - 1
     ? {
+      showAnswer: true,
       challengeFinished: true,
+      history: [],
       challengeProgress: 100,
     }
     : {
