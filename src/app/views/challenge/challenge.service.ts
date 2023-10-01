@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {ChallengeState, Word} from "@model";
-import {BehaviorSubject} from "rxjs";
+import {BehaviorSubject, Subscription} from "rxjs";
 import {arrRandomMultiple, shuffleArray} from "@helpers";
 import {VoiceService, VoiceWorkerService} from "@core";
 
@@ -9,6 +9,7 @@ export class ChallengeService {
   private _updateTimeout: any;
   private _timeoutValue!: number;
   private _speakableProperty!: string;
+  private _lastSubmittedId = '';
 
   private _state$ = new BehaviorSubject<ChallengeState | null>(null);
   state$ = this._state$.asObservable();
@@ -26,6 +27,11 @@ export class ChallengeService {
   }
 
   handleAnswer(word_id: string): void {
+    if (this._lastSubmittedId === word_id) {
+      return;
+    }
+    this._lastSubmittedId = word_id;
+
     const currentState = this._state$.value as ChallengeState;
     this._state$.next(this._firstUpdate(currentState, word_id));
 
@@ -103,8 +109,8 @@ export class ChallengeService {
   }
 
   private _generateAnswers(data: Word[], currentWord: Word): Word[] {
-    // return arrRandomMultiple(data, 4, currentWord);
-    return shuffleArray(arrRandomMultiple(data, 4, currentWord));
+    return arrRandomMultiple(data, 4, currentWord);
+    // return shuffleArray(arrRandomMultiple(data, 4, currentWord));
   }
 }
 

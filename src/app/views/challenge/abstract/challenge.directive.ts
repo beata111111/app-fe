@@ -14,6 +14,7 @@ export abstract class AbstractChallengeComponent implements OnDestroy {
   protected _subscriptions = new Subscription();
 
   challengeState$: Observable<ChallengeState | null>;
+  _challengeSubscription: Subscription;
 
   constructor(
     protected _voiceService: VoiceService,
@@ -21,8 +22,9 @@ export abstract class AbstractChallengeComponent implements OnDestroy {
   ) {
     this.challengeState$ = this._challengeService.state$;
 
-    this.challengeState$.subscribe(state => {
+    this._challengeSubscription = this.challengeState$.subscribe(state => {
       if (state?.challengeFinished) {
+        this._challengeSubscription.unsubscribe();
         this.showFinishOverlay = true;
         this.submitResult.emit(state.correctAnswersRatio);
       }
