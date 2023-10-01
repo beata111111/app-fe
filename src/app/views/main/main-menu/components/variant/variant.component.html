@@ -1,5 +1,7 @@
 <ng-container>
+  <div class="button-back-side"><span>bla</span></div>
   <button (click)="navigateToChallenge(variant.variant_id)"
+          [class.rotate]="variant.enabled"
           [class.updated]="isUpdated"
           [style.background-color]="color"
           [disabled]="!variant.enabled" >

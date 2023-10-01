@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {ChallengeState, Word} from "@model";
-import {BehaviorSubject, Subscription} from "rxjs";
+import {BehaviorSubject} from "rxjs";
 import {arrRandomMultiple, shuffleArray} from "@helpers";
 import {VoiceService, VoiceWorkerService} from "@core";
 
