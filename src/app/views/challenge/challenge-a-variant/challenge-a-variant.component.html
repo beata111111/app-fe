@@ -1,10 +1,8 @@
 <ng-container *ngIf="challengeState$ | async as state">
 
-  <app-challenge-finished-overlay *ngIf="state.challengeFinished"
-                                  [result]="state.correctAnswersRatio"></app-challenge-finished-overlay>
+  <app-challenge-finished-overlay *ngIf="state.challengeFinished" [result]="state.correctAnswersRatio"></app-challenge-finished-overlay>
 
-  <app-show-answer-overlay *ngIf="state.showAnswer" (click)="nextWord()">
-  </app-show-answer-overlay>
+  <app-show-answer-overlay *ngIf="state.showAnswer" (click)="nextWord()"></app-show-answer-overlay>
 
 
   <div class="middle-container">
@@ -31,7 +29,5 @@
     (action)="handleAnswer($event)">
   </app-v-a-bottom-section>
 
-  <app-challenge-progress
-          [currentStep]="showHistory ? historyCurrentWordIndex + 1 : state.history.length + 1"
-  ></app-challenge-progress>
+  <app-challenge-progress [currentStep]="showHistory ? historyCurrentWordIndex + 1 : state.history.length + 1"></app-challenge-progress>
 </ng-container>

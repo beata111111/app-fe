@@ -27,6 +27,9 @@ button.btn.sm {
 .btn-icon {
   display: inline-block;
   width: 48px;
+  &:hover {
+    background-color: unset !important;
+  }
 }
 
 .btn.btn-primary {
@@ -47,11 +50,13 @@ button.btn.sm {
     &:hover {
       color: var(--theme-color-21);
       background-color: var(--theme-color-5);
+      outline: none !important;
     }
   }
   &.active {
+    outline: none !important;
+    -webkit-tap-highlight-color: transparent;
     color: var(--theme-color-20);
-    -webkit-tap-highlight-color: var(--theme-color-7);
     background-color: var(--theme-color-7);
   }
 }

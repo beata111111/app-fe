@@ -15,15 +15,10 @@
       }
 
       button {
-        //background-color: cornflowerblue;
         display: inline-block !important;
         width: 48px;
         height: 48px;
         padding: 0;
-
-        &:hover {
-          background-color: unset !important;
-        }
 
         * {
           color: black;

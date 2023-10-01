@@ -2,4 +2,9 @@
   position: absolute;
   top: 40%;
   right: 0;
+  margin-right: 4px;
+
+  ::ng-deep svg {
+    transform: scaleY(0.7);
+  }
 }

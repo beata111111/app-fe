@@ -1,6 +1,9 @@
 :host {
-  height: 46px;
-  text-align: center;
+  height: 60px;
+  max-height: 6.5vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   span {
     font-size: 12px;
