@@ -1,8 +1,9 @@
-import {Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges} from '@angular/core';
+import {Component, HostBinding, Input, OnChanges, OnDestroy, OnInit, SimpleChanges} from '@angular/core';
 import {ChallengeResult, VariantStatus} from "@model";
 import {Router} from "@angular/router";
 import {ChallengeLastResultService} from "@services";
 import {getStatusColor} from "@helpers";
+import {faGem} from '@fortawesome/free-regular-svg-icons';
 
 @Component({
   selector: 'app-variant',
@@ -10,6 +11,7 @@ import {getStatusColor} from "@helpers";
   styleUrls: ['./variant.component.scss']
 })
 export class VariantComponent implements OnInit, OnChanges, OnDestroy {
+  faGem = faGem;
   @Input() variant!: VariantStatus;
   @Input() category_id!: string;
   @Input() level_id!: string;
@@ -19,12 +21,15 @@ export class VariantComponent implements OnInit, OnChanges, OnDestroy {
 
   private _isUpdatedTimeout: any;
   isUpdated = false;
+  resultDelta = 0;
 
   constructor(private _router: Router,
               private _challengeLastResultService: ChallengeLastResultService) {
   }
 
   ngOnInit() {
+    this.resultDelta = this.variant.result - this.variant.previousResult;
+    console.log(this.variant);
     this._setIdUpdatedTimeout();
   }
 
@@ -57,5 +62,12 @@ export class VariantComponent implements OnInit, OnChanges, OnDestroy {
 
   ngOnDestroy() {
     clearTimeout(this._isUpdatedTimeout);
+  }
+
+  @HostBinding('class.is-updating') get isUpdating() {
+    return this.isUpdated;
+  }
+  @HostBinding('class.is-updating-new') get isUpdatingNew() {
+    return this.isUpdated && this.resultDelta;
   }
 }

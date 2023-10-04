@@ -1,12 +1,11 @@
-<ng-container>
-  <div class="button-back-side"><span>bla</span></div>
-  <button (click)="navigateToChallenge(variant.variant_id)"
-          [class.rotate]="variant.enabled"
-          [class.updated]="isUpdated"
-          [style.background-color]="color"
-          [disabled]="!variant.enabled" >
-    <span *ngIf="variant.enabled">
-      {{variant.result}}
-    </span>
-  </button>
-</ng-container>
+<div class="button-back-side">
+    <span>{{resultDelta}} <fa-icon [icon]="faGem" size="1x"></fa-icon></span>
+</div>
+<button (click)="navigateToChallenge(variant.variant_id)"
+        [style.background-color]="color"
+        [class.updated]="true"
+        [disabled]="!variant.enabled" >
+  <span *ngIf="variant.enabled">
+   {{variant.result}}
+  </span>
+</button>
