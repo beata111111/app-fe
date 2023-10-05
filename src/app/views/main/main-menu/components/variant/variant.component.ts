@@ -1,9 +1,11 @@
-import {Component, HostBinding, Input, OnChanges, OnDestroy, OnInit, SimpleChanges} from '@angular/core';
+import {Component, HostBinding, Input, OnDestroy, OnInit} from '@angular/core';
 import {ChallengeResult, VariantStatus} from "@model";
 import {Router} from "@angular/router";
 import {ChallengeLastResultService} from "@services";
 import {getStatusColor} from "@helpers";
 import {faGem} from '@fortawesome/free-regular-svg-icons';
+import {faLock} from '@fortawesome/free-solid-svg-icons';
+import {BehaviorSubject, map, Observable} from "rxjs";
 
 @Component({
   selector: 'app-variant',
@@ -12,6 +14,7 @@ import {faGem} from '@fortawesome/free-regular-svg-icons';
 })
 export class VariantComponent implements OnInit, OnDestroy {
   faGem = faGem;
+  faLock = faLock;
   @Input() variant!: VariantStatus;
   @Input() category_id!: string;
   @Input() level_id!: string;
@@ -19,13 +22,17 @@ export class VariantComponent implements OnInit, OnDestroy {
 
   private _animationTimeout: any;
 
-  color: string = '';
-  displayedResult = 0;
+  color$: Observable<string>;
+  displayedResult$ = new BehaviorSubject<number>(0);
   hasNewResult = false;
   resultDelta = 0;
 
   constructor(private _router: Router,
               private _challengeLastResultService: ChallengeLastResultService) {
+
+    this.color$ = this.displayedResult$.pipe(
+      map(result => getStatusColor(this.variant.enabled, result))
+    );
   }
 
   ngOnInit() {
@@ -34,16 +41,13 @@ export class VariantComponent implements OnInit, OnDestroy {
 
     if (newResult && newResult === this.variant.result && newResult > this.variant.previousResult) {
       this.resultDelta = this.variant.result - this.variant.previousResult;
-      this.displayedResult = this.variant.previousResult;
-      this.color = getStatusColor(true, this.displayedResult);
+      this.displayedResult$.next(this.variant.previousResult);
 
       this._animationTimeout = setTimeout(() => {
-        this.displayedResult = this.variant.result;
-        this.color = getStatusColor(true, this.displayedResult);
+        this.displayedResult$.next(this.variant.result);
       }, 1500);
     } else {
-      this.displayedResult = this.variant.result;
-      this.color = getStatusColor(true, this.displayedResult);
+      this.displayedResult$.next(this.variant.result);
     }
   }
 

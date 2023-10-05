@@ -1,11 +1,15 @@
 <button class="variant-button"
         (click)="navigateToChallenge(variant.variant_id)"
-        [style.background-color]="color"
+        [style.background-color]="color$ | async"
         [class.updated]="true"
-        [disabled]="!variant.enabled" >
+        [disabled]="!variant.enabled">
   <span *ngIf="variant.enabled">
-   {{displayedResult}}
+    {{displayedResult$ | async}}
   </span>
+  <span *ngIf="!variant.enabled">
+    <fa-icon [icon]="faLock" size="1x"></fa-icon>
+  </span>
+
 </button>
 <div class="variant-back-side">
     <span>{{resultDelta}} <fa-icon [icon]="faGem" size="1x"></fa-icon></span>
