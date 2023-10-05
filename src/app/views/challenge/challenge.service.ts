@@ -9,6 +9,7 @@ export class ChallengeService {
   private _updateTimeout: any;
   private _timeoutValue!: number;
   private _speakableProperty!: string;
+
   private _lastSubmittedId = '';
 
   private _state$ = new BehaviorSubject<ChallengeState | null>(null);
@@ -27,12 +28,12 @@ export class ChallengeService {
   }
 
   handleAnswer(word_id: string): void {
-    if (this._lastSubmittedId === word_id) {
-      return;
-    }
-    this._lastSubmittedId = word_id;
-
     const currentState = this._state$.value as ChallengeState;
+    const currentWordId = currentState.currentWord.word_id;
+
+    if (this._lastSubmittedId === currentWordId) return;
+    this._lastSubmittedId = currentWordId;
+
     this._state$.next(this._firstUpdate(currentState, word_id));
 
     if (this._speakableProperty) {
@@ -64,6 +65,7 @@ export class ChallengeService {
   }
 
   private _secondUpdate(cs: ChallengeState): ChallengeState {
+    if (cs.challengeFinished) return cs;
     const previousStepCount = cs.currentSequenceStep;
     const nextStepCount = cs.currentSequenceStep + 1;
     const correctAnswersCount = cs.lastAnswerCorrect ? cs.correctAnswersCount + 1 : cs.correctAnswersCount;
