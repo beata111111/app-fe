@@ -42,7 +42,6 @@ export class ChallengeComponent implements OnInit {
       this.variant_id = variant_id;
       this.challengeData$ = this._challengeDataService.getChallengeData(category_id, level_id);
     })
-    this._challengeLastResultService.deleteLastResult();
   }
 
   handleResult(resultValue: string) {

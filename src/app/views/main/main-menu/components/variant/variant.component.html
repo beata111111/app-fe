@@ -1,11 +1,12 @@
-<div class="button-back-side">
-    <span>{{resultDelta}} <fa-icon [icon]="faGem" size="1x"></fa-icon></span>
-</div>
-<button (click)="navigateToChallenge(variant.variant_id)"
+<button class="variant-button"
+        (click)="navigateToChallenge(variant.variant_id)"
         [style.background-color]="color"
         [class.updated]="true"
         [disabled]="!variant.enabled" >
   <span *ngIf="variant.enabled">
-   {{variant.result}}
+   {{displayedResult}}
   </span>
 </button>
+<div class="variant-back-side">
+    <span>{{resultDelta}} <fa-icon [icon]="faGem" size="1x"></fa-icon></span>
+</div>

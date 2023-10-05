@@ -10,17 +10,18 @@ import {faGem} from '@fortawesome/free-regular-svg-icons';
   templateUrl: './variant.component.html',
   styleUrls: ['./variant.component.scss']
 })
-export class VariantComponent implements OnInit, OnChanges, OnDestroy {
+export class VariantComponent implements OnInit, OnDestroy {
   faGem = faGem;
   @Input() variant!: VariantStatus;
   @Input() category_id!: string;
   @Input() level_id!: string;
   @Input() challengeResult: ChallengeResult | null = null;
 
-  color: string = '';
+  private _animationTimeout: any;
 
-  private _isUpdatedTimeout: any;
-  isUpdated = false;
+  color: string = '';
+  displayedResult = 0;
+  hasNewResult = false;
   resultDelta = 0;
 
   constructor(private _router: Router,
@@ -28,46 +29,36 @@ export class VariantComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   ngOnInit() {
-    this.resultDelta = this.variant.result - this.variant.previousResult;
-    console.log(this.variant);
-    this._setIdUpdatedTimeout();
+    const newResult = this._challengeLastResultService.getLastResult(this.category_id, this.level_id, this.variant.variant_id);
+    this.hasNewResult = !!newResult;
+
+    if (newResult && newResult === this.variant.result && newResult > this.variant.previousResult) {
+      this.resultDelta = this.variant.result - this.variant.previousResult;
+      this.displayedResult = this.variant.previousResult;
+      this.color = getStatusColor(true, this.displayedResult);
+
+      this._animationTimeout = setTimeout(() => {
+        this.displayedResult = this.variant.result;
+        this.color = getStatusColor(true, this.displayedResult);
+      }, 1500);
+    } else {
+      this.displayedResult = this.variant.result;
+      this.color = getStatusColor(true, this.displayedResult);
+    }
   }
 
   navigateToChallenge(variant: string): void {
     this._router.navigate(['/challenge', this.category_id, this.level_id, variant]);
   }
 
-  ngOnChanges(changes: SimpleChanges) {
-    const { enabled, result } = changes['variant'].currentValue;
-    this.color = getStatusColor(enabled, result);
-  }
-
-  private _setIdUpdatedTimeout() {
-    const lastResult = this._challengeLastResultService.lastResult;
-    if (!lastResult || !this.variant.enabled) return;
-
-    this._isUpdatedTimeout = setTimeout(() => {
-      this._challengeLastResultService.deleteLastResult();
-      this._checkIsUpdated(lastResult);
-    }, 800);
-  }
-
-  private _checkIsUpdated(challengeResult: ChallengeResult) {
-    const { category_id, level_id, variant_id } = challengeResult;
-
-    this.isUpdated = this.category_id === category_id
-      && this.level_id === level_id
-      && this.variant.variant_id === variant_id
-  }
-
   ngOnDestroy() {
-    clearTimeout(this._isUpdatedTimeout);
+    clearTimeout(this._animationTimeout);
   }
 
-  @HostBinding('class.is-updating') get isUpdating() {
-    return this.isUpdated;
+  @HostBinding('class.has-new-result') get isUpdating() {
+    return this.hasNewResult;
   }
-  @HostBinding('class.is-updating-new') get isUpdatingNew() {
-    return this.isUpdated && this.resultDelta;
+  @HostBinding('class.has-new-highest-result') get isUpdatingNew() {
+    return this.hasNewResult && this.resultDelta;
   }
 }
