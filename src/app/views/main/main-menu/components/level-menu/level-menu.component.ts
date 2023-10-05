@@ -14,6 +14,8 @@ export class LevelMenuComponent implements AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this._elementRef.nativeElement.scrollIntoView({ behavior: "smooth", block: "center" });
+    if (this.level.level_id === '1') {
+      this._elementRef.nativeElement.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
   }
 }
