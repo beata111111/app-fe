@@ -1,6 +1,7 @@
-import {Component, Input, OnDestroy, OnInit} from '@angular/core';
+import {Component, Host, HostBinding, Input, OnDestroy, OnInit} from '@angular/core';
 import {CategoryStatus} from "@model";
-import {faChevronUp, faChevronDown} from '@fortawesome/free-solid-svg-icons';
+import {faChevronUp, faChevronDown, faUmbrellaBeach, faTree, faHorse} from '@fortawesome/free-solid-svg-icons';
+import * as solid from '@fortawesome/free-solid-svg-icons';
 import {ActivatedRoute, Router} from "@angular/router";
 import {Subscription} from "rxjs";
 
@@ -12,6 +13,10 @@ import {Subscription} from "rxjs";
 export class CategoryMenuComponent implements OnInit, OnDestroy {
   faChevronUp = faChevronUp;
   faChevronDown = faChevronDown;
+  faUmbrellaBeach = faUmbrellaBeach;
+  faHorse = faHorse;
+  faTree = faTree;
+  solid = solid
 
   @Input() category!: CategoryStatus;
 
@@ -38,5 +43,9 @@ export class CategoryMenuComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this._subscription.unsubscribe();
+  }
+
+  @HostBinding('class.expanded') get isExt() {
+    return this.isExpanded;
   }
 }
