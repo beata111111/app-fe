@@ -1,14 +1,12 @@
 import { Injectable } from '@angular/core';
-import {BehaviorSubject, Subject} from 'rxjs';
-import { debounceTime, throttleTime } from 'rxjs/operators';
-
-const DEBOUNCE_SPEAK = 300;
-const THROTTLE_SPEAK = 300;
+import {BehaviorSubject} from 'rxjs';
 
 declare global {
   interface Window {
     responsiveVoice: {
       speak: (text: string, setting?: string, config?: any) => {};
+      cancel: () => {}
+      isPlaying: () => {}
     };
   }
 }
@@ -20,37 +18,27 @@ export class VoiceService {
   private _isSoundActive$ = new BehaviorSubject<boolean>(false);
   isSoundActive$ = this._isSoundActive$.asObservable();
 
-  debouncedSubject = new Subject<string>();
-  throttledSubject = new Subject<string>();
-
   constructor() {
     this._checkStoredValue();
-
-    this.debouncedSubject
-      .pipe(debounceTime(DEBOUNCE_SPEAK))
-      .subscribe((text) => {
-        this.execute(text);
-      });
-
-    this.throttledSubject
-      .pipe(throttleTime(THROTTLE_SPEAK))
-      .subscribe((text) => {
-        this.execute(text);
-      });
   }
 
   speak(text: string): void {
-    this.throttledSubject.next(text);
+    if (text && this._isSoundActive$.value) {
+      window.responsiveVoice.speak(text, 'Polish Male', { onstart: this._onStart, onend: this._onEnd });
+    }
   }
 
-  speakDebounced(text: string): void {
-    this.debouncedSubject.next(text);
+  _onStart(): void {
+    return;
   }
 
-  execute(text: string): void {
-    if (!text) return;
-    if (this._isSoundActive$.value) {
-      window.responsiveVoice.speak(text, 'Polish Male');
+  _onEnd(): void {
+    return;
+  }
+
+  cancelSpeech(): void {
+    if (!window.responsiveVoice.isPlaying()) {
+      window.responsiveVoice.cancel();
     }
   }
 

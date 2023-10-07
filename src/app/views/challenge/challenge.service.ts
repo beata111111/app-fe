@@ -24,7 +24,7 @@ export class ChallengeService {
     this._state$.next(this._initializeServiceData(data));
     this._timeoutValue = timeoutValue;
     this._speakableProperty = speakableProperty || '';
-    this._voiceWorkerService.prefetchWordsVoice(data);
+    // this._voiceWorkerService.prefetchWordsVoice(data);
   }
 
   handleAnswer(word_id: string): void {
@@ -51,6 +51,7 @@ export class ChallengeService {
     clearTimeout(this._updateTimeout);
     const currentState = this._state$.value as ChallengeState;
     this._state$.next(this._secondUpdate(currentState));
+    this._voiceService.cancelSpeech();
   }
 
   private _firstUpdate(currentState: ChallengeState, word_id: string): ChallengeState {
@@ -111,8 +112,8 @@ export class ChallengeService {
   }
 
   private _generateAnswers(data: Word[], currentWord: Word): Word[] {
-    // return arrRandomMultiple(data, 4, currentWord);
-    return shuffleArray(arrRandomMultiple(data, 4, currentWord));
+    return arrRandomMultiple(data, 4, currentWord);
+    // return shuffleArray(arrRandomMultiple(data, 4, currentWord));
   }
 }
 
