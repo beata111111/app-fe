@@ -10,7 +10,6 @@ export class ChallengeCVariantBottomSectionComponent {
   roundShowWords!: { answer: string, word_id: string }[];
 
   @Input() set roundWords (words: Word[]) {
-    console.log(this.gapNumber);
     this.roundShowWords = words.map(word => {
       return {
         word_id: word.word_id,

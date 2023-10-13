@@ -24,7 +24,6 @@ export class ChallengeService {
     this._state$.next(this._initializeServiceData(data));
     this._timeoutValue = timeoutValue;
     this._speakableProperty = speakableProperty ?? '';
-    this._voiceWorkerService.prefetchWordsVoice(data);
   }
 
   handleAnswer(word_id: string): void {

@@ -12,13 +12,14 @@ export class VoiceWorkerService {
   constructor() {
   }
 
-  private _generateUrl (text: string) {
+  private _generateUrl(text: string) {
+    console.log('prefetching: ', text);
     const URIEncoded = encodeURI(text);
     return `${this._url_template1}${URIEncoded}${this._url_template2}`;
   }
 
-  prefetchWordsVoice (words: Word[]) {
-    const urls = words.map(word => this._generateUrl(word.nounPL));
+  prefetchWordsVoice(words: Word[], property: keyof Word) {
+    const urls = words.map(word => this._generateUrl(String(word[property])));
 
     this._broadcastChannel.postMessage({
       type: 'PREFETCH_VOICE',

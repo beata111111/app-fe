@@ -1,5 +1,5 @@
 import {Component, OnDestroy, OnInit, Self} from '@angular/core';
-import {VoiceService} from "@core";
+import {VoiceService, VoiceWorkerService} from "@core";
 import {ChallengeService} from "../challenge.service";
 import {AbstractChallengeHistoryComponent} from "../abstract/challenge-history.directive";
 
@@ -13,7 +13,8 @@ import {AbstractChallengeHistoryComponent} from "../abstract/challenge-history.d
 export class ChallengeAVariantComponent extends AbstractChallengeHistoryComponent implements OnInit, OnDestroy {
 
   constructor(protected override _voiceService: VoiceService,
-              @Self() protected override _challengeService: ChallengeService
+              @Self() protected override _challengeService: ChallengeService,
+              private _voiceWorkerService: VoiceWorkerService,
   ) {
     super(_voiceService, _challengeService);
 
@@ -28,5 +29,6 @@ export class ChallengeAVariantComponent extends AbstractChallengeHistoryComponen
 
   ngOnInit() {
     this._challengeService.setChallengeData(this.challengeData, 1000);
+    this._voiceWorkerService.prefetchWordsVoice(this.challengeData, 'nounPL');
   }
 }
