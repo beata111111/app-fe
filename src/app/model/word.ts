@@ -9,6 +9,12 @@ export interface WordDTO {
   adj: string,
   adjDE: string,
   adjPos: number,
+  variant_c_pl: string,
+  variant_c_de: string,
+  variant_d_pl: string,
+  variant_d_de: string,
+  variant_e_pl: string,
+  variant_e_de: string,
 }
 
 export interface Word {
@@ -24,4 +30,10 @@ export interface Word {
   adjPos: number,
   _isPlural: boolean,
   _adjSpeakPL: string,
+  variant_c_pl: string,
+  variant_c_de: string,
+  variant_d_pl: string,
+  variant_d_de: string,
+  variant_e_pl: string,
+  variant_e_de: string,
 }

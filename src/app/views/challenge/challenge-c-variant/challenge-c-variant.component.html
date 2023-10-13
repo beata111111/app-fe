@@ -9,6 +9,8 @@
     <app-history-forward-button *ngIf="showHistory" (click)="forwardInHistory()"></app-history-forward-button>
 
     <app-v-c-middle-section
+            [variant]="variant"
+            [gapNumber]="state.gapNumber"
             [showHistory]="showHistory"
             [word]="showHistory ? historyCurrentWord : state.currentWord"
             [showAnswer]="showHistory ? true : state.showAnswer"
@@ -17,7 +19,9 @@
   </div>
 
   <app-v-c-bottom-section
+          [variant]="variant"
           [class.hide]="showHistory"
+          [gapNumber]="state.gapNumber"
           [roundWords]="state.currentWordAnswers"
           (action)="handleAnswer($event)">
   </app-v-c-bottom-section>

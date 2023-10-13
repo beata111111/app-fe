@@ -11,6 +11,7 @@ export interface ChallengeState {
 
   currentWord: Word,
   currentWordAnswers: Word[],
+  gapNumber: number,
   lastAnswerCorrect: boolean,
   showAnswer: boolean,
 

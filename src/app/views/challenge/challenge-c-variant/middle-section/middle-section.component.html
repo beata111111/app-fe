@@ -1,18 +1,16 @@
-<ng-container *ngIf="word">
+<ng-container>
   <div class="current-word-container">
 
     <div class="word-div">
       <h1 class="word-text" (click)="speak()">
-        <app-word-gap *ngIf="word.adjPos === 0" [showAnswer]="showAnswer" [answer]="word.adj"></app-word-gap>
-        {{word.nounPL}}
-        <app-word-gap *ngIf="word.adjPos === 1" [showAnswer]="showAnswer" [answer]="word.adj"></app-word-gap>
+        <span (click)="speak(showWord.wordFirstPart)"> {{showWord.wordFirstPart}} </span>
+        <app-word-gap [showAnswer]="showAnswer" [answer]="showWord.gapWord"></app-word-gap>
+        <span (click)="speak(showWord.wordSecondPart)"> {{showWord.wordSecondPart}} </span>
       </h1>
-
-      <app-gender-dot [word]="word"></app-gender-dot>
     </div>
 
     <h3>
-      <span>{{word.adjDE}}</span>
+      <span>{{showWord.wordDe}}</span>
     </h3>
 
     <div class="answer" [class.show]="showAnswer">

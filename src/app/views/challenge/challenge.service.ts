@@ -87,6 +87,7 @@ export class ChallengeService {
       history: [...cs.history, { ...cs.currentWord, answerCorrect: cs.lastAnswerCorrect}],
       currentWord: cs.wordSequence[nextStepCount],
       currentWordAnswers: this._generateAnswers(cs.wordSequence, cs.wordSequence[nextStepCount]),
+      gapNumber: Math.floor(Math.random() * 10),
       challengeProgress: previousStepCount / cs.wordSequence.length * 100
     }
 
@@ -101,6 +102,7 @@ export class ChallengeService {
       currentSequenceStep: 0,
       currentWord: wordSequence[0],
       currentWordAnswers: this._generateAnswers(data, wordSequence[0]),
+      gapNumber: Math.floor(Math.random() * 10),
       lastAnswerCorrect: false,
       showAnswer: false,
       challengeFinished: false,

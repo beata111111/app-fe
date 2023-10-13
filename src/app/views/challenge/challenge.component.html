@@ -10,9 +10,11 @@
       (submitResult)="handleResult($event)"
     ></app-challenge-b-variant>
 
-    <app-challenge-c-variant *ngIf="variant_id === 'c'"
-                             [challengeData]="challengeData"
-                             (submitResult)="handleResult($event)"
+    <app-challenge-c-variant
+            *ngIf="variant_id === 'c' || variant_id === 'd' || variant_id === 'e'"
+            [variant]="variant_id"
+            [challengeData]="challengeData"
+            (submitResult)="handleResult($event)"
     ></app-challenge-c-variant>
   </ng-container>
 </app-nav-container>

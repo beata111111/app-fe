@@ -7,10 +7,29 @@ import {Word} from "@model";
   styleUrls: ['./bottom-section.component.scss']
 })
 export class ChallengeCVariantBottomSectionComponent {
-  @Input() roundWords!: Word[];
+  roundShowWords!: { answer: string, word_id: string }[];
+
+  @Input() set roundWords (words: Word[]) {
+    console.log(this.gapNumber);
+    this.roundShowWords = words.map(word => {
+      return {
+        word_id: word.word_id,
+        answer: this._generateAnswer(word, this.gapNumber)
+      }
+    })
+  };
+
+  @Input() variant: 'c' | 'd' | 'e' = 'c';
+  @Input() gapNumber!: number;
   @Output() action = new EventEmitter<any>();
 
   handleWordAction(word_id: string): void {
     this.action.emit(word_id);
+  }
+
+  private _generateAnswer(word: Word, gapNumber: number): string {
+    const words = word[`variant_${this.variant}_pl`].split(" ");
+    const n = gapNumber % words.length;
+    return words[n];
   }
 }
