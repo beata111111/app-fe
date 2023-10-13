@@ -7,6 +7,7 @@
   <div class="middle-container">
     <app-history-back-button *ngIf="history.length && historyCurrentWordIndex !== 0"
                              (click)="backInHistory()">
+
     </app-history-back-button>
 
     <app-history-forward-button *ngIf="showHistory"
@@ -23,7 +24,6 @@
 
   <app-v-a-bottom-section
     [class.hide]="showHistory"
-    [currentWord]="state.currentWord"
     [roundWords]="state.currentWordAnswers"
     (action)="handleAnswer($event)">
   </app-v-a-bottom-section>

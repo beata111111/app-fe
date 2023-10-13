@@ -2,11 +2,11 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Word} from "@model";
 
 @Component({
-  selector: 'app-v-a-bottom-section',
+  selector: 'app-v-c-bottom-section',
   templateUrl: './bottom-section.component.html',
   styleUrls: ['./bottom-section.component.scss']
 })
-export class ChallengeAVariantBottomSectionComponent {
+export class ChallengeCVariantBottomSectionComponent {
   @Input() roundWords!: Word[];
   @Output() action = new EventEmitter<any>();
 

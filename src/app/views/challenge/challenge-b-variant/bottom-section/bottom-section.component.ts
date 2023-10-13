@@ -7,9 +7,7 @@ import {Word} from "@model";
   styleUrls: ['./bottom-section.component.scss']
 })
 export class ChallengeBVariantBottomSectionComponent {
-  @Input() currentWord!: Word;
   @Input() roundWords!: Word[];
-
   @Output() action = new EventEmitter<any>();
 
   handleWordAction(word_id: string): void {

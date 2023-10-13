@@ -8,19 +8,19 @@
 
     <app-history-forward-button *ngIf="showHistory" (click)="forwardInHistory()"></app-history-forward-button>
 
-    <app-v-b-middle-section
+    <app-v-c-middle-section
             [showHistory]="showHistory"
             [word]="showHistory ? historyCurrentWord : state.currentWord"
             [showAnswer]="showHistory ? true : state.showAnswer"
             [lastAnswerCorrect]="showHistory ? historyCurrentWord.answerCorrect : state.lastAnswerCorrect">
-    </app-v-b-middle-section>
+    </app-v-c-middle-section>
   </div>
 
-  <app-v-b-bottom-section
+  <app-v-c-bottom-section
           [class.hide]="showHistory"
           [roundWords]="state.currentWordAnswers"
           (action)="handleAnswer($event)">
-  </app-v-b-bottom-section>
+  </app-v-c-bottom-section>
 
   <app-challenge-progress
           [currentStep]="showHistory ? historyCurrentWordIndex + 1 : state.currentSequenceStep + 1"
