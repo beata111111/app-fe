@@ -27,6 +27,6 @@ export class ChallengeAVariantComponent extends AbstractChallengeHistoryComponen
   }
 
   ngOnInit() {
-    this._challengeService.setChallengeData(this.challengeData, 1000, '');
+    this._challengeService.setChallengeData(this.challengeData, 1000);
   }
 }

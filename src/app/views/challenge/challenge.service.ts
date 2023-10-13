@@ -8,7 +8,7 @@ import {VoiceService, VoiceWorkerService} from "@core";
 export class ChallengeService {
   private _updateTimeout: any;
   private _timeoutValue!: number;
-  private _speakableProperty!: string;
+  private _speakableProperty!: keyof Word | '';
 
   private _lastSubmittedId = '';
 
@@ -20,11 +20,11 @@ export class ChallengeService {
       private _voiceWorkerService: VoiceWorkerService) {
   }
 
-  setChallengeData(data: Word[], timeoutValue: number, speakableProperty?: string) {
+  setChallengeData(data: Word[], timeoutValue: number, speakableProperty?: keyof Word) {
     this._state$.next(this._initializeServiceData(data));
     this._timeoutValue = timeoutValue;
-    this._speakableProperty = speakableProperty || '';
-    // this._voiceWorkerService.prefetchWordsVoice(data);
+    this._speakableProperty = speakableProperty ?? '';
+    this._voiceWorkerService.prefetchWordsVoice(data);
   }
 
   handleAnswer(word_id: string): void {
@@ -37,8 +37,7 @@ export class ChallengeService {
     this._state$.next(this._firstUpdate(currentState, word_id));
 
     if (this._speakableProperty) {
-      // @ts-ignore
-      this._voiceService.speak(currentState.currentWord[this._speakableProperty])
+      this._voiceService.speak(String(currentState.currentWord[this._speakableProperty]))
     }
 
     this._updateTimeout = setTimeout(() => {
