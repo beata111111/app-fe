@@ -13,7 +13,7 @@ export class VoiceWorkerService {
   }
 
   private _generateUrl(text: string) {
-    console.log('prefetching: ', text);
+    // console.log('prefetching: ', text);
     const URIEncoded = encodeURI(text);
     return `${this._url_template1}${URIEncoded}${this._url_template2}`;
   }
