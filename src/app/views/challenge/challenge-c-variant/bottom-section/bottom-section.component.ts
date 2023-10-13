@@ -30,6 +30,6 @@ export class ChallengeCVariantBottomSectionComponent {
   private _generateAnswer(word: Word, gapNumber: number): string {
     const words = word[`variant_${this.variant}_pl`].split(" ");
     const n = gapNumber % words.length;
-    return words[n];
+    return words[n].toLowerCase().replace('.', '');
   }
 }
