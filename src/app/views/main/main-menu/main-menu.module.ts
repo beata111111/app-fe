@@ -8,6 +8,7 @@ import {TranslateModule} from "@ngx-translate/core";
 import { LevelMenuPreviewComponent } from './components/category-menu/components/level-menu-preview/level-menu-preview.component';
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 import {ButtonModule} from "@components";
+import {ShineAnimationModule} from "../../../components/shine-animation/shine-animation.module";
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import {ButtonModule} from "@components";
     TranslateModule,
     FontAwesomeModule,
     ButtonModule,
+    ShineAnimationModule,
   ],
   providers: [],
   exports: [MainMenuComponent],

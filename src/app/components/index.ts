@@ -5,3 +5,4 @@ export * from './container/container.module';
 export * from './top-nav/top-nav.module';
 export * from './popup/popup.module';
 export * from './menu-item/menu-item.module';
+export * from './shine-animation/shine-animation.module';

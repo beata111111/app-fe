@@ -1,0 +1,24 @@
+:host {
+  display: block;
+  position: absolute;
+  height: 140%;
+  width: 50%;
+  top: 0;
+  left: 0;
+  opacity: 0.3;
+  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 20%, rgba(255,255,255,1) 60%, rgba(255,255,255,0) 100%);
+  transform: rotate(-40deg) translate(-140%, 0px);
+  animation: 10s shineAnimation none infinite ease-out;
+}
+
+@keyframes shineAnimation {
+  10% {
+    transform: rotate(-40deg) translate(-140%, 0px);
+  }
+  14% {
+    transform: rotate(-40deg) translate(280%, 0px);
+  }
+  100% {
+    transform: rotate(-40deg) translate(280%, 0px);
+  }
+}
