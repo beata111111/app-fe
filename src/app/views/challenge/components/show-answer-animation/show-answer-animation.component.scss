@@ -1,0 +1,38 @@
+:host {
+  position: relative;
+  min-height: 40px;
+
+  .answer-icon {
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    top: 30%;
+
+    .ng-fa-icon {
+      ::ng-deep svg {
+        height: 50px;
+        max-height: 10vh;
+      }
+      color: #6fe594;
+    }
+  }
+
+  &.show {
+    .answer-icon {
+      opacity: 1;
+      animation: up 0.8s forwards ease-out;
+    }
+  }
+  &.history {
+    .answer-icon {
+      opacity: 1;
+      top: 10%;
+    }
+  }
+}
+
+@keyframes up {
+  100% {
+    top: 10%;
+  }
+}

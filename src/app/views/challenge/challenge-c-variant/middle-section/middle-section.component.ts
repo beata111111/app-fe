@@ -1,6 +1,5 @@
 import {Component, Input} from '@angular/core';
 import {VoiceService} from "@core";
-import {faCheck, faCircle} from '@fortawesome/free-solid-svg-icons';
 import {Word} from "@model";
 
 @Component({
@@ -9,9 +8,6 @@ import {Word} from "@model";
   styleUrls: ['./middle-section.component.scss']
 })
 export class ChallengeCVariantMiddleSectionComponent {
-  faCheck = faCheck;
-  faCircle = faCircle;
-
   showWord!: {
     wholeWord: string,
     wordFirstPart: string,

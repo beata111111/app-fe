@@ -9,12 +9,14 @@ import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 import {ButtonModule} from "@components";
 import {ChallengeProgressComponent} from "./challenge-progress/challenge-progress.component";
 import {ChallengeFinishedOverlayComponent} from "./challenge-finished-overlay/challenge-finished-overlay.component";
+import {ShowAnswerAnimationComponent} from "./show-answer-animation/show-answer-animation.component";
 
 const components = [
   GenderDotComponent,
   HistoryBackButtonComponent,
   HistoryForwardButtonComponent,
   ShowAnswerOverlayComponent,
+  ShowAnswerAnimationComponent,
   WordGapComponent,
   ChallengeProgressComponent,
   ChallengeFinishedOverlayComponent,

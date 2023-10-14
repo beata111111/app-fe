@@ -18,6 +18,7 @@ import {ChallengeComponentsModule} from "@challengeComponents";
     FontAwesomeModule,
     ButtonModule,
     ChallengeComponentsModule,
+    ChallengeComponentsModule,
   ],
   exports: [
     ChallengeCVariantComponent,

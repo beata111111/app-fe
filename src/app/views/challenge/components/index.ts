@@ -1,1 +1,1 @@
-export * from './challengeComponents.module';
+export * from './challenge-components.module';

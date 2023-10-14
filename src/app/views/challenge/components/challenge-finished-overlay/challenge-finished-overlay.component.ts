@@ -13,6 +13,6 @@ export class ChallengeFinishedOverlayComponent implements OnInit {
 
   ngOnInit() {
     const result = this.result;
-    this.color = getStatusColor(true, result);
+    this.color = getStatusColor(result);
   }
 }

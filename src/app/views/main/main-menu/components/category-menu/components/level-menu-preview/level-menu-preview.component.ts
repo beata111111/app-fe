@@ -19,7 +19,7 @@ export class LevelMenuPreviewComponent implements OnInit {
       .map(v => v.result)
       .sort((a,b) => b - a)
       .map(result => {
-        return getStatusColor(true, result);
+        return getStatusColor(result);
       })
   }
 }

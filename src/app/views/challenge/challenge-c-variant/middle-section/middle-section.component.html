@@ -6,12 +6,11 @@
   </h2>
 </div>
 
-<h4 class="translation">
-  {{showWord.wordDe}}
-</h4>
-
-<div class="answer" [class.show]="showAnswer">
-  <div class="answer-icon" *ngIf="lastAnswerCorrect">
-    <fa-icon [size]="'5x'" class="success-icon" [icon]="faCheck"></fa-icon>
-  </div>
+<div class="translation">
+  <h4>{{showWord.wordDe}}</h4>
+  <app-show-answer-animation
+          [showAnswer]="showAnswer"
+          [answerCorrect]="lastAnswerCorrect"
+          [showHistory]="showHistory"
+  ></app-show-answer-animation>
 </div>

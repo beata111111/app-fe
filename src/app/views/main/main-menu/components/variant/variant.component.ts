@@ -31,7 +31,7 @@ export class VariantComponent implements OnInit, OnDestroy {
               private _challengeLastResultService: ChallengeLastResultService) {
 
     this.color$ = this.displayedResult$.pipe(
-      map(result => getStatusColor(this.variant.enabled, result))
+      map(result => getStatusColor(result, this.variant.enabled))
     );
   }
 

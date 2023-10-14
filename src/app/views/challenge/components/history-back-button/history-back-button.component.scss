@@ -1,6 +1,6 @@
 :host {
   position: absolute;
-  top: 40%;
+  top: calc(50% - 34px);
   margin-left: 4px;
 
   ::ng-deep svg {

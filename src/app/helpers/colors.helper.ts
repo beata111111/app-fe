@@ -1,4 +1,4 @@
-export function getStatusColor(enabled: boolean, result: number): string {
+export function getStatusColor(result: number, enabled: boolean = true): string {
   let color = '#d8d8d8';
   if (!enabled) {
     color = 'white';
