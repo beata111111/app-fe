@@ -1,98 +1,64 @@
 :host {
   display: flex;
+  flex-direction: column;
   height: 100%;
-  width: 100%;
-  justify-content: center;
+  width: 80%;
+  margin: auto;
 
-  .current-word-container {
-    align-self: center;
+  .word-div {
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-basis: 50%;
+    flex-shrink: 0;
+    justify-content: center;
+    align-items: end;
     text-align: center;
-    width: 80%;
 
-    .word-div {
+    .word-text {
       position: relative;
-      display: inline-block;
-
-      .word-text {
-        position: relative;
-        margin-bottom: 4px;
-      }
+      margin-bottom: 8px;
     }
+  }
 
-    .word-alt {
-      width: 100%;
-      padding-top: 2px;
-      height: 22px;
+  .word-alt {
+    width: 100%;
+    padding-top: 2px;
+    height: 22px;
+    text-align: center;
 
-      span {
-        color: #7d7d7d !important;
-        position: relative;
+    span {
+      color: #7d7d7d !important;
+      position: relative;
 
+      &:before {
+        content: 'pl. ';
+        font-size: 15px;
+      }
+
+      &.plural {
         &:before {
-          content: 'pl. ';
-          font-size: 15px;
-        }
-
-        &.plural {
-          &:before {
-            content: 'sing. ';
-          }
-        }
-      }
-    }
-
-    .answer {
-      opacity: 0;
-      color: var(--primary-color);
-      height: 65px;
-
-      .answer-text {
-        margin-top: 0;
-        padding-top: 16px;
-        height: 35px;
-      }
-
-      .answer-icon {
-        height: 30px;
-        ::ng-deep {
-          .ng-fa-icon {
-            color: var(--action-success-color);
-          }
-          svg {
-            transform: translateY(34px);
-            @media (max-height: 500px) {
-              transform: translateY(16px);
-            }
-          }
-        }
-      }
-
-      &.show {
-        opacity: 1;
-
-        .answer-icon {
-          ::ng-deep {
-            svg {
-              animation: up 0.8s forwards ease-out;
-              @media (max-height: 500px) {
-                animation: upMobileHorizontal 0.8s forwards ease-out;
-              }
-            }
-          }
+          content: 'sing. ';
         }
       }
     }
   }
-}
 
-@keyframes up {
-  100% {
-    transform: translateY(16px);
-  }
-}
+  .translation {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+    height: 100%;
 
-@keyframes upMobileHorizontal {
-  100% {
-    transform: translateY(6px);
+    h4 {
+      margin-top: 12px;
+      margin-bottom: 8px;
+    }
+
+    app-show-answer-animation {
+      width: 100%;
+      flex-grow: 1;
+    }
   }
 }

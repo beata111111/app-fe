@@ -6,7 +6,7 @@
     opacity: 0;
     position: absolute;
     width: 100%;
-    top: 30%;
+    top: 20%;
 
     .ng-fa-icon {
       ::ng-deep svg {
@@ -20,7 +20,7 @@
   &.show {
     .answer-icon {
       opacity: 1;
-      animation: up 0.8s forwards ease-out;
+      animation: up 0.5s forwards ease-out;
     }
   }
   &.history {

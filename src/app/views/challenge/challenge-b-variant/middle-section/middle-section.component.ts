@@ -22,11 +22,11 @@ export class ChallengeBVariantMiddleSectionComponent {
   @Input() showAnswer = false;
   @Input() lastAnswerCorrect = false;
 
-  speak() {
-    if (this.showHistory) {
+  speak(text?: string) {
+    if (text && !this.showHistory) {
+      this._voiceService.speak(text);
+    } else if (this.showHistory) {
       this._voiceService.speak(this.word._adjSpeakPL);
-    } else {
-      this._voiceService.speak(this.word.nounPL);
     }
   }
 }
