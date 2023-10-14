@@ -1,23 +1,21 @@
-<ng-container>
-  <div class="current-word-container">
+<div class="current-word-container">
 
-    <div class="word-div">
-      <h1 class="word-text" (click)="speak()">
-        <span (click)="speak(showWord.wordFirstPart)"> {{showWord.wordFirstPart}} </span>
-        <app-word-gap [showAnswer]="showAnswer" [answer]="showWord.gapWord"></app-word-gap>
-        <span (click)="speak(showWord.wordSecondPart)"> {{showWord.wordSecondPart}} </span>
-      </h1>
-    </div>
-
-    <h3>
-      <span>{{showWord.wordDe}}</span>
-    </h3>
-
-    <div class="answer" [class.show]="showAnswer">
-      <div class="answer-icon" *ngIf="lastAnswerCorrect">
-        <fa-icon [size]="'5x'" class="success-icon" [icon]="faCheck"></fa-icon>
-      </div>
-    </div>
-
+  <div class="word-div">
+    <h2 class="word-text" (click)="speak()">
+      <span (click)="speak(showWord.wordFirstPart)"> {{showWord.wordFirstPart}} </span>
+      <app-word-gap [showAnswer]="showAnswer" [answer]="showWord.gapWord"></app-word-gap>
+      <span (click)="speak(showWord.wordSecondPart)"> {{showWord.wordSecondPart}} </span>
+    </h2>
   </div>
-</ng-container>
+
+  <h4 class="translation">
+    {{showWord.wordDe}}
+  </h4>
+
+  <div class="answer" [class.show]="showAnswer">
+    <div class="answer-icon" *ngIf="lastAnswerCorrect">
+      <fa-icon [size]="'5x'" class="success-icon" [icon]="faCheck"></fa-icon>
+    </div>
+  </div>
+
+</div>

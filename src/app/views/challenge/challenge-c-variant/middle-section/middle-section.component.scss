@@ -5,18 +5,30 @@
   justify-content: center;
 
   .current-word-container {
-    align-self: center;
+
+    background-color: lightgrey;
+    //align-self: center;
     text-align: center;
     width: 80%;
 
     .word-div {
+      height: 50%;
+      background-color: lightgoldenrodyellow;
       position: relative;
-      display: inline-block;
+      display: flex;
+      justify-content: center;
+      align-items: end;
 
       .word-text {
         position: relative;
-        margin-bottom: 4px;
+        margin-bottom: 8px;
+        background-color: red;
+        height: min-content;
       }
+    }
+
+    .translation {
+      margin-top: 8px;
     }
 
     .answer {
