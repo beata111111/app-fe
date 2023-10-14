@@ -21,9 +21,9 @@ export class VoiceWorkerService {
   prefetchWordsVoice(words: Word[], property: keyof Word) {
     const urls = words.map(word => this._generateUrl(String(word[property])));
 
-    this._broadcastChannel.postMessage({
-      type: 'PREFETCH_VOICE',
-      urls
-    });
+    // this._broadcastChannel.postMessage({
+    //   type: 'PREFETCH_VOICE',
+    //   urls
+    // });
   }
 }
