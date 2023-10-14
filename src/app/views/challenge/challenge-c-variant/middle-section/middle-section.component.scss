@@ -1,64 +1,63 @@
 :host {
   display: flex;
+  flex-direction: column;
   height: 100%;
-  width: 100%;
-  justify-content: center;
+  width: 80%;
+  margin: auto;
+  background-color: lightcyan;
 
-  .current-word-container {
-
-    background-color: lightgrey;
-    //align-self: center;
+  .word-div {
+    width: 100%;
+    background-color: lightgoldenrodyellow;
+    position: relative;
+    display: flex;
+    flex-basis: 50%;
+    flex-shrink: 0;
+    justify-content: center;
+    align-items: end;
     text-align: center;
-    width: 80%;
 
-    .word-div {
-      height: 50%;
-      background-color: lightgoldenrodyellow;
+    .word-text {
       position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: end;
-
-      .word-text {
-        position: relative;
-        margin-bottom: 8px;
-        background-color: red;
-        height: min-content;
-      }
+      margin-bottom: 8px;
+      background-color: red;
+      height: min-content;
     }
+  }
 
-    .translation {
-      margin-top: 8px;
-    }
+  .translation {
+    text-align: center;
+    width: 100%;
+    margin-top: 8px;
+  }
 
-    .answer {
-      opacity: 0;
+  .answer {
+    opacity: 0;
 
-      .answer-icon {
-        height: 30px;
-        ::ng-deep {
-          .ng-fa-icon {
-            color: var(--action-success-color);
-          }
-          svg {
-            transform: translateY(34px);
-            @media (max-height: 500px) {
-              transform: translateY(16px);
-            }
+    .answer-icon {
+      height: 30px;
+      ::ng-deep {
+        .ng-fa-icon {
+          color: var(--action-success-color);
+        }
+        svg {
+          transform: translateY(34px);
+          @media (max-height: 500px) {
+            transform: translateY(16px);
           }
         }
       }
+    }
 
-      &.show {
-        opacity: 1;
+    &.show {
+      opacity: 1;
 
-        .answer-icon {
-          ::ng-deep {
-            svg {
-              animation: up 0.8s forwards ease-out;
-              @media (max-height: 500px) {
-                animation: upMobileHorizontal 0.8s forwards ease-out;
-              }
+      .answer-icon {
+        ::ng-deep {
+          svg {
+            animation: up 0.8s forwards ease-out;
+            @media (max-height: 500px) {
+              animation: upMobileHorizontal 0.8s forwards ease-out;
             }
           }
         }

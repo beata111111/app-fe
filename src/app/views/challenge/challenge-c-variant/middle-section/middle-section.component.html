@@ -1,21 +1,17 @@
-<div class="current-word-container">
+<div class="word-div">
+  <h2 class="word-text" (click)="speak()">
+    <span (click)="speak(showWord.wordFirstPart)"> {{showWord.wordFirstPart}} </span>
+    <app-word-gap [showAnswer]="showAnswer" [answer]="showWord.gapWord"></app-word-gap>
+    <span (click)="speak(showWord.wordSecondPart)"> {{showWord.wordSecondPart}} </span>
+  </h2>
+</div>
 
-  <div class="word-div">
-    <h2 class="word-text" (click)="speak()">
-      <span (click)="speak(showWord.wordFirstPart)"> {{showWord.wordFirstPart}} </span>
-      <app-word-gap [showAnswer]="showAnswer" [answer]="showWord.gapWord"></app-word-gap>
-      <span (click)="speak(showWord.wordSecondPart)"> {{showWord.wordSecondPart}} </span>
-    </h2>
+<h4 class="translation">
+  {{showWord.wordDe}}
+</h4>
+
+<div class="answer" [class.show]="showAnswer">
+  <div class="answer-icon" *ngIf="lastAnswerCorrect">
+    <fa-icon [size]="'5x'" class="success-icon" [icon]="faCheck"></fa-icon>
   </div>
-
-  <h4 class="translation">
-    {{showWord.wordDe}}
-  </h4>
-
-  <div class="answer" [class.show]="showAnswer">
-    <div class="answer-icon" *ngIf="lastAnswerCorrect">
-      <fa-icon [size]="'5x'" class="success-icon" [icon]="faCheck"></fa-icon>
-    </div>
-  </div>
-
 </div>
