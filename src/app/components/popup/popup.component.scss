@@ -1,34 +1,34 @@
-:host {
-  z-index: 100;
-  position: absolute;
-  left: 0;
-  border-radius: 8px;
-  height: 120px;
-  margin: 15px;
-  width: calc(100% - 30px);
-  top: 45%;
-  animation: show 3s forwards ease-out;
-  display: flex;
-  align-items: center;
-  padding-left: 20px;
-  padding-right: 20px;
-
-  .close-icon {
-    position: absolute;
-    right: 10px;
-    top: 10px;
-  }
-
-  &.popup-color-theme {
-    ::ng-deep {
-      .text {
-        color: white;
-      }
-    }
-
-    background-color: var(--bg-basic-color-4);
-    .close-icon {
-      color: var(--theme-color-17);
-    }
-  }
-}
+//:host {
+//  z-index: 100;
+//  position: absolute;
+//  left: 0;
+//  border-radius: 8px;
+//  height: 120px;
+//  margin: 15px;
+//  width: calc(100% - 30px);
+//  top: 45%;
+//  animation: show 3s forwards ease-out;
+//  display: flex;
+//  align-items: center;
+//  padding-left: 20px;
+//  padding-right: 20px;
+//
+//  .close-icon {
+//    position: absolute;
+//    right: 10px;
+//    top: 10px;
+//  }
+//
+//  &.popup-color-theme {
+//    ::ng-deep {
+//      .text {
+//        color: white;
+//      }
+//    }
+//
+//    background-color: var(--bg-basic-color-4);
+//    .close-icon {
+//      color: var(--theme-color-17);
+//    }
+//  }
+//}

@@ -1,7 +1,7 @@
 <div class="category-label" (click)="handleClick(category.category_id)">
-  <ng-container *ngTemplateOutlet="template"></ng-container>
+  <fa-icon [icon]="getCategoryIcon()" [size]="'xl'" class="category-icon"></fa-icon>
   <span>{{ 'categories.' + category.category_id | translate }}</span>
-  <fa-icon [icon]="isExpanded ? faChevronUp : faChevronDown" size="lg" class="category-chevron-icon"></fa-icon>
+  <fa-icon [icon]="isExpanded ? solid.faChevronUp : solid.faChevronDown" [size]="'lg'" class="category-chevron-icon"></fa-icon>
 </div>
 
 <div class="level-container">
@@ -18,17 +18,3 @@
     <app-level-menu-preview [levels]="category.levels"></app-level-menu-preview>
   </ng-template>
 </div>
-
-<ng-template #template>
-  <fa-icon *ngIf="category.category_id === 'natu'" [icon]="faTree" size="xl" class="category-icon"></fa-icon>
-  <fa-icon *ngIf="category.category_id === 'tour'" [icon]="faUmbrellaBeach" size="xl" class="category-icon"></fa-icon>
-  <fa-icon *ngIf="category.category_id === 'anim'" [icon]="solid.faCow" size="xl" class="category-icon"></fa-icon>
-  <fa-icon *ngIf="category.category_id === 'home'" [icon]="solid.faHouseChimney" size="xl" class="category-icon"></fa-icon>
-  <fa-icon *ngIf="category.category_id === 'tran'" [icon]="solid.faCarSide" size="xl" class="category-icon"></fa-icon>
-  <fa-icon *ngIf="category.category_id === 'body'" [icon]="solid.faHand" size="xl" class="category-icon"></fa-icon>
-  <fa-icon *ngIf="category.category_id === 'time'" [icon]="solid.faClock" size="xl" class="category-icon"></fa-icon>
-  <fa-icon *ngIf="category.category_id === 'econ'" [icon]="solid.faWallet" size="xl" class="category-icon"></fa-icon>
-  <fa-icon *ngIf="category.category_id === 'foo2'" [icon]="solid.faUtensils" size="xl" class="category-icon"></fa-icon>
-  <fa-icon *ngIf="category.category_id === 'fash'" [icon]="solid.faShirt" size="xl" class="category-icon"></fa-icon>
-  <fa-icon *ngIf="category.category_id === 'foo1'" [icon]="solid.faPizzaSlice" size="xl" class="category-icon"></fa-icon>
-</ng-template>

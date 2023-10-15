@@ -41,6 +41,13 @@ const routes: Routes = [
         (m) => m.ChallengeModule
       ),
   },
+  {
+    path: 'styleguide',
+    loadChildren: () =>
+      import('./views/styleguide/styleguide.module').then(
+        (m) => m.StyleguideModule
+      ),
+  },
   {path: '**', redirectTo: ''}
 ];
 
