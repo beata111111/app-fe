@@ -5,15 +5,13 @@ export function getStatusColor(result: number, enabled: boolean = true): string 
   } else if (result === 100) {
     color = '#6fe594';
   } else if (result >= 80) {
-    color = '#aee58f';
+    color = '#bcff99';
   } else if (result >= 60) {
-    color = '#cfe397';
+    color = '#ebffb2';
   } else if (result >= 40) {
-    color = '#FACD84';
+    color = '#ffdda5';
   } else if (result >= 20) {
-    color = '#f6a678';
+    color = '#ffbd9a';
   }
   return color;
 }
-
-

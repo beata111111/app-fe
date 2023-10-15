@@ -4,6 +4,7 @@ import {CommonModule} from "@angular/common";
 import {StyleguideRoutingModule} from "./styleguide-routing.module";
 import {MainMenuModule} from "../main/main-menu/main-menu.module";
 import {ButtonModule} from "@components";
+import {ChallengeComponentsModule} from "@challengeComponents";
 
 @NgModule({
   declarations: [StyleguideComponent],
@@ -12,6 +13,7 @@ import {ButtonModule} from "@components";
     StyleguideRoutingModule,
     MainMenuModule,
     ButtonModule,
+    ChallengeComponentsModule,
   ],
   providers: [],
   exports: [StyleguideComponent],

@@ -34,7 +34,7 @@ button.btn.sm {
 
 .btn.btn-primary {
   color: var(--theme-color-1);
-  background-color: var(--primary-color);
+  background-color: var(--theme-color-18);
   &:hover {
     background-color: var(--theme-color-16);
   }
@@ -44,12 +44,12 @@ button.btn.sm {
   }
 }
 .btn.btn-secondary {
-  color: var(--theme-color-21);
-  background-color: var(--theme-color-4);
+  color: var(--theme-color-24);
+  background-color: var(--theme-color-3);
+  border: 3px solid var(--theme-color-24);
   @media (hover: hover) and (pointer: fine) {
     &:hover {
-      color: var(--theme-color-21);
-      background-color: var(--theme-color-5);
+      background-color: var(--theme-color-4);
       outline: none !important;
     }
   }
@@ -57,7 +57,7 @@ button.btn.sm {
     outline: none !important;
     -webkit-tap-highlight-color: transparent;
     color: var(--theme-color-20);
-    background-color: var(--theme-color-7);
+    background-color: var(--theme-color-5);
   }
 }
 .btn.btn-ghost {
@@ -66,13 +66,13 @@ button.btn.sm {
   @media (hover: hover) and (pointer: fine) {
     &:hover {
       color: var(--theme-color-24);
-      background-color: var(--theme-color-5);
+      background-color: var(--theme-color-4);
     }
   }
   &.active {
     color: var(--theme-color-20);
-    -webkit-tap-highlight-color: var(--theme-color-7);
-    background-color: var(--theme-color-7);
+    -webkit-tap-highlight-color: var(--theme-color-5);
+    background-color: var(--theme-color-5);
   }
 }
 

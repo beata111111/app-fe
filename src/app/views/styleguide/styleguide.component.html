@@ -13,6 +13,13 @@
    <button [appButton]="'ghost'">
       test button
    </button>
+
+   <h1 [style.display]="'inline-block'">a<app-gender-dot [style.position]="'relative'" [word]="{ plG: 'M'}"></app-gender-dot></h1>
+   <h1 [style.display]="'inline-block'">a<app-gender-dot [style.position]="'relative'" [word]="{ plG: 'F'}"></app-gender-dot></h1>
+   <h1 [style.display]="'inline-block'">a<app-gender-dot [style.position]="'relative'" [word]="{ plG: 'N'}"></app-gender-dot></h1>
+
+   <br>
+   <app-show-answer-animation [showAnswer]="true" [answerCorrect]="true"></app-show-answer-animation>
 </div>
 
 

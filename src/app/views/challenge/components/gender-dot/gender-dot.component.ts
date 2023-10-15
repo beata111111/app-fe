@@ -9,5 +9,5 @@ import {Word} from "@model";
 })
 export class GenderDotComponent {
   faCircle = faCircle;
-  @Input() word!: Word;
+  @Input() word!: any;
 }
