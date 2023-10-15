@@ -2,11 +2,12 @@
         (click)="navigateToChallenge(variant.variant_id)"
         [style.background-color]="color$ | async"
         [class.updated]="true"
+        [class.with-result]="variant.result"
         [disabled]="!variant.enabled">
 
   <app-shine-animation *ngIf="variant.enabled"></app-shine-animation>
 
-  <span *ngIf="variant.enabled">
+  <span *ngIf="variant.result || variant.enabled">
     {{displayedResult$ | async}}
   </span>
 

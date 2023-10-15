@@ -16,7 +16,7 @@ export class LevelMenuPreviewComponent implements OnInit {
     this.sortedResults = this.levels
       .map(l => l.variants)
       .flat()
-      .map(v => v.result)
+      .map(v => v.enabled ? v.result : 0)
       .sort((a,b) => b - a)
       .map(result => {
         return getStatusColor(result);

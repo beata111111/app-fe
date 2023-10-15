@@ -26,6 +26,7 @@
       text-align: center;
       font-weight: 800;
       font-size: 2rem;
+      text-wrap: nowrap;
     }
   }
 
@@ -42,6 +43,9 @@
     border-color: white;
     ::ng-deep .fa-lock {
       color: #d1d1d2;
+    }
+    &.with-result span {
+      color: #c4c4c4;
     }
   }
 
