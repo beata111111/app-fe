@@ -1,6 +1,12 @@
 :root {
-  body, body[night-mode='off'], .body[night-mode='off'] {
-    --font-basic-color: var(--theme-color-24);
+  body, body[night-mode='OFF'], .body[night-mode='OFF'] {
+    --body-backgroung-color: white;
+    --backgroung-secondary-color: #f6f6f6;
+    --font-basic-color: black;
+    --font-secondary-color: black;
+    --font-teriary-color: #d1d1d2;
+    --font-quaternary-color: #c4c4c4;
+
     --font-basic-color-2: var(--theme-color-18);
     --font-primary-color: var(--theme-color-14);
     --font-primary-color-2: var(--theme-color-16);
@@ -10,13 +16,29 @@
     --bg-basic-color-3: var(--theme-color-2);
     --bg-basic-color-4: var(--theme-color-9);
 
+    --color-result-100: #6fe594;
+    --color-result-80: #bcff99;
+    --color-result-60: #ebffb2;
+    --color-result-40: #ffdda5;
+    --color-result-20: #ffbd9a;
+    --color-result-0: #d8d8d8;
+    --color-result-none: white;
+
     --action-success-color: #6fe594;
     --word-feminine-color: #fd97ff;
     --word-maskulin-color: #63cfff;
+
+    --border-width: 3px;
   }
 
-  body[night-mode='on'], .body[night-mode='on']  {
-    --font-basic-color: var(--theme-color-0);
+  body[night-mode='ON'], .body[night-mode='ON']  {
+    --body-backgroung-color: var(--theme-color-24);
+    --backgroung-secondary-color: #303030;
+    --font-basic-color: white;
+    --font-secondary-color: #c6c6c6;
+    --font-teriary-color: #3a3a3a;
+    --font-quaternary-color: #4e4e4e;
+
     --font-basic-color-2: var(--theme-color-0);
     --font-primary-color: var(--theme-color-14);
     --font-primary-color-2: var(--theme-color-12);
@@ -26,28 +48,18 @@
     --bg-basic-color-3: var(--theme-color-22);
     --bg-basic-color-4: var(--theme-color-22);
 
+    --color-result-100: #3f9167;
+    --color-result-80: #62844e;
+    --color-result-60: #778550;
+    --color-result-40: #8a7348;
+    --color-result-20: #8d594e;
+    --color-result-0: #202020;
+    --color-result-none: black;
+
     --action-success-color: #5d895a;
     --word-feminine-color: #bf76bb;
     --word-maskulin-color: #51779a;
-  }
-}
 
-// accent
-.accent-1 {
-  color: var(--theme-accent-color-1);
-}
-.accent-bg-1 {
-  background-color: var(--theme-accent-color-1);;
-}
-.accent-2 {
-  color: var(--theme-accent-color-3);
-}
-.accent-bg-2 {
-  background-color: var(--theme-accent-color-2);;
-}
-.accent-3 {
-  color: var(--theme-accent-color-3);
-}
-.accent-bg-3 {
-  background-color: var(--theme-accent-color-3);;
+    --border-width: 1px;
+  }
 }

@@ -1,19 +1,17 @@
 :host {
   display: block;
   position: relative;
-  button {
-    border-radius: unset;
+  div {
     margin: 0;
-    height: 80px;
+    height: 100%;
+    width: 100%;
     padding: 10px 10px 10px 20px;
     border-bottom: 2px solid var(--bg-basic-color-3);
     text-align: left;
     line-height: 64px;
+    font-size: 2rem;
     &:hover {
-      background-color: var(--bg-basic-color-2);
-    }
-    &.active {
-      background-color: var(--bg-basic-color-3);
+      //background-color: var(--bg-basic-color-2);
     }
   }
 }

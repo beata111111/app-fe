@@ -1,10 +1,16 @@
-import { NgModule } from '@angular/core';
+import {APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
-import {AuthInterceptor, AppRootTranslationModule} from "@core";
-import {ServiceWorkerModule} from "@angular/service-worker";
+import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
+import { AuthInterceptor, AppRootTranslationModule, ThemesService } from "@core";
+import { ServiceWorkerModule } from "@angular/service-worker";
+
+function initializeThemes(themesService: ThemesService) {
+  return (): void => {
+    themesService.initialSetupNightMode();
+  }
+}
 
 @NgModule({
   declarations: [
@@ -25,6 +31,7 @@ import {ServiceWorkerModule} from "@angular/service-worker";
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
+    {provide: APP_INITIALIZER, useFactory: initializeThemes, multi: true, deps: [ThemesService]},
   ],
   bootstrap: [AppComponent]
 })

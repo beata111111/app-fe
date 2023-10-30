@@ -9,10 +9,9 @@ import {getStatusColor} from "@helpers";
 export class ChallengeFinishedOverlayComponent implements OnInit {
   @Input() result!: number;
 
-  color = '#6fe594';
+  color = '';
 
   ngOnInit() {
-    const result = this.result;
-    this.color = getStatusColor(result);
+    this.color = getStatusColor(this.result);
   }
 }

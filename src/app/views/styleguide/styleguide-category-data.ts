@@ -36,7 +36,7 @@ export const styleguideCategoryData = {
         {
           "variant_id": "e",
           "enabled": false,
-          "result": 0,
+          "result": 12,
           "previousResult": 0,
           "date": 0
         }

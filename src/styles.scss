@@ -1,6 +1,7 @@
 //@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;800&display=swap');
 @import "app/styles";
 
+
 html {
   font-size: 62.5%;
 }
@@ -20,10 +21,16 @@ body {
   overflow: auto;
   min-width: 100%;
   height: 100vh; /* fallback for Js load */
+}
+
+
+body,
+.body {
   height: var(--app-height);
+  background-color: var(--body-backgroung-color);
+  color: var(--font-basic-color);
 }
 
 .hide {
   visibility: hidden;
 }
-

@@ -1,3 +1,5 @@
+$font-color: var(--font-basic-color);
+
 :host {
   height: 6.8rem;
   .nav {
@@ -9,7 +11,6 @@
 
     ::ng-deep {
       h3 {
-        color: black;
         margin-left: 8px;
         transform: translateY(2px);
       }
@@ -21,7 +22,7 @@
         padding: 0;
 
         * {
-          color: black;
+          //color: $font-color;
         }
       }
 

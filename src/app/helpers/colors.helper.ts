@@ -1,17 +1,17 @@
 export function getStatusColor(result: number, enabled: boolean = true): string {
-  let color = '#d8d8d8';
+  let color = 'var(--color-result-0)';
   if (!enabled) {
-    color = 'white';
+    color = 'var(--color-result-none)';
   } else if (result === 100) {
-    color = '#6fe594';
+    color = 'var(--color-result-100)';
   } else if (result >= 80) {
-    color = '#bcff99';
+    color = 'var(--color-result-80)';
   } else if (result >= 60) {
-    color = '#ebffb2';
+    color = 'var(--color-result-60)';
   } else if (result >= 40) {
-    color = '#ffdda5';
+    color = 'var(--color-result-40)';
   } else if (result >= 20) {
-    color = '#ffbd9a';
+    color = 'var(--color-result-20)';
   }
   return color;
 }

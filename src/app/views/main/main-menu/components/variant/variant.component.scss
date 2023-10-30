@@ -21,6 +21,7 @@
     margin: 5px;
 
     span {
+      color: black;
       display: block;
       width: 100%;
       text-align: center;
@@ -40,17 +41,18 @@
   }
 
   button[disabled] {
-    border-color: white;
+    border-color: var(--color-result-none);
     ::ng-deep .fa-lock {
-      color: #d1d1d2;
+      color: var(--font-teriary-color);
     }
     &.with-result span {
-      color: #c4c4c4;
+      color: var(--font-quaternary-color);
     }
   }
 
   .variant-back-side {
     background-color: white;
+    color: var(--font-basic-color);
     opacity: 0;
   }
 

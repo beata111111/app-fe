@@ -5,9 +5,10 @@ import {StyleguideRoutingModule} from "./styleguide-routing.module";
 import {MainMenuModule} from "../main/main-menu/main-menu.module";
 import {ButtonModule} from "@components";
 import {ChallengeComponentsModule} from "@challengeComponents";
+import { StyleguideSectionComponent } from './styleguide-section/styleguide-section.component';
 
 @NgModule({
-  declarations: [StyleguideComponent],
+  declarations: [StyleguideComponent, StyleguideSectionComponent],
   imports: [
     CommonModule,
     StyleguideRoutingModule,

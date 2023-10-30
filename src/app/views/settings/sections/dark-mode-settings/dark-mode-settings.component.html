@@ -1,0 +1,7 @@
+<app-menu-item>
+    darkmode
+
+    <button [appButton]="'primary'" class="sm inline toggle-button" (click)="toggleNightMode()">
+        {{(isNightMode$ | async)  === true ? 'OFF' : 'ON' }}
+    </button>
+</app-menu-item>

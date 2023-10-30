@@ -2,10 +2,10 @@ import {Component, HostBinding, Input, OnDestroy, OnInit} from '@angular/core';
 import {ChallengeResult, VariantStatus} from "@model";
 import {Router} from "@angular/router";
 import {ChallengeLastResultService} from "@services";
-import {getStatusColor} from "@helpers";
 import {faGem} from '@fortawesome/free-regular-svg-icons';
 import {faLock} from '@fortawesome/free-solid-svg-icons';
 import {BehaviorSubject, map, Observable} from "rxjs";
+import {getStatusColor} from "@helpers";
 
 @Component({
   selector: 'app-variant',
@@ -28,7 +28,8 @@ export class VariantComponent implements OnInit, OnDestroy {
   resultDelta = 0;
 
   constructor(private _router: Router,
-              private _challengeLastResultService: ChallengeLastResultService) {
+              private _challengeLastResultService: ChallengeLastResultService,
+  ) {
 
     this.color$ = this.displayedResult$.pipe(
       map(result => getStatusColor(result, this.variant.enabled))

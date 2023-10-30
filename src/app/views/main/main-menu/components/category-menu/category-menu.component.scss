@@ -1,13 +1,16 @@
 :host {
   display: block;
-  //padding: 10px;
+  color: var(--font-secondary-color);
   margin: 10px;
   padding-bottom: 10px;
   border-radius: 10px;
-  //border: 1px solid black;
 
   &.expanded {
-    background-color: #f6f6f6;
+    background-color: var(--backgroung-secondary-color);
+  }
+
+  span {
+    color: var(--font-secondary-color);
   }
 }
 

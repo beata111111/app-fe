@@ -1,0 +1,23 @@
+<app-category-menu [category]="category">
+</app-category-menu>
+
+<div class="buttons" [style.margin]="'10px'" [style.width]="'200px'">
+  <button [appButton]="'primary'">
+    test button
+  </button>
+
+  <button [appButton]="'secondary'">
+    test button
+  </button>
+
+  <button [appButton]="'ghost'">
+    test button
+  </button>
+
+  <h1 [style.display]="'inline-block'">a<app-gender-dot [style.position]="'relative'" [word]="{ plG: 'M'}"></app-gender-dot></h1>
+  <h1 [style.display]="'inline-block'">a<app-gender-dot [style.position]="'relative'" [word]="{ plG: 'F'}"></app-gender-dot></h1>
+  <h1 [style.display]="'inline-block'">a<app-gender-dot [style.position]="'relative'" [word]="{ plG: 'N'}"></app-gender-dot></h1>
+
+  <br>
+  <app-show-answer-animation [showAnswer]="true" [answerCorrect]="true"></app-show-answer-animation>
+</div>
