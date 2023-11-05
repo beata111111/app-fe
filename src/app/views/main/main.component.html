@@ -1,17 +1,22 @@
-<ng-template #nav>
-  <app-top-nav>
-    <button [appButton]="'ghost'" class="btn-icon" (click)="navigateToSettings()">
-      <fa-icon [icon]="faGear" size="xl"></fa-icon>
-    </button>
+<ng-container *ngIf="categoryStatus$ | async as categoryStatus; else spinner;">
+  <app-nav-container [navTemplate]="nav" [contentTemplate]="content">
+  </app-nav-container>
 
-    <app-diamond-counter [data]="user$ | async"></app-diamond-counter>
-  </app-top-nav>
-</ng-template>
+  <ng-template #nav>
+    <app-top-nav>
+      <button [appButton]="'ghost'" class="btn-icon" (click)="navigateToSettings()">
+        <fa-icon [icon]="faGear" size="xl"></fa-icon>
+      </button>
+      <app-diamond-counter [data]="user$ | async"></app-diamond-counter>
+    </app-top-nav>
+  </ng-template>
 
-<ng-container *ngIf="categoryStatus$ | async as categoryStatus">
-  <app-nav-container [navTemplate]="nav">
+  <ng-template #content>
     <app-main-menu [categoryStatus]="categoryStatus"
     ></app-main-menu>
-  </app-nav-container>
+  </ng-template>
 </ng-container>
 
+<ng-template #spinner>
+  <app-page-spinner></app-page-spinner>
+</ng-template>

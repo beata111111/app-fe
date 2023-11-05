@@ -32,7 +32,8 @@
               "src/my-service-worker.js"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "src/assets/fonts/font.css"
             ],
             "scripts": [],
             "serviceWorker": true,

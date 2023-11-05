@@ -1,0 +1,34 @@
+:host {
+  display: flex !important;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 20vh;
+  opacity: 0;
+  animation: 3s show forwards;
+
+  fa-icon {
+    color: var(--font-basic-color);
+    animation: 3s spin infinite linear;
+  }
+}
+
+@keyframes spin {
+  33% {
+    transform: rotate(120deg) scale(1.4);
+  }
+  66% {
+    transform: rotate(240deg) scale(1.4);
+  }
+  100% {
+   transform: rotate(360deg) scale(1);
+  }
+}
+
+@keyframes show {
+  100% {
+    opacity: 1;
+  }
+}

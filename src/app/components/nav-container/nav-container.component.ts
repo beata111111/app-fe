@@ -7,4 +7,5 @@ import {Component, Input, TemplateRef} from '@angular/core';
 })
 export class NavContainerComponent {
   @Input() navTemplate!: TemplateRef<any>;
+  @Input() contentTemplate!: TemplateRef<any>;
 }

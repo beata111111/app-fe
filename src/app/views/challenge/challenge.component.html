@@ -1,23 +1,6 @@
-<app-nav-container [navTemplate]="nav">
-  <ng-container *ngIf="challengeData$ | async as challengeData">
-    <app-challenge-a-variant *ngIf="variant_id === 'a'"
-      [challengeData]="challengeData"
-      (submitResult)="handleResult($event)"
-    ></app-challenge-a-variant>
-
-    <app-challenge-b-variant *ngIf="variant_id === 'b'"
-      [challengeData]="challengeData"
-      (submitResult)="handleResult($event)"
-    ></app-challenge-b-variant>
-
-    <app-challenge-c-variant
-            *ngIf="variant_id === 'c' || variant_id === 'd' || variant_id === 'e'"
-            [variant]="variant_id"
-            [challengeData]="challengeData"
-            (submitResult)="handleResult($event)"
-    ></app-challenge-c-variant>
-  </ng-container>
+<app-nav-container [navTemplate]="nav" [contentTemplate]="content">
 </app-nav-container>
+
 
 <ng-template #nav>
   <app-top-nav>
@@ -31,4 +14,30 @@
       <fa-icon [icon]="(isSoundActive$ | async) ? faBell : faBellSlash" size="xl"></fa-icon>
     </button>
   </app-top-nav>
+</ng-template>
+
+
+<ng-template #content>
+  <ng-container *ngIf="challengeData$ | async as challengeData; else spinner">
+  <app-challenge-a-variant *ngIf="variant_id === 'a'"
+                           [challengeData]="challengeData"
+                           (submitResult)="handleResult($event)"
+  ></app-challenge-a-variant>
+
+  <app-challenge-b-variant *ngIf="variant_id === 'b'"
+                           [challengeData]="challengeData"
+                           (submitResult)="handleResult($event)"
+  ></app-challenge-b-variant>
+
+  <app-challenge-c-variant
+      *ngIf="variant_id === 'c' || variant_id === 'd' || variant_id === 'e'"
+      [variant]="variant_id"
+      [challengeData]="challengeData"
+      (submitResult)="handleResult($event)"
+  ></app-challenge-c-variant>
+</ng-container>
+</ng-template>
+
+<ng-template #spinner>
+  <app-page-spinner></app-page-spinner>
 </ng-template>

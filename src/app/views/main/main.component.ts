@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {Observable} from "rxjs";
+import {filter, Observable} from "rxjs";
 import {CategoryStatus, User} from "@model";
 import {CategoryStatusService, UserService} from "@services";
 import {faGear} from '@fortawesome/free-solid-svg-icons';
@@ -21,7 +21,9 @@ export class MainComponent {
      private _userService: UserService,
      private _router: Router,
   ) {
-    this.categoryStatus$ = this._categoryStatusService.categoryStatus$;
+    this.categoryStatus$ = this._categoryStatusService.categoryStatus$.pipe(
+      filter(c => !!c.length)
+    );
     this.user$ = this._userService.user$;
   }
 
