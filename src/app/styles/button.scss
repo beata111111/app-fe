@@ -9,7 +9,7 @@ button.btn {
   margin-bottom: 10px;
 }
 
-button.btn:not(.inline) {
+button.btn:not(.inline):not(.btn-icon) {
   width: 100%;
 }
 

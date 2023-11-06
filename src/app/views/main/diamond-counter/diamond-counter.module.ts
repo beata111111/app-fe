@@ -4,6 +4,7 @@ import {CommonModule} from "@angular/common";
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 import {DiamondCounterService} from "./diamond-counter.service";
 import {ButtonModule, ShineAnimationModule} from "@components";
+import {RouterModule} from "@angular/router";
 
 @NgModule({
   declarations: [DiamondCounterComponent],
@@ -12,6 +13,7 @@ import {ButtonModule, ShineAnimationModule} from "@components";
     FontAwesomeModule,
     ButtonModule,
     ShineAnimationModule,
+    RouterModule,
   ],
   providers: [DiamondCounterService],
   exports: [DiamondCounterComponent],

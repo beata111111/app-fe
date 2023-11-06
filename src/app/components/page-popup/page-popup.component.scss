@@ -1,0 +1,43 @@
+.block-screen {
+  position: fixed;
+  opacity: 0.5;
+  width: 100vw;
+  height: 100vh;
+  z-index: 100;
+  background-color: white;
+  animation: 0.3s showBackground forwards;
+}
+
+.popup-container {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 200;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .popup {
+    height: 90%;
+    width: 90%;
+    max-width: 600px;
+    background-color: var(--body-backgroung-color);
+    border-radius: 16px;
+    padding: 20px;
+    border: var(--border-width) solid var(--font-basic-color);
+    position: relative;
+
+    .close-icon {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      margin: 0;
+    }
+  }
+}
+
+@keyframes showBackground {
+  100% {
+    background-color: black;
+  }
+}

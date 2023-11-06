@@ -12,6 +12,7 @@ import {Router} from "@angular/router";
 })
 export class MainComponent {
   faGear = faGear;
+  showModal = true;
 
   categoryStatus$: Observable<CategoryStatus[]>;
   user$: Observable<User | null>;
@@ -27,7 +28,11 @@ export class MainComponent {
     this.user$ = this._userService.user$;
   }
 
-  navigateToSettings():void {
+  navigateToSettings() :void {
     this._router.navigate(['/settings'])
+  }
+
+  closeModal(): void {
+    this.showModal = false;
   }
 }

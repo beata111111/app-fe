@@ -1,0 +1,24 @@
+:host {
+  position: relative;
+
+  h3 {
+    margin-top: 10px;
+  }
+
+  h4 {
+    margin-bottom: 18px;
+    margin-left: 30px;
+  }
+
+  fa-icon {
+    position: absolute;
+  }
+
+  div {
+    margin: 10px 10px 16px 10px;
+    padding: 0 16px;
+    background-color: var(--backgroung-secondary-color);
+    overflow: auto;
+    border-radius: 10px;
+  }
+}

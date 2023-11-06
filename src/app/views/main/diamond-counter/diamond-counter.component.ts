@@ -1,7 +1,8 @@
-import {Component, HostBinding, Input, OnInit} from '@angular/core';
+import {Component, HostBinding, HostListener, Input, OnInit} from '@angular/core';
 import {faGem} from '@fortawesome/free-regular-svg-icons';
 import {UserPointsUpdate} from "@model";
 import {DiamondCounterService} from "./diamond-counter.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-diamond-counter',
@@ -15,7 +16,8 @@ export class DiamondCounterComponent implements OnInit {
   points: number | null = null;
   isAnimating = false;
 
-  constructor(private _diamondCounterService: DiamondCounterService) {
+  constructor(private _diamondCounterService: DiamondCounterService,
+              private _router: Router) {
   }
 
   @Input() set data (data: UserPointsUpdate | null) {
@@ -32,5 +34,10 @@ export class DiamondCounterComponent implements OnInit {
 
   @HostBinding('class.animating') get animating() {
     return this.isAnimating;
+  }
+
+  @HostListener('click')
+  goToRecords(): void {
+    this._router.navigate(['./records']);
   }
 }

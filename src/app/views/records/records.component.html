@@ -1,0 +1,22 @@
+<app-nav-container [navTemplate]="nav" [contentTemplate]="content">
+</app-nav-container>
+
+
+<ng-template #nav>
+  <app-top-nav>
+    <button [appButton]="'ghost'" class="btn-icon" (click)="back()" [style.transform]="'rotate(180deg)'">
+      <fa-icon [icon]="faArrowRightFromBracket" size="xl"></fa-icon>
+    </button>
+    <div class="gap"></div>
+  </app-top-nav>
+</ng-template>
+
+<ng-template #content>
+  <ng-container *ngIf="records$ | async as records; else spinner">
+    <app-record-board [records]="records"></app-record-board>
+  </ng-container>
+</ng-template>
+
+<ng-template #spinner>
+  <app-page-spinner></app-page-spinner>
+</ng-template>

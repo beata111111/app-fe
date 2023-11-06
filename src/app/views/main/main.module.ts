@@ -7,6 +7,8 @@ import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 import {MainMenuModule} from "./main-menu/main-menu.module";
 import {ButtonModule, NavContainerModule} from "@components";
 import {DiamondCounterModule} from "./diamond-counter/diamond-counter.module";
+import {PagePopupComponent} from "../../components/page-popup/page-popup.component";
+import {PagePopupModule} from "../../components/page-popup/page-popup.module";
 
 @NgModule({
   declarations: [MainComponent],
@@ -23,6 +25,7 @@ import {DiamondCounterModule} from "./diamond-counter/diamond-counter.module";
     NavContainerModule,
     DiamondCounterModule,
     PageSpinnerModule,
+    PagePopupModule,
   ]
 })
 export class MainModule {}

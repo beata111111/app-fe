@@ -34,6 +34,14 @@ const routes: Routes = [
       ),
   },
   {
+    path: 'records',
+    canActivate: [AuthGuard],
+    loadChildren: () =>
+      import('./views/records/records.module').then(
+        (m) => m.RecordsModule
+      ),
+  },
+  {
     path: 'challenge/:category_id/:level_id/:variant_id',
     canActivate: [AuthGuard],
     loadChildren: () =>
