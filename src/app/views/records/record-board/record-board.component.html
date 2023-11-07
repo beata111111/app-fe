@@ -1,4 +1,11 @@
-<div *ngFor="let record of records">
-  <h3>{{record.name}}</h3>
-  <fa-icon [icon]="faGem" size="2x"></fa-icon><h4>{{record.points}}</h4>
+<div *ngFor="let record of records" class="record">
+  <h3 class="name">{{record.name}}</h3>
+  <app-diamond-icon></app-diamond-icon>
+  <h1 class="points">{{record.points}}</h1>
 </div>
+
+
+<div class="big-diamond">
+  <app-diamond-icon></app-diamond-icon>
+</div>
+

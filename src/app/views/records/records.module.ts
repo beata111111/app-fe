@@ -5,6 +5,7 @@ import { RecordsRoutingModule } from "./records-routing.module";
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import { ButtonModule, NavContainerModule, PageSpinnerModule, TopNavModule } from "@components";
 import { RecordBoardComponent } from './record-board/record-board.component';
+import { DiamondIconModule } from "../../components/diamond-icon/diamond-icon.module";
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { RecordBoardComponent } from './record-board/record-board.component';
     NavContainerModule,
     TopNavModule,
     PageSpinnerModule,
+    DiamondIconModule,
   ]
 })
 export class RecordsModule { }

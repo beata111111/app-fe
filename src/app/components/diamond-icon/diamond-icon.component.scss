@@ -1,0 +1,19 @@
+:host {
+  display: inline-block;
+  position: relative;
+  font-size: 1.6rem;
+  z-index: 1;
+
+  .diamond-filling {
+    height: 19px;
+    width: 20px;
+    z-index: -1;
+    background-color: #ff2c8c;
+    position: absolute;
+    transform: rotate(45deg);
+    opacity: 0.9;
+    overflow: hidden;
+    left: 6px;
+    bottom: 7px;
+  }
+}

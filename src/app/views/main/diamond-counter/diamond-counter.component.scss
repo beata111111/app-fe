@@ -17,23 +17,6 @@
     }
   }
 
-  .diamond {
-    position: relative;
-
-    .diamond-filling {
-      height: 19px;
-      width: 20px;
-      z-index: -1;
-      background-color: #ff2c8c;
-      position: absolute;
-      bottom: 15px;
-      left: 14px;
-      transform: rotate(45deg);
-      opacity: 0.9;
-      overflow: hidden;
-    }
-  }
-
   &.animating {
     .counter {
       h1 {

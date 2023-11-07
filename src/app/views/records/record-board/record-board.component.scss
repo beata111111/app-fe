@@ -1,24 +1,32 @@
 :host {
   position: relative;
 
-  h3 {
-    margin-top: 10px;
-  }
-
-  h4 {
-    margin-bottom: 18px;
-    margin-left: 30px;
-  }
-
-  fa-icon {
-    position: absolute;
-  }
-
-  div {
+  .record {
     margin: 10px 10px 16px 10px;
     padding: 0 16px;
     background-color: var(--backgroung-secondary-color);
     overflow: auto;
     border-radius: 10px;
+  }
+
+  .name {
+    margin-top: 10px;
+    margin-bottom: 0;
+  }
+
+  .points {
+    display: inline-block;
+    margin-bottom: 18px;
+    margin-top: 10px;
+    margin-left: 30px;
+  }
+
+
+  .big-diamond {
+    position: absolute;
+    top: 25%;
+    right: 20%;
+    opacity: 0.1;
+    transform: scale(10);
   }
 }
