@@ -8,6 +8,15 @@
     </button>
 
     <p>page-popup works!</p>
+
+    <ng-content></ng-content>
+
+
+    <div class="button-container">
+      <button (click)="back()">{{config.backButtonText}}</button>
+
+      <button (click)="next()">{{config.nextButtonText}}</button>
+    </div>
   </div>
 </div>
 

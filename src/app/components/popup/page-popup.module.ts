@@ -4,8 +4,6 @@ import { PagePopupComponent } from './page-popup.component';
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 import {ButtonModule} from "@components";
 
-
-
 @NgModule({
   declarations: [
     PagePopupComponent

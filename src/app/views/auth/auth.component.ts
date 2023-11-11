@@ -1,5 +1,7 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {AuthService} from "@core";
+import {catchError} from "rxjs";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-auth',
@@ -14,7 +16,9 @@ export class AuthComponent implements OnInit {
   @ViewChild('name') name!: ElementRef;
   @ViewChild('password') password!: ElementRef;
 
-  constructor(private _authService: AuthService) { }
+  constructor(private _authService: AuthService,
+              private _toastService: ToastrService,
+  ) { }
 
   ngOnInit(): void {
   }
@@ -23,7 +27,12 @@ export class AuthComponent implements OnInit {
     const name = this.name.nativeElement.value;
     const password = this.password.nativeElement.value;
     if (name && password) {
-      this._authService.createUser(name, password).subscribe(() => {});
+      this._authService.createUser(name, password).pipe(
+        catchError((error) => {
+          this._toastService.error(error.message);
+          throw error;
+        })
+      ).subscribe(() => {});
     }
   }
 
@@ -31,7 +40,12 @@ export class AuthComponent implements OnInit {
     const name = this.name.nativeElement.value;
     const password = this.password.nativeElement.value;
     if (name && password) {
-      this._authService.logIn(name, password).subscribe(() => {});
+      this._authService.logIn(name, password).pipe(
+        catchError((error) => {
+          this._toastService.error(error.message);
+          throw error;
+        })
+      ).subscribe(() => {});
     }
   }
 }

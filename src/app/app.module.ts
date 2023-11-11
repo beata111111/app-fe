@@ -5,6 +5,8 @@ import { AppComponent } from './app.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { AuthInterceptor, AppRootTranslationModule, ThemesService } from "@core";
 import { ServiceWorkerModule } from "@angular/service-worker";
+import {ToastrModule} from "ngx-toastr";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 function initializeThemes(themesService: ThemesService) {
   return (): void => {
@@ -28,6 +30,10 @@ function initializeThemes(themesService: ThemesService) {
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
     }),
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      positionClass: 'toast-bottom-full-width',
+    })
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},

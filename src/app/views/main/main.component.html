@@ -1,5 +1,6 @@
-<!--<app-page-popup *ngIf="showModal" (close)="closeModal()">-->
-<!--</app-page-popup>-->
+<app-page-popup *ngIf="showModal" (close)="closeModal()">
+  <app-popup-dialog-welcome #popupContent></app-popup-dialog-welcome>
+</app-page-popup>
 
 <ng-container *ngIf="categoryStatus$ | async as categoryStatus; else spinner;">
   <app-nav-container [navTemplate]="nav" [contentTemplate]="content">

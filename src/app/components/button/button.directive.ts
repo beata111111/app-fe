@@ -1,5 +1,4 @@
-import {Component, Directive, ElementRef, HostBinding, HostListener, Input} from '@angular/core';
-import {PopupColor} from "../popup/popup.component";
+import {Directive, ElementRef, HostBinding, HostListener, Input} from '@angular/core';
 
 export type ButtonType = 'primary' | 'secondary' | 'ghost';
 
