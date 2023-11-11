@@ -1,17 +1,17 @@
 :host {
   position: relative;
 
+  .name {
+    margin-top: 10px;
+    margin-bottom: 0;
+  }
+
   .record {
-    margin: 10px 10px 16px 10px;
+    margin: 4px 10px 16px 10px;
     padding: 0 16px;
     background-color: var(--backgroung-secondary-color);
     overflow: auto;
     border-radius: 10px;
-  }
-
-  .name {
-    margin-top: 10px;
-    margin-bottom: 0;
   }
 
   .points {
@@ -19,14 +19,5 @@
     margin-bottom: 18px;
     margin-top: 10px;
     margin-left: 30px;
-  }
-
-
-  .big-diamond {
-    position: absolute;
-    top: 25%;
-    right: 20%;
-    opacity: 0.1;
-    transform: scale(10);
   }
 }
