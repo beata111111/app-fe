@@ -1,22 +1,43 @@
 <div class="form-container">
   <div class="form-vertical-container">
     <div class="form">
-      <p  class="input-label" [ngClass]="{'focus': focusName}">{{ 'auth.userName' | translate }}</p>
-      <input #name (focusin)="focusName = true" (focusout)="focusName = false" (keyup.enter)="password.focus()"/>
+      <p class="input-label" [ngClass]="{ focus: focusName }">
+        {{ "auth.userName" | translate }}
+      </p>
+      <input
+        #name
+        (focusin)="focusName = true"
+        (focusout)="focusName = false"
+        (keyup.enter)="password.focus()"
+      />
 
-      <p  class="input-label" [ngClass]="{'focus': focusPassword}">{{ 'auth.password' | translate }}</p>
-      <input #password (focusin)="focusPassword = true" (focusout)="focusPassword = false"/>
+      <p class="input-label" [ngClass]="{ focus: focusPassword }">
+        {{ "auth.password" | translate }}
+      </p>
+      <input
+        #password
+        (focusin)="focusPassword = true"
+        (focusout)="focusPassword = false"
+      />
 
-      <button [appButton]="'primary'" *ngIf="newUser" (click)="createUser()">{{ 'auth.createNewUser' | translate }}</button>
-      <button [appButton]="'primary'" *ngIf="!newUser" (click)="logIn()">{{ 'auth.login' | translate }}</button>
+      <button [appButton]="'primary'" *ngIf="newUser" (click)="createUser()">
+        {{ "auth.createNewUser" | translate }}
+      </button>
+      <button [appButton]="'primary'" *ngIf="!newUser" (click)="logIn()">
+        {{ "auth.login" | translate }}
+      </button>
     </div>
     <div class="form-alternative">
-      <button [appButton]="'ghost'" *ngIf="newUser" (click)="newUser = false">{{ 'auth.login' | translate }}</button>
-      <button [appButton]="'ghost'"  *ngIf="!newUser" (click)="newUser = true">{{ 'auth.createNewUser' | translate }}</button>
+      <button [appButton]="'ghost'" *ngIf="newUser" (click)="newUser = false">
+        {{ "auth.login" | translate }}
+      </button>
+      <button [appButton]="'ghost'" *ngIf="!newUser" (click)="newUser = true">
+        {{ "auth.createNewUser" | translate }}
+      </button>
     </div>
   </div>
 </div>
 
 <div class="image-container">
-<!--    <img src="/assets/icons/icon-mac-touch.png" height="200" width="200" alt=""/>-->
+  <!--    <img src="/assets/icons/icon-mac-touch.png" height="200" width="200" alt=""/>-->
 </div>

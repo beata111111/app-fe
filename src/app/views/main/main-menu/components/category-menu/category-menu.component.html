@@ -1,15 +1,24 @@
 <div class="category-label" (click)="handleClick(category.category_id)">
-  <fa-icon [icon]="getCategoryIcon()" [size]="'xl'" class="category-icon"></fa-icon>
-  <span>{{ 'categories.' + category.category_id | translate }}</span>
-  <fa-icon [icon]="isExpanded ? solid.faChevronUp : solid.faChevronDown" [size]="'lg'" class="category-chevron-icon"></fa-icon>
+  <fa-icon
+    [icon]="getCategoryIcon()"
+    [size]="'xl'"
+    class="category-icon"
+  ></fa-icon>
+  <span>{{ "categories." + category.category_id | translate }}</span>
+  <fa-icon
+    [icon]="isExpanded ? solid.faChevronUp : solid.faChevronDown"
+    [size]="'lg'"
+    class="category-chevron-icon"
+  ></fa-icon>
 </div>
 
 <div class="level-container">
   <ng-container *ngIf="isExpanded; else preview">
     <ng-container *ngFor="let level of category.levels">
-      <app-level-menu *ngIf="level.enabled"
-                      [level]="level"
-                      [category_id]="category.category_id"
+      <app-level-menu
+        *ngIf="level.enabled"
+        [level]="level"
+        [category_id]="category.category_id"
       ></app-level-menu>
     </ng-container>
   </ng-container>

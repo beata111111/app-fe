@@ -8,7 +8,8 @@ input {
   border: 2px solid var(--theme-1-color-18);
   background-color: var(--bg-basic-color);
   color: var(--font-basic-color);
-  &:focus, &:focus-visible {
+  &:focus,
+  &:focus-visible {
     background-color: var(--bg-basic-color-3);
     outline: 1px solid var(--theme-1-color-18);
   }
@@ -22,4 +23,3 @@ input {
     font-weight: 500;
   }
 }
-

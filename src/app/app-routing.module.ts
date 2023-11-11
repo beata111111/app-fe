@@ -1,62 +1,54 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { NgModule } from "@angular/core";
+import { RouterModule, Routes } from "@angular/router";
 import { AuthGuard, NoAuthGuard } from "@core";
 
 const routes: Routes = [
   {
-    path: '',
-    redirectTo: 'auth',
-    pathMatch: 'full',
+    path: "",
+    redirectTo: "auth",
+    pathMatch: "full",
   },
   {
-    path: 'auth',
+    path: "auth",
     canActivate: [NoAuthGuard],
 
     loadChildren: () =>
-      import('./views/auth/auth.module').then(
-        (m) => m.AuthModule
-      ),
+      import("./views/auth/auth.module").then((m) => m.AuthModule),
   },
   {
-    path: 'main',
+    path: "main",
     canActivate: [AuthGuard],
     loadChildren: () =>
-      import('./views/main/main.module').then(
-        (m) => m.MainModule
-      ),
+      import("./views/main/main.module").then((m) => m.MainModule),
   },
   {
-    path: 'settings',
+    path: "settings",
     canActivate: [AuthGuard],
     loadChildren: () =>
-      import('./views/settings/settings.module').then(
-        (m) => m.SettingsModule
-      ),
+      import("./views/settings/settings.module").then((m) => m.SettingsModule),
   },
   {
-    path: 'records',
+    path: "records",
     canActivate: [AuthGuard],
     loadChildren: () =>
-      import('./views/records/records.module').then(
-        (m) => m.RecordsModule
-      ),
+      import("./views/records/records.module").then((m) => m.RecordsModule),
   },
   {
-    path: 'challenge/:category_id/:level_id/:variant_id',
+    path: "challenge/:category_id/:level_id/:variant_id",
     canActivate: [AuthGuard],
     loadChildren: () =>
-      import('./views/challenge/challenge.module').then(
-        (m) => m.ChallengeModule
+      import("./views/challenge/challenge.module").then(
+        (m) => m.ChallengeModule,
       ),
   },
   {
-    path: 'styleguide',
+    path: "styleguide",
     loadChildren: () =>
-      import('./views/styleguide/styleguide.module').then(
-        (m) => m.StyleguideModule
+      import("./views/styleguide/styleguide.module").then(
+        (m) => m.StyleguideModule,
       ),
   },
-  {path: '**', redirectTo: ''}
+  { path: "**", redirectTo: "" },
 ];
 
 @NgModule({

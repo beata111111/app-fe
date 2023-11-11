@@ -1,46 +1,73 @@
-p, span, b {
+p,
+span,
+b {
   font-size: 1.6rem;
   line-height: 2.2rem;
 }
 
-h1, h2, h3, h4, h5, p, span, b, small {
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+span,
+b,
+small {
   color: var(--font-basic-color);
   user-select: none;
 }
 
-h1, h2, h3, h4, h5, h1 span, h2 span, h3 span, h4 span, h5 span {
+h1,
+h2,
+h3,
+h4,
+h5,
+h1 span,
+h2 span,
+h3 span,
+h4 span,
+h5 span {
   font-weight: 500;
 }
 
-p, span, b, small {
+p,
+span,
+b,
+small {
   font-weight: 400;
 }
 
-h1, h1 span {
+h1,
+h1 span {
   font-size: 2.6rem;
   margin-top: 2.4rem;
   margin-bottom: 2.4rem;
   line-height: 3.4rem;
 }
-h2, h2 span {
+h2,
+h2 span {
   font-size: 2.2rem;
   margin-top: 2.2rem;
   margin-bottom: 2.2rem;
   line-height: 3.2rem;
 }
-h3, h3 span {
+h3,
+h3 span {
   font-size: 2rem;
   margin-top: 2rem;
   margin-bottom: 2rem;
   line-height: 3rem;
 }
-h4, h4 span {
+h4,
+h4 span {
   font-size: 1.8rem;
   margin-top: 1.8rem;
   margin-bottom: 1.8rem;
   line-height: 2.8rem;
 }
-h5, h5 span {
+h5,
+h5 span {
   font-size: 1.6rem;
   margin-top: 1.6rem;
   margin-bottom: 1.6rem;

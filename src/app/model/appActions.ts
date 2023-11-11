@@ -1,4 +1,4 @@
 export enum AppActions {
-  RIGHT = 'RIGHT',
-  WRONG = 'WRONG'
+  RIGHT = "RIGHT",
+  WRONG = "WRONG",
 }

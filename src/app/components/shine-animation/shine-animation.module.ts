@@ -1,6 +1,6 @@
-import {NgModule} from '@angular/core';
+import { NgModule } from "@angular/core";
 
-import {ShineAnimationComponent} from './shine-animation.component';
+import { ShineAnimationComponent } from "./shine-animation.component";
 
 @NgModule({
   declarations: [ShineAnimationComponent],
@@ -8,5 +8,4 @@ import {ShineAnimationComponent} from './shine-animation.component';
   providers: [],
   exports: [ShineAnimationComponent],
 })
-export class ShineAnimationModule {
-}
+export class ShineAnimationModule {}

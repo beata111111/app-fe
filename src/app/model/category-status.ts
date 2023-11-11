@@ -1,24 +1,24 @@
-import {UserPointsUpdate} from "./user";
+import { UserPointsUpdate } from "./user";
 
 export type VariantStatus = {
-  variant_id: string,
-  enabled: boolean,
-  result: number,
-  previousResult: number,
-}
+  variant_id: string;
+  enabled: boolean;
+  result: number;
+  previousResult: number;
+};
 
 export type LevelStatus = {
-  level_id: string,
-  enabled: boolean,
-  variants: VariantStatus[]
-}
+  level_id: string;
+  enabled: boolean;
+  variants: VariantStatus[];
+};
 
 export type CategoryStatus = {
-  category_id: string,
-  levels: LevelStatus[]
-}
+  category_id: string;
+  levels: LevelStatus[];
+};
 
 export type CategoryUpdate = {
-  categoryUpdate: CategoryStatus,
-  userPointsUpdate: UserPointsUpdate,
-}
+  categoryUpdate: CategoryStatus;
+  userPointsUpdate: UserPointsUpdate;
+};

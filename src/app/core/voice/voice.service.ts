@@ -1,18 +1,18 @@
-import { Injectable } from '@angular/core';
-import {BehaviorSubject} from 'rxjs';
+import { Injectable } from "@angular/core";
+import { BehaviorSubject } from "rxjs";
 
 declare global {
   interface Window {
     responsiveVoice: {
       speak: (text: string, setting?: string, config?: any) => {};
-      cancel: () => {}
-      isPlaying: () => {}
+      cancel: () => {};
+      isPlaying: () => {};
     };
   }
 }
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: "root",
 })
 export class VoiceService {
   private _isSoundActive$ = new BehaviorSubject<boolean>(false);
@@ -24,7 +24,10 @@ export class VoiceService {
 
   speak(text: string): void {
     if (text && this._isSoundActive$.value) {
-      window.responsiveVoice.speak(text, 'Polish Male', { onstart: this._onStart, onend: this._onEnd });
+      window.responsiveVoice.speak(text, "Polish Male", {
+        onstart: this._onStart,
+        onend: this._onEnd,
+      });
     }
   }
 
@@ -44,12 +47,12 @@ export class VoiceService {
 
   toggleSoundActive(): void {
     const newState = !this._isSoundActive$.value;
-    localStorage.setItem('SOUND_ACTIVE', String(newState));
+    localStorage.setItem("SOUND_ACTIVE", String(newState));
     this._isSoundActive$.next(newState);
   }
 
   private _checkStoredValue() {
-    const isSoundActive = localStorage.getItem('SOUND_ACTIVE') === 'true';
+    const isSoundActive = localStorage.getItem("SOUND_ACTIVE") === "true";
     this._isSoundActive$.next(isSoundActive);
   }
 }

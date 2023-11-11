@@ -1,15 +1,15 @@
 export interface PopupDialogConfig {
-  title?: string,
-  showBackButton?: boolean,
-  backButtonText?: string,
-  showNextButton?: boolean,
-  nextButtonText?: string,
+  title?: string;
+  showBackButton?: boolean;
+  backButtonText?: string;
+  showNextButton?: boolean;
+  nextButtonText?: string;
 }
 
 export const defaultPopupDialogConfig: PopupDialogConfig = {
-  title: '',
+  title: "",
   showBackButton: true,
-  backButtonText: 'back',
+  backButtonText: "back",
   showNextButton: true,
-  nextButtonText: 'next',
-}
+  nextButtonText: "next",
+};

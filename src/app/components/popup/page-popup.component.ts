@@ -1,21 +1,27 @@
-import {AfterContentInit, Component, ContentChild, EventEmitter, Output} from '@angular/core';
-import {faXmark} from "@fortawesome/free-solid-svg-icons";
-import {AbstractPopupDialogDirective} from "../popup-dialogs/abstract/abstract-popup-dialog.directive";
-import {PopupDialogConfig} from "../popup-dialogs/popup.model";
+import {
+  AfterContentInit,
+  Component,
+  ContentChild,
+  EventEmitter,
+  Output,
+} from "@angular/core";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import { AbstractPopupDialogDirective } from "../popup-dialogs/abstract/abstract-popup-dialog.directive";
+import { PopupDialogConfig } from "../popup-dialogs/popup.model";
 
 @Component({
-  selector: 'app-page-popup',
-  templateUrl: './page-popup.component.html',
-  styleUrls: ['./page-popup.component.scss']
+  selector: "app-page-popup",
+  templateUrl: "./page-popup.component.html",
+  styleUrls: ["./page-popup.component.scss"],
 })
 export class PagePopupComponent implements AfterContentInit {
-  faXmark = faXmark
+  faXmark = faXmark;
 
   config: PopupDialogConfig = {};
 
   @Output() close = new EventEmitter<void>();
 
-  @ContentChild('popupContent') popupContent!: AbstractPopupDialogDirective;
+  @ContentChild("popupContent") popupContent!: AbstractPopupDialogDirective;
 
   handleClose(): void {
     this.close.emit();

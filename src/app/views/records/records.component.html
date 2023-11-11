@@ -1,10 +1,14 @@
 <app-nav-container [navTemplate]="nav" [contentTemplate]="content">
 </app-nav-container>
 
-
 <ng-template #nav>
   <app-top-nav>
-    <button [appButton]="'ghost'" class="btn-icon" (click)="back()" [style.transform]="'rotate(180deg)'">
+    <button
+      [appButton]="'ghost'"
+      class="btn-icon"
+      (click)="back()"
+      [style.transform]="'rotate(180deg)'"
+    >
       <fa-icon [icon]="faArrowRightFromBracket" size="xl"></fa-icon>
     </button>
     <div class="gap"></div>

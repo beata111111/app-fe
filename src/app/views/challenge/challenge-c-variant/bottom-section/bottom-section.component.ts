@@ -1,24 +1,24 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {Word} from "@model";
+import { Component, EventEmitter, Input, Output } from "@angular/core";
+import { Word } from "@model";
 
 @Component({
-  selector: 'app-v-c-bottom-section',
-  templateUrl: './bottom-section.component.html',
-  styleUrls: ['./bottom-section.component.scss']
+  selector: "app-v-c-bottom-section",
+  templateUrl: "./bottom-section.component.html",
+  styleUrls: ["./bottom-section.component.scss"],
 })
 export class ChallengeCVariantBottomSectionComponent {
-  roundShowWords!: { answer: string, word_id: string }[];
+  roundShowWords!: { answer: string; word_id: string }[];
 
-  @Input() set roundWords (words: Word[]) {
-    this.roundShowWords = words.map(word => {
+  @Input() set roundWords(words: Word[]) {
+    this.roundShowWords = words.map((word) => {
       return {
         word_id: word.word_id,
-        answer: this._generateAnswer(word, this.gapNumber)
-      }
-    })
-  };
+        answer: this._generateAnswer(word, this.gapNumber),
+      };
+    });
+  }
 
-  @Input() variant: 'c' | 'd' | 'e' = 'c';
+  @Input() variant: "c" | "d" | "e" = "c";
   @Input() gapNumber!: number;
   @Output() action = new EventEmitter<any>();
 
@@ -29,6 +29,6 @@ export class ChallengeCVariantBottomSectionComponent {
   private _generateAnswer(word: Word, gapNumber: number): string {
     const words = word[`variant_${this.variant}_pl`].split(" ");
     const n = gapNumber % words.length;
-    return words[n].toLowerCase().replace('.', '');
+    return words[n].toLowerCase().replace(".", "");
   }
 }

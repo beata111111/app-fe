@@ -1,8 +1,8 @@
-import {Directive, Self} from '@angular/core';
-import {WordHistory} from "@model";
-import {ChallengeService} from "../challenge.service";
-import {AbstractChallengeComponent} from "./challenge.directive";
-import {VoiceService} from "@core";
+import { Directive, Self } from "@angular/core";
+import { WordHistory } from "@model";
+import { ChallengeService } from "../challenge.service";
+import { AbstractChallengeComponent } from "./challenge.directive";
+import { VoiceService } from "@core";
 
 @Directive()
 export abstract class AbstractChallengeHistoryComponent extends AbstractChallengeComponent {
@@ -13,16 +13,16 @@ export abstract class AbstractChallengeHistoryComponent extends AbstractChalleng
 
   constructor(
     protected override _voiceService: VoiceService,
-    @Self() protected override _challengeService: ChallengeService
+    @Self() protected override _challengeService: ChallengeService,
   ) {
     super(_voiceService, _challengeService);
     this._subscriptions.add(
-      this.challengeState$.subscribe(state => {
+      this.challengeState$.subscribe((state) => {
         if (state) {
           this.history = state.history;
         }
-      })
-    )
+      }),
+    );
   }
 
   activateHistory(): void {

@@ -1,10 +1,10 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import {ChallengeComponent} from "./challenge.component";
+import { NgModule } from "@angular/core";
+import { RouterModule, Routes } from "@angular/router";
+import { ChallengeComponent } from "./challenge.component";
 
 const routes: Routes = [
   {
-    path: '',
+    path: "",
     component: ChallengeComponent,
   },
 ];
@@ -14,4 +14,3 @@ const routes: Routes = [
   exports: [RouterModule],
 })
 export class ChallengeRoutingModule {}
-

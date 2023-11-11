@@ -1,16 +1,23 @@
 <div class="word-div">
   <h2 class="word-text" (click)="speak()">
-    <span (click)="speak(showWord.wordFirstPart)"> {{showWord.wordFirstPart}} </span>
-    <app-word-gap [showAnswer]="showAnswer" [answer]="showWord.gapWord"></app-word-gap>
-    <span (click)="speak(showWord.wordSecondPart)"> {{showWord.wordSecondPart}} </span>
+    <span (click)="speak(showWord.wordFirstPart)">
+      {{ showWord.wordFirstPart }}
+    </span>
+    <app-word-gap
+      [showAnswer]="showAnswer"
+      [answer]="showWord.gapWord"
+    ></app-word-gap>
+    <span (click)="speak(showWord.wordSecondPart)">
+      {{ showWord.wordSecondPart }}
+    </span>
   </h2>
 </div>
 
 <div class="translation">
-  <h4>{{showWord.wordDe}}</h4>
+  <h4>{{ showWord.wordDe }}</h4>
   <app-show-answer-animation
-          [showAnswer]="showAnswer"
-          [answerCorrect]="lastAnswerCorrect"
-          [showHistory]="showHistory"
+    [showAnswer]="showAnswer"
+    [answerCorrect]="lastAnswerCorrect"
+    [showHistory]="showHistory"
   ></app-show-answer-animation>
 </div>

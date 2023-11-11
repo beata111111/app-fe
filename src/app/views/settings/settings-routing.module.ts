@@ -1,10 +1,10 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import {SettingsComponent} from "./settings.component";
+import { NgModule } from "@angular/core";
+import { RouterModule, Routes } from "@angular/router";
+import { SettingsComponent } from "./settings.component";
 
 const routes: Routes = [
   {
-    path: '',
+    path: "",
     component: SettingsComponent,
   },
 ];
@@ -14,4 +14,3 @@ const routes: Routes = [
   exports: [RouterModule],
 })
 export class SettingsRoutingModule {}
-

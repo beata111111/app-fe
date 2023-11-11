@@ -1,13 +1,11 @@
-import {Injectable} from '@angular/core';
-import {AppHttpService} from "@core";
-import {AuthResponse} from "@model";
-import {Observable} from "rxjs";
+import { Injectable } from "@angular/core";
+import { AppHttpService } from "@core";
+import { AuthResponse } from "@model";
+import { Observable } from "rxjs";
 
-@Injectable({ providedIn: 'root' })
+@Injectable({ providedIn: "root" })
 export class AuthHttpService {
-
-  constructor(private _appHttpService: AppHttpService) {
-  }
+  constructor(private _appHttpService: AppHttpService) {}
 
   createUser(name: string, password: string): Observable<AuthResponse> {
     const url = "/api/create-user";

@@ -1,11 +1,11 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { ChallengeAVariantComponent } from './challenge-a-variant.component';
-import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
-import {ButtonModule} from "@components";
-import {ChallengeAVariantMiddleSectionComponent} from "./middle-section/middle-section.component";
-import {ChallengeAVariantBottomSectionComponent} from "./bottom-section/bottom-section.component";
-import {ChallengeComponentsModule} from "@challengeComponents";
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { ChallengeAVariantComponent } from "./challenge-a-variant.component";
+import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
+import { ButtonModule } from "@components";
+import { ChallengeAVariantMiddleSectionComponent } from "./middle-section/middle-section.component";
+import { ChallengeAVariantBottomSectionComponent } from "./bottom-section/bottom-section.component";
+import { ChallengeComponentsModule } from "@challengeComponents";
 
 @NgModule({
   declarations: [
@@ -19,8 +19,6 @@ import {ChallengeComponentsModule} from "@challengeComponents";
     ButtonModule,
     ChallengeComponentsModule,
   ],
-  exports: [
-    ChallengeAVariantComponent,
-  ]
+  exports: [ChallengeAVariantComponent],
 })
 export class ChallengeAVariantModule {}

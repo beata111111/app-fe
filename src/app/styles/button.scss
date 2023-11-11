@@ -43,8 +43,8 @@ button.btn.sm {
     background-color: var(--theme-color-18);
   }
 }
-body[night-mode='ON'],
-.body[night-mode='ON'] {
+body[night-mode="ON"],
+.body[night-mode="ON"] {
   .btn.btn-primary {
     color: var(--theme-color-2);
     &:hover {
@@ -56,9 +56,6 @@ body[night-mode='ON'],
     }
   }
 }
-
-
-
 
 .btn.btn-secondary {
   color: var(--theme-color-24);
@@ -93,8 +90,8 @@ body[night-mode='ON'],
   }
 }
 
-body[night-mode='ON'],
-.body[night-mode='ON'] {
+body[night-mode="ON"],
+.body[night-mode="ON"] {
   .btn.btn-secondary {
     color: var(--theme-color-2);
     background-color: var(--theme-color-22);

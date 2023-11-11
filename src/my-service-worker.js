@@ -1,29 +1,24 @@
-
-
-const broadcast = new BroadcastChannel('PREFETCH_VOICE_CHANNEL');
+const broadcast = new BroadcastChannel("PREFETCH_VOICE_CHANNEL");
 
 const CACHE_NAME = "my-app-cache";
 
-const preloadUrl = function() {
+const preloadUrl = function () {};
 
-}
-
-self.addEventListener('message', (event) => {
-  if (event.data && event.data.type === 'MESSAGE_IDENTIFIER') {
+self.addEventListener("message", (event) => {
+  if (event.data && event.data.type === "MESSAGE_IDENTIFIER") {
     preloadUrl();
   }
 });
 
-
-self.addEventListener("install", event => {
+self.addEventListener("install", (event) => {
   // console.log("WORKER: install event in progress.");
 
   event.waitUntil(self.skipWaiting());
 });
 
 broadcast.onmessage = (event) => {
-  if (event.data && event.data.type === 'PREFETCH_VOICE') {
-    console.log('received message', event.data.urls);
+  if (event.data && event.data.type === "PREFETCH_VOICE") {
+    console.log("received message", event.data.urls);
 
     const preCache = async () => {
       const cache = await caches.open(CACHE_NAME);
@@ -31,45 +26,40 @@ broadcast.onmessage = (event) => {
     };
 
     preCache().then(() => {
-      console.log('precached')
+      console.log("precached");
     });
   }
 };
 
-self.addEventListener('activate', function(event) {
+self.addEventListener("activate", function (event) {
   // console.log('Claiming control');
   return self.clients.claim();
 });
 
-self.addEventListener('fetch', event => {
+self.addEventListener("fetch", (event) => {
   // console.log('fetch', event);
   // console.log(event.request.url, caches);
 
   const options = {
-    ignoreVary: true
-  }
+    ignoreVary: true,
+  };
 
-  if (event.request.url.includes('texttospeech')) {
+  if (event.request.url.includes("texttospeech")) {
     event.respondWith(
-      caches.open(CACHE_NAME).then(cache => {
-        return cache.match(event.request, options).then(cachedResponse => {
+      caches.open(CACHE_NAME).then((cache) => {
+        return cache.match(event.request, options).then((cachedResponse) => {
           if (cachedResponse) {
             // console.log('returning from cache', cachedResponse);
             return cachedResponse;
           } else {
             return fetch(event.request);
           }
-        })
-      })
+        });
+      }),
     );
   } else {
-    event.respondWith(
-      fetch(event.request)
-    );
+    event.respondWith(fetch(event.request));
   }
+});
 
-
-})
-
-importScripts('./ngsw-worker.js');
-
+importScripts("./ngsw-worker.js");

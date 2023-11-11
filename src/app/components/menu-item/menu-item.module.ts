@@ -1,18 +1,11 @@
-import {NgModule} from '@angular/core';
-import {MenuItemComponent} from "./menu-item.component";
-import {ButtonModule} from "../button/button.module";
+import { NgModule } from "@angular/core";
+import { MenuItemComponent } from "./menu-item.component";
+import { ButtonModule } from "../button/button.module";
 
 @NgModule({
   declarations: [MenuItemComponent],
-  imports: [
-    ButtonModule,
-  ],
+  imports: [ButtonModule],
   providers: [],
-  exports: [
-    MenuItemComponent
-  ],
+  exports: [MenuItemComponent],
 })
-export class MenuItemModule {
-}
-
-
+export class MenuItemModule {}

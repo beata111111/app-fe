@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import { Injectable } from "@angular/core";
 
 @Injectable()
 export class DiamondCounterService {
@@ -6,8 +6,7 @@ export class DiamondCounterService {
   _lastValue: number | null = null;
   _showAnimation = false;
 
-  constructor() {
-  }
+  constructor() {}
 
   setLastValue(value: any): void {
     const isDifferent = this._lastValue !== value;

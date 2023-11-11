@@ -32,13 +32,13 @@
       position: relative;
 
       &:before {
-        content: 'pl. ';
+        content: "pl. ";
         font-size: 15px;
       }
 
       &.plural {
         &:before {
-          content: 'sing. ';
+          content: "sing. ";
         }
       }
     }

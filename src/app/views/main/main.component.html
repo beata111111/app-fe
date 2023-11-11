@@ -2,13 +2,17 @@
 <!--  <app-popup-dialog-welcome #popupContent></app-popup-dialog-welcome>-->
 <!--</app-page-popup>-->
 
-<ng-container *ngIf="categoryStatus$ | async as categoryStatus; else spinner;">
+<ng-container *ngIf="categoryStatus$ | async as categoryStatus; else spinner">
   <app-nav-container [navTemplate]="nav" [contentTemplate]="content">
   </app-nav-container>
 
   <ng-template #nav>
     <app-top-nav>
-      <button [appButton]="'ghost'" class="btn-icon" (click)="navigateToSettings()">
+      <button
+        [appButton]="'ghost'"
+        class="btn-icon"
+        (click)="navigateToSettings()"
+      >
         <fa-icon [icon]="faGear" size="xl"></fa-icon>
       </button>
       <app-diamond-counter [data]="user$ | async"></app-diamond-counter>
@@ -16,8 +20,7 @@
   </ng-template>
 
   <ng-template #content>
-    <app-main-menu [categoryStatus]="categoryStatus"
-    ></app-main-menu>
+    <app-main-menu [categoryStatus]="categoryStatus"></app-main-menu>
   </ng-template>
 </ng-container>
 

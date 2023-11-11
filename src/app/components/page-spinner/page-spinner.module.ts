@@ -1,14 +1,11 @@
-import {NgModule} from '@angular/core';
-import {PageSpinnerComponent} from "./page-spinner.component";
-import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
+import { NgModule } from "@angular/core";
+import { PageSpinnerComponent } from "./page-spinner.component";
+import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 
 @NgModule({
   declarations: [PageSpinnerComponent],
-  imports: [
-    FontAwesomeModule
-  ],
+  imports: [FontAwesomeModule],
   providers: [],
   exports: [PageSpinnerComponent],
 })
-export class PageSpinnerModule {
-}
+export class PageSpinnerModule {}

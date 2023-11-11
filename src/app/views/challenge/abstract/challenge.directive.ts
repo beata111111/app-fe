@@ -1,8 +1,16 @@
-import {Directive, EventEmitter, Input, OnDestroy, OnInit, Output, Self} from '@angular/core';
-import {ChallengeState, Word} from "@model";
-import {Observable, Subscription} from "rxjs";
-import {ChallengeService} from "../challenge.service";
-import {VoiceService} from "@core";
+import {
+  Directive,
+  EventEmitter,
+  Input,
+  OnDestroy,
+  OnInit,
+  Output,
+  Self,
+} from "@angular/core";
+import { ChallengeState, Word } from "@model";
+import { Observable, Subscription } from "rxjs";
+import { ChallengeService } from "../challenge.service";
+import { VoiceService } from "@core";
 
 @Directive()
 export abstract class AbstractChallengeComponent implements OnDestroy {
@@ -18,17 +26,17 @@ export abstract class AbstractChallengeComponent implements OnDestroy {
 
   constructor(
     protected _voiceService: VoiceService,
-    @Self() protected _challengeService: ChallengeService
+    @Self() protected _challengeService: ChallengeService,
   ) {
     this.challengeState$ = this._challengeService.state$;
 
-    this._challengeSubscription = this.challengeState$.subscribe(state => {
+    this._challengeSubscription = this.challengeState$.subscribe((state) => {
       if (state?.challengeFinished) {
         this._challengeSubscription.unsubscribe();
         this.showFinishOverlay = true;
         this.submitResult.emit(state.correctAnswersRatio);
       }
-    })
+    });
   }
 
   speak(word: string) {

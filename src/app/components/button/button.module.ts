@@ -1,5 +1,5 @@
-import {NgModule} from '@angular/core';
-import {ButtonDirective} from "./button.directive";
+import { NgModule } from "@angular/core";
+import { ButtonDirective } from "./button.directive";
 
 @NgModule({
   declarations: [ButtonDirective],
@@ -7,5 +7,4 @@ import {ButtonDirective} from "./button.directive";
   providers: [],
   exports: [ButtonDirective],
 })
-export class ButtonModule {
-}
+export class ButtonModule {}

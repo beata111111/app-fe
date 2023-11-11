@@ -1,7 +1,7 @@
-import {Injectable} from "@angular/core";
-import {Word} from "@model";
+import { Injectable } from "@angular/core";
+import { Word } from "@model";
 
-@Injectable({ providedIn: 'root' })
+@Injectable({ providedIn: "root" })
 export class WordsDummyService {
   //
   // words: Word[] = [];

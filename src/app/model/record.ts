@@ -1,4 +1,4 @@
 export interface Record {
-  name: string,
-  points: number,
+  name: string;
+  points: number;
 }

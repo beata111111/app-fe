@@ -1,20 +1,24 @@
 <app-nav-container [navTemplate]="nav" [contentTemplate]="content">
 </app-nav-container>
 
-
 <ng-template #nav>
   <app-top-nav>
-    <button [appButton]="'ghost'" class="btn-icon" (click)="handleCloseSettings()">
+    <button
+      [appButton]="'ghost'"
+      class="btn-icon"
+      (click)="handleCloseSettings()"
+    >
       <fa-icon [icon]="faChevronLeft" size="xl"></fa-icon>
     </button>
-    <h3 class="inline">{{ 'settings.settings' | translate }}</h3>
+    <h3 class="inline">{{ "settings.settings" | translate }}</h3>
   </app-top-nav>
 </ng-template>
-
 
 <ng-template #content>
   <div class="settings-content">
     <app-dark-mode-settings></app-dark-mode-settings>
-    <button [appButton]="'primary'" class="logout-button" (click)="logout()">{{ "auth.logout" | translate }}</button>
+    <button [appButton]="'primary'" class="logout-button" (click)="logout()">
+      {{ "auth.logout" | translate }}
+    </button>
   </div>
 </ng-template>

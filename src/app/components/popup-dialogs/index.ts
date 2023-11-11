@@ -1,1 +1,1 @@
-export * from './popup-dialog-welcome'
+export * from "./popup-dialog-welcome";

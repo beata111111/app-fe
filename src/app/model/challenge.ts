@@ -1,7 +1,7 @@
-import {Word} from "./word";
+import { Word } from "./word";
 
 export interface WordHistory extends Word {
-  answerCorrect: boolean,
+  answerCorrect: boolean;
 }
 
 export interface ChallengeState {
@@ -9,16 +9,16 @@ export interface ChallengeState {
   history: WordHistory[];
   currentSequenceStep: number;
 
-  currentWord: Word,
-  currentWordAnswers: Word[],
-  gapNumber: number,
-  lastAnswerCorrect: boolean,
-  showAnswer: boolean,
+  currentWord: Word;
+  currentWordAnswers: Word[];
+  gapNumber: number;
+  lastAnswerCorrect: boolean;
+  showAnswer: boolean;
 
-  challengeFinished: boolean,
-  challengeProgress: number,
-  correctAnswersCount: number,
-  correctAnswersRatio: number,
+  challengeFinished: boolean;
+  challengeProgress: number;
+  correctAnswersCount: number;
+  correctAnswersRatio: number;
 }
 
 export interface ChallengeResult {

@@ -1,7 +1,16 @@
 <ng-container [ngSwitch]="currentStep">
-  <app-welcome-first-step *ngSwitchCase="1" (config)="applyConfig($event)"></app-welcome-first-step>
+  <app-welcome-first-step
+    *ngSwitchCase="1"
+    (config)="applyConfig($event)"
+  ></app-welcome-first-step>
 
-  <app-welcome-second-step *ngSwitchCase="2" (config)="applyConfig($event)"></app-welcome-second-step>
+  <app-welcome-second-step
+    *ngSwitchCase="2"
+    (config)="applyConfig($event)"
+  ></app-welcome-second-step>
 
-  <app-welcome-third-step *ngSwitchCase="3" (config)="applyConfig($event)"></app-welcome-third-step>
+  <app-welcome-third-step
+    *ngSwitchCase="3"
+    (config)="applyConfig($event)"
+  ></app-welcome-third-step>
 </ng-container>

@@ -1,15 +1,14 @@
-import {Injectable} from '@angular/core';
-import {AuthHttpService} from "./auth.http.service";
-import {Observable, tap} from "rxjs";
-import {Router} from "@angular/router";
-import {CurrentUserService} from "./current-user.service";
+import { Injectable } from "@angular/core";
+import { AuthHttpService } from "./auth.http.service";
+import { Observable, tap } from "rxjs";
+import { Router } from "@angular/router";
+import { CurrentUserService } from "./current-user.service";
 import jwt_decode from "jwt-decode";
-import {AuthResponse} from "@model";
-const TOKEN = 'token';
+import { AuthResponse } from "@model";
+const TOKEN = "token";
 
-@Injectable({ providedIn: 'root' })
+@Injectable({ providedIn: "root" })
 export class AuthService {
-
   constructor(
     private _authHttpService: AuthHttpService,
     private _router: Router,
@@ -41,7 +40,7 @@ export class AuthService {
     return this._authHttpService.createUser(name, password).pipe(
       tap((authResponse) => {
         this.setToken(authResponse.token);
-        this._router.navigate(['main']);
+        this._router.navigate(["main"]);
       }),
     );
   }
@@ -50,13 +49,13 @@ export class AuthService {
     return this._authHttpService.logIn(name, password).pipe(
       tap((authResponse) => {
         this.setToken(authResponse.token);
-        this._router.navigate(['main']);
+        this._router.navigate(["main"]);
       }),
     );
   }
 
   logout() {
     this.clearToken();
-    this._router.navigate(['auth']);
+    this._router.navigate(["auth"]);
   }
 }
