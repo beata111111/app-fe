@@ -26,6 +26,32 @@
     padding: 20px;
     border: var(--border-width) solid var(--font-basic-color);
     position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: scroll;
+
+    .content {
+      flex-grow: 1;
+      background-color: papayawhip;
+    }
+
+    .title {
+      h1 {
+        margin-top: 4px;
+        margin-bottom: 12px;
+      }
+    }
+
+    .button-container {
+      margin: 18px 8px 0 8px;
+      justify-content: center;
+      display: flex;
+      gap: 28px;
+
+      button {
+        max-width: 300px;
+      }
+    }
 
     .close-icon {
       position: absolute;

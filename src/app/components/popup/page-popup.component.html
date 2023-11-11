@@ -7,16 +7,17 @@
       <fa-icon [icon]="faXmark" [size]="'2x'"></fa-icon>
     </button>
 
-    <p>page-popup works!</p>
+    <div *ngIf="config.title" class="title">
+      <h1>{{config.title}}</h1>
+    </div>
 
-    <ng-content></ng-content>
-
+    <div class="content">
+      <ng-content></ng-content>
+    </div>
 
     <div class="button-container">
-      <button (click)="back()">{{config.backButtonText}}</button>
-
-      <button (click)="next()">{{config.nextButtonText}}</button>
+      <button *ngIf="config.showBackButton" [appButton]="'ghost'" (click)="back()">{{config.backButtonText}}</button>
+      <button *ngIf="config.showNextButton" [appButton]="'primary'" (click)="next()">{{config.nextButtonText}}</button>
     </div>
   </div>
 </div>
-

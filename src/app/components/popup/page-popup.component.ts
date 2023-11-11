@@ -1,6 +1,7 @@
 import {AfterContentInit, Component, ContentChild, EventEmitter, Output} from '@angular/core';
-import {faGear, faXmark} from "@fortawesome/free-solid-svg-icons";
+import {faXmark} from "@fortawesome/free-solid-svg-icons";
 import {AbstractPopupDialogDirective} from "../popup-dialogs/abstract/abstract-popup-dialog.directive";
+import {PopupDialogConfig} from "../popup-dialogs/popup.model";
 
 @Component({
   selector: 'app-page-popup',
@@ -10,10 +11,7 @@ import {AbstractPopupDialogDirective} from "../popup-dialogs/abstract/abstract-p
 export class PagePopupComponent implements AfterContentInit {
   faXmark = faXmark
 
-  config = {
-    nextButtonText: '',
-    backButtonText: ''
-  };
+  config: PopupDialogConfig = {};
 
   @Output() close = new EventEmitter<void>();
 
@@ -23,10 +21,12 @@ export class PagePopupComponent implements AfterContentInit {
     this.close.emit();
   }
 
-  protected readonly faGear = faGear;
-
   ngAfterContentInit() {
     this.config = this.popupContent.config;
+
+    this.popupContent.close.subscribe(() => {
+      this.handleClose();
+    });
   }
 
   back() {
