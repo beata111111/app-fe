@@ -24,7 +24,7 @@
     span {
       color: black;
       display: block;
-      width: 100%;
+      margin: 0 5px;
       text-align: center;
       font-weight: 800;
       font-size: 2rem;
@@ -68,9 +68,9 @@
 
 .disabled-background {
   border-color: var(--color-result-none) !important;
-  background-color: var(--color-result-none) !important;
-  ::ng-deep .fa-lock {
-    color: var(--font-teriary-color) !important;
+  background-color: var(--color-result-none);
+  fa-icon {
+    color: var(--font-teriary-color);
   }
   span {
     color: var(--font-quaternary-color) !important;
