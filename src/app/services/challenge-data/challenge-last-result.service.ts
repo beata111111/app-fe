@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { ChallengeResult } from "@model";
+import {ChallengeResult, VariantSignature} from "@model";
 
 @Injectable({ providedIn: "root" })
 export class ChallengeLastResultService {
@@ -9,16 +9,12 @@ export class ChallengeLastResultService {
     this.lastResult = result;
   }
 
-  getLastResult(
-    category_id: string,
-    level_id: string,
-    variant_id: string,
-  ): number | null {
+  getLastResult(signature: VariantSignature): number | null {
     const hasNewResult =
       this.lastResult &&
-      this.lastResult.category_id === category_id &&
-      this.lastResult.level_id === level_id &&
-      this.lastResult.variant_id === variant_id;
+      this.lastResult.category_id === signature.category_id &&
+      this.lastResult.level_id === signature.level_id &&
+      this.lastResult.variant_id === signature.variant_id;
 
     if (!hasNewResult) return null;
 

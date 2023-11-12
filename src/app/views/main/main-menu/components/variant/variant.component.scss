@@ -60,9 +60,8 @@
     animation: 2.5s appear 1s forwards ease-out;
   }
 
-  &.is-new button {
+  &.is-newly-enabled button {
     animation: 3.5s popupNewEnabled forwards ease-out;
-    //background-color: red !important;
   }
 }
 

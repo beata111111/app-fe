@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { BehaviorSubject, map, pairwise, Subject, tap } from "rxjs";
+import { BehaviorSubject, filter, map, pairwise, tap } from "rxjs";
 import { CategoryStatus, VariantSignature } from "@model";
 import { categoryToVariants, findNewlyCreatedVariant } from "@helpers";
 
@@ -8,7 +8,7 @@ export class MainMenuService {
 
   newlyEnabledVariants$ = new BehaviorSubject<VariantSignature[]>([]);
 
-  categoryData$ = new Subject<CategoryStatus[]>();
+  categoryData$ = new BehaviorSubject<CategoryStatus[]>([]);
 
   setCategoryData(categoryStatuses: CategoryStatus[]) {
     this.categoryData$.next(categoryStatuses);
@@ -16,6 +16,7 @@ export class MainMenuService {
 
   constructor() {
     this.categoryData$.pipe(
+      filter((c) => !!c.length),
       map((categories) => {
         return categoryToVariants(categories);
       }),
