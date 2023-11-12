@@ -77,9 +77,9 @@ export class ChallengeComponent implements OnInit {
       expanded: this._category_id,
     };
 
-    console.log("start timeout");
+    // console.log("start timeout");
     setTimeout(() => {
-      console.log("end timeout");
+      // console.log("end timeout");
       this._router.navigate(["/main"], { queryParams });
     }, 1000);
   }

@@ -22,3 +22,18 @@ export type CategoryUpdate = {
   categoryUpdate: CategoryStatus;
   userPointsUpdate: UserPointsUpdate;
 };
+
+export type VariantSignature = {
+  category_id: string,
+  level_id: string,
+  variant_id: string,
+}
+
+export type VariantFull = {
+  category_id: string,
+  level_id: string,
+  variant_id: string,
+  variant: VariantStatus,
+  level: LevelStatus,
+  category: CategoryStatus
+}

@@ -5,13 +5,14 @@ import {
   OnDestroy,
   OnInit,
 } from "@angular/core";
-import { ChallengeResult, VariantStatus } from "@model";
+import {ChallengeResult, VariantSignature, VariantStatus} from "@model";
 import { Router } from "@angular/router";
 import { ChallengeLastResultService } from "@services";
 import { faGem } from "@fortawesome/free-regular-svg-icons";
 import { faLock } from "@fortawesome/free-solid-svg-icons";
-import { BehaviorSubject, map, Observable } from "rxjs";
+import {BehaviorSubject, map, Observable, Subscription} from "rxjs";
 import { getStatusColor } from "@helpers";
+import { MainMenuService } from "../../main-menu.service";
 
 @Component({
   selector: "app-variant",
@@ -27,15 +28,19 @@ export class VariantComponent implements OnInit, OnDestroy {
   @Input() challengeResult: ChallengeResult | null = null;
 
   private _animationTimeout: any;
+  private _subscription =  new Subscription();
 
   color$: Observable<string>;
   displayedResult$ = new BehaviorSubject<number>(0);
   hasNewResult = false;
   resultDelta = 0;
 
+  newlyCreated = false;
+
   constructor(
     private _router: Router,
     private _challengeLastResultService: ChallengeLastResultService,
+    private _mainMenuService: MainMenuService,
   ) {
     this.color$ = this.displayedResult$.pipe(
       map((result) => getStatusColor(result, this.variant.enabled)),
@@ -64,6 +69,19 @@ export class VariantComponent implements OnInit, OnDestroy {
     } else {
       this.displayedResult$.next(this.variant.result);
     }
+
+    this._subscription.add(
+      this._mainMenuService.newlyEnabledVariants$.subscribe((arr: VariantSignature[]) => {
+        const newlyCreated = arr.some((signature) => {
+          return signature.category_id === this.category_id
+            && signature.level_id === this.level_id
+            && signature.variant_id === this.variant.variant_id
+        });
+        if (newlyCreated) { // write only if positive
+          this.newlyCreated = newlyCreated;
+        }
+      })
+    )
   }
 
   navigateToChallenge(variant: string): void {
@@ -77,6 +95,7 @@ export class VariantComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     clearTimeout(this._animationTimeout);
+    this._subscription.unsubscribe();
   }
 
   @HostBinding("class.has-new-result") get isUpdating() {
@@ -84,5 +103,8 @@ export class VariantComponent implements OnInit, OnDestroy {
   }
   @HostBinding("class.has-new-highest-result") get isUpdatingNew() {
     return this.hasNewResult && this.resultDelta;
+  }
+  @HostBinding("class.is-new") get isNew() {
+    return this.newlyCreated;
   }
 }

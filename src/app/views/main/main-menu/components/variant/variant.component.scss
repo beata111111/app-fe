@@ -3,7 +3,8 @@
   position: relative;
 
   button,
-  .variant-back-side {
+  .variant-back-side,
+  .disabled-background {
     -webkit-tap-highlight-color: transparent;
     border-radius: 50%;
     border: 3px solid black;
@@ -40,16 +41,6 @@
     cursor: pointer;
   }
 
-  button[disabled] {
-    border-color: var(--color-result-none);
-    ::ng-deep .fa-lock {
-      color: var(--font-teriary-color);
-    }
-    &.with-result span {
-      color: var(--font-quaternary-color);
-    }
-  }
-
   .variant-back-side {
     background-color: white;
     color: var(--font-basic-color);
@@ -68,7 +59,25 @@
     z-index: 1;
     animation: 2.5s appear 1s forwards ease-out;
   }
+
+  &.is-new button {
+    animation: 3.5s popupNewEnabled forwards ease-out;
+    //background-color: red !important;
+  }
 }
+
+
+.disabled-background {
+  border-color: var(--color-result-none) !important;
+  background-color: var(--color-result-none) !important;
+  ::ng-deep .fa-lock {
+    color: var(--font-teriary-color) !important;
+  }
+  span {
+    color: var(--font-quaternary-color) !important;
+  }
+}
+
 
 @keyframes bounce {
   50% {
@@ -129,5 +138,24 @@
   100% {
     z-index: -1;
     transform: scale(1) rotateX(180deg);
+  }
+}
+
+@keyframes popupNewEnabled {
+  0% {
+    opacity: 0;
+  }
+  79% {
+    opacity: 0;
+  }
+  80% {
+    opacity: 1;
+    transform: scale(0.8);
+  }
+  90% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
   }
 }

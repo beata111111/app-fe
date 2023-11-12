@@ -1,55 +1,61 @@
-<app-nav-container [navTemplate]="nav" [contentTemplate]="content">
-</app-nav-container>
+<!--<app-nav-container [navTemplate]="nav" [contentTemplate]="content">-->
+<!--</app-nav-container>-->
 
-<ng-template #nav>
-  <app-top-nav>
-    <button
-      [appButton]="'ghost'"
-      class="btn-icon"
-      (click)="back()"
-      [style.transform]="'rotate(180deg)'"
-    >
-      <fa-icon [icon]="faArrowRightFromBracket" size="xl"></fa-icon>
-    </button>
+<!--<ng-template #nav>-->
+<!--  <app-top-nav>-->
+<!--    <button-->
+<!--      [appButton]="'ghost'"-->
+<!--      class="btn-icon"-->
+<!--      (click)="back()"-->
+<!--      [style.transform]="'rotate(180deg)'"-->
+<!--    >-->
+<!--      <fa-icon [icon]="faArrowRightFromBracket" size="xl"></fa-icon>-->
+<!--    </button>-->
 
-    <div class="gap"></div>
+<!--    <div class="gap"></div>-->
 
-    <button
-      [appButton]="'ghost'"
-      class="btn-icon"
-      (click)="toggleSoundActive()"
-    >
-      <fa-icon
-        [icon]="(isSoundActive$ | async) ? faBell : faBellSlash"
-        size="xl"
-      ></fa-icon>
-    </button>
-  </app-top-nav>
-</ng-template>
+<!--    <button-->
+<!--      [appButton]="'ghost'"-->
+<!--      class="btn-icon"-->
+<!--      (click)="toggleSoundActive()"-->
+<!--    >-->
+<!--      <fa-icon-->
+<!--        [icon]="(isSoundActive$ | async) ? faBell : faBellSlash"-->
+<!--        size="xl"-->
+<!--      ></fa-icon>-->
+<!--    </button>-->
+<!--  </app-top-nav>-->
+<!--</ng-template>-->
 
-<ng-template #content>
-  <ng-container *ngIf="challengeData$ | async as challengeData; else spinner">
-    <app-challenge-a-variant
-      *ngIf="variant_id === 'a'"
-      [challengeData]="challengeData"
-      (submitResult)="handleResult($event)"
-    ></app-challenge-a-variant>
+<!--<ng-template #content>-->
+<!--  <ng-container *ngIf="challengeData$ | async as challengeData; else spinner">-->
+<!--    <app-challenge-a-variant-->
+<!--      *ngIf="variant_id === 'a'"-->
+<!--      [challengeData]="challengeData"-->
+<!--      (submitResult)="handleResult($event)"-->
+<!--    ></app-challenge-a-variant>-->
 
-    <app-challenge-b-variant
-      *ngIf="variant_id === 'b'"
-      [challengeData]="challengeData"
-      (submitResult)="handleResult($event)"
-    ></app-challenge-b-variant>
+<!--    <app-challenge-b-variant-->
+<!--      *ngIf="variant_id === 'b'"-->
+<!--      [challengeData]="challengeData"-->
+<!--      (submitResult)="handleResult($event)"-->
+<!--    ></app-challenge-b-variant>-->
 
-    <app-challenge-c-variant
-      *ngIf="variant_id === 'c' || variant_id === 'd' || variant_id === 'e'"
-      [variant]="variant_id"
-      [challengeData]="challengeData"
-      (submitResult)="handleResult($event)"
-    ></app-challenge-c-variant>
-  </ng-container>
-</ng-template>
+<!--    <app-challenge-c-variant-->
+<!--      *ngIf="variant_id === 'c' || variant_id === 'd' || variant_id === 'e'"-->
+<!--      [variant]="variant_id"-->
+<!--      [challengeData]="challengeData"-->
+<!--      (submitResult)="handleResult($event)"-->
+<!--    ></app-challenge-c-variant>-->
+<!--  </ng-container>-->
+<!--</ng-template>-->
 
-<ng-template #spinner>
-  <app-page-spinner></app-page-spinner>
-</ng-template>
+<!--<ng-template #spinner>-->
+<!--  <app-page-spinner></app-page-spinner>-->
+<!--</ng-template>-->
+
+<div class="sss">
+  <input #result>
+  <button (click)="handleResult(result.value)">submit</button>
+</div>
+
