@@ -11,7 +11,11 @@ import { ChallengeLastResultService } from "@services";
 import { faGem } from "@fortawesome/free-regular-svg-icons";
 import { faLock } from "@fortawesome/free-solid-svg-icons";
 import { BehaviorSubject, map, Observable, Subscription } from "rxjs";
-import { compareVariantSignatures, createSignature, getStatusColor } from "@helpers";
+import {
+  compareVariantSignatures,
+  createSignature,
+  getStatusColor,
+} from "@helpers";
 import { MainMenuService } from "../../main-menu.service";
 
 @Component({
@@ -29,7 +33,7 @@ export class VariantComponent implements OnInit, OnDestroy {
 
   private _signature!: VariantSignature;
   private _animationTimeout: any;
-  private _subscription =  new Subscription();
+  private _subscription = new Subscription();
 
   color$: Observable<string>;
   displayedResult$ = new BehaviorSubject<number>(0);
@@ -48,36 +52,41 @@ export class VariantComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this._signature = createSignature(this.category_id, this.level_id, this.variant);
-
-    this._subscription.add(
-      this._mainMenuService.categoryData$
-        .subscribe(() => {
-          const newResult = this._challengeLastResultService.getLastResult(this._signature);
-
-          if (newResult && newResult > this.variant.previousResult) {
-            this.hasNewResult = true;
-            this.resultDelta = this.variant.result - this.variant.previousResult;
-            this.displayedResult$.next(this.variant.previousResult);
-
-            this._animationTimeout = setTimeout(() => {
-              this.displayedResult$.next(this.variant.result);
-            }, 1500);
-          } else {
-            this.displayedResult$.next(this.variant.result);
-          }
-        })
+    this._signature = createSignature(
+      this.category_id,
+      this.level_id,
+      this.variant,
     );
 
+    this._subscription.add(
+      this._mainMenuService.categoryData$.subscribe(() => {
+        const newResult = this._challengeLastResultService.getLastResult(
+          this._signature,
+        );
+
+        if (newResult && newResult > this.variant.previousResult) {
+          this.hasNewResult = true;
+          this.resultDelta = this.variant.result - this.variant.previousResult;
+          this.displayedResult$.next(this.variant.previousResult);
+
+          this._animationTimeout = setTimeout(() => {
+            this.displayedResult$.next(this.variant.result);
+          }, 1500);
+        } else {
+          this.displayedResult$.next(this.variant.result);
+        }
+      }),
+    );
 
     this._subscription.add(
-      this._mainMenuService.newlyEnabledVariants$
-        .subscribe((arr: VariantSignature[]) => {
+      this._mainMenuService.newlyEnabledVariants$.subscribe(
+        (arr: VariantSignature[]) => {
           const isNewlyEnabled = arr.some((signature) => {
             return compareVariantSignatures(signature, this._signature);
           }); // write only if positive to prevent overwrite with false
           if (isNewlyEnabled) this.isNewlyEnabled = isNewlyEnabled;
-        })
+        },
+      ),
     );
   }
 

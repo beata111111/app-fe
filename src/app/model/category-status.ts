@@ -24,16 +24,16 @@ export type CategoryUpdate = {
 };
 
 export type VariantSignature = {
-  category_id: string,
-  level_id: string,
-  variant_id: string,
-}
+  category_id: string;
+  level_id: string;
+  variant_id: string;
+};
 
 export type VariantFull = {
-  category_id: string,
-  level_id: string,
-  variant_id: string,
-  variant: VariantStatus,
-  level: LevelStatus,
-  category: CategoryStatus
-}
+  category_id: string;
+  level_id: string;
+  variant_id: string;
+  variant: VariantStatus;
+  level: LevelStatus;
+  category: CategoryStatus;
+};

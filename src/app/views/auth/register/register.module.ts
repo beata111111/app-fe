@@ -1,23 +1,21 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RegisterComponent } from './register.component';
-import {TranslateModule} from "@ngx-translate/core";
-import {AuthRoutingModule} from "../auth-routing.module";
-import {ButtonModule, ContainerModule} from "@components";
-
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { RegisterComponent } from "./register.component";
+import { TranslateModule } from "@ngx-translate/core";
+import { ButtonModule } from "@components";
+import { TwoSplitPageModule } from "../../../components/two-split-page/two-split-page.module";
+import { ReactiveFormsModule } from "@angular/forms";
+import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 
 @NgModule({
-  declarations: [
-    RegisterComponent
-  ],
+  declarations: [RegisterComponent],
   imports: [
     CommonModule,
     TranslateModule,
-    CommonModule,
-    AuthRoutingModule,
-    ContainerModule,
-    TranslateModule,
     ButtonModule,
-  ]
+    TwoSplitPageModule,
+    ReactiveFormsModule,
+    FontAwesomeModule,
+  ],
 })
-export class RegisterModule { }
+export class RegisterModule {}

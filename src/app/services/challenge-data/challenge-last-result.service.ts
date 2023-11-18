@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
-import {ChallengeResult, VariantSignature} from "@model";
-import {compareVariantSignatures} from "@helpers";
+import { ChallengeResult, VariantSignature } from "@model";
+import { compareVariantSignatures } from "@helpers";
 
 @Injectable({ providedIn: "root" })
 export class ChallengeLastResultService {

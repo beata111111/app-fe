@@ -1,17 +1,23 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {AuthService} from "@core";
-import {ToastrService} from "ngx-toastr";
-import {catchError} from "rxjs";
+import { Component, ElementRef, ViewChild } from "@angular/core";
+import { AuthService } from "@core";
+import { ToastrService } from "ngx-toastr";
+import { catchError, finalize } from "rxjs";
+import { Router } from "@angular/router";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { faSnowman } from "@fortawesome/free-solid-svg-icons";
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  selector: "app-register",
+  templateUrl: "./register.component.html",
+  styleUrls: ["./register.component.scss"],
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent {
+  faSnowman = faSnowman;
   focusName = false;
   focusPassword = false;
-  newUser = false;
+  isLoading = false;
+
+  form: FormGroup;
 
   @ViewChild("name") name!: ElementRef;
   @ViewChild("password") password!: ElementRef;
@@ -19,39 +25,39 @@ export class RegisterComponent implements OnInit {
   constructor(
     private _authService: AuthService,
     private _toastService: ToastrService,
-  ) {}
-
-  ngOnInit(): void {}
-
-  createUser(): void {
-    const name = this.name.nativeElement.value;
-    const password = this.password.nativeElement.value;
-    if (name && password) {
-      this._authService
-        .createUser(name, password)
-        .pipe(
-          catchError((error) => {
-            this._toastService.error(error.message);
-            throw error;
-          }),
-        )
-        .subscribe(() => {});
-    }
+    private _router: Router,
+    private _formBuilder: FormBuilder,
+  ) {
+    this.form = this._formBuilder.group({
+      name: ["", [Validators.required]],
+      password: ["", [Validators.required]],
+    });
   }
 
-  logIn(): void {
-    const name = this.name.nativeElement.value;
-    const password = this.password.nativeElement.value;
-    if (name && password) {
-      this._authService
-        .logIn(name, password)
-        .pipe(
-          catchError((error) => {
-            this._toastService.error(error.message);
-            throw error;
-          }),
-        )
-        .subscribe(() => {});
+  createUser(): void {
+    if (!this.form.valid) {
+      return;
     }
+
+    const name = this.form.controls["name"].value;
+    const password = this.form.controls["password"].value;
+
+    this.isLoading = true;
+    this._authService
+      .createUser(name, password)
+      .pipe(
+        catchError((error) => {
+          this._toastService.error(error.message);
+          throw error;
+        }),
+        finalize(() => {
+          this.isLoading = false;
+        }),
+      )
+      .subscribe();
+  }
+
+  redirectToLogin(): void {
+    this._router.navigate(["auth/login"]);
   }
 }

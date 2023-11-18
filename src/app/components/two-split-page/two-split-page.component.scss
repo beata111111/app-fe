@@ -1,0 +1,51 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  background-color: unset;
+  align-items: stretch;
+
+  &.is-loading .upper {
+    opacity: 0.8;
+    transition: opacity 0.5s;
+  }
+
+  .upper {
+    flex-basis: 50%;
+    display: flex;
+    flex-direction: column;
+    background-color: unset;
+    justify-content: center;
+    align-items: stretch;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 100%;
+    max-width: 500px;
+    margin: auto;
+    transform: translateX(180px);
+    opacity: 0;
+    animation: 0.4s center forwards ease-out;
+  }
+
+  .lower {
+    flex-basis: 50%;
+    position: relative;
+    background-color: var(--primary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-height: 100vw;
+  }
+}
+
+app-page-spinner {
+  position: fixed;
+}
+
+@keyframes center {
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

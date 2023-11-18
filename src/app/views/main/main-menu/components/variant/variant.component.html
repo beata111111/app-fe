@@ -1,4 +1,5 @@
-<button *ngIf="variant.enabled"
+<button
+  *ngIf="variant.enabled"
   class="variant-button"
   (click)="navigateToChallenge(variant.variant_id)"
   [style.background-color]="color$ | async"

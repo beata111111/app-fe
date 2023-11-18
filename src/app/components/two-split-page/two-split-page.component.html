@@ -1,0 +1,13 @@
+<div class="upper">
+  <ng-container *ngIf="upper">
+    <ng-container *ngTemplateOutlet="upper"></ng-container>
+  </ng-container>
+</div>
+
+<div class="lower">
+  <ng-container *ngIf="lower">
+    <ng-container *ngTemplateOutlet="lower"></ng-container>
+  </ng-container>
+</div>
+
+<app-page-spinner *ngIf="isLoading"></app-page-spinner>

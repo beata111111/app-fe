@@ -1,24 +1,21 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { LoginComponent } from './login.component';
-import {TranslateModule} from "@ngx-translate/core";
-import {AuthRoutingModule} from "../auth-routing.module";
-import {ButtonModule, ContainerModule} from "@components";
-
-
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { LoginComponent } from "./login.component";
+import { TranslateModule } from "@ngx-translate/core";
+import { ButtonModule } from "@components";
+import { ReactiveFormsModule } from "@angular/forms";
+import { TwoSplitPageModule } from "../../../components/two-split-page/two-split-page.module";
+import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 
 @NgModule({
-  declarations: [
-    LoginComponent
-  ],
+  declarations: [LoginComponent],
   imports: [
     CommonModule,
     TranslateModule,
-    CommonModule,
-    AuthRoutingModule,
-    ContainerModule,
-    TranslateModule,
     ButtonModule,
-  ]
+    TwoSplitPageModule,
+    ReactiveFormsModule,
+    FontAwesomeModule,
+  ],
 })
-export class LoginModule { }
+export class LoginModule {}
