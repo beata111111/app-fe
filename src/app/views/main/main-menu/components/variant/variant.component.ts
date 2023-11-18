@@ -26,8 +26,8 @@ export class VariantComponent implements OnInit, OnDestroy {
   @Input() category_id!: string;
   @Input() level_id!: string;
   @Input() challengeResult: ChallengeResult | null = null;
-  private _signature!: VariantSignature;
 
+  private _signature!: VariantSignature;
   private _animationTimeout: any;
   private _subscription =  new Subscription();
 

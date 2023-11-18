@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import {ChallengeResult, VariantSignature} from "@model";
+import {compareVariantSignatures} from "@helpers";
 
 @Injectable({ providedIn: "root" })
 export class ChallengeLastResultService {
@@ -11,15 +12,14 @@ export class ChallengeLastResultService {
 
   getLastResult(signature: VariantSignature): number | null {
     const hasNewResult =
-      this.lastResult &&
-      this.lastResult.category_id === signature.category_id &&
-      this.lastResult.level_id === signature.level_id &&
-      this.lastResult.variant_id === signature.variant_id;
+      this.lastResult && compareVariantSignatures(this.lastResult, signature);
 
     if (!hasNewResult) return null;
 
     const result = this.lastResult?.result ?? null;
-    this.lastResult = null;
+    setTimeout(() => {
+      this.lastResult = null;
+    }, 5000);
     return result;
   }
 }
