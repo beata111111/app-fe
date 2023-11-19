@@ -5,8 +5,21 @@
   padding-bottom: 10px;
   border-radius: 10px;
 
+  .category-label {
+    border-radius: 10px;
+    display: inline-block;
+    //padding: 10px;
+    margin: 10px 12px;
+    background-color: var(--body-backgroung-color);
+  }
+
   &.expanded {
-    background-color: var(--backgroung-secondary-color);
+    background-color: rgba(237, 237, 237, 0.9);
+    //background-color: rgba(var(--backgroung-secondary-color), 0.5);
+    //background-color: var(--backgroung-secondary-color);
+    .category-label {
+      background-color: unset;
+    }
   }
 
   span {
@@ -14,9 +27,7 @@
   }
 }
 
-.category-label {
-  padding: 10px;
-}
+
 
 .category-chevron-icon,
 .category-icon {
