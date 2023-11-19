@@ -15,8 +15,8 @@
 </ng-template>
 
 <ng-template #content>
+  <app-dark-mode-settings></app-dark-mode-settings>
   <div class="settings-content">
-    <app-dark-mode-settings></app-dark-mode-settings>
     <button [appButton]="'primary'" class="logout-button" (click)="logout()">
       {{ "auth.logout" | translate }}
     </button>

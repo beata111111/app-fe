@@ -7,6 +7,7 @@ import {
   ButtonModule,
   MenuItemModule,
   NavContainerModule,
+  AccordionModule,
 } from "@components";
 import { TranslateModule } from "@ngx-translate/core";
 import { DarkModeSettingsComponent } from "./sections/dark-mode-settings/dark-mode-settings.component";
@@ -23,6 +24,7 @@ import { CommonModule } from "@angular/common";
     MenuItemModule,
     TranslateModule,
     NavContainerModule,
+    AccordionModule,
   ],
   providers: [],
   exports: [],

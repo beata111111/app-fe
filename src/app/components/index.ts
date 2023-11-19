@@ -8,3 +8,4 @@ export * from "./shine-animation/shine-animation.module";
 export * from "./page-spinner/page-spinner.module";
 export * from "./popup/page-popup.module";
 export * from "./popup-dialogs";
+export * from "./accordion/accordion.module";

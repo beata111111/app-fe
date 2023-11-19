@@ -1,0 +1,15 @@
+<div class="head" (click)="toggleIsOpen()">
+  <span>{{title}} {{contentHeight}}</span>
+</div>
+
+<div class="content">
+  <div class="content-inner">
+    <ng-container *ngTemplateOutlet="content"></ng-container>
+  </div>
+</div>
+
+<div class="absolute-content" #absoluteContent>
+  <div class="content">
+    <ng-container *ngTemplateOutlet="content"></ng-container>
+  </div>
+</div>
