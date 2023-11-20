@@ -1,27 +1,14 @@
-<!--<app-menu-item>-->
-<!--  darkmode-->
-
-<!--  <button-->
-<!--    [appButton]="'primary'"-->
-<!--    class="sm inline toggle-button"-->
-<!--    (click)="toggleNightMode()"-->
-<!--  >-->
-<!--    {{ (isNightMode$ | async) === true ? "OFF" : "ON" }}-->
-<!--  </button>-->
-<!--</app-menu-item>-->
-
-
-<app-accordion [title]="'title'" [content]="content">
-</app-accordion>
-<app-accordion [title]="'title'" [content]="content">
-</app-accordion>
-<app-accordion [title]="'title'" [content]="content">
+<app-accordion [title]="'settings.appearance'" [content]="darkmodeContent">
 </app-accordion>
 
-<ng-template #content>
-  <div>
-    <p>blabla</p>
-    <p>blabla</p>
-    <p>blabla</p>
-  </div>
+<ng-template #darkmodeContent>
+  <app-menu-item [title]="'settings.appearance.darkmode'">
+    <button
+        [appButton]="'primary'"
+        class="sm inline toggle-button"
+        (click)="toggleNightMode()"
+    >
+      {{ (isNightMode$ | async) === true ? "OFF" : "ON" }}
+    </button>
+  </app-menu-item>
 </ng-template>

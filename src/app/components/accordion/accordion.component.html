@@ -1,13 +1,15 @@
 <div class="head" (click)="toggleIsOpen()">
-  <span>{{title}} {{contentHeight}}</span>
+  <span>{{title | translate}}</span>
 </div>
 
-<div class="content">
-  <div class="content-inner">
+<div class="content" [style.height]="isOpen ? contentHeight + 'px' : 0">
+  <ng-container *ngIf="isOpen">
     <ng-container *ngTemplateOutlet="content"></ng-container>
-  </div>
+  </ng-container>
 </div>
 
+<!--absolute content only for measuring height-->
+<!--later removed-->
 <div class="absolute-content" #absoluteContent>
   <div class="content">
     <ng-container *ngTemplateOutlet="content"></ng-container>

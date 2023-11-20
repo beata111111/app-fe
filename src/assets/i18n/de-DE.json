@@ -1,7 +1,6 @@
 {
-  "settingsMenu.activeCategories": "Kategorien",
-  "settingsMenu.themes": "Farbe wählen",
-  "settings.back": "Zurück",
+  "settings.appearance": "Darstellung",
+  "settings.appearance.darkmode": "Darkmode",
   "settings.settings": "Einstellungen",
   "themes.blue": "Blau",
   "themes.red": "Rot",

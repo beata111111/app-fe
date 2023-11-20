@@ -4,6 +4,7 @@
   .body[night-mode="OFF"] {
     --body-backgroung-color: white;
     --backgroung-secondary-color: #f6f6f6;
+    --backgroung-teriary-color: #e6e6e6;
     --font-basic-color: black;
     --font-secondary-color: black;
     --font-teriary-color: #d1d1d2;
@@ -37,6 +38,7 @@
   .body[night-mode="ON"] {
     --body-backgroung-color: var(--theme-color-24);
     --backgroung-secondary-color: #303030;
+    --backgroung-teriary-color: #242424;
     --font-basic-color: white;
     --font-secondary-color: #c6c6c6;
     --font-teriary-color: #3a3a3a;

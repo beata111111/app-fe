@@ -3,13 +3,14 @@ import {
   Component,
   ElementRef,
   HostBinding,
-  Input, OnDestroy,
+  Input,
+  OnDestroy,
   TemplateRef,
   ViewChild
 } from '@angular/core';
-import {AccordionService} from "./accordion.service";
+import { AccordionService } from "./accordion.service";
 import { v4 as uuidv4 } from 'uuid';
-import {Subscription} from "rxjs";
+import { Subscription } from "rxjs";
 
 @Component({
   selector: 'app-accordion',
@@ -20,7 +21,7 @@ export class AccordionComponent implements AfterViewInit, OnDestroy {
   @Input() title = '';
   @Input() content!: TemplateRef<unknown>;
 
-  isOpen = false;
+  isOpen = true;
   contentHeight = 0;
 
   private _id: string = uuidv4();
@@ -41,7 +42,7 @@ export class AccordionComponent implements AfterViewInit, OnDestroy {
     );
   }
 
-  toggleIsOpen() {
+  toggleIsOpen(): void {
     this.isOpen = !this.isOpen;
 
     if (this.isOpen) {
@@ -49,14 +50,14 @@ export class AccordionComponent implements AfterViewInit, OnDestroy {
     }
   }
 
-  ngAfterViewInit() {
+  ngAfterViewInit(): void {
     setTimeout(() => {
       this.contentHeight = this.absoluteContent.nativeElement.offsetHeight;
       this.absoluteContent.nativeElement.remove();
     });
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this._subscriptions.unsubscribe();
   }
 }

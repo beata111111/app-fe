@@ -1,33 +1,35 @@
 :host {
   display: block;
   position: relative;
+  border-top: var(--border-width) solid var(--font-basic-color);
+
+  &:last-child {
+    border-bottom: var(--border-width) solid var(--font-basic-color);
+  }
 
   .head {
-    padding: 10px;
-    background-color: yellow;
+    background-color: var(--backgroung-teriary-color);
+    padding: 16px;
+    span {
+      font-weight: 500;
+    }
   }
 
   > .content {
-    background-color: lightgoldenrodyellow;
     height: 0;
+    opacity: 0;
     transition: height .2s ease-out;
-    .content-inner {
-      padding: 10px;
-      opacity: 0;
-    }
   }
 
   &.is-open {
-    .head span {
-      font-weight: bold;
+    .head {
+      span {
+        font-weight: 600;
+      }
     }
     > .content {
-      height: 150px;
-      transition: height .2s ease-out;
-      .content-inner {
-        opacity: 1;
-        transition: opacity 1s;
-      }
+      transition: height .2s, opacity 1s ease-out;
+      opacity: 1;
     }
   }
 
