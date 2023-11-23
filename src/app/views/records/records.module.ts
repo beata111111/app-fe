@@ -12,6 +12,7 @@ import {
 import { RecordBoardComponent } from "./record-board/record-board.component";
 import { DiamondIconModule } from "../../components/diamond-icon/diamond-icon.module";
 import { UserRecordComponent } from './user-record/user-record.component';
+import {TranslateModule} from "@ngx-translate/core";
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { UserRecordComponent } from './user-record/user-record.component';
     TopNavModule,
     PageSpinnerModule,
     DiamondIconModule,
+    TranslateModule,
   ],
 })
 export class RecordsModule {}

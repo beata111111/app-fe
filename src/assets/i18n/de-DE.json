@@ -1,4 +1,8 @@
 {
+  "records.noPoints.text": "Du hast noch keine Diamanten",
+  "records.points.text1": "Mit {{count}}",
+  "records.points.text2": "bist du auf {{rang}}. Platz.",
+  "records.points.best": "Die besten Spieler:",
   "popup.general.next": "weiter",
   "popup.general.lets.go": "los geht's!",
   "welcome.popup.page1.text1": "Hallo {{name}}!",

@@ -1,14 +1,18 @@
 <ng-container *ngIf="userRecord">
   <ng-container *ngIf="!userRecord.recordIndex">
-    <h3>
-      Your have no diamonds yet :(
-    </h3>
+    <h5>
+      {{ "records.noPoints.text"  | translate }}
+    </h5>
   </ng-container>
 
   <ng-container *ngIf="userRecord.recordIndex">
-    <h3>
-      Your points: {{userRecord.points}} range: {{userRecord.recordIndex}}
-    </h3>
+    <h5>
+      {{ "records.points.text1"  | translate: { count: userRecord.points} }}
+    </h5>
+      <fa-icon [icon]="faGem" size="2x"></fa-icon>
+    <h5>
+      {{ "records.points.text2"  | translate: { rang: userRecord.recordIndex } }}
+    </h5>
   </ng-container>
 </ng-container>
 
