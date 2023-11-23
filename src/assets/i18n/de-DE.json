@@ -1,4 +1,10 @@
 {
+  "popup.general.next": "weiter",
+  "popup.general.lets.go": "los geht's!",
+  "welcome.popup.page1.text1": "Hallo {{name}}!",
+  "welcome.popup.page1.text2": "Herzlich willkommen in der App. Hier kannst du viele polnischer Wörter lernen. Dabei sammelst du preisvolle Diamanten!",
+  "welcome.popup.page2.text1": "Pass auf! Die Punkten verschwinden mit der Zeit.",
+  "welcome.popup.page3.text1": "Viel Spaß!",
   "settings.appearance": "Darstellung",
   "settings.appearance.darkmode": "Darkmode",
   "settings.settings": "Einstellungen",

@@ -12,9 +12,8 @@ export class WelcomeSecondStepComponent
 {
   ngOnInit() {
     this.config.emit({
-      title: "step 2",
-      nextButtonText: "hallo",
-      backButtonText: "world",
+      showBackButton: false,
+      nextButtonText: "popup.general.next",
     });
   }
 }

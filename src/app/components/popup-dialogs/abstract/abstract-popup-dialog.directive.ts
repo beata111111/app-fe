@@ -5,6 +5,8 @@ import { defaultPopupDialogConfig } from "../popup.model";
 export abstract class AbstractPopupDialogDirective {
   close = new EventEmitter<void>();
 
+  abstract onClose(): void;
+
   abstract stepsCount: number;
   abstract currentStep: number;
 
@@ -15,6 +17,7 @@ export abstract class AbstractPopupDialogDirective {
     if (nextStep <= this.stepsCount) {
       this.currentStep = nextStep;
     } else {
+      this.onClose();
       this.close.emit();
     }
   }

@@ -4,9 +4,9 @@
 <ng-template #darkmodeContent>
   <app-menu-item [title]="'settings.appearance.darkmode'">
     <button
-        [appButton]="'primary'"
-        class="sm inline toggle-button"
-        (click)="toggleNightMode()"
+      [appButton]="'primary'"
+      class="sm inline toggle-button"
+      (click)="toggleNightMode()"
     >
       {{ (isNightMode$ | async) === true ? "OFF" : "ON" }}
     </button>

@@ -4,6 +4,7 @@ import { PopupDialogWelcomeComponent } from "./popup-dialog-welcome.component";
 import { WelcomeFirstStepComponent } from "./steps/welcome-first-step/welcome-first-step.component";
 import { WelcomeSecondStepComponent } from "./steps/welcome-second-step/welcome-second-step.component";
 import { WelcomeThirdStepComponent } from "./steps/welcome-third-step/welcome-third-step.component";
+import { TranslateModule } from "@ngx-translate/core";
 
 @NgModule({
   declarations: [
@@ -12,7 +13,7 @@ import { WelcomeThirdStepComponent } from "./steps/welcome-third-step/welcome-th
     WelcomeSecondStepComponent,
     WelcomeThirdStepComponent,
   ],
-  imports: [CommonModule],
+  imports: [CommonModule, TranslateModule],
   exports: [PopupDialogWelcomeComponent],
 })
 export class PopupDialogWelcomeModule {}

@@ -8,13 +8,12 @@ import {
   TopNavModule,
   AchievementRibbonModule,
   PageSpinnerModule,
-  PagePopupModule,
-  PopupDialogWelcomeModule,
 } from "@components";
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import { MainMenuModule } from "./main-menu/main-menu.module";
 import { ButtonModule, NavContainerModule } from "@components";
 import { DiamondCounterModule } from "./diamond-counter/diamond-counter.module";
+import { WelcomeDialogModule } from "./welcome-dialog/welcome-dialog.module";
 
 @NgModule({
   declarations: [MainComponent],
@@ -31,8 +30,7 @@ import { DiamondCounterModule } from "./diamond-counter/diamond-counter.module";
     NavContainerModule,
     DiamondCounterModule,
     PageSpinnerModule,
-    PagePopupModule,
-    PopupDialogWelcomeModule,
+    WelcomeDialogModule,
   ],
 })
 export class MainModule {}

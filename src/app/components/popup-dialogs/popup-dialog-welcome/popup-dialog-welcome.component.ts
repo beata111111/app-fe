@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
 import { AbstractPopupDialogDirective } from "../abstract/abstract-popup-dialog.directive";
 import { defaultPopupDialogConfig, PopupDialogConfig } from "../popup.model";
+import { UserService } from "@services";
 
 @Component({
   selector: "app-popup-dialog-welcome",
@@ -11,11 +12,18 @@ export class PopupDialogWelcomeComponent extends AbstractPopupDialogDirective {
   currentStep = 1;
   stepsCount = 3;
 
-  applyConfig(config: PopupDialogConfig): void {
+  onClose() {
+    const userInfo = { welcomeInfo: true };
+    this._userService.updateUserInfoStatus(userInfo);
+  }
+
+  constructor(private _userService: UserService) {
+    super();
+  }
+
+  applyConfig(config: Partial<PopupDialogConfig>): void {
     setTimeout(() => {
       const newConfig = { ...defaultPopupDialogConfig, ...config };
-      console.log("1 ", defaultPopupDialogConfig);
-      console.log("2 ", config);
       this.config.title = newConfig.title;
       this.config.nextButtonText = newConfig.nextButtonText;
       this.config.backButtonText = newConfig.backButtonText;

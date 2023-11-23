@@ -12,4 +12,13 @@ export class UserHttpService {
 
     return this._appHttpService.makeGETRequest<User>(url);
   }
+
+  updateUser(update: Record<string, unknown>): Observable<User> {
+    const data = {
+      update,
+    };
+
+    const url = "/api/update-user";
+    return this._appHttpService.makePOSTRequest<User>(url, data);
+  }
 }

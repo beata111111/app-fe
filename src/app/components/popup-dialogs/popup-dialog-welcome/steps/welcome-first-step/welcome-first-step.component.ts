@@ -1,5 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { AbstractPopupDialogStepDirective } from "../../../abstract/abstract-popup-dialog-step.directive";
+import { UserService } from "@services";
+import { Observable } from "rxjs";
+import { User } from "@model";
 
 @Component({
   selector: "app-welcome-first-step",
@@ -10,12 +13,17 @@ export class WelcomeFirstStepComponent
   extends AbstractPopupDialogStepDirective
   implements OnInit
 {
+  user$: Observable<User>;
+
+  constructor(private _userService: UserService) {
+    super();
+    this.user$ = this._userService.user$ as Observable<NonNullable<User>>;
+  }
+
   ngOnInit() {
     this.config.emit({
-      title: "step 1",
       showBackButton: false,
-      nextButtonText: "hallo",
-      backButtonText: "world",
+      nextButtonText: "popup.general.next",
     });
   }
 }

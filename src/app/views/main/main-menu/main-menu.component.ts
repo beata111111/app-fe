@@ -11,7 +11,6 @@ export class MainMenuComponent {
   constructor(private _mainMenuService: MainMenuService) {}
   private _categoryStatus: CategoryStatus[] = [];
   @Input() set categoryStatus(c: any) {
-    console.warn(c);
     this._mainMenuService.setCategoryData(c);
     this._categoryStatus = c;
   }

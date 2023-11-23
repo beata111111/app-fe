@@ -17,7 +17,7 @@ import { PopupDialogConfig } from "../popup-dialogs/popup.model";
 export class PagePopupComponent implements AfterContentInit {
   faXmark = faXmark;
 
-  config: PopupDialogConfig = {};
+  config!: PopupDialogConfig;
 
   @Output() close = new EventEmitter<void>();
 

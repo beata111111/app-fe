@@ -1,14 +1,19 @@
 import { Injectable } from "@angular/core";
 import { UserHttpService } from "@services";
 import { CurrentUserService } from "@core";
-import { BehaviorSubject, Observable, Subscription } from "rxjs";
-import { User, UserPointsUpdate } from "@model";
+import { BehaviorSubject, filter, map, Observable, Subscription } from "rxjs";
+import { User, UserInfoStatus, UserPointsUpdate } from "@model";
 
 @Injectable({ providedIn: "root" })
 export class UserService {
   private _userSubscription = new Subscription();
   private _user$ = new BehaviorSubject<User | null>(null);
   user$ = this._user$.asObservable();
+
+  loggedInUser$: Observable<User> = this.user$.pipe(
+    filter((user) => !!user),
+    map((user) => user as User),
+  );
 
   constructor(
     private _userHttpService: UserHttpService,
@@ -41,5 +46,12 @@ export class UserService {
       };
       this._user$.next(newUser);
     }
+  }
+
+  updateUserInfoStatus(infoStatus: UserInfoStatus): void {
+    const update = { infoStatus };
+    this._userHttpService.updateUser(update).subscribe((user) => {
+      this._user$.next(user);
+    });
   }
 }

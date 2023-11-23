@@ -1,1 +1,7 @@
-<p>welcome-first-step works!</p>
+<h3 *ngIf="user$ | async as user">
+  {{ "welcome.popup.page1.text1" | translate: { name: user.name } }}
+</h3>
+
+<h3>
+  {{ "welcome.popup.page1.text2" | translate }}
+</h3>
