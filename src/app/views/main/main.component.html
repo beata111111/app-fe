@@ -1,6 +1,6 @@
-<app-welcome-dialog></app-welcome-dialog>
-
 <ng-container *ngIf="categoryStatus$ | async as categoryStatus; else spinner">
+  <app-welcome-dialog></app-welcome-dialog>
+
   <app-nav-container [navTemplate]="nav" [contentTemplate]="content">
   </app-nav-container>
 

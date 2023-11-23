@@ -14,7 +14,10 @@ export class WelcomeDialogComponent implements OnDestroy {
   constructor(private _userService: UserService) {
     this._subscription.add(
       this._userService.loggedInUser$.subscribe((user) => {
-        this.showModal = user.infoStatus?.welcomeInfo !== true;
+        const showModal = user.infoStatus?.welcomeInfo !== true;
+        setTimeout(() => {
+          this.showModal = showModal;
+        }, 1000);
         this._subscription.unsubscribe();
       }),
     );
