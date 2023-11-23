@@ -1,22 +1,30 @@
 :host {
+  flex-grow: 1;
   position: relative;
+  display: flex;
+  flex-direction: column;
+
+  .record-item {
+    margin-bottom: 10px;
+    padding: 0 16px;
+    background-color: var(--backgroung-secondary-color);
+    overflow: auto;
+    border-radius: 10px;
+    flex-grow: 1;
+
+    &.is-active {
+      border: var(--border-width) solid var(--font-basic-color);
+    }
+  }
 
   .name {
     margin-top: 10px;
     margin-bottom: 0;
   }
 
-  .record {
-    margin: 4px 10px 16px 10px;
-    padding: 0 16px;
-    background-color: var(--backgroung-secondary-color);
-    overflow: auto;
-    border-radius: 10px;
-  }
-
   .points {
     display: inline-block;
-    margin-bottom: 18px;
+    margin-bottom: 10px;
     margin-top: 10px;
     margin-left: 30px;
   }

@@ -16,9 +16,10 @@
 </ng-template>
 
 <ng-template #content>
-  <ng-container *ngIf="records$ | async as records; else spinner">
-    <app-record-board [records]="records"></app-record-board>
-  </ng-container>
+  <div class="container" *ngIf="recordsInfo$ | async as recordsInfo; else spinner">
+    <app-user-record [userRecord]="recordsInfo.userRecord"></app-user-record>
+    <app-record-board [recordsInfo]="recordsInfo"></app-record-board>
+  </div>
 </ng-template>
 
 <ng-template #spinner>

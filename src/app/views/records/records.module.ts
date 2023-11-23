@@ -11,9 +11,14 @@ import {
 } from "@components";
 import { RecordBoardComponent } from "./record-board/record-board.component";
 import { DiamondIconModule } from "../../components/diamond-icon/diamond-icon.module";
+import { UserRecordComponent } from './user-record/user-record.component';
 
 @NgModule({
-  declarations: [RecordsComponent, RecordBoardComponent],
+  declarations: [
+    RecordsComponent,
+    RecordBoardComponent,
+    UserRecordComponent
+  ],
   imports: [
     CommonModule,
     RecordsRoutingModule,

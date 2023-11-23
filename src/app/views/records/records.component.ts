@@ -2,8 +2,8 @@ import { Component } from "@angular/core";
 import { faArrowRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 import { Router } from "@angular/router";
 import { Observable } from "rxjs";
-import { Record } from "@model";
-import { RecordsService } from "../../services/recors/records.service";
+import { RecordsInfo } from "@model";
+import { RecordsService } from "@services";
 
 @Component({
   selector: "app-records",
@@ -11,14 +11,18 @@ import { RecordsService } from "../../services/recors/records.service";
   styleUrls: ["./records.component.scss"],
 })
 export class RecordsComponent {
-  records$: Observable<Record[]>;
+  recordsInfo$: Observable<RecordsInfo>;
   faArrowRightFromBracket = faArrowRightFromBracket;
 
   constructor(
     private _router: Router,
     private _recordService: RecordsService,
   ) {
-    this.records$ = this._recordService.records$;
+    this.recordsInfo$ = this._recordService.recordsInfo$;
+
+    this.recordsInfo$.subscribe(a => {
+      console.warn(a);
+    })
   }
 
   back() {

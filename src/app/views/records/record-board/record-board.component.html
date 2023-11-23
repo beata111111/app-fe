@@ -1,4 +1,7 @@
-<div *ngFor="let record of records" class="record">
+<div *ngFor="let record of recordsInfo.records"
+     class="record-item"
+     [class.is-active]="userName === record.name"
+>
   <h3 class="name">{{ record.name }}</h3>
   <app-diamond-icon></app-diamond-icon>
   <h1 class="points">{{ record.points }}</h1>
