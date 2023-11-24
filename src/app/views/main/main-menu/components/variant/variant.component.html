@@ -20,5 +20,5 @@
   <span *ngIf="variant.result">
     {{ displayedResult$ | async }}
   </span>
-  <fa-icon [icon]="faLock" size="2x"></fa-icon>
+  <fa-icon *ngIf="!variant.enabled" [icon]="faLock" size="2x"></fa-icon>
 </div>
