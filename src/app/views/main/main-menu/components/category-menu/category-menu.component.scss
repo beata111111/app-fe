@@ -8,6 +8,7 @@
   .category-label {
     border-radius: 10px;
     display: inline-block;
+    width: calc(100% - 40px);
     //padding: 10px;
     margin: 10px 12px;
     background-color: var(--body-backgroung-color);

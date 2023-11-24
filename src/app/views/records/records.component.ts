@@ -19,10 +19,6 @@ export class RecordsComponent {
     private _recordService: RecordsService,
   ) {
     this.recordsInfo$ = this._recordService.recordsInfo$;
-
-    this.recordsInfo$.subscribe(a => {
-      console.warn(a);
-    })
   }
 
   back() {

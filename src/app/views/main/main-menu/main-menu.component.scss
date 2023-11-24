@@ -1,0 +1,9 @@
+:host {
+  display: flex !important;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.full-size-categories {
+  flex-grow: 1;
+}

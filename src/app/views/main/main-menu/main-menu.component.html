@@ -1,5 +1,9 @@
-<app-category-menu
-  *ngFor="let category of categoryStatus"
-  [category]="category"
->
-</app-category-menu>
+<div class="full-size-categories">
+  <app-category-menu
+      *ngFor="let category of categoryStatus"
+      [category]="category"
+  >
+  </app-category-menu>
+</div>
+
+<app-category-miniatures></app-category-miniatures>

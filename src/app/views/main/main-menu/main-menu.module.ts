@@ -8,6 +8,7 @@ import { TranslateModule } from "@ngx-translate/core";
 import { LevelMenuPreviewComponent } from "./components/category-menu/components/level-menu-preview/level-menu-preview.component";
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import { ButtonModule, ShineAnimationModule } from "@components";
+import { CategoryMiniaturesComponent } from "./components/category-miniatures/category-miniatures.component";
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { ButtonModule, ShineAnimationModule } from "@components";
     LevelMenuComponent,
     VariantComponent,
     LevelMenuPreviewComponent,
+    CategoryMiniaturesComponent,
   ],
   imports: [
     CommonModule,

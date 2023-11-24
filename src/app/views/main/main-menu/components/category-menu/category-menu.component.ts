@@ -6,10 +6,12 @@ import {
   OnInit,
 } from "@angular/core";
 import { CategoryStatus } from "@model";
-import * as solid from "@fortawesome/free-solid-svg-icons";
 import { ActivatedRoute, Router } from "@angular/router";
 import { Subscription } from "rxjs";
 import { IconDefinition } from "@fortawesome/free-regular-svg-icons";
+import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
+import { getCategoryIcon } from "@helpers";
+import { CategoryMiniaturesService } from "../category-miniatures/category-miniatures.service";
 
 @Component({
   selector: "app-category-menu",
@@ -17,7 +19,13 @@ import { IconDefinition } from "@fortawesome/free-regular-svg-icons";
   styleUrls: ["./category-menu.component.scss"],
 })
 export class CategoryMenuComponent implements OnInit, OnDestroy {
-  solid = solid;
+  faChevronUp = faChevronUp;
+  faChevronDown = faChevronDown;
+  minifiedCategories: string[] = [];
+
+  @HostBinding('style.display') get getStyleDisplay(): string {
+    return this.minifiedCategories.includes(this.category.category_id) ? 'none' : 'block';
+  }
 
   @Input() category!: CategoryStatus;
 
@@ -27,7 +35,14 @@ export class CategoryMenuComponent implements OnInit, OnDestroy {
   constructor(
     private _router: Router,
     private _activatedRoute: ActivatedRoute,
-  ) {}
+    private _categoryMiniaturesService: CategoryMiniaturesService
+  ) {
+    this._subscription.add(
+      this._categoryMiniaturesService.minifiedCategories$.subscribe(c => {
+        this.minifiedCategories = c;
+      })
+    );
+  }
 
   ngOnInit() {
     this._subscription.add(
@@ -52,31 +67,10 @@ export class CategoryMenuComponent implements OnInit, OnDestroy {
   }
 
   getCategoryIcon(): IconDefinition {
-    switch (this.category.category_id) {
-      case "natu":
-        return solid.faTree;
-      case "tour":
-        return solid.faUmbrellaBeach;
-      case "anim":
-        return solid.faCow;
-      case "home":
-        return solid.faHouseChimney;
-      case "tran":
-        return solid.faCarSide;
-      case "body":
-        return solid.faHand;
-      case "time":
-        return solid.faClock;
-      case "econ":
-        return solid.faWallet;
-      case "foo1":
-        return solid.faPizzaSlice;
-      case "foo2":
-        return solid.faUtensils;
-      case "fash":
-        return solid.faShirt;
-      default:
-        return solid.faQuestion;
-    }
+    return getCategoryIcon(this.category.category_id);
+  }
+
+  addToMinifiedCategories(category_id: string): void {
+    this._categoryMiniaturesService.add(category_id);
   }
 }
