@@ -7,3 +7,4 @@ export * from "./currentUser";
 export * from "./category-status";
 export * from "./challenge";
 export * from "./record";
+export * from "./localStorage";

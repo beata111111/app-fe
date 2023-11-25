@@ -5,13 +5,21 @@
   padding-bottom: 10px;
   border-radius: 10px;
 
+  .category-label-container {
+    display: flex;
+  }
+
   .category-label {
     border-radius: 10px;
-    display: inline-block;
-    width: calc(100% - 40px);
+    width: calc(100% - 20px);
     //padding: 10px;
     margin: 10px 12px;
     background-color: var(--body-backgroung-color);
+  }
+
+  .minimize-button {
+    all: unset;
+    margin-right: 10px;
   }
 
   &.expanded {

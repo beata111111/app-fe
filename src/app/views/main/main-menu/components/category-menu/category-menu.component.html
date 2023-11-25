@@ -1,22 +1,31 @@
-<div class="category-label" (click)="handleClick(category.category_id)">
-  <fa-icon
-      [icon]="getCategoryIcon()"
-      [size]="'xl'"
-      class="category-icon"
-  ></fa-icon>
-  <span>{{ "categories." + category.category_id | translate }}</span>
-  <fa-icon
-      [icon]="isExpanded ? faChevronUp : faChevronDown"
-      [size]="'lg'"
-      class="category-chevron-icon"
-  ></fa-icon>
+<div class="category-label-container" (click)="handleClick(category.category_id)">
+  <div class="category-label">
+    <fa-icon
+        [icon]="getCategoryIcon()"
+        [size]="'xl'"
+        class="category-icon"
+    ></fa-icon>
+    <span>{{ "categories." + category.category_id | translate }}</span>
+    <fa-icon
+        *ngIf="canMinimize"
+        [icon]="isExpanded ? faChevronUp : faChevronDown"
+        [size]="'lg'"
+        class="category-chevron-icon"
+    ></fa-icon>
+  </div>
 
-  <button [style.float]="'right'" [style.margin-right]="'24px'"
-          (click)="addToMinifiedCategories(category.category_id)">-</button>
+
+  <button class="minimize-button" *ngIf="isExpanded && canMinimize"
+          (click)="addToMinifiedCategories($event, category.category_id)">
+    <fa-icon
+        [icon]="faMinus"
+        class="category-chevron-icon"
+    ></fa-icon>
+  </button>
 </div>
 
 <div class="level-container">
-  <ng-container *ngIf="isExpanded; else preview">
+  <ng-container *ngIf="isExpanded || !canMinimize; else preview">
     <ng-container *ngFor="let level of category.levels">
       <app-level-menu
           *ngIf="level.enabled"

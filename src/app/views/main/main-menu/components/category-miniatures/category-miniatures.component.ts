@@ -10,7 +10,7 @@ import { Observable } from "rxjs";
   styleUrls: ['./category-miniatures.component.scss']
 })
 export class CategoryMiniaturesComponent {
-  minifiedCategories$: Observable<string[]>
+  minifiedCategoriesIds$: Observable<string[]>
 
   getIcon(category_id: string): IconDefinition {
     return getCategoryIcon(category_id);
@@ -19,7 +19,7 @@ export class CategoryMiniaturesComponent {
   constructor(
     private _categoryMiniaturesService: CategoryMiniaturesService
   ) {
-    this.minifiedCategories$ = this._categoryMiniaturesService.minifiedCategories$;
+    this.minifiedCategoriesIds$ = this._categoryMiniaturesService.minifiedCategoriesIds$;
   }
 
   removeFromMiniatures(category_id: string): void {

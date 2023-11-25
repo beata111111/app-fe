@@ -156,3 +156,13 @@
     transform: scale(1);
   }
 }
+
+
+@media(max-width: 500px) {
+  .delta-100 {
+    margin-top: 5px !important;
+    fa-icon {
+      display: block;
+    }
+  }
+}

@@ -37,9 +37,11 @@ export class VariantComponent implements OnInit, OnDestroy {
 
   color$: Observable<string>;
   displayedResult$ = new BehaviorSubject<number>(0);
+
   hasNewResult = false;
-  isNewlyEnabled = false;
   resultDelta = 0;
+
+  isNewlyEnabled = false;
 
   constructor(
     private _router: Router,
@@ -63,6 +65,8 @@ export class VariantComponent implements OnInit, OnDestroy {
         const newResult = this._challengeLastResultService.getLastResult(
           this._signature,
         );
+
+        this.hasNewResult = !!newResult;
 
         if (newResult && newResult > this.variant.previousResult) {
           this.hasNewResult = true;

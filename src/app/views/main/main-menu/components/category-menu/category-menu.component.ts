@@ -9,7 +9,7 @@ import { CategoryStatus } from "@model";
 import { ActivatedRoute, Router } from "@angular/router";
 import { Subscription } from "rxjs";
 import { IconDefinition } from "@fortawesome/free-regular-svg-icons";
-import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
+import { faChevronDown, faChevronUp, faMinus } from "@fortawesome/free-solid-svg-icons";
 import { getCategoryIcon } from "@helpers";
 import { CategoryMiniaturesService } from "../category-miniatures/category-miniatures.service";
 
@@ -21,10 +21,16 @@ import { CategoryMiniaturesService } from "../category-miniatures/category-minia
 export class CategoryMenuComponent implements OnInit, OnDestroy {
   faChevronUp = faChevronUp;
   faChevronDown = faChevronDown;
+  faMinus = faMinus;
   minifiedCategories: string[] = [];
+  canMinimize = true;
 
-  @HostBinding('style.display') get getStyleDisplay(): string {
-    return this.minifiedCategories.includes(this.category.category_id) ? 'none' : 'block';
+  // @HostBinding('style.display') get getStyleDisplay(): string {
+  //   return this.minifiedCategories.includes(this.category.category_id) ? 'none' : 'block';
+  // }
+
+  @HostBinding("class.expanded") get isExp() {
+    return this.isExpanded || !this.canMinimize;
   }
 
   @Input() category!: CategoryStatus;
@@ -38,8 +44,15 @@ export class CategoryMenuComponent implements OnInit, OnDestroy {
     private _categoryMiniaturesService: CategoryMiniaturesService
   ) {
     this._subscription.add(
-      this._categoryMiniaturesService.minifiedCategories$.subscribe(c => {
+      this._categoryMiniaturesService.minifiedCategoriesIds$.subscribe(c => {
         this.minifiedCategories = c;
+      })
+    );
+
+    this._subscription.add(
+      this._categoryMiniaturesService.canMinimize$.subscribe(v => {
+        this.canMinimize = v;
+
       })
     );
   }
@@ -53,6 +66,10 @@ export class CategoryMenuComponent implements OnInit, OnDestroy {
   }
 
   handleClick(category_id: string): void {
+    this._expandCategory(category_id);
+  }
+
+  private _expandCategory(category_id: string): void {
     const currentUrl = this._router.url.split("?")[0];
     const expanded = this.isExpanded ? null : category_id;
     this._router.navigate([currentUrl], { queryParams: { expanded } });
@@ -62,15 +79,12 @@ export class CategoryMenuComponent implements OnInit, OnDestroy {
     this._subscription.unsubscribe();
   }
 
-  @HostBinding("class.expanded") get isExp() {
-    return this.isExpanded;
-  }
-
   getCategoryIcon(): IconDefinition {
     return getCategoryIcon(this.category.category_id);
   }
 
-  addToMinifiedCategories(category_id: string): void {
+  addToMinifiedCategories(event: Event, category_id: string): void {
+    event.stopPropagation();
     this._categoryMiniaturesService.add(category_id);
   }
 }

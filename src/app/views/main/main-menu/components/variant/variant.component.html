@@ -13,12 +13,12 @@
 </button>
 
 <div class="variant-back-side">
-  <span>{{ resultDelta }} <fa-icon [icon]="faGem" size="1x"></fa-icon></span>
+  <span [class.delta-100]="resultDelta === 100">
+    {{ resultDelta }} <fa-icon [icon]="faGem" size="1x"></fa-icon>
+  </span>
 </div>
 
 <div class="disabled-background">
-  <span *ngIf="variant.result">
-    {{ displayedResult$ | async }}
-  </span>
-  <fa-icon *ngIf="!variant.enabled" [icon]="faLock" size="2x"></fa-icon>
+  <span *ngIf="variant.result">{{ displayedResult$ | async }}</span>
+  <fa-icon *ngIf="!variant.enabled || !variant.result" [icon]="faLock" size="2x"></fa-icon>
 </div>
