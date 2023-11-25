@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { BehaviorSubject, combineLatest, map, Observable } from "rxjs";
-import { CategoryStatus, localStorageKey } from "@model";
+import { CategoryStatus, LocalStorageKey } from "@model";
 
 @Injectable({ providedIn: "root" })
 export class CategoryMiniaturesService {
@@ -8,14 +8,14 @@ export class CategoryMiniaturesService {
 
   constructor() {
     const minifiedIds = localStorage.getItem(
-      localStorageKey.MINIFIED_CATEGORIES,
+      LocalStorageKey.MINIFIED_CATEGORIES,
     );
     if (minifiedIds) {
       this.minifiedCategoriesIds$.next(JSON.parse(minifiedIds));
     }
 
     const notMinifiedIds = localStorage.getItem(
-      localStorageKey.NOT_MINIFIED_CATEGORIES,
+      LocalStorageKey.NOT_MINIFIED_CATEGORIES,
     );
     if (notMinifiedIds) {
       this.notMinifiedCategoriesIds$.next(JSON.parse(notMinifiedIds));
@@ -73,12 +73,12 @@ export class CategoryMiniaturesService {
     this._addToSet(
       this.minifiedCategoriesIds$,
       category_id,
-      localStorageKey.MINIFIED_CATEGORIES,
+      LocalStorageKey.MINIFIED_CATEGORIES,
     );
     this._removeFromSet(
       this.notMinifiedCategoriesIds$,
       category_id,
-      localStorageKey.NOT_MINIFIED_CATEGORIES,
+      LocalStorageKey.NOT_MINIFIED_CATEGORIES,
     );
   }
 
@@ -86,26 +86,26 @@ export class CategoryMiniaturesService {
     this._removeFromSet(
       this.minifiedCategoriesIds$,
       category_id,
-      localStorageKey.MINIFIED_CATEGORIES,
+      LocalStorageKey.MINIFIED_CATEGORIES,
     );
     this._addToSet(
       this.notMinifiedCategoriesIds$,
       category_id,
-      localStorageKey.NOT_MINIFIED_CATEGORIES,
+      LocalStorageKey.NOT_MINIFIED_CATEGORIES,
     );
   }
 
-  private _addToSet(subject: any, item: any, key: localStorageKey): void {
+  private _addToSet(subject: any, item: any, key: LocalStorageKey): void {
     const value = subject.value;
     const newValue = [...new Set([...value, item])];
     subject.next(newValue);
-    localStorage.setItem(localStorageKey[key], JSON.stringify(newValue));
+    localStorage.setItem(LocalStorageKey[key], JSON.stringify(newValue));
   }
 
-  private _removeFromSet(subject: any, item: any, key: localStorageKey): void {
+  private _removeFromSet(subject: any, item: any, key: LocalStorageKey): void {
     const value = subject.value;
     const newValue = value.filter((c: any) => c !== item);
     subject.next(newValue);
-    localStorage.setItem(localStorageKey[key], JSON.stringify(newValue));
+    localStorage.setItem(LocalStorageKey[key], JSON.stringify(newValue));
   }
 }

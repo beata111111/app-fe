@@ -3,6 +3,7 @@ import { IconDefinition } from "@fortawesome/free-regular-svg-icons";
 import { getCategoryIcon } from "@helpers";
 import { CategoryMiniaturesService } from "./category-miniatures.service";
 import { Subscription } from "rxjs";
+import { DisplayCss } from "@model";
 
 @Component({
   selector: "app-category-miniatures",
@@ -13,8 +14,10 @@ export class CategoryMiniaturesComponent implements OnDestroy {
   minifiedCategoriesIds: string[] = [];
   private _subscription = new Subscription();
 
-  @HostBinding("style.display") get getDisplay(): string {
-    return this.minifiedCategoriesIds.length ? "flex" : "none";
+  @HostBinding("style.display") get getDisplay(): DisplayCss {
+    return this.minifiedCategoriesIds.length
+      ? DisplayCss.flex
+      : DisplayCss.block;
   }
 
   getIcon(category_id: string): IconDefinition {

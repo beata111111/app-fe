@@ -1,4 +1,4 @@
-export enum localStorageKey {
+export enum LocalStorageKey {
   MINIFIED_CATEGORIES = "MINIFIED_CATEGORIES",
   NOT_MINIFIED_CATEGORIES = "NOT_MINIFIED_CATEGORIES",
 }

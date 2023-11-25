@@ -29,11 +29,7 @@ export class CategoryMenuComponent implements OnInit, OnDestroy {
   minifiedCategories: string[] = [];
   canMinimize = true;
 
-  // @HostBinding('style.display') get getStyleDisplay(): string {
-  //   return this.minifiedCategories.includes(this.category.category_id) ? 'none' : 'block';
-  // }
-
-  @HostBinding("class.expanded") get isExp() {
+  @HostBinding("class.expanded") get isExp(): boolean {
     return this.isExpanded || !this.canMinimize;
   }
 
