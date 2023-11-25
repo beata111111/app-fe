@@ -2,7 +2,7 @@ import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { MainComponent } from "./main.component";
 import { MainRoutingModule } from "./main-routing.module";
-import { MenuItemModule, TopNavModule, PageSpinnerModule } from "@components";
+import { TopNavModule, PageSpinnerModule } from "@components";
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import { MainMenuModule } from "./main-menu/main-menu.module";
 import { ButtonModule, PageContainerModule } from "@components";
@@ -12,10 +12,9 @@ import { WelcomeDialogModule } from "./welcome-dialog/welcome-dialog.module";
 @NgModule({
   declarations: [MainComponent],
   imports: [
-    MainRoutingModule,
     CommonModule,
+    MainRoutingModule,
     FontAwesomeModule,
-    MenuItemModule,
     TopNavModule,
     MainMenuModule,
     ButtonModule,
