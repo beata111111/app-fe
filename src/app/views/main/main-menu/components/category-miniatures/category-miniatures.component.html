@@ -1,7 +1,13 @@
-<ng-container *ngIf="minifiedCategoriesIds$ | async as categories">
-  <div class="button-container" *ngFor="let category_id of categories">
-    <button (click)="removeFromMiniatures(category_id)">
-      <fa-icon [icon]="getIcon(category_id)"></fa-icon>
-    </button>
+<div class="container-a">
+  <div class="container-b">
+    <div class="container-c">
+
+      <button *ngFor="let category_id of minifiedCategoriesIds"
+              (click)="removeFromMiniatures(category_id)">
+        <fa-icon [icon]="getIcon(category_id)"></fa-icon>
+      </button>
+
+    </div>
   </div>
-</ng-container>
+</div>
+

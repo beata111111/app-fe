@@ -1,21 +1,35 @@
 :host {
-  margin: 10px;
-  padding: 5px;
-  display: grid;
-  background-color: var(--backgroung-secondary-color);
+  padding: 10px;
+  display: flex;
   border-radius: 10px;
+  height: 76px;
+  position: relative;
+  flex-shrink: 0;
 
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: auto;
+  .container-a {
+    background-color: var(--backgroung-secondary-color);
+    flex-grow: 1;
+    position: absolute;
+    height: calc(100% - 20px);
+    width: calc(100% - 20px);
+    border-radius: 10px;
+  }
 
- .button-container {
-   display: flex;
-   align-items: flex-end;
- }
+  .container-b {
+    margin: 10px 10px 0 10px;
+    overflow: scroll;
+    height: calc(100% - 6px);
+  }
+
+  .container-c {
+    display: flex;
+  }
+
   button {
+    flex-basis: 50px;
+    min-width: 36px;
     background-color: var(--body-backgroung-color);
     color: var(--font-secondary-color);
-    flex-grow: 1;
     margin: 5px;
     padding: 5px;
     height: 28px;

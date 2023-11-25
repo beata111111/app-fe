@@ -1,16 +1,21 @@
-import { Component } from '@angular/core';
+import {Component, HostBinding, OnDestroy} from '@angular/core';
 import { IconDefinition } from "@fortawesome/free-regular-svg-icons";
 import { getCategoryIcon } from "@helpers";
 import { CategoryMiniaturesService } from "./category-miniatures.service";
-import { Observable } from "rxjs";
+import {Observable, Subscription} from "rxjs";
 
 @Component({
   selector: 'app-category-miniatures',
   templateUrl: './category-miniatures.component.html',
   styleUrls: ['./category-miniatures.component.scss']
 })
-export class CategoryMiniaturesComponent {
-  minifiedCategoriesIds$: Observable<string[]>
+export class CategoryMiniaturesComponent implements OnDestroy {
+  minifiedCategoriesIds: string[] = [];
+  private _subscription = new Subscription();
+
+  @HostBinding('style.display') get getDisplay(): string {
+    return this.minifiedCategoriesIds.length ? 'flex' : 'none';
+  }
 
   getIcon(category_id: string): IconDefinition {
     return getCategoryIcon(category_id);
@@ -19,10 +24,18 @@ export class CategoryMiniaturesComponent {
   constructor(
     private _categoryMiniaturesService: CategoryMiniaturesService
   ) {
-    this.minifiedCategoriesIds$ = this._categoryMiniaturesService.minifiedCategoriesIds$;
+    this._subscription.add(
+      this._categoryMiniaturesService.minifiedCategoriesIds$.subscribe(ids => {
+        this.minifiedCategoriesIds = ids;
+      })
+    );
   }
 
   removeFromMiniatures(category_id: string): void {
     this._categoryMiniaturesService.remove(category_id);
+  }
+
+  ngOnDestroy() {
+    this._subscription.unsubscribe();
   }
 }
