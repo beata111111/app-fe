@@ -9,7 +9,11 @@ import { CategoryStatus } from "@model";
 import { ActivatedRoute, Router } from "@angular/router";
 import { Subscription } from "rxjs";
 import { IconDefinition } from "@fortawesome/free-regular-svg-icons";
-import { faChevronDown, faChevronUp, faMinus } from "@fortawesome/free-solid-svg-icons";
+import {
+  faChevronDown,
+  faChevronUp,
+  faMinus,
+} from "@fortawesome/free-solid-svg-icons";
 import { getCategoryIcon } from "@helpers";
 import { CategoryMiniaturesService } from "../category-miniatures/category-miniatures.service";
 
@@ -41,19 +45,18 @@ export class CategoryMenuComponent implements OnInit, OnDestroy {
   constructor(
     private _router: Router,
     private _activatedRoute: ActivatedRoute,
-    private _categoryMiniaturesService: CategoryMiniaturesService
+    private _categoryMiniaturesService: CategoryMiniaturesService,
   ) {
     this._subscription.add(
-      this._categoryMiniaturesService.minifiedCategoriesIds$.subscribe(c => {
+      this._categoryMiniaturesService.minifiedCategoriesIds$.subscribe((c) => {
         this.minifiedCategories = c;
-      })
+      }),
     );
 
     this._subscription.add(
-      this._categoryMiniaturesService.canMinimize$.subscribe(v => {
+      this._categoryMiniaturesService.canMinimize$.subscribe((v) => {
         this.canMinimize = v;
-
-      })
+      }),
     );
   }
 

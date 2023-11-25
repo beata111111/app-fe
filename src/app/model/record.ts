@@ -4,11 +4,11 @@ export interface Record {
 }
 
 export interface UserRecord {
-  points: number,
-  recordIndex: number
+  points: number;
+  recordIndex: number;
 }
 
 export interface RecordsInfo {
-  userRecord: UserRecord,
-  records: Record[]
+  userRecord: UserRecord;
+  records: Record[];
 }

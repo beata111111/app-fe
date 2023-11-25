@@ -6,7 +6,7 @@ import {
   TopNavModule,
   ButtonModule,
   MenuItemModule,
-  NavContainerModule,
+  PageContainerModule,
   AccordionModule,
 } from "@components";
 import { TranslateModule } from "@ngx-translate/core";
@@ -23,7 +23,7 @@ import { CommonModule } from "@angular/common";
     ButtonModule,
     MenuItemModule,
     TranslateModule,
-    NavContainerModule,
+    PageContainerModule,
     AccordionModule,
   ],
   providers: [],

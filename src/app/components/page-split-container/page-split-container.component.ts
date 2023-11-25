@@ -1,11 +1,11 @@
 import { Component, HostBinding, Input, TemplateRef } from "@angular/core";
 
 @Component({
-  selector: "app-two-split-page",
-  templateUrl: "./two-split-page.component.html",
-  styleUrls: ["./two-split-page.component.scss"],
+  selector: "app-page-split-container",
+  templateUrl: "./page-split-container.component.html",
+  styleUrls: ["./page-split-container.component.scss"],
 })
-export class TwoSplitPageComponent {
+export class PageSplitContainerComponent {
   @Input() upper!: TemplateRef<unknown>;
   @Input() lower!: TemplateRef<unknown>;
   @Input() isLoading = false;

@@ -1,5 +1,5 @@
 import * as solid from "@fortawesome/free-solid-svg-icons";
-import {IconDefinition} from "@fortawesome/free-regular-svg-icons";
+import { IconDefinition } from "@fortawesome/free-regular-svg-icons";
 
 export function getCategoryIcon(category_id: string): IconDefinition {
   switch (category_id) {

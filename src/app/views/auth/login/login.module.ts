@@ -4,7 +4,7 @@ import { LoginComponent } from "./login.component";
 import { TranslateModule } from "@ngx-translate/core";
 import { ButtonModule } from "@components";
 import { ReactiveFormsModule } from "@angular/forms";
-import { TwoSplitPageModule } from "../../../components/two-split-page/two-split-page.module";
+import { PageSplitContainerModule } from "../../../components/page-split-container/page-split-container..module";
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 
 @NgModule({
@@ -13,7 +13,7 @@ import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
     CommonModule,
     TranslateModule,
     ButtonModule,
-    TwoSplitPageModule,
+    PageSplitContainerModule,
     ReactiveFormsModule,
     FontAwesomeModule,
   ],

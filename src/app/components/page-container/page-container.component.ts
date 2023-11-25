@@ -1,11 +1,11 @@
 import { Component, Input, TemplateRef } from "@angular/core";
 
 @Component({
-  selector: "app-nav-container",
-  templateUrl: "./nav-container.component.html",
-  styleUrls: ["./nav-container.component.scss"],
+  selector: "app-page-container",
+  templateUrl: "./page-container.component.html",
+  styleUrls: ["./page-container.component.scss"],
 })
-export class NavContainerComponent {
+export class PageContainerComponent {
   @Input() navTemplate!: TemplateRef<any>;
   @Input() contentTemplate!: TemplateRef<any>;
 }

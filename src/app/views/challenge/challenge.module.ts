@@ -4,7 +4,7 @@ import { ChallengeComponent } from "./challenge.component";
 import { ChallengeRoutingModule } from "./challenge-routing.module";
 import {
   ButtonModule,
-  NavContainerModule,
+  PageContainerModule,
   PageSpinnerModule,
   TopNavModule,
 } from "@components";
@@ -18,7 +18,7 @@ import { ChallengeCVariantModule } from "./challenge-c-variant/challenge-c-varia
   imports: [
     CommonModule,
     ChallengeRoutingModule,
-    NavContainerModule,
+    PageContainerModule,
     TopNavModule,
     ButtonModule,
     FontAwesomeModule,

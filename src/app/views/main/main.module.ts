@@ -2,16 +2,10 @@ import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { MainComponent } from "./main.component";
 import { MainRoutingModule } from "./main-routing.module";
-import {
-  ContainerModule,
-  MenuItemModule,
-  TopNavModule,
-  AchievementRibbonModule,
-  PageSpinnerModule,
-} from "@components";
+import { MenuItemModule, TopNavModule, PageSpinnerModule } from "@components";
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import { MainMenuModule } from "./main-menu/main-menu.module";
-import { ButtonModule, NavContainerModule } from "@components";
+import { ButtonModule, PageContainerModule } from "@components";
 import { DiamondCounterModule } from "./diamond-counter/diamond-counter.module";
 import { WelcomeDialogModule } from "./welcome-dialog/welcome-dialog.module";
 
@@ -20,14 +14,12 @@ import { WelcomeDialogModule } from "./welcome-dialog/welcome-dialog.module";
   imports: [
     MainRoutingModule,
     CommonModule,
-    ContainerModule,
     FontAwesomeModule,
     MenuItemModule,
     TopNavModule,
-    AchievementRibbonModule,
     MainMenuModule,
     ButtonModule,
-    NavContainerModule,
+    PageContainerModule,
     DiamondCounterModule,
     PageSpinnerModule,
     WelcomeDialogModule,
