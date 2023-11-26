@@ -2,7 +2,7 @@ import { Component, Input, OnDestroy, OnInit, Self } from "@angular/core";
 import { VoiceService, VoiceWorkerService } from "@core";
 import { ChallengeService } from "../challenge.service";
 import { AbstractChallengeHistoryComponent } from "../abstract/challenge-history.directive";
-import { Word } from "@model";
+import { Word, WordAnswer } from "@model";
 
 @Component({
   selector: "app-challenge-c-variant",
@@ -37,7 +37,7 @@ export class ChallengeCVariantComponent
     );
   }
 
-  generateAnswerWords(words: Word[], gapNumber: number): any {
+  generateAnswerWords(words: Word[], gapNumber: number): WordAnswer[] {
     return words.map((word) => {
       return {
         word_id: word.word_id,

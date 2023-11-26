@@ -34,10 +34,11 @@
   </div>
 
   <app-challenge-section-bottom
-      [class.hide]="showHistory"
-      [answerKey]="'answer'"
-      [answerWords]="generateAnswerWords(state.currentWordAnswers, state.gapNumber)"
-      (action)="handleAnswer($event)"
+    [class.hide]="showHistory"
+    [answerWords]="
+      generateAnswerWords(state.currentWordAnswers, state.gapNumber)
+    "
+    (action)="handleAnswer($event)"
   ></app-challenge-section-bottom>
 
   <app-challenge-progress

@@ -39,3 +39,8 @@ export interface Word {
 
   answer?: string;
 }
+
+export interface WordAnswer {
+  word_id: string;
+  answer: string;
+}

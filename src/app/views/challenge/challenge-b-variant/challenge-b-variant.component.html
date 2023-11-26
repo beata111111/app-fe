@@ -32,10 +32,9 @@
   </div>
 
   <app-challenge-section-bottom
-      [class.hide]="showHistory"
-      [answerKey]="'adj'"
-      [answerWords]="state.currentWordAnswers"
-      (action)="handleAnswer($event)"
+    [class.hide]="showHistory"
+    [answerWords]="generateAnswerWords(state.currentWordAnswers)"
+    (action)="handleAnswer($event)"
   ></app-challenge-section-bottom>
 
   <app-challenge-progress
