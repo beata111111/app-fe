@@ -1,7 +1,7 @@
 <div class="answer-container">
-  <div *ngFor="let word of roundWords" class="answer-button-container">
+  <div *ngFor="let word of answerWords" class="answer-button-container">
     <button [appButton]="'secondary'" (click)="handleWordAction(word.word_id)">
-      {{ word.nounDE }}
+      {{ word[answerKey] }}
     </button>
   </div>
 </div>

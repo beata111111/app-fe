@@ -36,4 +36,19 @@ export class ChallengeCVariantComponent
       speakableProperty,
     );
   }
+
+  generateAnswerWords(words: Word[], gapNumber: number): any {
+    return words.map((word) => {
+      return {
+        word_id: word.word_id,
+        answer: this._generateAnswer(word, gapNumber),
+      };
+    });
+  }
+
+  private _generateAnswer(word: Word, gapNumber: number): string {
+    const words = word[`variant_${this.variant}_pl`].split(" ");
+    const n = gapNumber % words.length;
+    return words[n].toLowerCase().replace(".", "");
+  }
 }

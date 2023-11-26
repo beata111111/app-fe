@@ -13,4 +13,7 @@ export class ChallengeSectionBottomComponent {
   handleWordAction(word_id: string): void {
     this.action.emit(word_id);
   }
+
+  @Input() answerKey: keyof Word = 'nounDE';
+  @Input() answerWords!: Word[];
 }

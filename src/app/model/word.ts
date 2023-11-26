@@ -36,4 +36,6 @@ export interface Word {
   variant_d_de: string;
   variant_e_pl: string;
   variant_e_de: string;
+
+  answer?: string;
 }

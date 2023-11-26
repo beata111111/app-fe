@@ -33,14 +33,12 @@
     </app-v-c-middle-section>
   </div>
 
-  <app-v-c-bottom-section
-    [variant]="variant"
-    [class.hide]="showHistory"
-    [gapNumber]="state.gapNumber"
-    [roundWords]="state.currentWordAnswers"
-    (action)="handleAnswer($event)"
-  >
-  </app-v-c-bottom-section>
+  <app-challenge-section-bottom
+      [class.hide]="showHistory"
+      [answerKey]="'answer'"
+      [answerWords]="generateAnswerWords(state.currentWordAnswers, state.gapNumber)"
+      (action)="handleAnswer($event)"
+  ></app-challenge-section-bottom>
 
   <app-challenge-progress
     [currentStep]="

@@ -33,12 +33,12 @@
     </app-v-a-middle-section>
   </div>
 
-  <app-v-a-bottom-section
-    [class.hide]="showHistory"
-    [roundWords]="state.currentWordAnswers"
-    (action)="handleAnswer($event)"
-  >
-  </app-v-a-bottom-section>
+  <app-challenge-section-bottom
+      [class.hide]="showHistory"
+      [answerKey]="'nounDE'"
+      [answerWords]="state.currentWordAnswers"
+      (action)="handleAnswer($event)"
+  ></app-challenge-section-bottom>
 
   <app-challenge-progress
     [currentStep]="

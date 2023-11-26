@@ -1,3 +1,10 @@
+:host {
+  display: flex;
+  flex-basis: 190px;
+  padding: 20px 20px 0 20px;
+  min-height: 150px;
+}
+
 .answer-container {
   height: 100%;
   width: 100%;
