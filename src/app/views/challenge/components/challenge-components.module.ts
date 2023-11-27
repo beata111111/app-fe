@@ -9,6 +9,10 @@ import { ButtonModule } from "@components";
 import { ChallengeProgressComponent } from "./challenge-progress/challenge-progress.component";
 import { ChallengeFinishedOverlayComponent } from "./challenge-finished-overlay/challenge-finished-overlay.component";
 import { ShowAnswerAnimationComponent } from "./show-answer-animation/show-answer-animation.component";
+import { ChallengeSectionTopComponent } from "./challenge-section-top/challenge-section-top.component";
+import { ChallengeSectionBottomComponent } from "./challenge-section-bottom/challenge-section-bottom.component";
+import { WordAltComponent } from "./word-alt/word-alt.component";
+import { GenderDotComponent } from "./gender-dot/gender-dot.component";
 
 const components = [
   HistoryBackButtonComponent,
@@ -18,6 +22,10 @@ const components = [
   WordGapComponent,
   ChallengeProgressComponent,
   ChallengeFinishedOverlayComponent,
+  ChallengeSectionBottomComponent,
+  ChallengeSectionTopComponent,
+  WordAltComponent,
+  GenderDotComponent
 ];
 
 @NgModule({

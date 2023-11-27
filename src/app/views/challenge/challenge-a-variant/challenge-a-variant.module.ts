@@ -5,9 +5,6 @@ import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import { ButtonModule } from "@components";
 import { ChallengeAVariantMiddleSectionComponent } from "./middle-section/middle-section.component";
 import { ChallengeComponentsModule } from "@challengeComponents";
-import { ChallengeSectionBottomModule } from "../components/challenge-section-bottom/challenge-section-bottom.module";
-import {WordAltModule} from "../components/word-alt/word-alt.module";
-import {GenderDotModule} from "../components/gender-dot/gender-dot.module";
 
 @NgModule({
   declarations: [
@@ -19,9 +16,6 @@ import {GenderDotModule} from "../components/gender-dot/gender-dot.module";
     FontAwesomeModule,
     ButtonModule,
     ChallengeComponentsModule,
-    ChallengeSectionBottomModule,
-    WordAltModule,
-    GenderDotModule,
   ],
   exports: [ChallengeAVariantComponent],
 })

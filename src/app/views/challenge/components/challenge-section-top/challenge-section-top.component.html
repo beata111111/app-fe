@@ -1,0 +1,7 @@
+<div class="answer-container">
+  <div *ngFor="let word of answerWords" class="answer-button-container">
+    <button [appButton]="'secondary'" (click)="handleWordAction(word.word_id)">
+      {{ word.answer }}
+    </button>
+  </div>
+</div>

@@ -5,8 +5,6 @@ import { ButtonModule } from "@components";
 import { ChallengeBVariantMiddleSectionComponent } from "./middle-section/middle-section.component";
 import { ChallengeBVariantComponent } from "./challenge-b-variant.component";
 import { ChallengeComponentsModule } from "@challengeComponents";
-import { ChallengeSectionBottomModule } from "../components/challenge-section-bottom/challenge-section-bottom.module";
-import {GenderDotModule} from "../components/gender-dot/gender-dot.module";
 
 @NgModule({
   declarations: [
@@ -18,8 +16,6 @@ import {GenderDotModule} from "../components/gender-dot/gender-dot.module";
     FontAwesomeModule,
     ButtonModule,
     ChallengeComponentsModule,
-    ChallengeSectionBottomModule,
-    GenderDotModule,
   ],
   exports: [ChallengeBVariantComponent],
 })

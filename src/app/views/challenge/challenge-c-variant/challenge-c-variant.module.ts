@@ -5,7 +5,6 @@ import { ButtonModule } from "@components";
 import { ChallengeCVariantMiddleSectionComponent } from "./middle-section/middle-section.component";
 import { ChallengeCVariantComponent } from "./challenge-c-variant.component";
 import { ChallengeComponentsModule } from "@challengeComponents";
-import { ChallengeSectionBottomModule } from "../components/challenge-section-bottom/challenge-section-bottom.module";
 
 @NgModule({
   declarations: [
@@ -17,8 +16,6 @@ import { ChallengeSectionBottomModule } from "../components/challenge-section-bo
     FontAwesomeModule,
     ButtonModule,
     ChallengeComponentsModule,
-    ChallengeComponentsModule,
-    ChallengeSectionBottomModule,
   ],
   exports: [ChallengeCVariantComponent],
 })
