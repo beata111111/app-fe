@@ -2,63 +2,55 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  width: 80%;
-  margin: auto;
+}
 
-  .word-div {
-    width: 100%;
+.top-container {
+  flex-basis: 50%;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+
+  .word-text {
     position: relative;
-    display: flex;
-    flex-basis: 50%;
-    flex-shrink: 0;
-    justify-content: center;
-    align-items: flex-end;
-    text-align: center;
-
-    .word-text {
-      position: relative;
-      margin-bottom: 8px;
-    }
-  }
-
-  .word-alt {
-    width: 100%;
-    padding-top: 2px;
-    height: 22px;
-    text-align: center;
+    margin-bottom: 8px;
+    display: inline-block;
+    background-color: var(--body-backgroung-color);
 
     span {
-      color: #7d7d7d !important;
-      position: relative;
-
-      &:before {
-        content: "pl. ";
-        font-size: 15px;
-      }
-
-      &.plural {
-        &:before {
-          content: "sing. ";
-        }
-      }
+      margin: 0 10px;
     }
+  }
+}
+
+.bottom-container {
+  flex-basis: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &.with-word-alt .bottom-word-container {
+    padding-top: 30px;
   }
 
   .translation {
     display: flex;
     flex-direction: column;
     text-align: center;
-    width: 100%;
-    height: 100%;
 
     h4 {
-      margin-top: 12px;
-      margin-bottom: 8px;
-    }
+      background-color: white;
+      display: inline-block;
 
-    app-show-answer-animation {
-      width: 100%;
-      flex-grow: 1;
+      span {
+        margin: 12px 12px 0 12px;
+      }
     }
+  }
+
+  app-show-answer-animation {
+    width: 100%;
+    flex-grow: 1;
   }
 }

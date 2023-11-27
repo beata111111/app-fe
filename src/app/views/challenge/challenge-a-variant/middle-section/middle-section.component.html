@@ -1,46 +1,23 @@
-<!--<ng-container *ngIf="word">-->
-<!--  <div class="current-word-container">-->
-
-<!--    <div class="word-div">-->
-<!--      <h1 class="word-text" (click)="speak()">-->
-<!--        {{word.nounPL}}-->
-<!--      </h1>-->
-
-<!--      <app-gender-dot [word]="word"></app-gender-dot>-->
-<!--    </div>-->
-
-<!--    <div class="word-alt">-->
-<!--      <span *ngIf="word.alt" [class.plural]="word._isPlural">{{word.alt}}</span>-->
-<!--    </div>-->
-
-<!--    <div class="answer" [class.show]="showAnswer">-->
-<!--      <h3 class="answer-text" *ngIf="!lastAnswerCorrect || showHistory">{{word.nounDE}}</h3>-->
-<!--      <div class="answer-icon" *ngIf="lastAnswerCorrect">-->
-<!--        <fa-icon [size]="'5x'" class="success-icon" [icon]="faCheck"></fa-icon>-->
-<!--      </div>-->
-<!--    </div>-->
-
-<!--  </div>-->
-<!--</ng-container>-->
-
-<div class="word-div">
+<div class="top-container">
   <h1 class="word-text" (click)="speak()">
     <span> {{ word.nounPL }} </span>
     <app-gender-dot [word]="word"></app-gender-dot>
   </h1>
 </div>
 
-<div class="word-alt">
-  <span *ngIf="word.alt" [class.plural]="word._isPlural">{{ word.alt }}</span>
-</div>
+<div class="bottom-container" [class.with-word-alt]="word.alt">
+  <app-word-alt [word]="word"></app-word-alt>
 
-<div class="translation">
-  <h4 *ngIf="(showAnswer && !lastAnswerCorrect) || showHistory">
-    {{ word.nounDE }}
-  </h4>
+  <div class="translation">
+    <h4 *ngIf="(showAnswer && !lastAnswerCorrect) || showHistory">
+      <span>{{ word.nounDE }}</span>
+    </h4>
+  </div>
+
   <app-show-answer-animation
     [showAnswer]="showAnswer"
     [answerCorrect]="lastAnswerCorrect"
     [showHistory]="showHistory"
   ></app-show-answer-animation>
 </div>
+

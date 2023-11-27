@@ -1,5 +1,4 @@
 import { NgModule } from "@angular/core";
-import { GenderDotComponent } from "./gender-dot/gender-dot.component";
 import { HistoryBackButtonComponent } from "./history-back-button/history-back-button.component";
 import { HistoryForwardButtonComponent } from "./history-forward-button/history-forward-button.component";
 import { ShowAnswerOverlayComponent } from "./show-answer-overlay/show-answer-overlay.component";
@@ -12,7 +11,6 @@ import { ChallengeFinishedOverlayComponent } from "./challenge-finished-overlay/
 import { ShowAnswerAnimationComponent } from "./show-answer-animation/show-answer-animation.component";
 
 const components = [
-  GenderDotComponent,
   HistoryBackButtonComponent,
   HistoryForwardButtonComponent,
   ShowAnswerOverlayComponent,

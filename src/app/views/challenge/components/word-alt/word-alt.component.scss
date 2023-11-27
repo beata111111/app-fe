@@ -1,0 +1,22 @@
+:host {
+  text-align: center;
+  display: inline-block;
+  background-color: var(--body-backgroung-color);
+
+  span {
+    color: #7d7d7d !important;
+    position: relative;
+    margin: 4px;
+
+    &:before {
+      content: "pl. ";
+      font-size: 15px;
+    }
+
+    &.plural {
+      &:before {
+        content: "sing. ";
+      }
+    }
+  }
+}

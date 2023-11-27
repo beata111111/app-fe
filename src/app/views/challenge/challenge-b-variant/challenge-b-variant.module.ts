@@ -6,6 +6,7 @@ import { ChallengeBVariantMiddleSectionComponent } from "./middle-section/middle
 import { ChallengeBVariantComponent } from "./challenge-b-variant.component";
 import { ChallengeComponentsModule } from "@challengeComponents";
 import { ChallengeSectionBottomModule } from "../components/challenge-section-bottom/challenge-section-bottom.module";
+import {GenderDotModule} from "../components/gender-dot/gender-dot.module";
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { ChallengeSectionBottomModule } from "../components/challenge-section-bo
     ButtonModule,
     ChallengeComponentsModule,
     ChallengeSectionBottomModule,
+    GenderDotModule,
   ],
   exports: [ChallengeBVariantComponent],
 })

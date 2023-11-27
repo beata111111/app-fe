@@ -2,6 +2,16 @@
   position: absolute;
   top: calc(50% - 34px);
   margin-left: 4px;
+  z-index: 1;
+  padding: 10px;
+
+  button {
+    border-radius: 12px;
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    background-color: var(--body-backgroung-color) !important;
+  }
 
   ::ng-deep svg {
     transform: scaleY(0.7);
