@@ -9,8 +9,7 @@
 
 <ng-template #topContent>
   <h2 class="word-text" (click)="speak()">
-     <span class="first"
-           *ngIf="word.adjPos === 1"
+     <span *ngIf="word.adjPos === 1"
            (click)="speak(word.nounPL)"
      >
       {{ word.nounPL }}
@@ -23,8 +22,7 @@
         [answer]="word.adj"
     ></app-word-gap>
 
-    <span class="last"
-          *ngIf="word.adjPos === 0"
+    <span *ngIf="word.adjPos === 0"
           (click)="speak(word.nounPL)"
     >
       {{ word.nounPL }}

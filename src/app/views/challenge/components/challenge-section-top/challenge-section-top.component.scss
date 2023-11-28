@@ -19,14 +19,7 @@
       display: inline-block;
       background-color: var(--body-backgroung-color);
       text-align: center;
-
-      span.first {
-        margin-left: 12px;
-      }
-
-      span.last {
-        margin-right: 12px;
-      }
+      padding: 0 12px;
     }
   }
 
@@ -37,19 +30,13 @@
     align-items: center;
 
     .translation {
-      display: flex;
-      flex-direction: column;
       text-align: center;
 
       h4 {
         margin-top: 8px;
         margin-bottom: 8px;
         background-color: white;
-        display: inline-block;
-
-        span {
-          margin: 12px 12px 0 12px;
-        }
+        padding: 0 12px;
       }
     }
 

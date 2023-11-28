@@ -10,19 +10,21 @@
 <ng-template #topContent>
   <h2 class="word-text" (click)="speak()">
     <span *ngIf="showWord.wordFirstPart"
-          class="first"
-        (click)="speak(showWord.wordFirstPart)">
+          (click)="speak(showWord.wordFirstPart)"
+    >
       {{ showWord.wordFirstPart }}
     </span>
+
     <app-word-gap
         [class.has-before]="showWord.wordFirstPart"
         [class.has-after]="showWord.wordSecondPart"
         [showAnswer]="showAnswer"
         [answer]="showWord.gapWord"
     ></app-word-gap>
+
     <span *ngIf="showWord.wordSecondPart"
-          class="last"
-        (click)="speak(showWord.wordSecondPart)">
+          (click)="speak(showWord.wordSecondPart)"
+    >
       {{ showWord.wordSecondPart }}
     </span>
   </h2>
@@ -32,7 +34,7 @@
 <ng-template #bottomContent>
   <div class="translation">
     <h4>
-      <span>{{ showWord.wordDe }}</span>
+      {{ showWord.wordDe }}
     </h4>
   </div>
 </ng-template>
