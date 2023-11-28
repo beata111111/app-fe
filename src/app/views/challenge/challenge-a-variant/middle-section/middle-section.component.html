@@ -1,11 +1,23 @@
-<div class="top-container">
+<app-challenge-section-top
+    [topContent]="topContent"
+    [bottomContent]="bottomContent"
+    [showAnswer]="showAnswer"
+    [lastAnswerCorrect]="lastAnswerCorrect"
+    [showHistory]="showHistory"
+></app-challenge-section-top>
+
+
+<ng-template #topContent>
   <h1 class="word-text" (click)="speak()">
-    <span> {{ word.nounPL }} </span>
+    <span class="first last">
+      {{ word.nounPL }}
+    </span>
     <app-gender-dot [word]="word"></app-gender-dot>
   </h1>
-</div>
+</ng-template>
 
-<div class="bottom-container" [class.with-word-alt]="word.alt">
+
+<ng-template #bottomContent>
   <app-word-alt [word]="word"></app-word-alt>
 
   <div class="translation">
@@ -13,11 +25,5 @@
       <span>{{ word.nounDE }}</span>
     </h4>
   </div>
-
-  <app-show-answer-animation
-    [showAnswer]="showAnswer"
-    [answerCorrect]="lastAnswerCorrect"
-    [showHistory]="showHistory"
-  ></app-show-answer-animation>
-</div>
+</ng-template>
 

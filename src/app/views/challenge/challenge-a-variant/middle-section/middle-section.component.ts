@@ -1,6 +1,5 @@
 import { Component, Input } from "@angular/core";
 import { VoiceService } from "@core";
-import { faCheck, faCircle } from "@fortawesome/free-solid-svg-icons";
 import { Word } from "@model";
 
 @Component({
@@ -12,10 +11,6 @@ export class ChallengeAVariantMiddleSectionComponent {
   constructor(private _voiceService: VoiceService) {}
 
   @Input() showHistory = false;
-
-  faCheck = faCheck;
-  faCircle = faCircle;
-
   @Input() word!: Word;
   @Input() showAnswer = false;
   @Input() lastAnswerCorrect = false;

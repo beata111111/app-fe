@@ -1,7 +1,13 @@
-<div class="answer-container">
-  <div *ngFor="let word of answerWords" class="answer-button-container">
-    <button [appButton]="'secondary'" (click)="handleWordAction(word.word_id)">
-      {{ word.answer }}
-    </button>
-  </div>
+<div class="top-container">
+  <ng-container *ngTemplateOutlet="topContent"></ng-container>
+</div>
+
+<div class="bottom-container">
+  <ng-container *ngTemplateOutlet="bottomContent"></ng-container>
+
+  <app-show-answer-animation
+      [showAnswer]="showAnswer"
+      [answerCorrect]="lastAnswerCorrect"
+      [showHistory]="showHistory"
+  ></app-show-answer-animation>
 </div>

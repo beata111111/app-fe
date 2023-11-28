@@ -1,16 +1,17 @@
-import { Component, EventEmitter, Input, Output } from "@angular/core";
-import { WordAnswer } from "@model";
+import {Component, Input, TemplateRef, ViewEncapsulation} from "@angular/core";
 
 @Component({
   selector: "app-challenge-section-top",
   templateUrl: "./challenge-section-top.component.html",
   styleUrls: ["./challenge-section-top.component.scss"],
+  encapsulation: ViewEncapsulation.None,
+  host: { class: 'host-element' }
 })
 export class ChallengeSectionTopComponent {
-  @Input() answerWords!: WordAnswer[];
-  @Output() action = new EventEmitter<any>();
+  @Input() topContent!: TemplateRef<unknown>;
+  @Input() bottomContent!: TemplateRef<unknown>;
 
-  handleWordAction(word_id: string): void {
-    this.action.emit(word_id);
-  }
+  @Input() showHistory = false;
+  @Input() showAnswer = false;
+  @Input() lastAnswerCorrect = false;
 }

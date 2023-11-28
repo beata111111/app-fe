@@ -1,5 +1,35 @@
-.gap {
-  padding-right: 8px;
-  padding-left: 8px;
-  vertical-align: top;
+:host {
+  .gap {
+    vertical-align: top;
+  }
+
+  &.has-before:not(.show-answer) {
+    margin-left: 8px;
+    margin-right: 14px;
+  }
+
+  &.has-before.show-answer {
+    margin-left: 0;
+    margin-right: 14px;
+  }
+
+  &.has-after:not(.show-answer) {
+    margin-left: 14px;
+    margin-right: 8px;
+  }
+
+  &.has-after.show-answer {
+    margin-left: 14px;
+    margin-right: 0;
+  }
+
+  &.has-before.has-after:not(.show-answer) {
+    margin-left: 8px;
+    margin-right: 8px;
+  }
+
+  &.has-before.has-after.show-answer {
+    margin-left: 0;
+    margin-right: 0;
+  }
 }

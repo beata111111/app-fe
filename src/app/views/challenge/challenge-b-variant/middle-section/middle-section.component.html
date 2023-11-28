@@ -1,26 +1,44 @@
-<div class="word-div">
+<app-challenge-section-top
+    [topContent]="topContent"
+    [bottomContent]="bottomContent"
+    [showAnswer]="showAnswer"
+    [lastAnswerCorrect]="lastAnswerCorrect"
+    [showHistory]="showHistory"
+></app-challenge-section-top>
+
+
+<ng-template #topContent>
   <h2 class="word-text" (click)="speak()">
+     <span class="first"
+           *ngIf="word.adjPos === 1"
+           (click)="speak(word.nounPL)"
+     >
+      {{ word.nounPL }}
+    </span>
+
     <app-word-gap
-      *ngIf="word.adjPos === 0"
-      [showAnswer]="showAnswer"
-      [answer]="word.adj"
+        [class.has-before]="word.adjPos === 1"
+        [class.has-after]="word.adjPos === 0"
+        [showAnswer]="showAnswer"
+        [answer]="word.adj"
     ></app-word-gap>
-    <span (click)="speak(word.nounPL)"> {{ word.nounPL }} </span>
-    <app-word-gap
-      *ngIf="word.adjPos === 1"
-      [showAnswer]="showAnswer"
-      [answer]="word.adj"
-    ></app-word-gap>
+
+    <span class="last"
+          *ngIf="word.adjPos === 0"
+          (click)="speak(word.nounPL)"
+    >
+      {{ word.nounPL }}
+    </span>
 
     <app-gender-dot [word]="word"></app-gender-dot>
   </h2>
-</div>
+</ng-template>
 
-<div class="translation">
-  <h4>{{ word.adjDE }}</h4>
-  <app-show-answer-animation
-    [showAnswer]="showAnswer"
-    [answerCorrect]="lastAnswerCorrect"
-    [showHistory]="showHistory"
-  ></app-show-answer-animation>
-</div>
+
+<ng-template #bottomContent>
+  <div class="translation">
+    <h4>
+      <span>{{ word.adjDE }}</span>
+    </h4>
+  </div>
+</ng-template>
