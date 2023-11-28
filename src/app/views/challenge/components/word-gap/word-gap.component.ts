@@ -1,4 +1,4 @@
-import {Component, HostBinding, Input, OnInit} from "@angular/core";
+import { Component, HostBinding, Input, OnInit } from "@angular/core";
 
 @Component({
   selector: "app-word-gap",
@@ -9,7 +9,7 @@ export class WordGapComponent implements OnInit {
   @Input() showAnswer = false;
   @Input() answer!: string;
 
-  @HostBinding('class.show-answer') get getShowAnswer(): boolean {
+  @HostBinding("class.show-answer") get getShowAnswer(): boolean {
     return this.showAnswer;
   }
 

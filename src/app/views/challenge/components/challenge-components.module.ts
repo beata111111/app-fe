@@ -25,7 +25,7 @@ const components = [
   ChallengeSectionBottomComponent,
   ChallengeSectionTopComponent,
   WordAltComponent,
-  GenderDotComponent
+  GenderDotComponent,
 ];
 
 @NgModule({

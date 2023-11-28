@@ -1,35 +1,35 @@
 <app-challenge-section-top
-    [topContent]="topContent"
-    [bottomContent]="bottomContent"
-    [showAnswer]="showAnswer"
-    [lastAnswerCorrect]="lastAnswerCorrect"
-    [showHistory]="showHistory"
+  [topContent]="topContent"
+  [bottomContent]="bottomContent"
+  [showAnswer]="showAnswer"
+  [lastAnswerCorrect]="lastAnswerCorrect"
+  [showHistory]="showHistory"
 ></app-challenge-section-top>
-
 
 <ng-template #topContent>
   <h2 class="word-text" (click)="speak()">
-    <span *ngIf="showWord.wordFirstPart"
-          (click)="speak(showWord.wordFirstPart)"
+    <span
+      *ngIf="showWord.wordFirstPart"
+      (click)="speak(showWord.wordFirstPart)"
     >
       {{ showWord.wordFirstPart }}
     </span>
 
     <app-word-gap
-        [class.has-before]="showWord.wordFirstPart"
-        [class.has-after]="showWord.wordSecondPart"
-        [showAnswer]="showAnswer"
-        [answer]="showWord.gapWord"
+      [class.has-before]="showWord.wordFirstPart"
+      [class.has-after]="showWord.wordSecondPart"
+      [showAnswer]="showAnswer"
+      [answer]="showWord.gapWord"
     ></app-word-gap>
 
-    <span *ngIf="showWord.wordSecondPart"
-          (click)="speak(showWord.wordSecondPart)"
+    <span
+      *ngIf="showWord.wordSecondPart"
+      (click)="speak(showWord.wordSecondPart)"
     >
       {{ showWord.wordSecondPart }}
     </span>
   </h2>
 </ng-template>
-
 
 <ng-template #bottomContent>
   <div class="translation">

@@ -1,11 +1,10 @@
 <app-challenge-section-top
-    [topContent]="topContent"
-    [bottomContent]="bottomContent"
-    [showAnswer]="showAnswer"
-    [lastAnswerCorrect]="lastAnswerCorrect"
-    [showHistory]="showHistory"
+  [topContent]="topContent"
+  [bottomContent]="bottomContent"
+  [showAnswer]="showAnswer"
+  [lastAnswerCorrect]="lastAnswerCorrect"
+  [showHistory]="showHistory"
 ></app-challenge-section-top>
-
 
 <ng-template #topContent>
   <h1 class="word-text" (click)="speak()">
@@ -16,7 +15,6 @@
   </h1>
 </ng-template>
 
-
 <ng-template #bottomContent>
   <app-word-alt [word]="word"></app-word-alt>
 
@@ -26,4 +24,3 @@
     </h4>
   </div>
 </ng-template>
-
