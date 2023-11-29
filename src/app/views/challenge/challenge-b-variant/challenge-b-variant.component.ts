@@ -7,7 +7,6 @@ import { Word, WordAnswer } from "@model";
 @Component({
   selector: "app-challenge-b-variant",
   templateUrl: "./challenge-b-variant.component.html",
-  styleUrls: ["./challenge-b-variant.component.scss"],
   providers: [ChallengeService],
 })
 export class ChallengeBVariantComponent
@@ -23,15 +22,8 @@ export class ChallengeBVariantComponent
   }
 
   ngOnInit() {
-    this._challengeService.setChallengeData(
-      this.challengeData,
-      3000,
-      "_adjSpeakPL",
-    );
-    this._voiceWorkerService.prefetchWordsVoice(
-      this.challengeData,
-      "_adjSpeakPL",
-    );
+    this._challengeService.setChallengeData(this.challengeData, 3000, "_adjSpeakPL");
+    this._voiceWorkerService.prefetchWordsVoice(this.challengeData, "_adjSpeakPL");
   }
 
   generateAnswerWords(words: Word[]): WordAnswer[] {

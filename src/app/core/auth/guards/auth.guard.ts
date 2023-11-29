@@ -15,10 +15,7 @@ export class AuthGuard implements CanActivate {
     private _router: Router,
   ) {}
 
-  canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot,
-  ): true | UrlTree {
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): true | UrlTree {
     return !!this._authService.getToken() || this._router.parseUrl("/");
   }
 }

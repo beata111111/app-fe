@@ -1,12 +1,7 @@
 import { Injectable } from "@angular/core";
 import { BehaviorSubject, Subscription } from "rxjs";
 import { CategoryStatusHttpService } from "./category-status-http.service";
-import {
-  CategoryStatus,
-  CategoryUpdate,
-  ChallengeResult,
-  VariantStatus,
-} from "@model";
+import { CategoryStatus, CategoryUpdate, ChallengeResult, VariantStatus } from "@model";
 import { CurrentUserService } from "@core";
 import { UserService } from "../user/user.service";
 
@@ -38,11 +33,7 @@ export class CategoryStatusService {
   submitChallengeResult(challengeResult: ChallengeResult): void {
     const { category_id, level_id, variant_id, result } = challengeResult;
 
-    const previousVariantStatus = this._getVariant(
-      category_id,
-      level_id,
-      variant_id,
-    );
+    const previousVariantStatus = this._getVariant(category_id, level_id, variant_id);
     if (result < previousVariantStatus.result) {
       return;
     }
@@ -61,18 +52,12 @@ export class CategoryStatusService {
       });
   }
 
-  _getVariant(
-    category_id: string,
-    level_id: string,
-    variant_id: string,
-  ): VariantStatus {
+  _getVariant(category_id: string, level_id: string, variant_id: string): VariantStatus {
     const category = this._categoryStatus$.value.find(
       (cat) => cat.category_id === category_id,
     );
     const level = category!.levels.find((lev) => lev.level_id === level_id);
-    const variant = level!.variants.find(
-      (variant) => variant.variant_id === variant_id,
-    );
+    const variant = level!.variants.find((variant) => variant.variant_id === variant_id);
     return variant!;
   }
 }

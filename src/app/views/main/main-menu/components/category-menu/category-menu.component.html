@@ -1,13 +1,6 @@
-<div
-  class="category-label-container"
-  (click)="handleClick(category.category_id)"
->
+<div class="category-label-container" (click)="handleClick(category.category_id)">
   <div class="category-label">
-    <fa-icon
-      [icon]="getCategoryIcon()"
-      [size]="'xl'"
-      class="category-icon"
-    ></fa-icon>
+    <fa-icon [icon]="getCategoryIcon()" [size]="'xl'" class="category-icon"></fa-icon>
     <span>{{ "categories." + category.category_id | translate }}</span>
     <fa-icon
       *ngIf="canMinimize"

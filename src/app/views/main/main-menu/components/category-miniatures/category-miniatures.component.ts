@@ -15,9 +15,7 @@ export class CategoryMiniaturesComponent implements OnDestroy {
   private _subscription = new Subscription();
 
   @HostBinding("style.display") get getDisplay(): DisplayCss {
-    return this.minifiedCategoriesIds.length
-      ? DisplayCss.flex
-      : DisplayCss.block;
+    return this.minifiedCategoriesIds.length ? DisplayCss.flex : DisplayCss.block;
   }
 
   getIcon(category_id: string): IconDefinition {
@@ -26,11 +24,9 @@ export class CategoryMiniaturesComponent implements OnDestroy {
 
   constructor(private _categoryMiniaturesService: CategoryMiniaturesService) {
     this._subscription.add(
-      this._categoryMiniaturesService.minifiedCategoriesIds$.subscribe(
-        (ids) => {
-          this.minifiedCategoriesIds = ids;
-        },
-      ),
+      this._categoryMiniaturesService.minifiedCategoriesIds$.subscribe((ids) => {
+        this.minifiedCategoriesIds = ids;
+      }),
     );
   }
 

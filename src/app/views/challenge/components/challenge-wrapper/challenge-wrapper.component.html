@@ -1,1 +1,34 @@
-<p>challenge-wrapper works!</p>
+<app-challenge-finished-overlay
+  *ngIf="challengeState.challengeFinished"
+  [result]="challengeState.correctAnswersRatio"
+></app-challenge-finished-overlay>
+
+<app-show-answer-overlay
+  *ngIf="challengeState.showAnswer"
+  (click)="handleNextWord()"
+></app-show-answer-overlay>
+
+<div class="middle-container">
+  <app-history-back-button
+    *ngIf="history.length && historyCurrentWordIndex !== 0"
+    (click)="handleBackInHistory()"
+  >
+  </app-history-back-button>
+
+  <app-history-forward-button *ngIf="showHistory" (click)="handleForwardInHistory()">
+  </app-history-forward-button>
+
+  <ng-container
+    *ngTemplateOutlet="topSectionTemplate; context: { state: challengeState }"
+  ></ng-container>
+</div>
+
+<ng-container
+  *ngTemplateOutlet="bottomSectionTemplate; context: { state: challengeState }"
+></ng-container>
+
+<app-challenge-progress
+  [currentStep]="
+    showHistory ? historyCurrentWordIndex + 1 : challengeState.currentSequenceStep + 1
+  "
+></app-challenge-progress>

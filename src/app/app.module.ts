@@ -3,11 +3,7 @@ import { BrowserModule } from "@angular/platform-browser";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
-import {
-  AuthInterceptor,
-  AppRootTranslationModule,
-  ThemesService,
-} from "@core";
+import { AuthInterceptor, AppRootTranslationModule, ThemesService } from "@core";
 import { ServiceWorkerModule } from "@angular/service-worker";
 import { ToastrModule } from "ngx-toastr";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";

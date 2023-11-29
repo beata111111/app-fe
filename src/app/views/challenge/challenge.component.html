@@ -1,5 +1,4 @@
-<app-page-container [navTemplate]="nav" [contentTemplate]="content">
-</app-page-container>
+<app-page-container [navTemplate]="nav" [contentTemplate]="content"> </app-page-container>
 
 <ng-template #nav>
   <app-top-nav>
@@ -14,11 +13,7 @@
 
     <div class="gap"></div>
 
-    <button
-      [appButton]="'ghost'"
-      class="btn-icon"
-      (click)="toggleSoundActive()"
-    >
+    <button [appButton]="'ghost'" class="btn-icon" (click)="toggleSoundActive()">
       <fa-icon
         [icon]="(isSoundActive$ | async) ? faBell : faBellSlash"
         size="xl"

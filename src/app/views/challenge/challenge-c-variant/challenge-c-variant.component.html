@@ -1,49 +1,36 @@
-<ng-container *ngIf="challengeState$ | async as state">
-  <app-challenge-finished-overlay
-    *ngIf="state.challengeFinished"
-    [result]="state.correctAnswersRatio"
-  ></app-challenge-finished-overlay>
+<app-challenge-wrapper
+  *ngIf="challengeState$ | async as state"
+  [challengeState]="state"
+  [showHistory]="showHistory"
+  [history]="history"
+  [historyCurrentWordIndex]="historyCurrentWordIndex"
+  [topSectionTemplate]="topTemplate"
+  [bottomSectionTemplate]="bottomTemplate"
+  (nextWord)="nextWord()"
+  (backInHistory)="backInHistory()"
+  (forwardInHistory)="forwardInHistory()"
+></app-challenge-wrapper>
 
-  <app-show-answer-overlay
-    *ngIf="state.showAnswer"
-    (click)="nextWord()"
-  ></app-show-answer-overlay>
+<!-- template -->
+<ng-template #topTemplate let-state="state">
+  <app-v-c-middle-section
+    [variant]="variant"
+    [gapNumber]="state.gapNumber"
+    [showHistory]="showHistory"
+    [word]="showHistory ? historyCurrentWord : state.currentWord"
+    [showAnswer]="showHistory ? true : state.showAnswer"
+    [lastAnswerCorrect]="
+      showHistory ? historyCurrentWord.answerCorrect : state.lastAnswerCorrect
+    "
+  >
+  </app-v-c-middle-section>
+</ng-template>
 
-  <div class="middle-container">
-    <app-history-back-button
-      *ngIf="history.length && historyCurrentWordIndex !== 0"
-      (click)="backInHistory()"
-    ></app-history-back-button>
-
-    <app-history-forward-button
-      *ngIf="showHistory"
-      (click)="forwardInHistory()"
-    ></app-history-forward-button>
-
-    <app-v-c-middle-section
-      [variant]="variant"
-      [gapNumber]="state.gapNumber"
-      [showHistory]="showHistory"
-      [word]="showHistory ? historyCurrentWord : state.currentWord"
-      [showAnswer]="showHistory ? true : state.showAnswer"
-      [lastAnswerCorrect]="
-        showHistory ? historyCurrentWord.answerCorrect : state.lastAnswerCorrect
-      "
-    >
-    </app-v-c-middle-section>
-  </div>
-
+<!-- template -->
+<ng-template #bottomTemplate let-state="state">
   <app-challenge-section-bottom
     [class.hide]="showHistory"
-    [answerWords]="
-      generateAnswerWords(state.currentWordAnswers, state.gapNumber)
-    "
+    [answerWords]="generateAnswerWords(state.currentWordAnswers, state.gapNumber)"
     (action)="handleAnswer($event)"
   ></app-challenge-section-bottom>
-
-  <app-challenge-progress
-    [currentStep]="
-      showHistory ? historyCurrentWordIndex + 1 : state.currentSequenceStep + 1
-    "
-  ></app-challenge-progress>
-</ng-container>
+</ng-template>

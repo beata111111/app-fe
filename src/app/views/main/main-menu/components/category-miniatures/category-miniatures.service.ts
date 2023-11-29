@@ -7,16 +7,12 @@ export class CategoryMiniaturesService {
   private _allCategories$ = new BehaviorSubject<CategoryStatus[]>([]);
 
   constructor() {
-    const minifiedIds = localStorage.getItem(
-      LocalStorageKey.MINIFIED_CATEGORIES,
-    );
+    const minifiedIds = localStorage.getItem(LocalStorageKey.MINIFIED_CATEGORIES);
     if (minifiedIds) {
       this.minifiedCategoriesIds$.next(JSON.parse(minifiedIds));
     }
 
-    const notMinifiedIds = localStorage.getItem(
-      LocalStorageKey.NOT_MINIFIED_CATEGORIES,
-    );
+    const notMinifiedIds = localStorage.getItem(LocalStorageKey.NOT_MINIFIED_CATEGORIES);
     if (notMinifiedIds) {
       this.notMinifiedCategoriesIds$.next(JSON.parse(notMinifiedIds));
     }
@@ -29,9 +25,7 @@ export class CategoryMiniaturesService {
   ]).pipe(
     map(([allCategories, notMinifiedIds]) => {
       return notMinifiedIds.map((id) => {
-        return allCategories.find(
-          (c) => c.category_id === id,
-        ) as CategoryStatus;
+        return allCategories.find((c) => c.category_id === id) as CategoryStatus;
       });
     }),
   );
@@ -43,9 +37,7 @@ export class CategoryMiniaturesService {
   ]).pipe(
     map(([allCategories, minifiedIds]) => {
       return minifiedIds.map((id) => {
-        return allCategories.find(
-          (c) => c.category_id === id,
-        ) as CategoryStatus;
+        return allCategories.find((c) => c.category_id === id) as CategoryStatus;
       });
     }),
   );

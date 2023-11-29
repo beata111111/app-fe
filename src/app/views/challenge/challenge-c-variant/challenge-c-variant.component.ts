@@ -7,7 +7,6 @@ import { Word, WordAnswer } from "@model";
 @Component({
   selector: "app-challenge-c-variant",
   templateUrl: "./challenge-c-variant.component.html",
-  styleUrls: ["./challenge-c-variant.component.scss"],
   providers: [ChallengeService],
 })
 export class ChallengeCVariantComponent
@@ -26,15 +25,8 @@ export class ChallengeCVariantComponent
 
   ngOnInit() {
     const speakableProperty = `variant_${this.variant}_pl` as keyof Word;
-    this._challengeService.setChallengeData(
-      this.challengeData,
-      3000,
-      speakableProperty,
-    );
-    this._voiceWorkerService.prefetchWordsVoice(
-      this.challengeData,
-      speakableProperty,
-    );
+    this._challengeService.setChallengeData(this.challengeData, 3000, speakableProperty);
+    this._voiceWorkerService.prefetchWordsVoice(this.challengeData, speakableProperty);
   }
 
   generateAnswerWords(words: Word[], gapNumber: number): WordAnswer[] {

@@ -7,9 +7,7 @@ import { availableThemes, NightMode, Theme, ThemeObj } from "./themes.model";
 export class ThemesService {
   availableThemes = availableThemes;
 
-  private _currentTheme$ = new BehaviorSubject<ThemeObj>(
-    this.availableThemes[0],
-  );
+  private _currentTheme$ = new BehaviorSubject<ThemeObj>(this.availableThemes[0]);
   currentTheme$ = this._currentTheme$.asObservable();
 
   private _isNightMode$ = new BehaviorSubject<boolean>(false);

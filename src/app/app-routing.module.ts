@@ -12,14 +12,12 @@ const routes: Routes = [
     path: "auth",
     canActivate: [NoAuthGuard],
 
-    loadChildren: () =>
-      import("./views/auth/auth.module").then((m) => m.AuthModule),
+    loadChildren: () => import("./views/auth/auth.module").then((m) => m.AuthModule),
   },
   {
     path: "main",
     canActivate: [AuthGuard],
-    loadChildren: () =>
-      import("./views/main/main.module").then((m) => m.MainModule),
+    loadChildren: () => import("./views/main/main.module").then((m) => m.MainModule),
   },
   {
     path: "settings",
@@ -37,16 +35,12 @@ const routes: Routes = [
     path: "challenge/:category_id/:level_id/:variant_id",
     canActivate: [AuthGuard],
     loadChildren: () =>
-      import("./views/challenge/challenge.module").then(
-        (m) => m.ChallengeModule,
-      ),
+      import("./views/challenge/challenge.module").then((m) => m.ChallengeModule),
   },
   {
     path: "styleguide",
     loadChildren: () =>
-      import("./views/styleguide/styleguide.module").then(
-        (m) => m.StyleguideModule,
-      ),
+      import("./views/styleguide/styleguide.module").then((m) => m.StyleguideModule),
   },
   { path: "**", redirectTo: "" },
 ];

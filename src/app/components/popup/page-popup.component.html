@@ -2,11 +2,7 @@
 
 <div class="popup-container">
   <div class="popup">
-    <button
-      [appButton]="'ghost'"
-      class="btn-icon close-icon"
-      (click)="handleClose()"
-    >
+    <button [appButton]="'ghost'" class="btn-icon close-icon" (click)="handleClose()">
       <fa-icon [icon]="faXmark" [size]="'2x'"></fa-icon>
     </button>
 
@@ -21,19 +17,11 @@
     </div>
 
     <div class="button-container">
-      <button
-        *ngIf="config.showNextButton"
-        [appButton]="'primary'"
-        (click)="next()"
-      >
+      <button *ngIf="config.showNextButton" [appButton]="'primary'" (click)="next()">
         {{ config.nextButtonText | translate }}
       </button>
 
-      <button
-        *ngIf="config.showBackButton"
-        [appButton]="'ghost'"
-        (click)="back()"
-      >
+      <button *ngIf="config.showBackButton" [appButton]="'ghost'" (click)="back()">
         {{ config.backButtonText | translate }}
       </button>
     </div>

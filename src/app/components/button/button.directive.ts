@@ -1,10 +1,4 @@
-import {
-  Directive,
-  ElementRef,
-  HostBinding,
-  HostListener,
-  Input,
-} from "@angular/core";
+import { Directive, ElementRef, HostBinding, HostListener, Input } from "@angular/core";
 
 export type ButtonType = "primary" | "secondary" | "ghost";
 

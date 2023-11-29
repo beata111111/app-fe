@@ -1,9 +1,4 @@
-import {
-  CategoryStatus,
-  VariantFull,
-  VariantSignature,
-  VariantStatus,
-} from "@model";
+import { CategoryStatus, VariantFull, VariantSignature, VariantStatus } from "@model";
 
 export function categoryToVariants(categories: CategoryStatus[]) {
   const array: VariantFull[] = [];
@@ -26,10 +21,7 @@ export function categoryToVariants(categories: CategoryStatus[]) {
   return array;
 }
 
-export function findNewlyCreatedVariant(
-  aArr: VariantFull[],
-  bArr: VariantFull[],
-) {
+export function findNewlyCreatedVariant(aArr: VariantFull[], bArr: VariantFull[]) {
   const newlyEnabled: VariantSignature[] = [];
 
   aArr.forEach((a) => {

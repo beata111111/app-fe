@@ -1,5 +1,4 @@
-<app-page-container [navTemplate]="nav" [contentTemplate]="content">
-</app-page-container>
+<app-page-container [navTemplate]="nav" [contentTemplate]="content"> </app-page-container>
 
 <ng-template #nav>
   <app-top-nav>
@@ -16,10 +15,7 @@
 </ng-template>
 
 <ng-template #content>
-  <div
-    class="container"
-    *ngIf="recordsInfo$ | async as recordsInfo; else spinner"
-  >
+  <div class="container" *ngIf="recordsInfo$ | async as recordsInfo; else spinner">
     <app-user-record [userRecord]="recordsInfo.userRecord"></app-user-record>
     <app-record-board [recordsInfo]="recordsInfo"></app-record-board>
   </div>

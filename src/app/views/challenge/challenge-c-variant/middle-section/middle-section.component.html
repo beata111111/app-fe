@@ -8,10 +8,7 @@
 
 <ng-template #topContent>
   <h2 class="word-text" (click)="speak()">
-    <span
-      *ngIf="showWord.wordFirstPart"
-      (click)="speak(showWord.wordFirstPart)"
-    >
+    <span *ngIf="showWord.wordFirstPart" (click)="speak(showWord.wordFirstPart)">
       {{ showWord.wordFirstPart }}
     </span>
 
@@ -22,10 +19,7 @@
       [answer]="showWord.gapWord"
     ></app-word-gap>
 
-    <span
-      *ngIf="showWord.wordSecondPart"
-      (click)="speak(showWord.wordSecondPart)"
-    >
+    <span *ngIf="showWord.wordSecondPart" (click)="speak(showWord.wordSecondPart)">
       {{ showWord.wordSecondPart }}
     </span>
   </h2>

@@ -17,11 +17,7 @@ export function arrRandomMultiple<T>(arr: T[], count: number, picked?: T): T[] {
   if (picked) randomArr.push(picked);
   while (randomArr.length < count) {
     const newPick = arr[Math.floor(Math.random() * arr.length)];
-    if (
-      !randomArr.find(
-        (item) => JSON.stringify(item) === JSON.stringify(newPick),
-      )
-    ) {
+    if (!randomArr.find((item) => JSON.stringify(item) === JSON.stringify(newPick))) {
       randomArr.push(newPick);
     }
   }

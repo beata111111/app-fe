@@ -7,16 +7,8 @@ import { ChallengeCVariantComponent } from "./challenge-c-variant.component";
 import { ChallengeComponentsModule } from "@challengeComponents";
 
 @NgModule({
-  declarations: [
-    ChallengeCVariantComponent,
-    ChallengeCVariantMiddleSectionComponent,
-  ],
-  imports: [
-    CommonModule,
-    FontAwesomeModule,
-    ButtonModule,
-    ChallengeComponentsModule,
-  ],
+  declarations: [ChallengeCVariantComponent, ChallengeCVariantMiddleSectionComponent],
+  imports: [CommonModule, FontAwesomeModule, ButtonModule, ChallengeComponentsModule],
   exports: [ChallengeCVariantComponent],
 })
 export class ChallengeCVariantModule {}

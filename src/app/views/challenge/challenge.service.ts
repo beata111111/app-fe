@@ -20,11 +20,7 @@ export class ChallengeService {
     private _voiceWorkerService: VoiceWorkerService,
   ) {}
 
-  setChallengeData(
-    data: Word[],
-    timeoutValue: number,
-    speakableProperty?: keyof Word,
-  ) {
+  setChallengeData(data: Word[], timeoutValue: number, speakableProperty?: keyof Word) {
     this._state$.next(this._initializeServiceData(data));
     this._timeoutValue = timeoutValue;
     this._speakableProperty = speakableProperty ?? "";
@@ -40,9 +36,7 @@ export class ChallengeService {
     this._state$.next(this._firstUpdate(currentState, word_id));
 
     if (this._speakableProperty) {
-      this._voiceService.speak(
-        String(currentState.currentWord[this._speakableProperty]),
-      );
+      this._voiceService.speak(String(currentState.currentWord[this._speakableProperty]));
     }
 
     this._updateTimeout = setTimeout(() => {
@@ -58,10 +52,7 @@ export class ChallengeService {
     this._voiceService.cancelSpeech();
   }
 
-  private _firstUpdate(
-    currentState: ChallengeState,
-    word_id: string,
-  ): ChallengeState {
+  private _firstUpdate(currentState: ChallengeState, word_id: string): ChallengeState {
     const update = {
       lastAnswerCorrect: currentState.currentWord.word_id === word_id,
       showAnswer: true,
@@ -107,8 +98,7 @@ export class ChallengeService {
               cs.wordSequence[nextStepCount],
             ),
             gapNumber: Math.floor(Math.random() * 10),
-            challengeProgress:
-              (previousStepCount / cs.wordSequence.length) * 100,
+            challengeProgress: (previousStepCount / cs.wordSequence.length) * 100,
           };
 
     return { ...cs, ...commonUpdate, ...update };

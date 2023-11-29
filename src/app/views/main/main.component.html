@@ -6,11 +6,7 @@
 
   <ng-template #nav>
     <app-top-nav>
-      <button
-        [appButton]="'ghost'"
-        class="btn-icon"
-        (click)="navigateToSettings()"
-      >
+      <button [appButton]="'ghost'" class="btn-icon" (click)="navigateToSettings()">
         <fa-icon [icon]="faGear" size="xl"></fa-icon>
       </button>
       <app-diamond-counter [data]="user$ | async"></app-diamond-counter>

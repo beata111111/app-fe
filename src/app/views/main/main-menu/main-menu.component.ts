@@ -24,8 +24,7 @@ export class MainMenuComponent implements OnDestroy {
     private _categoryMiniaturesService: CategoryMiniaturesService,
     private _router: Router,
   ) {
-    this.notMinifiedCategories$ =
-      this._categoryMiniaturesService.notMinifiedCategories$;
+    this.notMinifiedCategories$ = this._categoryMiniaturesService.notMinifiedCategories$;
 
     this._subscriptions.add(
       this._categoryMiniaturesService.notMinifiedCategories$

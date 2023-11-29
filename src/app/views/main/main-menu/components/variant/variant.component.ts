@@ -1,21 +1,11 @@
-import {
-  Component,
-  HostBinding,
-  Input,
-  OnDestroy,
-  OnInit,
-} from "@angular/core";
+import { Component, HostBinding, Input, OnDestroy, OnInit } from "@angular/core";
 import { ChallengeResult, VariantSignature, VariantStatus } from "@model";
 import { Router } from "@angular/router";
 import { ChallengeLastResultService } from "@services";
 import { faGem } from "@fortawesome/free-regular-svg-icons";
 import { faLock } from "@fortawesome/free-solid-svg-icons";
 import { BehaviorSubject, map, Observable, Subscription } from "rxjs";
-import {
-  compareVariantSignatures,
-  createSignature,
-  getStatusColor,
-} from "@helpers";
+import { compareVariantSignatures, createSignature, getStatusColor } from "@helpers";
 import { MainMenuService } from "../../main-menu.service";
 
 @Component({
@@ -54,17 +44,11 @@ export class VariantComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this._signature = createSignature(
-      this.category_id,
-      this.level_id,
-      this.variant,
-    );
+    this._signature = createSignature(this.category_id, this.level_id, this.variant);
 
     this._subscription.add(
       this._mainMenuService.categoryData$.subscribe(() => {
-        const newResult = this._challengeLastResultService.getLastResult(
-          this._signature,
-        );
+        const newResult = this._challengeLastResultService.getLastResult(this._signature);
 
         this.hasNewResult = !!newResult;
 
@@ -83,24 +67,17 @@ export class VariantComponent implements OnInit, OnDestroy {
     );
 
     this._subscription.add(
-      this._mainMenuService.newlyEnabledVariants$.subscribe(
-        (arr: VariantSignature[]) => {
-          const isNewlyEnabled = arr.some((signature) => {
-            return compareVariantSignatures(signature, this._signature);
-          }); // write only if positive to prevent overwrite with false
-          if (isNewlyEnabled) this.isNewlyEnabled = isNewlyEnabled;
-        },
-      ),
+      this._mainMenuService.newlyEnabledVariants$.subscribe((arr: VariantSignature[]) => {
+        const isNewlyEnabled = arr.some((signature) => {
+          return compareVariantSignatures(signature, this._signature);
+        }); // write only if positive to prevent overwrite with false
+        if (isNewlyEnabled) this.isNewlyEnabled = isNewlyEnabled;
+      }),
     );
   }
 
   navigateToChallenge(variant: string): void {
-    this._router.navigate([
-      "/challenge",
-      this.category_id,
-      this.level_id,
-      variant,
-    ]);
+    this._router.navigate(["/challenge", this.category_id, this.level_id, variant]);
   }
 
   ngOnDestroy() {

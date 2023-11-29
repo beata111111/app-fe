@@ -1,13 +1,8 @@
-<app-page-container [navTemplate]="nav" [contentTemplate]="content">
-</app-page-container>
+<app-page-container [navTemplate]="nav" [contentTemplate]="content"> </app-page-container>
 
 <ng-template #nav>
   <app-top-nav>
-    <button
-      [appButton]="'ghost'"
-      class="btn-icon"
-      (click)="handleCloseSettings()"
-    >
+    <button [appButton]="'ghost'" class="btn-icon" (click)="handleCloseSettings()">
       <fa-icon [icon]="faChevronLeft" size="xl"></fa-icon>
     </button>
     <h3 class="inline">{{ "settings.settings" | translate }}</h3>

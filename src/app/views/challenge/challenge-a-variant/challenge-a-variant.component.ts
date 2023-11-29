@@ -7,7 +7,6 @@ import { Word, WordAnswer } from "@model";
 @Component({
   selector: "app-challenge-a-variant",
   templateUrl: "./challenge-a-variant.component.html",
-  styleUrls: ["./challenge-a-variant.component.scss"],
   providers: [ChallengeService],
 })
 export class ChallengeAVariantComponent

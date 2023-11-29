@@ -21,11 +21,9 @@ export class UserService {
   ) {
     this._currentUserService.currentUser$.subscribe((user) => {
       if (user) {
-        this._userSubscription = this._userHttpService
-          .loadUser()
-          .subscribe((data) => {
-            this._user$.next(data);
-          });
+        this._userSubscription = this._userHttpService.loadUser().subscribe((data) => {
+          this._user$.next(data);
+        });
       } else {
         this._user$.next(null);
         this._userSubscription.unsubscribe();

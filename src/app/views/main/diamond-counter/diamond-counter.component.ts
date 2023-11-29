@@ -1,10 +1,4 @@
-import {
-  Component,
-  HostBinding,
-  HostListener,
-  Input,
-  OnInit,
-} from "@angular/core";
+import { Component, HostBinding, HostListener, Input, OnInit } from "@angular/core";
 import { faGem } from "@fortawesome/free-regular-svg-icons";
 import { UserPointsUpdate } from "@model";
 import { DiamondCounterService } from "./diamond-counter.service";

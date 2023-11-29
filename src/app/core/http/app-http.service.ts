@@ -10,11 +10,7 @@ export class AppHttpService {
     return this._http.get<T>(url, { params: params as HttpParams });
   }
 
-  makePOSTRequest<T>(
-    url: string,
-    data = {},
-    params: unknown = {},
-  ): Observable<T> {
+  makePOSTRequest<T>(url: string, data = {}, params: unknown = {}): Observable<T> {
     return this._http.post<T>(url, data, { params: params as HttpParams });
   }
 }

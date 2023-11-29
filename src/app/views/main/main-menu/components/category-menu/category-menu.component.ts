@@ -1,19 +1,9 @@
-import {
-  Component,
-  HostBinding,
-  Input,
-  OnDestroy,
-  OnInit,
-} from "@angular/core";
+import { Component, HostBinding, Input, OnDestroy, OnInit } from "@angular/core";
 import { CategoryStatus } from "@model";
 import { ActivatedRoute, Router } from "@angular/router";
 import { Subscription } from "rxjs";
 import { IconDefinition } from "@fortawesome/free-regular-svg-icons";
-import {
-  faChevronDown,
-  faChevronUp,
-  faMinus,
-} from "@fortawesome/free-solid-svg-icons";
+import { faChevronDown, faChevronUp, faMinus } from "@fortawesome/free-solid-svg-icons";
 import { getCategoryIcon } from "@helpers";
 import { CategoryMiniaturesService } from "../category-miniatures/category-miniatures.service";
 

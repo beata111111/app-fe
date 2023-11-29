@@ -13,6 +13,7 @@ import { ChallengeSectionTopComponent } from "./challenge-section-top/challenge-
 import { ChallengeSectionBottomComponent } from "./challenge-section-bottom/challenge-section-bottom.component";
 import { WordAltComponent } from "./word-alt/word-alt.component";
 import { GenderDotComponent } from "./gender-dot/gender-dot.component";
+import { ChallengeWrapperComponent } from "./challenge-wrapper/challenge-wrapper.component";
 
 const components = [
   HistoryBackButtonComponent,
@@ -24,6 +25,7 @@ const components = [
   ChallengeFinishedOverlayComponent,
   ChallengeSectionBottomComponent,
   ChallengeSectionTopComponent,
+  ChallengeWrapperComponent,
   WordAltComponent,
   GenderDotComponent,
 ];

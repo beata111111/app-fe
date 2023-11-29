@@ -1,9 +1,4 @@
-import {
-  Component,
-  Input,
-  TemplateRef,
-  ViewEncapsulation,
-} from "@angular/core";
+import { Component, Input, TemplateRef, ViewEncapsulation } from "@angular/core";
 
 @Component({
   selector: "app-challenge-section-top",

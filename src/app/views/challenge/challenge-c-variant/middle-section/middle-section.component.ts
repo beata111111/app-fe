@@ -5,7 +5,6 @@ import { Word } from "@model";
 @Component({
   selector: "app-v-c-middle-section",
   templateUrl: "./middle-section.component.html",
-  styleUrls: ["./middle-section.component.scss"],
 })
 export class ChallengeCVariantMiddleSectionComponent {
   showWord!: {
