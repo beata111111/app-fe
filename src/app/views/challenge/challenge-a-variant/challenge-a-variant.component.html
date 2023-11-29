@@ -16,7 +16,7 @@
   <app-v-a-middle-section
     [showHistory]="showHistory"
     [word]="showHistory ? historyCurrentWord : state.currentWord"
-    [showAnswer]="showHistory ? true : state.showAnswer"
+    [showAnswer]="showHistory || state.showAnswer"
     [lastAnswerCorrect]="showHistory ? historyCurrentWord.answerCorrect : state.lastAnswerCorrect"
   >
   </app-v-a-middle-section>

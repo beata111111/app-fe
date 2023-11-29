@@ -15,7 +15,11 @@ export class ChallengeCVariantMiddleSectionComponent {
     wordDe: string;
   };
 
-  constructor(private _voiceService: VoiceService) {}
+  @Input() variant: "c" | "d" | "e" = "c";
+  @Input() showAnswer = false;
+  @Input() lastAnswerCorrect = false;
+  @Input() gapNumber = 0;
+  @Input() showHistory = false;
 
   @Input() set word(word: Word) {
     const words = word[`variant_${this.variant}_pl`].split(" ");
@@ -30,11 +34,7 @@ export class ChallengeCVariantMiddleSectionComponent {
     };
   }
 
-  @Input() variant: "c" | "d" | "e" = "c";
-  @Input() showAnswer = false;
-  @Input() lastAnswerCorrect = false;
-  @Input() gapNumber = 0;
-  @Input() showHistory = false;
+  constructor(private _voiceService: VoiceService) {}
 
   speak(text?: string) {
     if (text && !this.showHistory) {

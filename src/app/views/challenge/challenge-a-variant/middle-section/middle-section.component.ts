@@ -7,12 +7,12 @@ import { Word } from "@model";
   templateUrl: "./middle-section.component.html",
 })
 export class ChallengeAVariantMiddleSectionComponent {
-  constructor(private _voiceService: VoiceService) {}
-
   @Input() showHistory = false;
   @Input() word!: Word;
   @Input() showAnswer = false;
   @Input() lastAnswerCorrect = false;
+
+  constructor(private _voiceService: VoiceService) {}
 
   speak() {
     this._voiceService.speak(this.word.nounPL);

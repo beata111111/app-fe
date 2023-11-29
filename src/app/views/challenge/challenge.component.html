@@ -1,5 +1,6 @@
 <app-page-container [navTemplate]="nav" [contentTemplate]="content"></app-page-container>
 
+<!-- template -->
 <ng-template #nav>
   <app-top-nav>
     <button
@@ -19,6 +20,7 @@
   </app-top-nav>
 </ng-template>
 
+<!-- template -->
 <ng-template #content>
   <ng-container *ngIf="challengeData$ | async as challengeData; else spinner">
     <app-challenge-a-variant
@@ -42,6 +44,7 @@
   </ng-container>
 </ng-template>
 
+<!-- template -->
 <ng-template #spinner>
   <app-page-spinner></app-page-spinner>
 </ng-template>

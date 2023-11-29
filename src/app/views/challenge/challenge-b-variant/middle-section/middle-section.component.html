@@ -6,6 +6,7 @@
   [showHistory]="showHistory"
 ></app-challenge-section-top>
 
+<!-- template -->
 <ng-template #topContent>
   <h2 class="word-text" (click)="speak()">
     <span *ngIf="word.adjPos === 1" (click)="speak(word.nounPL)">
@@ -27,6 +28,7 @@
   </h2>
 </ng-template>
 
+<!-- template -->
 <ng-template #bottomContent>
   <div class="translation">
     <h4>
