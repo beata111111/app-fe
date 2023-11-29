@@ -10,11 +10,15 @@
   }
 
   .category-label {
+    display: inline-block;
     border-radius: 10px;
-    width: calc(100% - 20px);
-    //padding: 10px;
     margin: 10px 12px;
     background-color: var(--body-backgroung-color);
+  }
+
+  &.expanded .category-label {
+    display: block;
+    width: calc(100% - 20px);
   }
 
   .minimize-button {

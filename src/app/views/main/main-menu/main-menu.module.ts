@@ -5,7 +5,7 @@ import { MainMenuComponent } from "./main-menu.component";
 import { CommonModule } from "@angular/common";
 import { VariantComponent } from "./components/variant/variant.component";
 import { TranslateModule } from "@ngx-translate/core";
-import { LevelMenuPreviewComponent } from "./components/category-menu/components/level-menu-preview/level-menu-preview.component";
+import { LevelMenuPreviewComponent } from "./components/level-menu-preview/level-menu-preview.component";
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import { ButtonModule, ShineAnimationModule } from "@components";
 import { CategoryMiniaturesComponent } from "./components/category-miniatures/category-miniatures.component";
