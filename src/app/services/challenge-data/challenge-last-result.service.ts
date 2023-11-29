@@ -11,8 +11,7 @@ export class ChallengeLastResultService {
   }
 
   getLastResult(signature: VariantSignature): number | null {
-    const hasNewResult =
-      this.lastResult && compareVariantSignatures(this.lastResult, signature);
+    const hasNewResult = this.lastResult && compareVariantSignatures(this.lastResult, signature);
 
     if (!hasNewResult) return null;
 

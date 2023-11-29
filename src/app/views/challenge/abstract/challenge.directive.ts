@@ -1,12 +1,4 @@
-import {
-  Directive,
-  EventEmitter,
-  Input,
-  OnDestroy,
-  OnInit,
-  Output,
-  Self,
-} from "@angular/core";
+import { Directive, EventEmitter, Input, OnDestroy, OnInit, Output, Self } from "@angular/core";
 import { ChallengeState, Word } from "@model";
 import { Observable, Subscription } from "rxjs";
 import { ChallengeService } from "../challenge.service";

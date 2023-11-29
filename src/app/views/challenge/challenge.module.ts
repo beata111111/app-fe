@@ -9,12 +9,24 @@ import {
   TopNavModule,
 } from "@components";
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
-import { ChallengeAVariantModule } from "./challenge-a-variant/challenge-a-variant.module";
-import { ChallengeBVariantModule } from "./challenge-b-variant/challenge-b-variant.module";
-import { ChallengeCVariantModule } from "./challenge-c-variant/challenge-c-variant.module";
+import {ChallengeAVariantComponent} from "./challenge-a-variant/challenge-a-variant.component";
+import {ChallengeBVariantComponent} from "./challenge-b-variant/challenge-b-variant.component";
+import {ChallengeCVariantComponent} from "./challenge-c-variant/challenge-c-variant.component";
+import {ChallengeAVariantMiddleSectionComponent} from "./challenge-a-variant/middle-section/middle-section.component";
+import {ChallengeBVariantMiddleSectionComponent} from "./challenge-b-variant/middle-section/middle-section.component";
+import {ChallengeCVariantMiddleSectionComponent} from "./challenge-c-variant/middle-section/middle-section.component";
+import {ChallengeComponentsModule} from "@challengeComponents";
 
 @NgModule({
-  declarations: [ChallengeComponent],
+  declarations: [
+    ChallengeComponent,
+    ChallengeAVariantComponent,
+    ChallengeBVariantComponent,
+    ChallengeCVariantComponent,
+    ChallengeAVariantMiddleSectionComponent,
+    ChallengeBVariantMiddleSectionComponent,
+    ChallengeCVariantMiddleSectionComponent,
+  ],
   imports: [
     CommonModule,
     ChallengeRoutingModule,
@@ -22,10 +34,8 @@ import { ChallengeCVariantModule } from "./challenge-c-variant/challenge-c-varia
     TopNavModule,
     ButtonModule,
     FontAwesomeModule,
-    ChallengeAVariantModule,
-    ChallengeBVariantModule,
-    ChallengeCVariantModule,
     PageSpinnerModule,
+    ChallengeComponentsModule,
   ],
 })
 export class ChallengeModule {}

@@ -5,8 +5,7 @@ import { Word } from "@model";
   providedIn: "root",
 })
 export class VoiceWorkerService {
-  private _url_template1 =
-    "https://texttospeech.responsivevoice.org/v1/text:synthesize?text=";
+  private _url_template1 = "https://texttospeech.responsivevoice.org/v1/text:synthesize?text=";
   private _url_template2 =
     "&lang=pl&engine=g1&name=&pitch=0.5&rate=0.5&volume=1&key=Q4jAKASl&gender=male";
   private _broadcastChannel = new BroadcastChannel("PREFETCH_VOICE_CHANNEL");

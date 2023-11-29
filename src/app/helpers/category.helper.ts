@@ -44,10 +44,7 @@ export function findNewlyCreatedVariant(aArr: VariantFull[], bArr: VariantFull[]
   return newlyEnabled;
 }
 
-export function compareVariantSignatures(
-  s1: VariantSignature,
-  s2: VariantSignature,
-): boolean {
+export function compareVariantSignatures(s1: VariantSignature, s2: VariantSignature): boolean {
   return (
     s1.category_id === s2.category_id &&
     s1.level_id === s2.level_id &&

@@ -1,10 +1,4 @@
-import {
-  AfterContentInit,
-  Component,
-  ContentChild,
-  EventEmitter,
-  Output,
-} from "@angular/core";
+import { AfterContentInit, Component, ContentChild, EventEmitter, Output } from "@angular/core";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { AbstractPopupDialogDirective } from "../popup-dialogs/abstract/abstract-popup-dialog.directive";
 import { PopupDialogConfig } from "../popup-dialogs/popup.model";

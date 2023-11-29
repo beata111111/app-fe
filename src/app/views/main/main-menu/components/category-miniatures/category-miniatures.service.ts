@@ -42,10 +42,7 @@ export class CategoryMiniaturesService {
     }),
   );
 
-  public canMinimize$ = combineLatest([
-    this._allCategories$,
-    this.minifiedCategoriesIds$,
-  ]).pipe(
+  public canMinimize$ = combineLatest([this._allCategories$, this.minifiedCategoriesIds$]).pipe(
     map(([allCategories, minifiedCategoriesIds]) => {
       return allCategories.length !== minifiedCategoriesIds.length + 1;
     }),
@@ -62,11 +59,7 @@ export class CategoryMiniaturesService {
   }
 
   public add(category_id: string): void {
-    this._addToSet(
-      this.minifiedCategoriesIds$,
-      category_id,
-      LocalStorageKey.MINIFIED_CATEGORIES,
-    );
+    this._addToSet(this.minifiedCategoriesIds$, category_id, LocalStorageKey.MINIFIED_CATEGORIES);
     this._removeFromSet(
       this.notMinifiedCategoriesIds$,
       category_id,

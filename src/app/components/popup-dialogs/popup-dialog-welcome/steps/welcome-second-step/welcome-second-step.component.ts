@@ -6,10 +6,7 @@ import { AbstractPopupDialogStepDirective } from "../../../abstract/abstract-pop
   templateUrl: "./welcome-second-step.component.html",
   styleUrls: ["./welcome-second-step.component.scss"],
 })
-export class WelcomeSecondStepComponent
-  extends AbstractPopupDialogStepDirective
-  implements OnInit
-{
+export class WelcomeSecondStepComponent extends AbstractPopupDialogStepDirective implements OnInit {
   ngOnInit() {
     this.config.emit({
       showBackButton: false,

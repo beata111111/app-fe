@@ -1,17 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
-import {
-  ChallengeDataService,
-  CategoryStatusService,
-  ChallengeLastResultService,
-} from "@services";
+import { ChallengeDataService, CategoryStatusService, ChallengeLastResultService } from "@services";
 import { Observable } from "rxjs";
 import { ChallengeResult, Word } from "@model";
-import {
-  faArrowRightFromBracket,
-  faBell,
-  faBellSlash,
-} from "@fortawesome/free-solid-svg-icons";
+import { faArrowRightFromBracket, faBell, faBellSlash } from "@fortawesome/free-solid-svg-icons";
 import { VoiceService } from "@core";
 
 @Component({
@@ -49,10 +41,7 @@ export class ChallengeComponent implements OnInit {
       this._category_id = category_id;
       this._level_id = level_id;
       this.variant_id = variant_id;
-      this.challengeData$ = this._challengeDataService.getChallengeData(
-        category_id,
-        level_id,
-      );
+      this.challengeData$ = this._challengeDataService.getChallengeData(category_id, level_id);
     });
   }
 

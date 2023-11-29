@@ -9,10 +9,7 @@ import { User } from "@model";
   templateUrl: "./welcome-first-step.component.html",
   styleUrls: ["./welcome-first-step.component.scss"],
 })
-export class WelcomeFirstStepComponent
-  extends AbstractPopupDialogStepDirective
-  implements OnInit
-{
+export class WelcomeFirstStepComponent extends AbstractPopupDialogStepDirective implements OnInit {
   user$: Observable<User>;
 
   constructor(private _userService: UserService) {

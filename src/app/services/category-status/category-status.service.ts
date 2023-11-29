@@ -43,9 +43,7 @@ export class CategoryStatusService {
       .subscribe((categoryUpdate: CategoryUpdate) => {
         const categories = this._categoryStatus$.value;
         const updated = categories.map((category) => {
-          return category.category_id === category_id
-            ? categoryUpdate.categoryUpdate
-            : category;
+          return category.category_id === category_id ? categoryUpdate.categoryUpdate : category;
         });
         this._userService.updateUserPoint(categoryUpdate.userPointsUpdate);
         this._categoryStatus$.next(updated);
@@ -53,9 +51,7 @@ export class CategoryStatusService {
   }
 
   _getVariant(category_id: string, level_id: string, variant_id: string): VariantStatus {
-    const category = this._categoryStatus$.value.find(
-      (cat) => cat.category_id === category_id,
-    );
+    const category = this._categoryStatus$.value.find((cat) => cat.category_id === category_id);
     const level = category!.levels.find((lev) => lev.level_id === level_id);
     const variant = level!.variants.find((variant) => variant.variant_id === variant_id);
     return variant!;

@@ -6,10 +6,7 @@ import { AbstractPopupDialogStepDirective } from "../../../abstract/abstract-pop
   templateUrl: "./welcome-third-step.component.html",
   styleUrls: ["./welcome-third-step.component.scss"],
 })
-export class WelcomeThirdStepComponent
-  extends AbstractPopupDialogStepDirective
-  implements OnInit
-{
+export class WelcomeThirdStepComponent extends AbstractPopupDialogStepDirective implements OnInit {
   ngOnInit() {
     this.config.emit({
       showBackButton: false,

@@ -1,8 +1,7 @@
 <ng-container *ngIf="categoryStatus$ | async as categoryStatus; else spinner">
   <app-welcome-dialog></app-welcome-dialog>
 
-  <app-page-container [navTemplate]="nav" [contentTemplate]="content">
-  </app-page-container>
+  <app-page-container [navTemplate]="nav" [contentTemplate]="content"> </app-page-container>
 
   <ng-template #nav>
     <app-top-nav>

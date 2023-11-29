@@ -15,10 +15,7 @@ export class NoAuthGuard implements CanActivate {
     private _router: Router,
   ) {}
 
-  canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot,
-  ): boolean | UrlTree {
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree {
     return !this._authService.getToken() || this._router.parseUrl("/main");
   }
 }

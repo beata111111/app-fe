@@ -1,6 +1,5 @@
 <div class="full-size-categories" *ngIf="notMinifiedCategories$ | async as categories">
-  <app-category-menu *ngFor="let category of categories" [category]="category">
-  </app-category-menu>
+  <app-category-menu *ngFor="let category of categories" [category]="category"> </app-category-menu>
 </div>
 
 <app-category-miniatures></app-category-miniatures>

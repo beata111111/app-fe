@@ -1,13 +1,8 @@
-<app-accordion [title]="'settings.appearance'" [content]="darkmodeContent">
-</app-accordion>
+<app-accordion [title]="'settings.appearance'" [content]="darkmodeContent"> </app-accordion>
 
 <ng-template #darkmodeContent>
   <app-menu-item [title]="'settings.appearance.darkmode'">
-    <button
-      [appButton]="'primary'"
-      class="sm inline toggle-button"
-      (click)="toggleNightMode()"
-    >
+    <button [appButton]="'primary'" class="sm inline toggle-button" (click)="toggleNightMode()">
       {{ (isNightMode$ | async) === true ? "OFF" : "ON" }}
     </button>
   </app-menu-item>

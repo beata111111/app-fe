@@ -19,9 +19,7 @@
     [showHistory]="showHistory"
     [word]="showHistory ? historyCurrentWord : state.currentWord"
     [showAnswer]="showHistory ? true : state.showAnswer"
-    [lastAnswerCorrect]="
-      showHistory ? historyCurrentWord.answerCorrect : state.lastAnswerCorrect
-    "
+    [lastAnswerCorrect]="showHistory ? historyCurrentWord.answerCorrect : state.lastAnswerCorrect"
   >
   </app-v-c-middle-section>
 </ng-template>

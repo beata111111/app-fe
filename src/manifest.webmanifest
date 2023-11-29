@@ -57,12 +57,5 @@
       "purpose": "maskable any"
     }
   ],
-  "categories": [
-    "education",
-    "entertainment",
-    "games",
-    "kids",
-    "productivity",
-    "utilities"
-  ]
+  "categories": ["education", "entertainment", "games", "kids", "productivity", "utilities"]
 }

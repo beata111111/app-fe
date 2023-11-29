@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { ChallengeState, Word } from "@model";
 import { BehaviorSubject } from "rxjs";
 import { arrRandomMultiple, shuffleArray } from "@helpers";
-import { VoiceService, VoiceWorkerService } from "@core";
+import { VoiceService } from "@core";
 
 @Injectable()
 export class ChallengeService {
@@ -15,10 +15,7 @@ export class ChallengeService {
   private _state$ = new BehaviorSubject<ChallengeState | null>(null);
   state$ = this._state$.asObservable();
 
-  constructor(
-    private _voiceService: VoiceService,
-    private _voiceWorkerService: VoiceWorkerService,
-  ) {}
+  constructor(private _voiceService: VoiceService) {}
 
   setChallengeData(data: Word[], timeoutValue: number, speakableProperty?: keyof Word) {
     this._state$.next(this._initializeServiceData(data));
@@ -73,9 +70,7 @@ export class ChallengeService {
     const commonUpdate = {
       showAnswer: false,
       correctAnswersCount: correctAnswersCount,
-      correctAnswersRatio: Math.ceil(
-        (correctAnswersCount / cs.wordSequence.length) * 100,
-      ),
+      correctAnswersRatio: Math.ceil((correctAnswersCount / cs.wordSequence.length) * 100),
     };
 
     const update =
@@ -88,10 +83,7 @@ export class ChallengeService {
           }
         : {
             currentSequenceStep: nextStepCount,
-            history: [
-              ...cs.history,
-              { ...cs.currentWord, answerCorrect: cs.lastAnswerCorrect },
-            ],
+            history: [...cs.history, { ...cs.currentWord, answerCorrect: cs.lastAnswerCorrect }],
             currentWord: cs.wordSequence[nextStepCount],
             currentWordAnswers: this._generateAnswers(
               cs.wordSequence,
