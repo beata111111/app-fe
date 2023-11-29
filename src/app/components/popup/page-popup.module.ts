@@ -5,6 +5,7 @@ import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import { ButtonModule } from "@components";
 import { TranslateModule } from "@ngx-translate/core";
 
+// prettier-ignore
 @NgModule({
   declarations: [PagePopupComponent],
   imports: [CommonModule, FontAwesomeModule, ButtonModule, TranslateModule],

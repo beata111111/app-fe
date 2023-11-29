@@ -7,6 +7,7 @@ import { PageSplitContainerModule } from "../../../components/page-split-contain
 import { ReactiveFormsModule } from "@angular/forms";
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 
+// prettier-ignore
 @NgModule({
   declarations: [RegisterComponent],
   imports: [

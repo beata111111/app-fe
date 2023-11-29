@@ -9,6 +9,7 @@ import { ButtonModule, PageContainerModule } from "@components";
 import { DiamondCounterModule } from "./diamond-counter/diamond-counter.module";
 import { WelcomeDialogModule } from "./welcome-dialog/welcome-dialog.module";
 
+// prettier-ignore
 @NgModule({
   declarations: [MainComponent],
   imports: [

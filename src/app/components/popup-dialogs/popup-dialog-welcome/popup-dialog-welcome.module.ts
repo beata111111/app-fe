@@ -6,6 +6,7 @@ import { WelcomeSecondStepComponent } from "./steps/welcome-second-step/welcome-
 import { WelcomeThirdStepComponent } from "./steps/welcome-third-step/welcome-third-step.component";
 import { TranslateModule } from "@ngx-translate/core";
 
+// prettier-ignore
 @NgModule({
   declarations: [
     PopupDialogWelcomeComponent,

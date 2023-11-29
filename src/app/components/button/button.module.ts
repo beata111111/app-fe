@@ -1,6 +1,7 @@
 import { NgModule } from "@angular/core";
 import { ButtonDirective } from "./button.directive";
 
+// prettier-ignore
 @NgModule({
   declarations: [ButtonDirective],
   imports: [],

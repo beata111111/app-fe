@@ -30,6 +30,7 @@ const components = [
   GenderDotComponent,
 ];
 
+// prettier-ignore
 @NgModule({
   declarations: components,
   imports: [CommonModule, FontAwesomeModule, ButtonModule],

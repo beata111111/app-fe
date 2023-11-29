@@ -7,6 +7,7 @@ import { ButtonModule } from "@components";
 import { ChallengeComponentsModule } from "@challengeComponents";
 import { StyleguideSectionComponent } from "./styleguide-section/styleguide-section.component";
 
+// prettier-ignore
 @NgModule({
   declarations: [StyleguideComponent, StyleguideSectionComponent],
   imports: [

@@ -14,6 +14,7 @@ function initializeThemes(themesService: ThemesService) {
   };
 }
 
+// prettier-ignore
 @NgModule({
   declarations: [AppComponent],
   imports: [

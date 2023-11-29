@@ -10,6 +10,7 @@ import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import { ButtonModule, ShineAnimationModule } from "@components";
 import { CategoryMiniaturesComponent } from "./components/category-miniatures/category-miniatures.component";
 
+// prettier-ignore
 @NgModule({
   declarations: [
     MainMenuComponent,

@@ -7,6 +7,7 @@ import { ButtonModule, ShineAnimationModule } from "@components";
 import { RouterModule } from "@angular/router";
 import { DiamondIconModule } from "../../../components/diamond-icon/diamond-icon.module";
 
+// prettier-ignore
 @NgModule({
   declarations: [DiamondCounterComponent],
   imports: [

@@ -5,6 +5,7 @@ import { AuthRoutingModule } from "./auth-routing.module";
 import { LoginModule } from "./login/login.module";
 import { RegisterModule } from "./register/register.module";
 
+// prettier-ignore
 @NgModule({
   declarations: [AuthComponent],
   imports: [CommonModule, LoginModule, RegisterModule, AuthRoutingModule],

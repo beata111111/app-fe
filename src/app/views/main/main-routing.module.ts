@@ -9,6 +9,7 @@ const routes: Routes = [
   },
 ];
 
+// prettier-ignore
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],

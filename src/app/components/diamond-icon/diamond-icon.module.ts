@@ -4,6 +4,7 @@ import { DiamondIconComponent } from "./diamond-icon.component";
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import { ShineAnimationModule } from "@components";
 
+// prettier-ignore
 @NgModule({
   declarations: [DiamondIconComponent],
   imports: [CommonModule, FontAwesomeModule, ShineAnimationModule],

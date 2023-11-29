@@ -22,20 +22,17 @@ const routes: Routes = [
   {
     path: "settings",
     canActivate: [AuthGuard],
-    loadChildren: () =>
-      import("./views/settings/settings.module").then((m) => m.SettingsModule),
+    loadChildren: () => import("./views/settings/settings.module").then((m) => m.SettingsModule),
   },
   {
     path: "records",
     canActivate: [AuthGuard],
-    loadChildren: () =>
-      import("./views/records/records.module").then((m) => m.RecordsModule),
+    loadChildren: () => import("./views/records/records.module").then((m) => m.RecordsModule),
   },
   {
     path: "challenge/:category_id/:level_id/:variant_id",
     canActivate: [AuthGuard],
-    loadChildren: () =>
-      import("./views/challenge/challenge.module").then((m) => m.ChallengeModule),
+    loadChildren: () => import("./views/challenge/challenge.module").then((m) => m.ChallengeModule),
   },
   {
     path: "styleguide",
@@ -45,6 +42,7 @@ const routes: Routes = [
   { path: "**", redirectTo: "" },
 ];
 
+// prettier-ignore
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
