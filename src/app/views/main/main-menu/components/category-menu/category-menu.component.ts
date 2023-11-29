@@ -13,20 +13,17 @@ import { CategoryMiniaturesService } from "../category-miniatures/category-minia
   styleUrls: ["./category-menu.component.scss"],
 })
 export class CategoryMenuComponent implements OnInit, OnDestroy {
-  faChevronUp = faChevronUp;
-  faChevronDown = faChevronDown;
-  faMinus = faMinus;
-  minifiedCategories: string[] = [];
-  canMinimize = true;
+  fa = { faChevronUp, faChevronDown, faMinus };
+
+  @Input() category!: CategoryStatus;
 
   @HostBinding("class.expanded") get isExp(): boolean {
     return this.isExpanded || !this.canMinimize;
   }
 
-  @Input() category!: CategoryStatus;
-
   private _subscription = new Subscription();
   isExpanded = false;
+  canMinimize = true;
 
   constructor(
     private _router: Router,
@@ -34,34 +31,22 @@ export class CategoryMenuComponent implements OnInit, OnDestroy {
     private _categoryMiniaturesService: CategoryMiniaturesService,
   ) {
     this._subscription.add(
-      this._categoryMiniaturesService.minifiedCategoriesIds$.subscribe((c) => {
-        this.minifiedCategories = c;
-      }),
-    );
-
-    this._subscription.add(
       this._categoryMiniaturesService.canMinimize$.subscribe((v) => {
         this.canMinimize = v;
       }),
     );
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this._subscription.add(
       this._activatedRoute.queryParams.subscribe((queryParams) => {
         this.isExpanded = queryParams["expanded"] === this.category.category_id;
-      }),
+      })
     );
   }
 
   handleClick(category_id: string): void {
     this._expandCategory(category_id);
-  }
-
-  private _expandCategory(category_id: string): void {
-    const currentUrl = this._router.url.split("?")[0];
-    const expanded = this.isExpanded ? null : category_id;
-    this._router.navigate([currentUrl], { queryParams: { expanded } });
   }
 
   ngOnDestroy(): void {
@@ -75,5 +60,11 @@ export class CategoryMenuComponent implements OnInit, OnDestroy {
   addToMinifiedCategories(event: Event, category_id: string): void {
     event.stopPropagation();
     this._categoryMiniaturesService.add(category_id);
+  }
+
+  private _expandCategory(category_id: string): void {
+    const currentUrl = this._router.url.split("?")[0];
+    const expanded = this.isExpanded ? null : category_id;
+    this._router.navigate([currentUrl], { queryParams: { expanded } });
   }
 }

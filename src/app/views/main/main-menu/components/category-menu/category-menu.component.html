@@ -4,7 +4,7 @@
     <span>{{ "categories." + category.category_id | translate }}</span>
     <fa-icon
       *ngIf="canMinimize"
-      [icon]="isExpanded ? faChevronUp : faChevronDown"
+      [icon]="isExpanded ? fa.faChevronUp : fa.faChevronDown"
       [size]="'lg'"
       class="category-chevron-icon"
     ></fa-icon>
@@ -15,7 +15,7 @@
     *ngIf="isExpanded && canMinimize"
     (click)="addToMinifiedCategories($event, category.category_id)"
   >
-    <fa-icon [icon]="faMinus" class="category-chevron-icon"></fa-icon>
+    <fa-icon [icon]="fa.faMinus" class="category-chevron-icon"></fa-icon>
   </button>
 </div>
 
