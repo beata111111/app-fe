@@ -27,9 +27,7 @@
   }
 
   &.expanded {
-    background-color: rgba(237, 237, 237, 0.9);
-    //background-color: rgba(var(--backgroung-secondary-color), 0.5);
-    //background-color: var(--backgroung-secondary-color);
+    background-color: var(--aaa);
     .category-label {
       background-color: unset;
     }

@@ -66,13 +66,16 @@
 }
 
 .disabled-background {
-  border-color: var(--color-result-none) !important;
+  border: none !important;
   background-color: var(--color-result-none);
   fa-icon {
     color: var(--font-teriary-color);
   }
   span {
     color: var(--font-quaternary-color) !important;
+  }
+  .smaller-lock {
+    transform: scale(0.7);
   }
 }
 

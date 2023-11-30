@@ -28,6 +28,6 @@ import { CategoryMiniaturesComponent } from "./components/category-miniatures/ca
     ShineAnimationModule,
   ],
   providers: [],
-  exports: [MainMenuComponent, CategoryMenuComponent],
+  exports: [MainMenuComponent, CategoryMenuComponent, CategoryMiniaturesComponent],
 })
 export class MainMenuModule {}

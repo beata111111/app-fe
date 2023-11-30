@@ -1,12 +1,89 @@
+$light-grey: #BBBBBB;
+$grey: #666666;
+
 :root {
+
+  @mixin color-mixin($property, $color-light, $color-dark, $color-light-transparent: "", $color-dark-transparent: "") {
+    @if $color-light-transparent != "" {
+      .app-container:not(.night-mode):not(.picture-background) {
+        #{$property}: $color-light;
+      }
+      .app-container.night-mode:not(.picture-background) {
+        #{$property}: $color-dark;
+      }
+      .app-container:not(.night-mode).picture-background {
+        #{$property}: $color-light-transparent;
+      }
+      .app-container.night-mode.picture-background {
+        #{$property}: $color-dark-transparent;
+      }
+    } @else {
+      .app-container:not(.night-mode) {
+        #{$property}: $color-light;
+      }
+      .app-container.night-mode {
+        #{$property}: $color-dark;
+      }
+    }
+  }
+
+
+  --color-primary-light: #DDDDDD;
+  --color-primary-dark: #313131;
+
+  --color-primary-light-transparent: color-mix(in srgb, #DDDDDD, #FFFFFF50 90%);
+  --color-primary-dark-transparent: color-mix(in srgb, #313131, #00000050 40%);
+
+
+
+  @include color-mixin(
+                  --aaa,
+                  #f6f6f6,
+                  #202020,
+                  color-mix(in srgb, #DDDDDD, #FFFFFF50 90%),
+                  color-mix(in srgb, #313131, #00000050 40%)
+  );
+
+  @include color-mixin(
+                  --color-result-none,
+                  white,
+                  black,
+                  color-mix(in srgb, white, transparent 60%),
+                  color-mix(in srgb, black, transparent 50%),
+  );
+
+  @include color-mixin(
+                 --font-teriary-color,
+                  #d1d1d2,
+                  #3a3a3a,
+                  #aaaaaa,
+                  #3a3a3a
+  );
+
+  @include color-mixin(
+                  --font-quaternary-color,
+                  #c4c4c4,
+                  #4e4e4e,
+                  #9e9e9e,
+                  #393939
+  );
+
+  //@include color-mixin(
+  //                --color-result-0,
+  //                #d8d8d8,
+  //                #202020,
+  //                transparent,
+  //                transparent
+  //);
+
+
+
   .app-container:not(.night-mode) {
     --body-backgroung-color: white;
     --backgroung-secondary-color: #f6f6f6;
     --backgroung-teriary-color: #e6e6e6;
     --font-basic-color: black;
     --font-secondary-color: black;
-    --font-teriary-color: #d1d1d2;
-    --font-quaternary-color: #c4c4c4;
 
     --font-basic-color-2: var(--theme-color-18);
     --font-primary-color: var(--theme-color-14);
@@ -23,7 +100,6 @@
     --color-result-40: #ffdda5;
     --color-result-20: #ffbd9a;
     --color-result-0: #d8d8d8;
-    --color-result-none: white;
 
     --action-success-color: #6fe594;
     --word-feminine-color: #fd97ff;
@@ -38,8 +114,6 @@
     --backgroung-teriary-color: #242424;
     --font-basic-color: white;
     --font-secondary-color: #c6c6c6;
-    --font-teriary-color: #3a3a3a;
-    --font-quaternary-color: #4e4e4e;
 
     --font-basic-color-2: var(--theme-color-0);
     --font-primary-color: var(--theme-color-14);
@@ -56,7 +130,6 @@
     --color-result-40: #8a7348;
     --color-result-20: #8d594e;
     --color-result-0: #202020;
-    --color-result-none: black;
 
     --action-success-color: #5d895a;
     --word-feminine-color: #bf76bb;
