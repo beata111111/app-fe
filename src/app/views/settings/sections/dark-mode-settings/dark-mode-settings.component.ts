@@ -9,12 +9,18 @@ import { Component } from "@angular/core";
 })
 export class DarkModeSettingsComponent {
   isNightMode$: Observable<boolean>;
+  isPictureBackground$: Observable<boolean>;
 
   constructor(private _themesService: ThemesService) {
     this.isNightMode$ = this._themesService.isNightMode$;
+    this.isPictureBackground$ = this._themesService.isPictureBackground$;
   }
 
-  toggleNightMode() {
+  toggleNightMode(): void {
     this._themesService.toggleNightMode();
+  }
+
+  togglePicture(): void {
+    this._themesService.togglePictureBackground();
   }
 }

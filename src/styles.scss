@@ -21,11 +21,8 @@ body {
   height: 100vh; /* fallback for Js load */
 }
 
-body,
-.body {
+body {
   height: var(--app-height);
-  background-color: var(--body-backgroung-color);
-  color: var(--font-basic-color);
 }
 
 .hide {

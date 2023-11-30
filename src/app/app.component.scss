@@ -1,10 +1,13 @@
-:host {
-  display: block;
-  height: 100%;
-}
-
 .app-container {
-  margin: auto;
   height: 100%;
-  //background-image: url("/assets/july-pass-3042793_1920.jpg");
+  background-color: var(--body-backgroung-color);
+  color: var(--font-basic-color);
+
+  &.picture-background:not(.night-mode) {
+    background-image: url("/assets/july-pass-3042793_1920.jpg");
+  }
+
+  &.picture-background.night-mode {
+    background-image: url("/assets/forest-4395986_1920.jpg");
+  }
 }

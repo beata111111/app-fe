@@ -1,3 +1,6 @@
-<div class="app-container">
+<div class="app-container"
+     [class.night-mode]="isNightMode$ | async"
+     [class.picture-background]="isPictureBackground$ | async"
+>
   <router-outlet></router-outlet>
 </div>

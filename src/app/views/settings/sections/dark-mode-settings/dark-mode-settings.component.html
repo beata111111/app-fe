@@ -6,4 +6,10 @@
       {{ (isNightMode$ | async) === true ? "OFF" : "ON" }}
     </button>
   </app-menu-item>
+
+  <app-menu-item [title]="'settings.appearance.picture'">
+    <button [appButton]="'primary'" class="sm inline toggle-button" (click)="togglePicture()">
+      {{ (isPictureBackground$ | async) === true ? "OFF" : "ON" }}
+    </button>
+  </app-menu-item>
 </ng-template>

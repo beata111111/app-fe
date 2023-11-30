@@ -3,6 +3,12 @@ export enum NightMode {
   OFF = "OFF",
 }
 
+export enum PictureBackground {
+  ON = "ON",
+  OFF = "OFF",
+}
+
+
 export enum Theme {
   THEME1 = "theme-1",
   THEME2 = "theme-2",

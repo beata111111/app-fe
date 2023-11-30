@@ -11,6 +11,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 function initializeThemes(themesService: ThemesService) {
   return (): void => {
     themesService.initialSetupNightMode();
+    themesService.initialSetupPictureBackground();
   };
 }
 

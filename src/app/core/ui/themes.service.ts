@@ -1,7 +1,6 @@
-import { Inject, Injectable } from "@angular/core";
-import { DOCUMENT } from "@angular/common";
+import { Injectable } from "@angular/core";
 import { BehaviorSubject } from "rxjs";
-import { availableThemes, NightMode, Theme, ThemeObj } from "./themes.model";
+import { availableThemes, NightMode, PictureBackground, Theme, ThemeObj } from "./themes.model";
 
 @Injectable({ providedIn: "root" })
 export class ThemesService {
@@ -13,9 +12,8 @@ export class ThemesService {
   private _isNightMode$ = new BehaviorSubject<boolean>(false);
   isNightMode$ = this._isNightMode$.asObservable();
 
-  constructor(@Inject(DOCUMENT) private document: Document) {
-    this._initialSetupTheme();
-  }
+  private _isPictureBackground$ = new BehaviorSubject<boolean>(false);
+  isPictureBackground$ = this._isPictureBackground$.asObservable();
 
   /*
    * Night Mode
@@ -36,7 +34,6 @@ export class ThemesService {
 
   private _setNightMode(nightMode: boolean) {
     const newValue = nightMode ? NightMode.ON : NightMode.OFF;
-    this.document.body.setAttribute("night-mode", newValue);
     this._isNightMode$.next(newValue === NightMode.ON);
     localStorage.setItem("NIGHT_MODE", newValue);
   }
@@ -52,7 +49,6 @@ export class ThemesService {
   }
 
   switchTheme(theme: Theme): void {
-    this.document.body.setAttribute("theme", theme);
     this._setCurrentTheme(theme);
   }
 
@@ -62,5 +58,29 @@ export class ThemesService {
       : this.availableThemes[0];
     this._currentTheme$.next(newTheme);
     localStorage.setItem("THEME", newTheme.id);
+  }
+
+
+  /*
+   * Picture Background
+   */
+  initialSetupPictureBackground(): void {
+    const localStorageValue = localStorage.getItem("PICTURE_BACKGROUND");
+    const isPictureBackground = localStorageValue === PictureBackground.ON;
+    this._setPictureBackground(isPictureBackground);
+  }
+
+  togglePictureBackground(pictureBackground?: boolean): void {
+    if (pictureBackground !== undefined) {
+      this._setPictureBackground(pictureBackground);
+    } else {
+      this._setPictureBackground(!this._isPictureBackground$.value);
+    }
+  }
+
+  private _setPictureBackground(pictureBackground: boolean) {
+    const newValue = pictureBackground ? PictureBackground.ON : PictureBackground.OFF;
+    this._isPictureBackground$.next(newValue === PictureBackground.ON);
+    localStorage.setItem("PICTURE_BACKGROUND", newValue);
   }
 }

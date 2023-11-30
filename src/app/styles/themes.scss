@@ -1,7 +1,5 @@
 :root {
-  body,
-  body[night-mode="OFF"],
-  .body[night-mode="OFF"] {
+  .app-container:not(.night-mode) {
     --body-backgroung-color: white;
     --backgroung-secondary-color: #f6f6f6;
     --backgroung-teriary-color: #e6e6e6;
@@ -34,8 +32,7 @@
     --border-width: 3px;
   }
 
-  body[night-mode="ON"],
-  .body[night-mode="ON"] {
+  .app-container.night-mode {
     --body-backgroung-color: var(--theme-color-24);
     --backgroung-secondary-color: #303030;
     --backgroung-teriary-color: #242424;
