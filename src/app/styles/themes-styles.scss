@@ -1,0 +1,15 @@
+.app-container:not(.night-mode) {
+  --border-width: 3px;
+  --border-width-secondary: 2px;
+  --primary-color: var(--theme-color-14);
+
+  --border-radius-3: 15px;
+}
+
+.app-container.night-mode {
+  --border-width: 1px;
+  --border-width-secondary: 1px;
+  --primary-color: var(--theme-color-16);
+
+  --border-radius-3: 5px;
+}

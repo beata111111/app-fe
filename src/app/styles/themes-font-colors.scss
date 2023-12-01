@@ -1,0 +1,33 @@
+@import "./themes-mixins";
+
+@include color-mixin(
+               --font-teriary-color,
+                #d1d1d2,
+                #3a3a3a,
+                #aaaaaa,
+                #3a3a3a
+);
+
+@include color-mixin(
+                --font-quaternary-color,
+                #c4c4c4,
+                #4e4e4e,
+                #9e9e9e,
+                #393939
+);
+
+.app-container:not(.night-mode) {
+  --font-basic-color: black;
+  --font-secondary-color: black;
+  --font-basic-color-2: var(--theme-color-18);
+  --font-primary-color: var(--theme-color-14);
+  --font-primary-color-2: var(--theme-color-16);
+}
+
+.app-container.night-mode {
+  --font-basic-color: white;
+  --font-secondary-color: #c6c6c6;
+  --font-basic-color-2: var(--theme-color-0);
+  --font-primary-color: var(--theme-color-14);
+  --font-primary-color-2: var(--theme-color-12);
+}

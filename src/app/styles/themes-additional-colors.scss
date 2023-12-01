@@ -1,0 +1,34 @@
+@import "./themes-mixins";
+
+@include color-mixin(--color-result-none,
+        white,
+        black,
+        color-mix(in srgb, white, transparent 60%),
+        color-mix(in srgb, black, transparent 50%),
+);
+
+.app-container:not(.night-mode) {
+  --color-result-100: #6fe594;
+  --color-result-80: #bcff99;
+  --color-result-60: #ebffb2;
+  --color-result-40: #ffdda5;
+  --color-result-20: #ffbd9a;
+  --color-result-0: #d8d8d8;
+
+  --action-success-color: #6fe594;
+  --word-feminine-color: #fd97ff;
+  --word-maskulin-color: #63cfff;
+}
+
+.app-container.night-mode {
+  --color-result-100: #3f9167;
+  --color-result-80: #62844e;
+  --color-result-60: #778550;
+  --color-result-40: #8a7348;
+  --color-result-20: #8d594e;
+  --color-result-0: #202020;
+
+  --action-success-color: #5d895a;
+  --word-feminine-color: #bf76bb;
+  --word-maskulin-color: #51779a;
+}

@@ -2,7 +2,6 @@
   display: flex;
   margin: 10px;
   background-color: var(--body-backgroung-color);
-  padding: 4px;
   border-radius: 10px;
 
   &.is-active {
@@ -15,9 +14,9 @@
 
   .user-data-container {
     .name {
-      margin-top: 6px;
+      margin-top: 12px;
     }
-    h3 {
+    h5 {
       margin: 0;
     }
   }

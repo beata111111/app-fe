@@ -1,0 +1,23 @@
+@mixin color-mixin($property, $color-light, $color-dark, $color-light-transparent: "", $color-dark-transparent: "") {
+  @if $color-light-transparent != "" {
+    .app-container:not(.night-mode):not(.picture-background) {
+      #{$property}: $color-light;
+    }
+    .app-container.night-mode:not(.picture-background) {
+      #{$property}: $color-dark;
+    }
+    .app-container:not(.night-mode).picture-background {
+      #{$property}: $color-light-transparent;
+    }
+    .app-container.night-mode.picture-background {
+      #{$property}: $color-dark-transparent;
+    }
+  } @else {
+    .app-container:not(.night-mode) {
+      #{$property}: $color-light;
+    }
+    .app-container.night-mode {
+      #{$property}: $color-dark;
+    }
+  }
+}

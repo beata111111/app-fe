@@ -1,6 +1,14 @@
 @import "./themes-variables";
-@import "./themes";
+
+
+@import "./themes-font-colors";
+@import "./themes-background-colors";
+@import "./themes-additional-colors";
+@import "./themes-styles";
+
+
 @import "./typography";
 @import "./button";
 @import "./input";
 @import "./toastr";
+

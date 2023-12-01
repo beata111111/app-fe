@@ -1,8 +1,6 @@
 :host {
-  padding: 10px;
   display: flex;
-  border-radius: 10px;
-  height: 76px;
+  height: 64px;
   position: relative;
   flex-shrink: 0;
 
@@ -10,15 +8,15 @@
     background-color: var(--aaa);
     flex-grow: 1;
     position: absolute;
-    height: calc(100% - 20px);
-    width: calc(100% - 20px);
-    border-radius: 10px;
+    height: 100%;
+    width: 100%;
   }
 
   .container-b {
-    margin: 10px 10px 0 10px;
+    margin: 0 10px;
+    padding-top: 12px;
     overflow: scroll;
-    height: calc(100% - 6px);
+    height: 100%;
   }
 
   .container-c {
@@ -27,14 +25,13 @@
 
   button {
     flex-basis: 50px;
-    min-width: 36px;
+    min-width: 50px;
     background-color: var(--body-backgroung-color);
     color: var(--font-secondary-color);
     margin: 5px;
     padding: 5px;
-    height: 28px;
-    box-sizing: border-box;
-    border-radius: 15px;
-    border: 1px solid var(--font-basic-color);
+    height: 32px;
+    border-radius: var(--border-radius-3);
+    border: var(--border-width-secondary) solid var(--font-secondary-color);
   }
 }

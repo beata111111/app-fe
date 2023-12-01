@@ -1,9 +1,7 @@
 :host {
   display: block;
   color: var(--font-secondary-color);
-  margin: 10px;
   padding-bottom: 10px;
-  border-radius: 10px;
 
   .category-label-container {
     display: flex;
@@ -11,8 +9,7 @@
 
   .category-label {
     display: inline-block;
-    border-radius: 10px;
-    margin: 10px 12px;
+    margin: 10px 18px;
     background-color: var(--body-backgroung-color);
   }
 
