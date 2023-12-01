@@ -39,6 +39,11 @@ const routes: Routes = [
     loadChildren: () =>
       import("./views/styleguide/styleguide.module").then((m) => m.StyleguideModule),
   },
+  {
+    path: "colors",
+    loadChildren: () =>
+      import("./views/styleguide-colors/styleguide-colors.module").then((m) => m.StyleguideColorsModule),
+  },
   { path: "**", redirectTo: "" },
 ];
 
