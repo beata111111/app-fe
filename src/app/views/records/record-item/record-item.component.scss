@@ -1,0 +1,24 @@
+:host {
+  display: flex;
+  margin: 10px;
+  background-color: var(--body-backgroung-color);
+  padding: 4px;
+  border-radius: 10px;
+
+  &.is-active {
+    background-color: var(--backgroung-teriary-color);
+  }
+
+  .diamond-container {
+     padding: 20px 16px;
+  }
+
+  .user-data-container {
+    .name {
+      margin-top: 6px;
+    }
+    h3 {
+      margin: 0;
+    }
+  }
+}

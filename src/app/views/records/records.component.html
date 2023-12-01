@@ -17,7 +17,15 @@
 <ng-template #content>
   <div class="container" *ngIf="recordsInfo$ | async as recordsInfo; else spinner">
     <app-user-record [userRecord]="recordsInfo.userRecord"></app-user-record>
-    <app-record-board [recordsInfo]="recordsInfo"></app-record-board>
+
+    <div class="record-board">
+      <app-record-item *ngFor="let record of recordsInfo.records; let index = index"
+                       [record]="record"
+                       [isActive]="record.name === userName"
+                       [index]="index + 1"
+      >
+      </app-record-item>
+    </div>
   </div>
 </ng-template>
 

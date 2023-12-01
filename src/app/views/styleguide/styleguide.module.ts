@@ -6,6 +6,7 @@ import { MainMenuModule } from "../main/main-menu/main-menu.module";
 import { ButtonModule } from "@components";
 import { ChallengeComponentsModule } from "@challengeComponents";
 import { StyleguideSectionComponent } from "./styleguide-section/styleguide-section.component";
+import {RecordsModule} from "../records/records.module";
 
 // prettier-ignore
 @NgModule({
@@ -16,6 +17,7 @@ import { StyleguideSectionComponent } from "./styleguide-section/styleguide-sect
     MainMenuModule,
     ButtonModule,
     ChallengeComponentsModule,
+    RecordsModule,
   ],
   providers: [],
   exports: [StyleguideComponent],

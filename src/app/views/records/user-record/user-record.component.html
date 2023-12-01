@@ -1,17 +1,18 @@
 <ng-container *ngIf="userRecord">
   <ng-container *ngIf="!userRecord.recordIndex">
-    <h5>
+    <h5 class="first">
       {{ "records.noPoints.text" | translate }}
     </h5>
   </ng-container>
 
   <ng-container *ngIf="userRecord.recordIndex">
-    <h5>
+    <h5 class="first">
       {{ "records.points.text1" | translate: { count: userRecord.points } }}
-    </h5>
-    <fa-icon [icon]="faGem" size="2x"></fa-icon>
-    <h5>
+      <fa-icon [icon]="faGem" size="lg"></fa-icon>
       {{ "records.points.text2" | translate: { rang: userRecord.recordIndex } }}
     </h5>
   </ng-container>
+  <br>
+  <h5 class="header">{{ "records.points.best" | translate }}</h5>
 </ng-container>
+

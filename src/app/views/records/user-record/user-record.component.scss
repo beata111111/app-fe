@@ -1,8 +1,23 @@
 :host {
   h5 {
+    margin-left: 10px;
     display: inline-block;
+    padding: 0 8px;
+    background-color: var(--body-backgroung-color);
+
+    &.first {
+      margin-top: 0px;
+    }
   }
   fa-icon {
     margin: 0 5px;
+  }
+
+  .header {
+    margin-top: 4px;
+    display: inline-block;
+    padding: 0 8px;
+    background-color: var(--body-backgroung-color);
+    align-self: flex-start;
   }
 }
