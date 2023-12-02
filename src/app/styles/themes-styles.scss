@@ -4,6 +4,7 @@
   --primary-color: var(--theme-color-14);
 
   --border-radius-3: 15px;
+  --style-bricks-margin: 12px;
 }
 
 .app-container.night-mode {
@@ -11,5 +12,7 @@
   --border-width-secondary: 1px;
   --primary-color: var(--theme-color-16);
 
-  --border-radius-3: 5px;
+  --border-radius-3: 10px;
+
+  --style-bricks-margin: 20px;
 }

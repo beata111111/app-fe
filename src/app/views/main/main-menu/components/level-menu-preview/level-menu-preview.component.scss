@@ -9,7 +9,7 @@
     display: flex;
     width: 100%;
     height: calc(12px + (var(--border-width) * 2));
-    margin: 0 10px;
+    margin: 0 var(--style-bricks-margin);
     border-radius: calc(3 * (var(--border-width)));
     border: var(--border-width) solid var(--font-secondary-color);
 

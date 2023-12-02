@@ -42,9 +42,12 @@
   }
 
   .variant-back-side {
-    background-color: white;
-    color: var(--font-basic-color);
+    background-color: var(--backgroung-secondary-color);
+    color: var(--font-basic-color-2) !important;
     opacity: 0;
+    span {
+      color: var(--font-basic-color-2) !important;
+    }
   }
 
   &.has-new-result button {

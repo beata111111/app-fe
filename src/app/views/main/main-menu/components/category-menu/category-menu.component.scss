@@ -20,13 +20,16 @@
 
   .minimize-button {
     all: unset;
-    margin-right: 10px;
+    margin-right: 12px;
   }
 
   &.expanded {
     background-color: var(--aaa);
     .category-label {
       background-color: unset;
+      span {
+        font-weight: 500;
+      }
     }
   }
 

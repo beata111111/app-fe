@@ -1,6 +1,6 @@
 :host {
   display: flex;
-  height: 64px;
+  height: 60px;
   position: relative;
   flex-shrink: 0;
 
@@ -14,7 +14,7 @@
 
   .container-b {
     margin: 0 10px;
-    padding-top: 12px;
+    padding-top: 10px;
     overflow: scroll;
     height: 100%;
   }
@@ -28,7 +28,7 @@
     min-width: 50px;
     background-color: var(--body-backgroung-color);
     color: var(--font-secondary-color);
-    margin: 5px;
+    margin: 4px 6px;
     padding: 5px;
     height: 32px;
     border-radius: var(--border-radius-3);
