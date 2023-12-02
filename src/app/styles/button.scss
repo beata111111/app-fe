@@ -47,6 +47,7 @@ button.btn.sm {
 .app-container.night-mode {
   .btn.btn-primary {
     color: var(--theme-color-2);
+    background-color: var(--theme-color-20);
     &:hover {
       color: var(--theme-color-3);
     }

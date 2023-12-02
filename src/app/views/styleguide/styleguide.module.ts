@@ -7,6 +7,7 @@ import { ButtonModule } from "@components";
 import { ChallengeComponentsModule } from "@challengeComponents";
 import { StyleguideSectionComponent } from "./styleguide-section/styleguide-section.component";
 import {RecordsModule} from "../records/records.module";
+import {SettingsModule} from "../settings/settings.module";
 
 // prettier-ignore
 @NgModule({
@@ -18,6 +19,7 @@ import {RecordsModule} from "../records/records.module";
     ButtonModule,
     ChallengeComponentsModule,
     RecordsModule,
+    SettingsModule,
   ],
   providers: [],
   exports: [StyleguideComponent],

@@ -1,4 +1,14 @@
 :host {
   height: 100%;
-  display: flex;
+  display: block;
+  overflow: scroll;
+
+  .views {
+    display: flex;
+    align-items: stretch;
+    //height: 1000px;
+  }
+  .app-container {
+    background-size: cover;
+  }
 }

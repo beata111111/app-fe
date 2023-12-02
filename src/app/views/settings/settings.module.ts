@@ -28,6 +28,6 @@ import { CommonModule } from "@angular/common";
     AccordionModule,
   ],
   providers: [],
-  exports: [],
+  exports: [DarkModeSettingsComponent],
 })
 export class SettingsModule {}

@@ -6,11 +6,11 @@ input {
   border-radius: 8px 8px 7px 8px;
   padding: 8px;
   border: 2px solid var(--theme-1-color-18);
-  background-color: var(--bg-basic-color);
+  background-color: var(--theme-background-solid-1);
   color: var(--font-basic-color);
   &:focus,
   &:focus-visible {
-    background-color: var(--bg-basic-color-3);
+    background-color: var(--theme-background-solid-3);
     outline: 1px solid var(--theme-1-color-18);
   }
 }

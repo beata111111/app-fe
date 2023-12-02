@@ -1,43 +1,65 @@
 @import "./themes-mixins";
 
+ide-only {
+  --body-backgroung-color: unset;
+
+  --basic-background-transparent-1: unset;
+  --basic-background-transparent-2: unset;
+
+  --basic-background-solid-1: unset;
+  --basic-background-solid-2: unset;
+
+  --theme-background-solid-1: unset;
+  --theme-background-solid-2: unset;
+  --theme-background-solid-3: unset;
+  --theme-background-solid-4: unset;
+}
+
 @include color-mixin(--body-backgroung-color,
         white,
         var(--theme-color-24),
 );
 
-@include color-mixin(--aaa,
+@include color-mixin(--basic-background-transparent-1,
         #f6f6f6,
-        #202020,
+        #131313,
         color-mix(in srgb, #DDDDDD, #FFFFFF50 90%),
-        color-mix(in srgb, #313131, #00000050 40%),
+        color-mix(in srgb, #131313, #00000050 30%),
 );
 
-@include color-mixin(--backgroung-secondary-color,
+@include color-mixin(--basic-background-transparent-2,
+        white,
+        var(--theme-color-24),
+        #fffffff2,
+        color-mix(in srgb, var(--theme-color-24), #00000050 10%),
+);
+
+@include color-mixin(--basic-background-solid-1,
         #f6f6f6,
-        #303030,
-);
-
-@include color-mixin(--backgroung-teriary-color,
-        #e6e6e6,
         #242424,
 );
 
-@include color-mixin(--bg-basic-color,
+@include color-mixin(--basic-background-solid-2,
+        #e6e6e6,
+        color-mix(in srgb, var(--theme-color-24), #ffffff 10%),
+);
+
+@include color-mixin(--theme-background-solid-1,
         var(--theme-color-0),
         var(--theme-color-23),
 );
 
-@include color-mixin(--bg-basic-color-2,
+@include color-mixin(--theme-background-solid-2,
         var(--theme-color-1),
         var(--theme-color-23),
 );
 
-@include color-mixin(--bg-basic-color-3,
+@include color-mixin(--theme-background-solid-3,
         var(--theme-color-2),
         var(--theme-color-22),
 );
 
-@include color-mixin(--bg-basic-color-4,
+@include color-mixin(--theme-background-solid-4,
         var(--theme-color-9),
         var(--theme-color-22),
 );

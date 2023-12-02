@@ -2,9 +2,9 @@
   display: flex;
   position: relative;
   padding: 10px 20px 10px 20px;
-  border-bottom: 2px solid var(--bg-basic-color-3);
+  border-bottom: 2px solid var(--theme-background-solid-3);
   align-items: center;
-  background-color: var(--body-backgroung-color);
+  background-color: var(--basic-background-transparent-2);
 
   .title {
     flex-grow: 1;

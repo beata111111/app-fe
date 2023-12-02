@@ -1,11 +1,11 @@
 :host {
   display: flex;
   margin: 10px;
-  background-color: var(--body-backgroung-color);
+  background-color: var(--basic-background-transparent-1);
   border-radius: 10px;
 
   &.is-active {
-    background-color: var(--backgroung-teriary-color);
+    background-color: var(--basic-background-solid-2);
   }
 
   .diamond-container {

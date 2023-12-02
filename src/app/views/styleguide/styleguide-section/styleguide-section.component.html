@@ -1,9 +1,15 @@
 <app-category-menu [category]="category"> </app-category-menu>
+<div class="break"></div>
 
 <app-category-miniatures></app-category-miniatures>
+<div class="break"></div>
 
 <app-record-item [record]="{ name: 'Ashley', points: 224433 }" [index]="1"></app-record-item>
 <app-record-item [record]="{ name: 'Bryan', points: 339988 }" [index]="2" [isActive]="true"></app-record-item>
+<div class="break"></div>
+
+<app-dark-mode-settings></app-dark-mode-settings>
+<div class="break"></div>
 
 <div class="buttons" [style.margin]="'10px'" [style.width]="'200px'">
   <button [appButton]="'primary'">test button</button>
@@ -12,16 +18,12 @@
 
   <button [appButton]="'ghost'">test button</button>
 
-  <h1 [style.display]="'inline-block'">
-    a<app-gender-dot [style.position]="'relative'" [word]="{ plG: 'M' }"></app-gender-dot>
-  </h1>
-  <h1 [style.display]="'inline-block'">
-    a<app-gender-dot [style.position]="'relative'" [word]="{ plG: 'F' }"></app-gender-dot>
-  </h1>
-  <h1 [style.display]="'inline-block'">
-    a<app-gender-dot [style.position]="'relative'" [word]="{ plG: 'N' }"></app-gender-dot>
-  </h1>
+  <div [style.display]="'flex'">
+    <app-gender-dot [style.position]="'relative'" [word]="{ plG: 'M' }"></app-gender-dot>
+    <app-gender-dot [style.position]="'relative'" [word]="{ plG: 'F' }"></app-gender-dot>
+    <app-gender-dot [style.position]="'relative'" [word]="{ plG: 'N' }"></app-gender-dot>
+    <app-show-answer-animation [showAnswer]="true" [answerCorrect]="true"
+    ></app-show-answer-animation>
+  </div>
 
-  <br />
-  <app-show-answer-animation [showAnswer]="true" [answerCorrect]="true"></app-show-answer-animation>
 </div>
