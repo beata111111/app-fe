@@ -1,5 +1,9 @@
 @import "./themes-mixins";
 
+ide-only {
+  --font-theme-primary: unset;
+}
+
 @include color-mixin(
                --font-teriary-color,
                 #d1d1d2,
@@ -14,6 +18,12 @@
                 #4e4e4e,
                 #7c7c7c,
                 #393939
+);
+
+@include color-mixin(
+                --font-theme-primary,
+                var(--theme-1-color-20),
+                var(--theme-1-color-15)
 );
 
 .app-container:not(.night-mode) {

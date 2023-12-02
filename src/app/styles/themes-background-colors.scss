@@ -36,12 +36,12 @@ ide-only {
 
 @include color-mixin(--basic-background-solid-1,
         #f6f6f6,
-        #242424,
+        #131313,
 );
 
 @include color-mixin(--basic-background-solid-2,
-        #e6e6e6,
-        color-mix(in srgb, var(--theme-color-24), #ffffff 10%),
+        #d0d0d0,
+        #1e1e20,
 );
 
 @include color-mixin(--theme-background-solid-1,

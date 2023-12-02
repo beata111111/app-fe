@@ -7,3 +7,4 @@ export * from "./page-spinner/page-spinner.module";
 export * from "./popup/page-popup.module";
 export * from "./popup-dialogs";
 export * from "./accordion/accordion.module";
+export * from "./page-split-container/page-split-container.module";
