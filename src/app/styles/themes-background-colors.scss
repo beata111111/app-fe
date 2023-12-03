@@ -8,6 +8,7 @@ ide-only {
 
   --basic-background-solid-1: unset;
   --basic-background-solid-2: unset;
+  --basic-background-solid-3: unset;
 
   --theme-background-solid-1: unset;
   --theme-background-solid-2: unset;
@@ -42,6 +43,11 @@ ide-only {
 @include color-mixin(--basic-background-solid-2,
         #d0d0d0,
         #1e1e20,
+);
+
+@include color-mixin(--basic-background-solid-3,
+        #f6f6f6,
+        #505050,
 );
 
 @include color-mixin(--theme-background-solid-1,

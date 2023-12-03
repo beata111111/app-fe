@@ -42,11 +42,11 @@
   }
 
   .variant-back-side {
-    background-color: var(--basic-background-solid-1);
-    color: var(--font-basic-color-2) !important;
+    background-color: var(--basic-background-solid-3);
+    color: var(--font-basic-color-1) !important;
     opacity: 0;
     span {
-      color: var(--font-basic-color-2) !important;
+      color: var(--font-basic-color-1) !important;
     }
   }
 
@@ -171,3 +171,14 @@
     }
   }
 }
+
+//:host {
+//  &:last-child {
+//    .variant-back-side {
+//      opacity: 1;
+//    }
+//    .disabled-background {
+//      opacity: 0;
+//    }
+//  }
+//}

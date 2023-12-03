@@ -4,7 +4,7 @@ import { Router } from "@angular/router";
 import { ChallengeLastResultService } from "@services";
 import { faGem } from "@fortawesome/free-regular-svg-icons";
 import { faLock } from "@fortawesome/free-solid-svg-icons";
-import { BehaviorSubject, map, Observable, Subscription } from "rxjs";
+import { BehaviorSubject, map, Observable, Subscription, tap } from "rxjs";
 import { compareVariantSignatures, createSignature, getStatusColor } from "@helpers";
 import { MainMenuService } from "../../main-menu.service";
 
@@ -27,6 +27,7 @@ export class VariantComponent implements OnInit, OnDestroy {
 
   color$: Observable<string>;
   displayedResult$ = new BehaviorSubject<number>(0);
+  displayedResult = 0;
 
   hasNewResult = false;
   resultDelta = 0;
@@ -39,6 +40,7 @@ export class VariantComponent implements OnInit, OnDestroy {
     private _mainMenuService: MainMenuService,
   ) {
     this.color$ = this.displayedResult$.pipe(
+      tap((v) => this.displayedResult = v),
       map((result) => getStatusColor(result, this.variant.enabled)),
     );
   }
